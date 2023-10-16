@@ -17,7 +17,7 @@
 
 Explain complex systems using visuals and simple terms. 
 
-Whether you're preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, We hope this repository will help you achieve that.
+Whether you're preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, we hope this repository will help you achieve that.
 
 # Table of Contents
 
