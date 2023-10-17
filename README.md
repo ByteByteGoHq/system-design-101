@@ -1648,7 +1648,7 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
 5. The PubSub consumers pull aggregated emoji data from Kafka. 
 
 6. Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.
-7. 
+ 
 A similar design is adopted by LinkedIn which streams a million likes/sec.
 
 ### How Discord Stores Trillions Of Messages 
