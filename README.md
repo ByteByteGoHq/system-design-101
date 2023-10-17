@@ -116,7 +116,7 @@ Architecture styles define how different components of an application programmin
 
 - SOAP: 
 
-  ature, comprehensive, XML-based
+  Mature, comprehensive, XML-based
   
   Best for enterprise applications 
 
@@ -1494,7 +1494,7 @@ This post is based on research from many Netflix engineering blogs and open-sour
 
 **Data processing**: Netflix utilizes Flink and Spark for data processing, which is then visualized using Tableau. Redshift is used for processing structured data warehouse information.
 
-**CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Altas, and more for CI/CD processes.
+**CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.
 
 ### Twitter Architecture 2022
 
@@ -1525,7 +1525,7 @@ What’s the challenge?
 
 Microservices (2017 - 2020)
 
-Microservice aims to solve those challenges. In the microservcie architecture, key services include:
+Microservice aims to solve those challenges. In the microservice architecture, key services include:
 
 - Data fetching service
 - Business logic data service
@@ -1637,7 +1637,7 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
 </p>
 
 
-1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in GoLang are lightweight. 
+1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
 
 2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
 
