@@ -434,8 +434,9 @@ The admin can specify the weight for each service. The ones with a higher weight
 4. Hash 
 This algorithm applies a hash function on the incoming requests’ IP or URL. The requests are routed to relevant instances based on the hash function result. 
 
-5. Dynamic Algorithms 
-Least connections 
+- Dynamic Algorithms
+
+5. Least connections 
 A new request is sent to the service instance with the least concurrent connections. 
 
 6. Least response time 
