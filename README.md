@@ -471,7 +471,7 @@ URL stands for Uniform Resource Locator, the key concept of HTTP. It is the addr
 
 URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string. 
 
-If you would like to learn more detail on the subject, I would recommend W3C’s clarification.
+If you would like to learn more detail on the subject, I would recommend [W3C’s clarification](https://www.w3.org/TR/uri-clarification/).
 
 ## CI/CD
 
