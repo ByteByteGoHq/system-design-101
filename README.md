@@ -1578,7 +1578,7 @@ Over the years, Microrepo has had more supported tools, including Maven and Grad
 
 ### How will you design the Stack Overflow website? 
 
-If your answer is on-premise servers and monolith (on the right), you would likely fail the interview, but that's how it is built in reality!
+If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
 
 <p>
   <img src="images/stackoverflow.jpg" />
@@ -1587,7 +1587,7 @@ If your answer is on-premise servers and monolith (on the right), you would like
 
 **What people think it should look like**
 
-The interviewer is probably expecting something on the left side.
+The interviewer is probably expecting something like the top portion of the picture.
 
 - Microservice is used to decompose the system into small components.
 - Each service has its own database. Use cache heavily.
