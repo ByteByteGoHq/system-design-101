@@ -150,6 +150,7 @@ Architecture styles define how different components of an application programmin
 
   Notifies systems when events occur
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### REST API vs. GraphQL
 
@@ -166,6 +167,8 @@ The diagram below shows a quick comparison between REST and GraphQL.
 GraphQL can aggregate multiple REST requests into one query. GraphQL server organizes the resources in a graph.
 
 - GraphQL supports queries, mutations (applying data modifications to resources), and subscriptions (receiving notifications on schema modifications).
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### How does gRPC work?
 
@@ -188,6 +191,8 @@ Steps 6 - 8: The payment service (gRPC server) receives the packets from the net
 Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.
 
 Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### What is a webhook?
 
@@ -223,6 +228,8 @@ Webhooks are often referred to as reverse APIs or push APIs because the server s
 2. We need to set up proper rules in the API gateway for security reasons.
 3. We need to register the correct URL at the external service.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How to improve API performance?
 
 The diagram below shows 5 common tricks to improve API performance.
@@ -251,6 +258,8 @@ Connection Pool
 
 When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)
 
 What problem does each generation of HTTP solve?
@@ -275,6 +284,8 @@ The diagram below illustrates the key features.
 
 QUIC is based on UDP. It introduces streams as first-class citizens at the transport layer. QUIC streams share the same QUIC connection, so no additional handshakes and slow starts are required to create new ones, but QUIC streams are delivered independently such that in most cases packet loss affecting one stream doesn't affect others.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### SOAP vs REST vs GraphQL vs RPC
 
 The diagram below illustrates the API timeline and API styles comparison.
@@ -287,6 +298,7 @@ You can check out the use cases of each style in the diagram.
   <img src="images/SOAP vs REST vs GraphQL vs RPC.jpeg" />
 </p>
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Code First vs. API First 
 
@@ -295,7 +307,6 @@ The diagram below shows the differences between code-first development and API-f
 <p>
   <img src="images/api_first.jpg" style="width: 680px" />
 </p>
-
 
 - Microservices increase system complexity We have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
 
@@ -313,12 +324,13 @@ The possibility of having surprises toward the end of the project lifecycle is r
 
 Because we have designed the API first, the tests can be designed while the code is being developed. In a way, we also have TDD (Test Driven Design) when using API first development.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### HTTP status codes
 
 <p>
   <img src="images/http-status-code.jpg" style="width: 540px" />
 </p>
-
 
 The response codes for HTTP are divided into five categories: 
 
@@ -327,6 +339,8 @@ Success (200-299)
 Redirection (300-399) 
 Client Error (400-499) 
 Server Error (500-599) 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### What does API gateway do? 
 
@@ -352,6 +366,8 @@ Step 8 - The API gateway transforms the request into the appropriate protocol an
 
 Steps 9-12: The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How do we design effective and safe APIs?
 
 The diagram below shows typical API designs with a shopping cart example. 
@@ -360,8 +376,9 @@ The diagram below shows typical API designs with a shopping cart example.
   <img src="images/safe-apis.jpg" />
 </p>
 
-
 Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### TCP/IP encapsulation 
 
@@ -387,6 +404,8 @@ Steps 6-10: When Device B receives the bits from the network, it performs the de
 
 We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Why is Nginx called a “reverse” proxy?
 
 The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.
@@ -411,6 +430,8 @@ A reverse proxy is good for:
 2. Load balancing
 3. Cache static contents
 4. Encrypt and decrypt SSL communications
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### What are the common load-balancing algorithms?
 
@@ -448,6 +469,8 @@ The diagram below shows 6 common algorithms.
 
     A new request is sent to the service instance with the fastest response time.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### URL, URI, URN - Do you know the differences? 
 
 The diagram below shows a comparison of URL, URI, and URN. 
@@ -472,6 +495,8 @@ URL stands for Uniform Resource Locator, the key concept of HTTP. It is the addr
 URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string. 
 
 If you would like to learn more detail on the subject, I would recommend [W3C’s clarification](https://www.w3.org/TR/uri-clarification/).
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ## CI/CD
 
@@ -504,6 +529,8 @@ A typical CI/CD pipeline has several connected stages:
 - Further testing may be done on staging before release
 - CD system deploys approved changes to production
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Netflix Tech Stack (CI/CD Pipeline)
 
 <p>
@@ -526,6 +553,8 @@ Monitoring: The monitoring metrics are centralized in Atlas, and Kayenta is used
 
 Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Architecture patterns
 
 ### MVC, MVP, MVVM, MVVM-C, and VIPER
@@ -539,6 +568,8 @@ These architecture patterns are among the most commonly used in app development,
 - Every pattern has a "view" (V) responsible for displaying content and receiving user input 
 - Most patterns include a "model" (M) to manage business data 
 - "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### 18 Key Design Patterns Every Developer Should Know
 
@@ -567,6 +598,8 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 - Observer: News Broadcaster - Notifies classes about changes in other objects. 
 - Visitor: Skillful Guest - Adds new operations to a class without altering it.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Database
 
 ### A nice cheat sheet of different databases in cloud services
@@ -580,6 +613,8 @@ Choosing the right database for your project is a complex task. Many database op
 We hope this cheat sheet provides high-level direction to pinpoint the right service that aligns with your project's needs and avoid potential pitfalls. 
 
 Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate. 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### 8 Data Structures That Power Your Databases
 
@@ -600,6 +635,8 @@ The following are some of the most popular data structures used for indexing dat
 - Suffix tree: for string pattern search 
 - R-tree: multi-dimension search, such as finding the nearest neighbor 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How is an SQL statement executed in the database?
 
 The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
@@ -607,7 +644,6 @@ The diagram below shows the process. Note that the architectures for different d
 <p>
   <img src="images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
-
 
 Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
 
@@ -624,6 +660,8 @@ Step 6 - Access methods decide whether the SQL statement is read-only. If the qu
 Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
 
 Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ###  CAP theorem
 
@@ -653,12 +691,15 @@ The “2 of 3” formulation can be useful, **but this simplification could be m
 
 I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Types of Memory and Storage
 
 <p>
   <img src="images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
 </p>
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Visualizing a SQL query
 
@@ -680,6 +721,8 @@ The execution of SQL is highly complex and involves many considerations, such as
 - Concurrency control 
 - Transaction management 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### SQL language 
 
 In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? 
@@ -698,6 +741,8 @@ There are 5 components of the SQL language:
 
 For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Cache
 
 ### Data is cached everywhere
@@ -707,7 +752,6 @@ This diagram illustrates where we cache data in a typical architecture.
 <p>
   <img src="images/where do we cache data.jpeg" style="width: 720px" />
 </p>
-
 
 There are **multiple layers** along the flow.
 
@@ -725,6 +769,8 @@ There are **multiple layers** along the flow.
 - Transaction log: record all the transactions and database updates
 - Replication Log: used to record the replication state in a database cluster
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Why is Redis so fast? 
 
 There are 3 main reasons as shown in the diagram below.
@@ -732,7 +778,6 @@ There are 3 main reasons as shown in the diagram below.
 <p>
   <img src="images/why_redis_fast.jpeg" />
 </p>
-
 
 1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
 2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
@@ -742,12 +787,13 @@ Question: Another popular in-memory store is Memcached. Do you know the differen
 
 You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How can Redis be used?
 
 <p>
   <img src="images/top-redis-use-cases.jpg" style="width: 520px" />
 </p>
-
 
 There is more to Redis than just caching. 
 
@@ -793,6 +839,8 @@ Redis can be used in a variety of scenarios as shown in the diagram.
 
   We can use ZSet to sort the articles. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Top caching strategies
 
 Designing large-scale systems usually requires careful consideration of caching. 
@@ -802,7 +850,7 @@ Below are five caching strategies that are frequently utilized.
   <img src="images/top_caching_strategy.jpeg" style="width: 680px" />
 </p>
 
-
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ## Microservice architecture
 
@@ -811,7 +859,6 @@ Below are five caching strategies that are frequently utilized.
 <p>
   <img src="images/typical-microservice-arch.jpg" style="width: 520px" />
 </p>
-
 
 The diagram below shows a typical microservice architecture. 
 
@@ -829,6 +876,8 @@ Benefits of microservices:
 - Each domain can be independently maintained by a dedicated team.
 - Business requirements can be customized in each domain and better supported, as a result.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Microservice Best Practices
 
 A picture is worth a thousand words: 9 best practices for developing microservices.
@@ -836,7 +885,6 @@ A picture is worth a thousand words: 9 best practices for developing microservic
 <p>
   <img src="images/microservice-best-practices.jpeg" />
 </p>
-
  
 When we develop microservices, we need to follow the following best practices: 
 
@@ -848,7 +896,9 @@ When we develop microservices, we need to follow the following best practices:
 6. Design stateless services 
 7. Adopt domain-driven design
 8. Design micro frontend 
-9. Orchestrating microservices 
+9. Orchestrating microservices
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### What tech stack is commonly used for microservices?
 
@@ -857,7 +907,6 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 <p>
   <img src="images/microservice-tech.jpeg" />
 </p>
-
 
 ▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
@@ -874,6 +923,8 @@ Cache and Full-text Search - Redis is a common choice for caching key-value pair
 - Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.
 - Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
 - Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Why is Kafka fast
 
@@ -901,7 +952,6 @@ The diagram illustrates how the data is transmitted between producer and consume
 
 2.5 The network card sends data out to the consumer
 
- 
 - Step 3: Consumer reads data with zero-copy
 
 3.1: The data is loaded from disk to OS cache
@@ -910,6 +960,8 @@ The diagram illustrates how the data is transmitted between producer and consume
  
 Zero copy is a shortcut to save the multiple data copies between application context and kernel context.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Payment systems
 
 ### How to learn payment systems?
@@ -917,6 +969,8 @@ Zero copy is a shortcut to save the multiple data copies between application con
 <p>
   <img src="images/learn-payments.jpg" />
 </p>
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ###  Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money? 
 
@@ -942,14 +996,15 @@ Why should the issuing bank be compensated?
 
 - The issuer pays the merchant even if the cardholder fails to pay the issuer. 
 - The issuer pays the merchant before the cardholder pays the issuer.
-- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc. 
+- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc.
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### How does VISA work when we swipe a credit card at a merchant’s shop?
 
 <p>
   <img src="images/visa_payment.jpeg" />
 </p>
-
 
 VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
  
@@ -981,8 +1036,9 @@ Step 4: The card network clears the transactions from different acquiring banks.
  
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
-### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
+### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
 
 What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
 
@@ -990,11 +1046,11 @@ It accounts for 60% of digital retail transactions in India today.
 
 UPI = payment markup language + standard for interoperable payments
 
-
 <p>
   <img src="images/how-does-upi-work.png"  style="width: 600px" />
 </p>
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ## DevOps
 
@@ -1013,6 +1069,8 @@ SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s
 Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective. 
 
 It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### What is k8s (Kubernetes)?
 
@@ -1058,12 +1116,13 @@ The worker node(s) host the Pods that are the components of the application work
 
     Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Docker vs. Kubernetes. Which one should we use? 
 
 <p>
   <img src="images/docker-vs-k8s.jpg" style="width: 680px" />
 </p>
-
 
 What is Docker ? 
 
@@ -1082,6 +1141,8 @@ You must manually manage each host and setting up networks, security policies, a
 Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications. 
 
 In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### How does Docker work? 
 
@@ -1113,6 +1174,8 @@ Let’s take the “docker run” command as an example.
   1. Docker creates a network interface to connect the container to the default network. 
   1. Docker starts the container.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## GIT
 
 ### How Git Commands work
@@ -1123,13 +1186,14 @@ To begin with, it's essential to identify where our code is stored. The common a
   <img src="images/git-commands.png" style="width: 600px" />
 </p>
 
-
 - Working directory: where we edit files 
 - Staging area: a temporary location where files are kept for the next commit 
 - Local repository: contains the code that has been committed 
 - Remote repository: the remote server that stores the code 
 
 Most Git commands primarily move files between these four locations. 
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### How does Git Work?
 
@@ -1139,7 +1203,6 @@ The diagram below shows the Git workflow.
   <img src="images/git-workflow.jpeg" style="width: 520px" />
 </p>
 
-
 Git is a distributed version control system. 
 
 Every developer maintains a local copy of the main repository and edits and commits to the local copy. 
@@ -1148,6 +1211,8 @@ The commit is very fast because the operation doesn’t interact with the remote
 
 If the remote repository crashes, the files can be recovered from the local repositories. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Git merge vs. Git rebase
 
 What are the differences?
@@ -1155,7 +1220,6 @@ What are the differences?
 <p>
   <img src="images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
-
 
 When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
 
@@ -1177,6 +1241,8 @@ Rebase can be dangerous if “the golden rule of git rebase” is not followed.
 
 Never use it on public branches!
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Cloud Services
 
 ### A nice cheat sheet of different cloud services (2023 edition)
@@ -1185,6 +1251,7 @@ Never use it on public branches!
   <img src="images/cloud-compare.jpg" />
 </p>
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### What is cloud native?
 
@@ -1216,6 +1283,8 @@ Cloud native includes 4 aspects:
 
     The applications are massively deployed on cloud infrastructure instead of self-hosted servers. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Developer productivity tools
 
 ### Visualize JSON files
@@ -1230,13 +1299,13 @@ Additionally, the generated diagrams can be downloaded as images.
   <img src="images/json-cracker.jpeg" />
 </p>
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Automatically turn code into architecture diagrams
 
 <p>
   <img src="images/diagrams_as_code.jpeg" style="width: 640px" />
 </p>
-
 
 What does it do?
 
@@ -1246,6 +1315,8 @@ What does it do?
 - Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc. 
  
 [Github repo](https://github.com/mingrammer/diagrams)
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ## Linux
 
@@ -1260,6 +1331,8 @@ The Linux file system used to resemble an unorganized town where individuals con
 By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
 To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### 18 Most-used Linux Commands You Should Know 
 
 Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. 
@@ -1269,7 +1342,6 @@ This diagram below shows popular Linux commands:
 <p>
   <img src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
-
 
 - ls - List files and directories 
 - cd - Change the current directory 
@@ -1290,6 +1362,8 @@ This diagram below shows popular Linux commands:
 - ifconfig - Configure network interfaces  
 - ping - Test network connectivity between hosts 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## Security
 
 ### How does HTTPS work?
@@ -1299,7 +1373,6 @@ Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Tran
 <p>
   <img src="images/https.jpg" />
 </p>
-
 
 How is the data encrypted and decrypted?
 
@@ -1318,6 +1391,8 @@ Why does HTTPS switch to symmetric encryption during data transmission? There ar
 1. Security: The asymmetric encryption goes only one way. This means that if the server tries to send the encrypted data back to the client, anyone can decrypt the data using the public key.
 
 2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Oauth 2.0 Explained With Simple Terms. 
 
@@ -1341,6 +1416,8 @@ Accessing User Profile: Apps with an OAuth token can access certain parts of you
 
 Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Top 4 Forms of Authentication Mechanisms 
 
 <p>
@@ -1362,6 +1439,8 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
 1. Credentials: 
 
     User authentication information is used to verify and grant access to various systems and services
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?
 
@@ -1385,13 +1464,14 @@ From simple to complex, here is my understanding of user identity management:
 
 - By using OAuth 2.0, you can authorize one website to access your information on another website.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How to store passwords safely in the database and how to validate a password? 
 
 <p>
   <img src="images/salt.jpg" style="width: 720px" />
 </p>
 
- 
 **Things NOT to do**
 
 - Storing passwords in plain text is not a good idea because anyone with internal access can see them.
@@ -1418,6 +1498,8 @@ To validate a password, it can go through the following process:
 1. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
 1. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### Explaining JSON Web Token (JWT) to a 10 year old Kid
 
 <p>
@@ -1433,6 +1515,8 @@ Now, the signature is what makes the JWT secure. It's like a special seal that o
 
 When you want to send the JWT to a server, you put the header, payload, and signature inside the box. Then you send it over to the server. The server can easily read the header and payload to understand who you are and what you want to do.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How does Google Authenticator (or other types of 2-factor authenticators) work?
 
 Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
@@ -1442,7 +1526,6 @@ Google Authenticator is a software-based authenticator that implements a two-ste
 <p>
   <img src="images/google_authenticate.jpeg" />
 </p>
-
 
 There are two stages involved:
 
@@ -1476,6 +1559,7 @@ Is this authentication mechanism safe?
     
     No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ##  Real World Case Studies
 
@@ -1511,6 +1595,7 @@ Yes, this is the real Twitter architecture. It is posted by Elon Musk and redraw
   <img src="images/twitter-arch.jpeg" />
 </p>
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Evolution of Airbnb’s microservice architecture over the past 15 years
 
@@ -1519,7 +1604,6 @@ Airbnb’s microservice architecture went through 3 main stages.
 <p>
   <img src="images/airbnb_arch.jpeg" />
 </p>
-
 
 Monolith (2008 - 2017)
 
@@ -1548,14 +1632,15 @@ Micro + macroservices (2020 - present)
 
 This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
 
-### Monorepo vs. Microrepo. 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
+### Monorepo vs. Microrepo
 
 Which is the best? Why do different companies choose different options? 
 
 <p>
   <img src="images/monorepo-microrepo.jpg" />
 </p>
-
 
 Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
 
@@ -1576,6 +1661,8 @@ Google engineers built Bazel, and Meta built Buck. There are other open-source t
 
 Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How will you design the Stack Overflow website? 
 
 If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
@@ -1583,7 +1670,6 @@ If your answer is on-premise servers and monolith (on the bottom of the followin
 <p>
   <img src="images/stackoverflow.jpg" />
 </p>
-
 
 **What people think it should look like**
 
@@ -1600,7 +1686,9 @@ The interviewer is probably expecting something like the top portion of the pict
 
 Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
 
-This is contrary to all our popular beliefs these days. 
+This is contrary to all our popular beliefs these days.
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
 ### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
 
@@ -1609,7 +1697,6 @@ The diagram below shows the architecture comparison before and after the migrati
 <p>
   <img src="images/serverless-to-monolithic.jpeg" />
 </p>
-
 
 What is Amazon Prime Video Monitoring Service? 
 
@@ -1637,12 +1724,13 @@ This is an interesting and unique case study because microservices have become a
 
 Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
 
 <p>
   <img src="images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
-
 
 1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
 
@@ -1658,6 +1746,8 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
  
 A similar design is adopted by LinkedIn which streams a million likes/sec.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How Discord Stores Trillions Of Messages 
 
 The diagram below shows the evolution of message storage at Discord: 
@@ -1665,7 +1755,6 @@ The diagram below shows the evolution of message storage at Discord:
 <p>
   <img src="images/discord-store-messages.jpg" />
 </p>
-
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB 
 
@@ -1685,6 +1774,8 @@ ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its
 
 The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra. 
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ### How do video live streamings work on YouTube, TikTok live, or Twitch?
  
 Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
@@ -1695,7 +1786,6 @@ The diagram below explains what happens behind the scenes to make this possible.
   <img src="images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
- 
 Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
  
 Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
@@ -1717,6 +1807,10 @@ Standard protocols for live streaming include:
 - DASH (Dynamic Adaptive Streaming over HTTP): DASH does not support Apple devices.
 - Both HLS and DASH support adaptive bitrate streaming.
 
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
+
 ## License
 
 <p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+
+<sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
