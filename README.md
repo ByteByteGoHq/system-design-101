@@ -906,13 +906,13 @@ Below you will find a diagram showing the microservice tech stack, both for the 
   <img src="images/microservice-tech.jpeg" />
 </p>
 
-▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
+#### Pre-production
 
 - Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
 - Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
 - Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
 
-▶️ 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
+#### Production
 
 - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
 - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
@@ -1008,7 +1008,7 @@ VISA, Mastercard, and American Express act as card networks for the clearing and
  
 The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
  
-- Authorization Flow
+#### Authorization Flow
 
 Step 0: The card issuing bank issues credit cards to its customers. 
  
@@ -1020,7 +1020,7 @@ Steps 3 and 4: The acquiring bank sends the transaction to the card network, als
  
 Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal. 
  
-- Capture and Settlement Flow
+#### Capture and Settlement Flow
 
 Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
  
@@ -1082,7 +1082,7 @@ A k8s cluster consists of a set of worker machines, called nodes, that run conta
 
 The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
 
-- Control Plane Components
+#### Control Plane Components
 
 1. API Server
 
@@ -1100,7 +1100,7 @@ The worker node(s) host the Pods that are the components of the application work
     
     etcd is a key-value store used as Kubernetes' backing store for all cluster data.
 
-- Nodes
+#### Nodes
 
 1. Pods
 
@@ -1122,15 +1122,15 @@ The worker node(s) host the Pods that are the components of the application work
   <img src="images/docker-vs-k8s.jpg" style="width: 680px" />
 </p>
 
-What is Docker ? 
+#### What is Docker? 
 
 Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies. 
 
-What is Kubernetes ? 
+#### What is Kubernetes? 
 
 Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes. 
 
-How are both different from each other ? 
+#### How are both different from each other? 
 
 Docker: Docker operates at the individual container level on a single operating system host. 
 
@@ -1532,7 +1532,7 @@ There are two stages involved:
 
 Let’s look at these stages.
  
-**Stage 1**
+#### Stage 1
 
 Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
  
@@ -1540,7 +1540,8 @@ Step 3: The authentication service returns a URI to the front end. The URI is co
  
 Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
 
-**Stage 2**
+#### Stage 2
+
 Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
  
 Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
@@ -1603,7 +1604,7 @@ Airbnb’s microservice architecture went through 3 main stages.
   <img src="images/airbnb_arch.jpeg" />
 </p>
 
-Monolith (2008 - 2017)
+#### Monolith (2008 - 2017)
 
 Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith. 
 
@@ -1612,7 +1613,7 @@ What’s the challenge?
 - Confusing team ownership + unowned code
 - Slow deployment 
 
-Microservices (2017 - 2020)
+#### Microservices (2017 - 2020)
 
 Microservice aims to solve those challenges. In the microservice architecture, key services include:
 
@@ -1626,7 +1627,7 @@ What’s the challenge?
 
 Hundreds of services and dependencies were difficult for humans to manage.
 
-Micro + macroservices (2020 - present)
+#### Micro + macroservices (2020 - present)
 
 This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
 
