@@ -577,24 +577,24 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
   <img src="images/18-oo-patterns.png" />
 </p>
 
-- Abstract Factory: Family Creator - Makes groups of related items. 
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
-- Prototype: Clone Maker - Creates copies of fully prepared examples. 
-- Singleton: One and Only - A special class with just one instance. 
-- Adapter: Universal Plug - Connects things with different interfaces. 
-- Bridge: Function Connector - Links how an object works to what it does. 
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
-- Decorator: Customizer - Adds features to objects without changing their core. 
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
-- Flyweight: Space Saver - Shares small, reusable items efficiently. 
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
-- Command: Task Wrapper - Turns a request into an object, ready for action. 
-- Iterator: Collection Explorer - Accesses elements in a collection one by one. 
-- Mediator: Communication Hub - Simplifies interactions between different classes. 
-- Memento: Time Capsule - Captures and restores an object's state. 
-- Observer: News Broadcaster - Notifies classes about changes in other objects. 
-- Visitor: Skillful Guest - Adds new operations to a class without altering it.
+- **Abstract Factory**: Family Creator - Makes groups of related items. 
+- **Builder**: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
+- **Prototype**: Clone Maker - Creates copies of fully prepared examples. 
+- **Singleton**: One and Only - A special class with just one instance. 
+- **Adapter**: Universal Plug - Connects things with different interfaces. 
+- **Bridge**: Function Connector - Links how an object works to what it does. 
+- **Composite**: Tree Builder - Forms tree-like structures of simple and complex parts. 
+- **Decorator**: Customizer - Adds features to objects without changing their core. 
+- **Facade**: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
+- **Flyweight**: Space Saver - Shares small, reusable items efficiently. 
+- **Proxy**: Stand-In Actor - Represents another object, controlling access or actions. 
+- **Chain of Responsibility**: Request Relay - Passes a request through a chain of objects until handled. 
+- **Command**: Task Wrapper - Turns a request into an object, ready for action. 
+- **Iterator**: Collection Explorer - Accesses elements in a collection one by one. 
+- **Mediator**: Communication Hub - Simplifies interactions between different classes. 
+- **Memento**: Time Capsule - Captures and restores an object's state. 
+- **Observer**: News Broadcaster - Notifies classes about changes in other objects. 
+- **Visitor**: Skillful Guest - Adds new operations to a class without altering it.
 
 <sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
@@ -1341,24 +1341,24 @@ This diagram below shows popular Linux commands:
   <img src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
-- ls - List files and directories 
-- cd - Change the current directory 
-- mkdir - Create a new directory 
-- rm - Remove files or directories 
-- cp - Copy files or directories 
-- mv - Move or rename files or directories 
-- chmod - Change file or directory permissions 
-- grep - Search for a pattern in files 
-- find - Search for files and directories 
-- tar - manipulate tarball archive files 
-- vi - Edit files using text editors 
-- cat - display the content of files 
-- top - Display processes and resource usage 
-- ps - Display processes information 
-- kill - Terminate a process by sending a signal 
-- du - Estimate file space usage 
-- ifconfig - Configure network interfaces  
-- ping - Test network connectivity between hosts 
+- `ls` - List files and directories 
+- `cd` - Change the current directory 
+- `mkdir` - Create a new directory 
+- `rm` - Remove files or directories 
+- `cp` - Copy files or directories 
+- `mv` - Move or rename files or directories 
+- `chmod` - Change file or directory permissions 
+- `grep` - Search for a pattern in files 
+- `find` - Search for files and directories 
+- `tar` - manipulate tarball archive files 
+- `vi` - Edit files using text editors 
+- `cat` - display the content of files 
+- `top` - Display processes and resource usage 
+- `ps` - Display processes information 
+- `kill` - Terminate a process by sending a signal 
+- `du` - Estimate file space usage 
+- `ifconfig` - Configure network interfaces  
+- `ping` - Test network connectivity between hosts 
 
 <sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
