@@ -407,7 +407,7 @@ A reverse proxy is a server that accepts a request from the client, forwards the
 
 A reverse proxy is good for:
 
-1. Protect servers
+1. Protecting servers
 2. Load balancing
 3. Cache static contents
 4. Encrypt and decrypt SSL communications
