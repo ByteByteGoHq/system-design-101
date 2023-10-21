@@ -1026,11 +1026,11 @@ Steps 1 and 2: The merchant wants to collect the money at the end of the day, so
  
 Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
  
+> _Note: Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced._
+ 
 Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
  
 Step 5: The acquiring bank then transfers money to the merchant’s bank. 
- 
-Step 4: The card network clears the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
  
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
