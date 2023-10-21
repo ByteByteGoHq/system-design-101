@@ -399,7 +399,7 @@ A forward proxy is a server that sits between user devices and the internet.
 
 A forward proxy is commonly used for: 
 
-1. Protect clients
+1. Protecting clients
 2. Avoid browsing restrictions
 3. Block access to certain content
 
@@ -409,8 +409,8 @@ A reverse proxy is good for:
 
 1. Protecting servers
 2. Load balancing
-3. Cache static contents
-4. Encrypt and decrypt SSL communications
+3. Caching static contents
+4. Encrypting and decrypting SSL communications
 
 ### What are the common load-balancing algorithms?
 
