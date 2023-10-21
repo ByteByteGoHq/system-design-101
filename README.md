@@ -178,17 +178,17 @@ RPC (Remote Procedure Call) is called “**remote**” because it enables commun
 
 The diagram below illustrates the overall data flow for **gRPC**.
 
-Step 1: A REST call is made from the client. The request body is usually in JSON format.
+**Step 1:** A REST call is made from the client. The request body is usually in JSON format.
 
-Steps 2 - 4: The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gPRC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
+**Steps 2 - 4:** The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gPRC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
 
-Step 5: gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
+**Step 5:** gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
 
-Steps 6 - 8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
+**Steps 6 - 8:** The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
 
-Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.
+**Steps 9 - 11:** The result is returned from the server application, and gets encoded and sent to the transport layer.
 
-Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.
+**Steps 12 - 14:** The order service receives the packets, decodes them, and sends the result to the client application.
 
 <sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
@@ -348,21 +348,21 @@ The diagram below shows the details.
   <img src="images/api_gateway.jpg" style="width: 520px" />
 </p>
 
-Step 1 - The client sends an HTTP request to the API gateway. 
+**Step 1:** The client sends an HTTP request to the API gateway. 
 
-Step 2 - The API gateway parses and validates the attributes in the HTTP request. 
+**Step 2:** The API gateway parses and validates the attributes in the HTTP request. 
 
-Step 3 - The API gateway performs allow-list/deny-list checks. 
+**Step 3:** The API gateway performs allow-list/deny-list checks. 
 
-Step 4 - The API gateway talks to an identity provider for authentication and authorization. 
+**Step 4:** The API gateway talks to an identity provider for authentication and authorization. 
 
-Step 5 - The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. 
+**Step 5:** The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. 
 
-Steps 6 and 7 - Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. 
+**Steps 6 and 7:** Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. 
 
-Step 8 - The API gateway transforms the request into the appropriate protocol and sends it to backend microservices. 
+**Step 8:** The API gateway transforms the request into the appropriate protocol and sends it to backend microservices. 
 
-Steps 9-12: The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
+**Steps 9-12:** The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
 
 <sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
@@ -388,17 +388,17 @@ How is data sent over the network? Why do we need so many layers in the OSI mode
 
 The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
 
-Step 1: When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.
+**Step 1:** When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.
 
-Step 2: Then a TCP or a UDP header is added to the data. It is encapsulated into TCP segments at the transport layer. The header contains the source port, destination port, and sequence number.
+**Step 2:** Then a TCP or a UDP header is added to the data. It is encapsulated into TCP segments at the transport layer. The header contains the source port, destination port, and sequence number.
 
-Step 3: The segments are then encapsulated with an IP header at the network layer. The IP header contains the source/destination IP addresses.
+**Step 3:** The segments are then encapsulated with an IP header at the network layer. The IP header contains the source/destination IP addresses.
 
-Step 4: The IP datagram is added a MAC header at the data link layer, with source/destination MAC addresses.
+**Step 4:** The IP datagram is added a MAC header at the data link layer, with source/destination MAC addresses.
 
-Step 5: The encapsulated frames are sent to the physical layer and sent over the network in binary bits.
+**Step 5:** The encapsulated frames are sent to the physical layer and sent over the network in binary bits.
 
-Steps 6-10: When Device B receives the bits from the network, it performs the de-encapsulation process, which is a reverse processing of the encapsulation process. The headers are removed layer by layer, and eventually, Device B can read the data.
+**Steps 6-10:** When Device B receives the bits from the network, it performs the de-encapsulation process, which is a reverse processing of the encapsulation process. The headers are removed layer by layer, and eventually, Device B can read the data.
 
 We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.
 
@@ -643,21 +643,21 @@ The diagram below shows the process. Note that the architectures for different d
   <img src="images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
 
-Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
+**Step 1:** A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
 
-Step 2 - The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
+**Step 2:** The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
 
-Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan. 
+**Step 3:** The query tree is sent to the optimizer. The optimizer creates an execution plan. 
 
-Step 4 - The execution plan is sent to the executor. The executor retrieves data from the execution.
+**Step 4:** The execution plan is sent to the executor. The executor retrieves data from the execution.
 
-Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
+**Step 5:** Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
 
-Step 6 - Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
+**Step 6:** Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
 
-Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
+**Step 7:** If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
 
-Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
+**Step 8:** During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
 
 <sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
@@ -1784,19 +1784,19 @@ The diagram below explains what happens behind the scenes to make this possible.
   <img src="images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
-Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
+**Step 1:** The raw video data is captured by a microphone and camera. The data is sent to the server side.
  
-Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
+**Step 2:** The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
  
-Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
+**Step 3:** The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
  
-Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
+**Step 4:** The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
  
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
+**Step 5:** The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
  
-Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
+**Step 6:** The viewers’ devices decode and decompress the video data and play the video in a video player.
  
-Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
+**Steps 7 and 8:** If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
  
 Standard protocols for live streaming include:
 
