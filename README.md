@@ -1103,6 +1103,7 @@ There are 3 components in Docker architecture:
     The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. 
 
 - Docker registry 
+
     A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. 
 
 Let’s take the “docker run” command as an example. 
