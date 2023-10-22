@@ -168,13 +168,14 @@ GraphQL can aggregate multiple REST requests into one query. GraphQL server orga
 - GraphQL supports queries, mutations (applying data modifications to resources), and subscriptions (receiving notifications on schema modifications).
 
 ### How does gRPC work?
+
+RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
+
 The diagram below illustrates the overall data flow for **gRPC**.
 
 <p>
   <img src="images/grpc.jpg">
 </p>
-
-RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
 
 Step 1: A REST call is made from the client. The request body is usually in JSON format.
 
