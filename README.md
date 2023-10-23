@@ -12,7 +12,6 @@
   </a> 】
 </p>
 
-
 # System Design 101
 
 Explain complex systems using visuals and simple terms. 
@@ -154,7 +153,6 @@ Architecture styles define how different components of an application programmin
 ### REST API vs. GraphQL
 
 The diagram below shows a quick comparison between REST and GraphQL.
-
 
 <p>
   <img src="images/graphQL.jpg">
