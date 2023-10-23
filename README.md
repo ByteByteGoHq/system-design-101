@@ -170,13 +170,13 @@ GraphQL can aggregate multiple REST requests into one query. GraphQL server orga
 
 ### How does gRPC work?
 
-<p>
-  <img src="images/grpc.jpg">
-</p>
-
 RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
 
 The diagram below illustrates the overall data flow for **gRPC**.
+
+<p>
+  <img src="images/grpc.jpg">
+</p>
 
 **Step 1:** A REST call is made from the client. The request body is usually in JSON format.
 
@@ -416,18 +416,18 @@ A forward proxy is a server that sits between user devices and the internet.
 
 A forward proxy is commonly used for: 
 
-1. Protect clients
-2. Avoid browsing restrictions
-3. Block access to certain content
+1. Protecting clients
+2. Circumventing browsing restrictions
+3. Blocking access to certain content
 
 A reverse proxy is a server that accepts a request from the client, forwards the request to web servers, and returns the results to the client as if the proxy server had processed the request.
 
 A reverse proxy is good for:
 
-1. Protect servers
+1. Protecting servers
 2. Load balancing
-3. Cache static contents
-4. Encrypt and decrypt SSL communications
+3. Caching static contents
+4. Encrypting and decrypting SSL communications
 
 <sub>⬆️ [_Back to Table of Contents_](#table-of-contents)</sub>
 
@@ -1162,6 +1162,7 @@ There are 3 components in Docker architecture:
     The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. 
 
 - Docker registry 
+
     A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. 
 
 Let’s take the “docker run” command as an example. 
