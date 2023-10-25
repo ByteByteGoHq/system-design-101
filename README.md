@@ -312,11 +312,11 @@ The diagram below shows the differences between code-first development and API-f
 </p>
 
 
-- Microservices increase system complexity We have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
+- Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
 
 It is better to think through the system's complexity before writing the code and carefully defining the boundaries of the services.
 
-- Separate functional teams need to speak the same language The dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design. 
+- Separate functional teams need to speak the same language and the dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design. 
 
 We can mock requests and responses to validate the API design before writing code.
 
