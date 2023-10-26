@@ -885,7 +885,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
 - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
 - The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
-Cache and Full-text Search - Redis is a common choice for caching key-value pairs. ElasticSearch is used for full-text search.
+Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
 - Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.
 - Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
 - Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
@@ -992,7 +992,7 @@ Step 4: The issuing banks confirm the correctness of the clearing files, and tra
  
 Step 5: The acquiring bank then transfers money to the merchant’s bank. 
  
-Step 4: The card network clears the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
+Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
  
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
@@ -1397,7 +1397,7 @@ From simple to complex, here is my understanding of user identity management:
 
 - JWT is a standard way of representing tokens. This information can be verified and trusted because it is digitally signed. Since JWT contains the signature, there is no need to save session information on the server side.
 
-- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information
+- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information.
 
 - By using OAuth 2.0, you can authorize one website to access your information on another website.
 
@@ -1462,7 +1462,7 @@ Google Authenticator is a software-based authenticator that implements a two-ste
 
 There are two stages involved:
 
-- Stage 1 - The user enables Google two-step verification 
+- Stage 1 - The user enables Google two-step verification. 
 - Stage 2 - The user uses the authenticator for logging in, etc.
 
 Let’s look at these stages.
@@ -1587,7 +1587,7 @@ In Microrepo, dependencies are controlled within each repository. Businesses cho
 
 Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. 
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating best practices. It can scale faster for business, but the code quality might be a bit different. 
+Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different. 
 Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others. 
 
 Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
