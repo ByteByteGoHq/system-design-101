@@ -12,6 +12,8 @@
   </a> 】
 </p>
 
+<a href="https://trendshift.io/repositories/3709" target="_blank"><img src="https://trendshift.io/api/badge/repositories/3709" alt="ByteByteGoHq%2Fsystem-design-101 | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+
 # System Design 101
 
 Explain complex systems using visuals and simple terms. 
@@ -152,18 +154,34 @@ Architecture styles define how different components of an application programmin
 
 ### REST API vs. GraphQL
 
+When it comes to API design, REST and GraphQL each have their own strengths and weaknesses.
+
 The diagram below shows a quick comparison between REST and GraphQL.
 
 <p>
   <img src="images/graphQL.jpg">
 </p>
 
-- GraphQL is a query language for APIs developed by Meta. It provides a complete description of the data in the API and gives clients the power to ask for exactly what they need.
+REST
 
-- GraphQL servers sit in between the client and the backend services.
-GraphQL can aggregate multiple REST requests into one query. GraphQL server organizes the resources in a graph.
+- Uses standard HTTP methods like GET, POST, PUT, DELETE for CRUD operations.
+- Works well when you need simple, uniform interfaces between separate services/applications.
+- Caching strategies are straightforward to implement.
+- The downside is it may require multiple roundtrips to assemble related data from separate endpoints.
 
-- GraphQL supports queries, mutations (applying data modifications to resources), and subscriptions (receiving notifications on schema modifications).
+GraphQL
+
+- Provides a single endpoint for clients to query for precisely the data they need.
+- Clients specify the exact fields required in nested queries, and the server returns optimized payloads containing just those fields.
+- Supports Mutations for modifying data and Subscriptions for real-time notifications.
+- Great for aggregating data from multiple sources and works well with rapidly evolving frontend requirements.
+- However, it shifts complexity to the client side and can allow abusive queries if not properly safeguarded
+- Caching strategies can be more complicated than REST.
+
+The best choice between REST and GraphQL depends on the specific requirements of the application and development team. GraphQL is a good fit for complex or frequently changing frontend needs, while REST suits applications where simple and consistent contracts are preferred.
+
+Neither API approach is a silver bullet. Carefully evaluating requirements and tradeoffs is important to pick the right style. Both REST and GraphQL are valid options for exposing data and powering modern applications.
+
 
 ### How does gRPC work?
 
@@ -295,11 +313,11 @@ The diagram below shows the differences between code-first development and API-f
 </p>
 
 
-- Microservices increase system complexity We have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
+- Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
 
 It is better to think through the system's complexity before writing the code and carefully defining the boundaries of the services.
 
-- Separate functional teams need to speak the same language The dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design. 
+- Separate functional teams need to speak the same language and the dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design. 
 
 We can mock requests and responses to validate the API design before writing code.
 
@@ -868,7 +886,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
 - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
 - The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
-Cache and Full-text Search - Redis is a common choice for caching key-value pairs. ElasticSearch is used for full-text search.
+Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
 - Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.
 - Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
 - Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
@@ -975,7 +993,7 @@ Step 4: The issuing banks confirm the correctness of the clearing files, and tra
  
 Step 5: The acquiring bank then transfers money to the merchant’s bank. 
  
-Step 4: The card network clears the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
+Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
  
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
@@ -1380,7 +1398,7 @@ From simple to complex, here is my understanding of user identity management:
 
 - JWT is a standard way of representing tokens. This information can be verified and trusted because it is digitally signed. Since JWT contains the signature, there is no need to save session information on the server side.
 
-- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information
+- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information.
 
 - By using OAuth 2.0, you can authorize one website to access your information on another website.
 
@@ -1445,7 +1463,7 @@ Google Authenticator is a software-based authenticator that implements a two-ste
 
 There are two stages involved:
 
-- Stage 1 - The user enables Google two-step verification 
+- Stage 1 - The user enables Google two-step verification. 
 - Stage 2 - The user uses the authenticator for logging in, etc.
 
 Let’s look at these stages.
@@ -1570,7 +1588,7 @@ In Microrepo, dependencies are controlled within each repository. Businesses cho
 
 Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. 
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating best practices. It can scale faster for business, but the code quality might be a bit different. 
+Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different. 
 Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others. 
 
 Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
