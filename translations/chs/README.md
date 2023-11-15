@@ -69,8 +69,8 @@
     - [如何学习支付系统？](#如何学习支付系统)
     - [信用卡为何被称为“银行最赚钱的产品”？VISA/万事达卡是如何赚钱的？](#信用卡为何被称为银行最赚钱的产品visa万事达卡是如何赚钱的)
     - [当我们在商家处刷卡时，VISA 是如何运作的？](#当我们在商家处刷卡时visa-是如何运作的)
-    - [Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
-  - [DevOps](#devops)
+    - [世界各地的支付系统系列（第一部分）：印度的统一支付接口（Unified Payments Interface，UPI）](#世界各地的支付系统系列第一部分印度的统一支付接口unified-payments-interfaceupi)
+  - [开发运营](#开发运营)
     - [DevOps vs. SRE vs. Platform Engineering. What is the difference?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
     - [k8s (Kubernetes)是什么？](#k8s-kubernetes是什么)
     - [Docker vs. Kubernetes。我们应该用哪一个？](#docker-vs-kubernetes我们应该用哪一个)
@@ -944,11 +944,11 @@ Redis 可用于多种场景，如图所示。
   <img src="../../images/how does visa makes money.jpg" style="width: 640px" />
 </p>
 
-1. 持卡人向商家支付 100 美元以购买产品。
+1. 持卡人（cardholder）向商家（merchant）支付 100 美元以购买产品。
 
-2. 商家从使用量较高的信用卡中获益，并且需要为发卡机构和卡网络提供的支付服务进行补偿。收单银行向商家收取一定费用，称为“商家折扣费”。
+2. 商家从使用量较高的信用卡中获益，并且需要为发卡机构和卡网络（card network）提供的支付服务进行补偿。收单银行（acquiring bank）向商家收取一定费用，称为“商家折扣费”。
 
-3 - 4. 收单银行保留 0.25 美元作为收单加价，并向发卡行支付 1.75 美元作为互换费。商户折扣费应该覆盖互换费用。 
+3 - 4. 收单银行保留 0.25 美元作为收单加价，并向发卡行（issuing bank）支付 1.75 美元作为互换费。商户折扣费应该覆盖互换费用。 
 
   互换费用由卡网络设定，因为每个商户与每个发卡行就费用进行谈判效率较低。
 
@@ -969,44 +969,44 @@ Redis 可用于多种场景，如图所示。
 </p>
 
 
-VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
+VISA、Mastercard 和 American Express 充当资金清算和结算的卡网络。收单银行和发卡行可能（而且通常是）不同。如果银行要在没有中介的情况下一笔一笔地结算交易，那么每家银行都必须与所有其他银行结算交易。这是相当低效的。   
  
-The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
+上图显示了 VISA 在信用卡支付流程中的角色。涉及两个流程。当客户刷信用卡时就会发生授权流程（authorization flow）。当商家想要在一天结束时拿到钱时，就会发生捕获和结算流程（capture and settlement flow）。
  
-- Authorization Flow
+- 授权流程
 
-Step 0: The card issuing bank issues credit cards to its customers. 
+步骤 0：发卡行向其客户发放信用卡。
  
-Step 1: The cardholder wants to buy a product and swipes the credit card at the Point of Sale (POS) terminal in the merchant’s shop.
+步骤 1：持卡人想购买产品，于是在商家店铺的销售点（POS）终端上刷信用卡。
  
-Step 2: The POS terminal sends the transaction to the acquiring bank, which has provided the POS terminal.
+步骤 2：POS 终端将交易发送给提供该POS终端的收单银行。
  
-Steps 3 and 4: The acquiring bank sends the transaction to the card network, also called the card scheme. The card network sends the transaction to the issuing bank for approval.
+步骤 3 和 4：收单银行将交易发送到卡网络（也称为卡方案）。然后卡网络将交易发送到发卡行以获取审批。
  
-Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal. 
+步骤 4.1，4.2 和 4.3：如果交易得到批准，发卡行会冻结资金。发送批准或拒绝的信息到收单银行和POS终端。
  
-- Capture and Settlement Flow
+- 捕获和结算流程
 
-Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
+步骤 1 和 2：商家希望在一天结束时收到款项，因此在POS终端上点击“捕获（capture）”。交易被批量发送到收单银行。收单银行会将带有交易的批处理文件发送到卡网络。
  
-Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
+步骤 3：卡网络对从不同收单银行收集的交易进行清算，并将清算文件发送到不同的发卡行。
  
-Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
+步骤 4：发卡行确认清算文件的正确性，并将资金转移给相关的收单银行。
  
-Step 5: The acquiring bank then transfers money to the merchant’s bank. 
+步骤 5：收单银行然后将资金转移给商家的银行。 
  
-Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
+步骤 4：卡网络清理来自不同收单银行的交易。清算是一个互相抵消交易的过程，从而减少总交易数。
  
-In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
+在此过程中，卡网络承担了与每家银行交涉的重任，并得到了服务费作为回报。
 
-### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
+### 世界各地的支付系统系列（第一部分）：印度的统一支付接口（Unified Payments Interface，UPI）
 
 
-What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
+什么是 UPI？UPI 是由印度国家支付公司开发的即时实时支付系统。
 
-It accounts for 60% of digital retail transactions in India today.
+它占当今印度数字零售交易的 60%。
 
-UPI = payment markup language + standard for interoperable payments
+UPI = 支付标记语言（payment markup language） + 可互操作支付标准（standard for interoperable payments）
 
 
 <p>
@@ -1014,7 +1014,7 @@ UPI = payment markup language + standard for interoperable payments
 </p>
 
 
-## DevOps
+## 开发运营
 
 ###  DevOps vs. SRE vs. Platform Engineering. What is the difference?
 
