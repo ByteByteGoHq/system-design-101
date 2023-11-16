@@ -80,8 +80,8 @@
     - [Git 的工作原理](#git-的工作原理)
     - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
   - [云服务](#云服务)
-    - [A nice cheat sheet of different cloud services (2023 edition)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
-    - [What is cloud native?](#what-is-cloud-native)
+    - [关于不同云服务的一个不错的备忘录（2023 年版本）](#关于不同云服务的一个不错的备忘录2023-年版本)
+    - [什么是云原生（cloud native）？](#什么是云原生cloud-native)
   - [开发者生产力工具](#开发者生产力工具)
     - [可视化 JSON 文件](#可视化-json-文件)
     - [自动将代码转换为架构图](#自动将代码转换为架构图)
@@ -1198,52 +1198,52 @@ Never use it on public branches!
 
 ## 云服务
 
-### A nice cheat sheet of different cloud services (2023 edition)
+### 关于不同云服务的一个不错的备忘录（2023 年版本）
 
 <p>
   <img src="../../images/cloud-compare.jpg" />
 </p>
 
 
-### What is cloud native?
+### 什么是云原生（cloud native）？
 
-Below is a diagram showing the evolution of architecture and processes since the 1980s. 
+下图显示了自 20 世纪 80 年代以来架构和流程的演变。
 
 <p>
   <img src="../../images/cloud-native.jpeg" style="width: 640px" />
 </p>
 
-Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. 
+通过使用云原生技术，组织可以在公有云、私有云和混合云上构建和运行可扩展的应用程序。
 
-This means the applications are designed to leverage cloud features, so they are resilient to load and easy to scale. 
+这意味着应用被设计成能够利用云功能，因此，它们具有负载弹性，并且易于扩展。
 
-Cloud native includes 4 aspects: 
+云原生包含 4 个方面： 
 
-1. Development process 
+1. 开发流程 
 
-    This has progressed from waterfall to agile to DevOps. 
+    它已经从瀑布流发展到敏捷，再到 DevOps。 
 
-2. Application Architecture 
+2. 应用架构 
 
-    The architecture has gone from monolithic to microservices. Each service is designed to be small, adaptive to the limited resources in cloud containers. 
+    架构已经从单体架构演变为微服务。每个服务都被设计得很小，从而适应云容器中的有限资源。 
 
-3. Deployment & packaging 
+3. 部署和打包 
 
-    The applications used to be deployed on physical servers. Then around 2000, the applications that were not sensitive to latency were usually deployed on virtual servers. With cloud native applications, they are packaged into docker images and deployed in containers. 
+    过去，应用被部署到物理服务器上。然后，在 2000 年左右，那些对延迟不敏感的应用通常被部署到虚拟服务器上。对于云原生应用，它们被打包成 docker 镜像并部署在容器中。 
 
-4. Application infrastructure 
+4. 应用基础设施 
 
-    The applications are massively deployed on cloud infrastructure instead of self-hosted servers. 
+    这些应用被大量部署在云基础设施上，而不是在自托管服务器上。 
 
 ## 开发者生产力工具
 
 ### 可视化 JSON 文件
 
-Nested JSON files are hard to read.
+嵌套的 JSON 文件事难以阅读的。
 
-**JsonCrack** generates graph diagrams from JSON files and makes them easy to read.
+**JsonCrack** 根据 JSON 文件生成图表，从而使其易于阅读。
 
-Additionally, the generated diagrams can be downloaded as images.
+此外，生成的图表可以下载为图片。
 
 <p>
   <img src="../../images/json-cracker.jpeg" />
@@ -1257,14 +1257,14 @@ Additionally, the generated diagrams can be downloaded as images.
 </p>
 
 
-What does it do?
+它的用处是什么？
 
-- Draw the cloud system architecture in Python code.
-- Diagrams can also be rendered directly inside the Jupyter Notebooks.
-- No design tools are needed. 
-- Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc. 
+- 通过编写 Python 代码绘制云系统架构。
+- 也可以直接在 Jupyter Notebooks 中渲染图表。
+- 无需设计工具。 
+- 支持以下提供商：AWS、Azure、GCP、Kubernetes、 Alibaba Cloud、Oracle Cloud 等等。 
  
-[Github repo](https://github.com/mingrammer/diagrams)
+[Github 仓库](https://github.com/mingrammer/diagrams)
 
 ## Linux
 
