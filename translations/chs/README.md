@@ -71,7 +71,7 @@
     - [当我们在商家处刷卡时，VISA 是如何运作的？](#当我们在商家处刷卡时visa-是如何运作的)
     - [世界各地的支付系统系列（第一部分）：印度的统一支付接口（Unified Payments Interface，UPI）](#世界各地的支付系统系列第一部分印度的统一支付接口unified-payments-interfaceupi)
   - [开发运营](#开发运营)
-    - [DevOps vs. SRE vs. Platform Engineering. What is the difference?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
+    - [DevOps vs. SRE vs. 平台工程（Platform Engineering）。有何不同？](#devops-vs-sre-vs-平台工程platform-engineering有何不同)
     - [k8s (Kubernetes)是什么？](#k8s-kubernetes是什么)
     - [Docker vs. Kubernetes。我们应该用哪一个？](#docker-vs-kubernetes我们应该用哪一个)
     - [Docker 的工作原理](#docker-的工作原理)
@@ -1016,65 +1016,65 @@ UPI = 支付标记语言（payment markup language） + 可互操作支付标准
 
 ## 开发运营
 
-###  DevOps vs. SRE vs. Platform Engineering. What is the difference?
+###  DevOps vs. SRE vs. 平台工程（Platform Engineering）。有何不同？
 
-The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. 
+DevOps、SRE 和平台工程的概念是在不同时间出现的，并由不同的个人和组织开发。
 
 <p>
   <img src="../../images/devops-sre-platform.jpg" />
 </p>
 
-DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. 
+DevOps 的概念是 Patrick Debois 和 Andrew Shafer 于 2009 年在敏捷大会上提出的。他们试图通过促进对整个软件开发生命周期的协作文化和共同责任，来弥合软件开发和运维之间的差距。 
 
-SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s to address operational challenges in managing large-scale, complex systems. Google developed SRE practices and tools, such as the Borg cluster management system and the Monarch monitoring system, to improve the reliability and efficiency of their services. 
+SRE（Site Reliability Engineering，站点可靠性工程）由谷歌在 2000 年代初首创，用以解决管理大规模复杂系统的运维挑战。谷歌开发了 SRE 实践和工具，例如 Borg 集群管理系统和 Monarch 监控系统，来提高其服务的可靠性和效率。
 
-Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective. 
+平台工程则是一个较新的概念，构建在 SRE 工程的基础上。平台工程的确切起源未明，但通常认为它是 DevOps 和 SRE 实践的延伸，专注于提供一个产品开发的综合平台，来支持整个业务视角。 
 
-It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. 
+值得注意的是，虽然这些概念是在不同时期出现的，它们都与改善软件开发和运营中的协作、自动化和效率的更广泛趋势息息相关。 
 
 ### k8s (Kubernetes)是什么？
 
-K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.
+K8s 是一个容器编排系统。用于容器部署和管理。其设计很大程度上受到 Google 内部系统 Borg 的影响。
 
 <p>
   <img src="../../images/k8s.jpeg" style="width: 680px" />
 </p>
 
-A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
+一个 Kubernetes（k8s）集群由一组称为节点（node）的工作机器组成，这些节点上运行着容器化应用程序。每个集群至少有一个工作节点（worker node）。
 
-The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
+工作节点托管 Pod，也就是应用工作负载的组件。控制平面（control plane）负责管理集群中的工作节点和Pod。在生产环境中，控制平面通常跨多台计算机运行，而一个集群通常运行多个节点，提供容错性和高可用性。
 
-- Control Plane Components
+- 控制平面组件（Control Plane Components）
 
-1. API Server
+1. API 服务器
 
-    The API server talks to all the components in the k8s cluster. All the operations on pods are executed by talking to the API server.
+    API 服务器与 k8s 集群中的所有组件通信。Pod 上的所有操作都是通过与 API 服务器通信来执行的。
 
-2. Scheduler
+2. 调度器（scheduler）
 
-    The scheduler watches pod workloads and assigns loads on newly created pods.
+    调度器监控 Pod 工作负载，并给新创建的 Pod 分配负载。
 
-3. Controller Manager
+3. 控制器管理器（controller manager）
 
-    The controller manager runs the controllers, including Node Controller, Job Controller, EndpointSlice Controller, and ServiceAccount Controller.
+    控制器管理器运行控制器，包括节点控制器（Node Controller）、作业控制器（Job Controller）、EndpointSlice 控制器（ EndpointSlice Controller）和 ServiceAccount 控制器（ServiceAccount Controller）。
 
 4. Etcd
     
-    etcd is a key-value store used as Kubernetes' backing store for all cluster data.
+    etcd 是一个键值存储，用作 Kubernetes 所有集群数据的后备存储。
 
-- Nodes
+- 节点（Node）
 
-1. Pods
+1. Pod
 
-    A pod is a group of containers and is the smallest unit that k8s administers. Pods have a single IP address applied to every container within the pod.
+    一个 Pod 是一组容器，也是 k8s 管理的最小单元。每一个 Pod 都有一个单独的 IP 地址，Pod 中的每一个容器共享这个 IP 地址。
 
 2. Kubelet
 
-    An agent that runs on each node in the cluster. It ensures containers are running in a Pod.
+    集群中每个节点上都运行的代理。它保证了容器在 Pod 中运行。
 
 3. Kube Proxy
 
-    Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
+    Kube-proxy 是一个网络代理，它运行在集群中的每一个节点上。它路由来自服务的流量到节点。它还将工作请求转发到正确的容器中。
 
 ### Docker vs. Kubernetes。我们应该用哪一个？
 
@@ -1083,55 +1083,54 @@ The worker node(s) host the Pods that are the components of the application work
 </p>
 
 
-What is Docker ? 
+Docker 是什么？ 
 
-Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies. 
+Docker 是一个开源平台，允许您打包、分发以及在隔离的容器中运行应用。它专注于容器化，提供封装了应用及其依赖的轻量级环境。 
 
-What is Kubernetes ? 
+Kubernetes 是什么？ 
 
-Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes. 
+Kubernetes，通常称为 K8s，是一个开源的容器编排平台。它提供了一个框架，用于自动化部署、扩展、以及管理跨节点集群中的容器化应用。 
 
-How are both different from each other ? 
+它们两者之间有什么区别呢？ 
 
-Docker: Docker operates at the individual container level on a single operating system host. 
+Docker：Docker 在单个操作系统主机上的单个容器级别上运行。 
 
-You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex. 
+您必须手动管理每个主机，而为多个相关容器设置网络、安全策略和存储可能会变得复杂。 
 
-Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications. 
+Kubernetes：Kubernetes 在集群级别上运行。它管理跨多个主机的多个容器化应用程序，提供任务（如负载平衡、扩展）自动化，并确保应用程序所需状态。 
 
-In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. 
+简而言之，Docker 专注于容器化和在单个主机上运行容器，而 Kubernetes 则专注于跨主机集群大规模管理和编排容器。 
 
 ### Docker 的工作原理
 
-The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull” 
-and “docker run”. 
+下图显示了 Docker 的机构，以及当我们运行了“docker build”、“docker pull”和“docker run”时，它是如何工作的。 
 
 <p>
   <img src="../../images/docker.jpg" style="width: 680px" />
 </p>
 
-There are 3 components in Docker architecture: 
+Docker 架构中有 3 个组件：
 
-- Docker client 
+- Docker 客户端 
     
-    The docker client talks to the Docker daemon. 
+    Docker 客户端与 Docker daemon 通信。 
 
-- Docker host 
+- Docker 主机 
 
-    The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. 
+    Docker daemon 监听 Docker API 请求，管理 Docker 对象，例如镜像（image）、容器、网络和卷。 
 
 - Docker registry 
 
-    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. 
+    Docker registry 存储 Docker 镜像。Docker Hub 是一个人和人都可以使用的公共镜像存储库。 
 
-Let’s take the “docker run” command as an example. 
+让我们以“docker run” 命令为例。
 
-  1. Docker pulls the image from the registry. 
-  1. Docker creates a new container. 
-  1. Docker allocates a read-write filesystem to the container. 
-  1. Docker creates a network interface to connect the container to the default network. 
-  1. Docker starts the container.
-
+  1. Docker 从 registry 拉取镜像。 
+  2. Docker 创建一个新的容器。 
+  3. Docker 为容器分配一个读写文件系统。 
+  4. Docker 创建一个网络接口，来将容器连接到默认网络上。 
+  5. Docker 启动容器。
+  
 ## GIT
 
 ### Git 命令是如何工作的？
@@ -1239,7 +1238,7 @@ Never use it on public branches!
 
 ### 可视化 JSON 文件
 
-嵌套的 JSON 文件事难以阅读的。
+嵌套的 JSON 文件是难以阅读的。
 
 **JsonCrack** 根据 JSON 文件生成图表，从而使其易于阅读。
 
@@ -1274,40 +1273,40 @@ Never use it on public branches!
   <img src="../../images/linux-file-systems.jpg" style="width: 680px" />
 </p>
 
-The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.
+过去，Linux 文件系统就像一个无组织的城镇，人们可以随心所欲地在他们喜欢的地方建造自己的房子。然而，在 1994 年的时候，文件系统层次结构标准（Filesystem Hierarchy Standard，FHS）被引入，从而为 Linux 文件系统带来了秩序。
 
-By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
-To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
+通过实施诸如 FHS 这样的标准，软件可以确保在各种 Linux 发行版上的布局一致。尽管如此，并非所有 Linux 发行版都严格遵守此标准。它们通常会融入自己独特的元素或满足特定的要求。
+要精通此标准，您可以从探索它开始。使用“cd”等命令进行导航，使用“ls”等命令列出目录内容。将文件系统想象成一棵从根 (/) 开始的树。随着时间的推移，您将自然而然地使用它，从而使您成为熟练的 Linux 管理员。
 
 ### 你应该知道的 18 个最常用的 Linux 命令
 
-Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. 
+Linux 命令是用来与操作系统交互的指令。它们帮助我们管理文件、目录、系统进程、以及系统的许许多多其他方面的内容。为了高效地导航和维护基于 Linux 的系统，您需要熟悉这些命令。 
 
-This diagram below shows popular Linux commands: 
+下图显示了流行的 Linux 命令： 
 
 <p>
   <img src="../../images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
 
-- ls - List files and directories 
-- cd - Change the current directory 
-- mkdir - Create a new directory 
-- rm - Remove files or directories 
-- cp - Copy files or directories 
-- mv - Move or rename files or directories 
-- chmod - Change file or directory permissions 
-- grep - Search for a pattern in files 
-- find - Search for files and directories 
-- tar - manipulate tarball archive files 
-- vi - Edit files using text editors 
-- cat - display the content of files 
-- top - Display processes and resource usage 
-- ps - Display processes information 
-- kill - Terminate a process by sending a signal 
-- du - Estimate file space usage 
-- ifconfig - Configure network interfaces  
-- ping - Test network connectivity between hosts 
+- ls - 列出文件和目录 
+- cd - 更改当前目录 
+- mkdir - 创建一个新的目录 
+- rm - 删除文件或者目录 
+- cp - 拷贝文件或者目录 
+- mv - 移动或重命名文件或者目录 
+- chmod - 更改文件或者目录权限 
+- grep - 在文件中搜索指定模式的内容 
+- find - 搜索文件或者目录 
+- tar - 操作 tarball 归档文件 
+- vi - 使用文本编辑器编辑文件 
+- cat - 显示文件内容 
+- top - 显示进程和资源使用情况 
+- ps - 显示进程信息 
+- kill - 通过发送信号来终止进程 
+- du - 评估文件空间使用情况 
+- ifconfig - 配置网络接口  
+- ping - 测试主机之间的网络连通性 
 
 ## 安全
 
@@ -1319,18 +1318,17 @@ Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Tran
   <img src="../../images/https.jpg" />
 </p>
 
+数据是如何被加密解密的？
 
-How is the data encrypted and decrypted?
+步骤 1 - The client (browser) and the server establish a TCP connection.
 
-Step 1 - The client (browser) and the server establish a TCP connection.
-
-Step 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
+步骤 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
 
 The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate. 
 
-Step 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key. 
+步骤 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key. 
 
-Step 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
+步骤 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
 
 Why does HTTPS switch to symmetric encryption during data transmission? There are two main reasons:
 
