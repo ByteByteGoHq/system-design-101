@@ -24,139 +24,139 @@ Whether you're preparing for a System Design Interview or you simply want to und
 
 <!-- TOC toc.levels=2 -->
 
-- [Aloqa protokollari](#aloqa-protokollari)
-  - [REST API va GraphQL](#rest-api-va-graphql)
-  - [gRPC qanday ishlaydi?](#grpc-qanday-ishlaydi)
-  - [Webhook nima?](#webhook-nima)
-  - [API ish faoliyatini qanday yaxshilash mumkin?](#api-ish-faoliyatini-qanday-yaxshilash-mumkin)
-  - [HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)](#http-10---http-11---http-20---http-30-quic)
-  - [SOAP va REST va GraphQL va RPC](#soap-va-rest-va-graphql-va-rpc)
-  - [Code First va API First](#code-first-va-api-first)
-  - [HTTP holat kodlari](#http-holat-kodlari)
-  - [API shlyuzi nima qiladi?](#api-shlyuzi-nima-qiladi)
-  - [Qanday qilib samarali va xavfsiz API-larni loyihalashtiramiz?](#qanday-qilib-samarali-va-xavfsiz-api-larni-loyihalashtiramiz)
-  - [TCP/IP inkapsulyatsiyasi](#tcpip-inkapsulyatsiyasi)
-  - [Nima uchun Nginx "teskari" proksi-server deb ataladi?](#nima-uchun-nginx-teskari-proksi-server-deb-ataladi)
-  - [Umumiy yuklarni muvozanatlash algoritmlari qanday?](#umumiy-yuklarni-muvozanatlash-algoritmlari-qanday)
-  - [URL, URI, URN - Farqlarni bilasizmi?](#url-uri-urn---farqlarni-bilasizmi)
+- [Communication protocols](#communication-protocols)
+  - [REST API vs. GraphQL](#rest-api-vs-graphql)
+  - [How does gRPC work?](#how-does-grpc-work)
+  - [What is a webhook?](#what-is-a-webhook)
+  - [How to improve API performance?](#how-to-improve-api-performance)
+  - [HTTP 1.0 -\> HTTP 1.1 -\> HTTP 2.0 -\> HTTP 3.0 (QUIC)](#http-10---http-11---http-20---http-30-quic)
+  - [SOAP vs REST vs GraphQL vs RPC](#soap-vs-rest-vs-graphql-vs-rpc)
+  - [Code First vs. API First](#code-first-vs-api-first)
+  - [HTTP status codes](#http-status-codes)
+  - [What does API gateway do?](#what-does-api-gateway-do)
+  - [How do we design effective and safe APIs?](#how-do-we-design-effective-and-safe-apis)
+  - [TCP/IP encapsulation](#tcpip-encapsulation)
+  - [Why is Nginx called a “reverse” proxy?](#why-is-nginx-called-a-reverse-proxy)
+  - [What are the common load-balancing algorithms?](#what-are-the-common-load-balancing-algorithms)
+  - [URL, URI, URN - Do you know the differences?](#url-uri-urn---do-you-know-the-differences)
 - [CI/CD](#cicd)
-  - [CI/CD quvur liniyasi oddiy so'zlar bilan tushuntirilgan](#cicd-pipeline-explained-in-simple-terms)
+  - [CI/CD Pipeline Explained in Simple Terms](#cicd-pipeline-explained-in-simple-terms)
   - [Netflix Tech Stack (CI/CD Pipeline)](#netflix-tech-stack-cicd-pipeline)
-- [Arxitektura naqshlari](#architecture-patterns)
-  - [MVC, MVP, MVVM, MVVM-C va VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
-  - [Har bir dasturchi bilishi kerak bo'lgan 18 ta asosiy dizayn naqshlari](#18-key-design-patterns-every-developer-should-know)
-- [Ma'lumotlar bazasi](#database)
-  - [Bulutli xizmatlardagi turli xil ma'lumotlar bazalarining chiroyli cheat varag'i  ](#a-nice-cheat-sheet-of-different-databases-in-cloud-services)
-  - [Ma'lumotlar bazalaringizni quvvatlantiradigan 8 ta ma'lumotlar tuzilmasi](#8-data-structures-that-power-your-databases)
-  - [Ma'lumotlar bazasida SQL operatori qanday bajariladi?](#how-is-an-sql-statement-executed-in-the-database)
-  - [CAP teoremasi](#cap-theorem)
-  - [Xotira va saqlash turlari](#types-of-memory-and-storage)
-  - [SQL so'rovini vizualizatsiya qilish](#visualizing-a-sql-query)
-  - [SQL tili](#sql-language)
-- [Kesh](#cache)
-  - [Ma'lumotlar hamma joyda keshlangan](#data-is-cached-everywhere)
-  - [Nima uchun Redis juda tez?](#why-is-redis-so-fast)
-  - [Redis-dan qanday foydalanish mumkin?](#how-can-redis-be-used)
-  - [Eng yaxshi keshlash strategiyalari](#top-caching-strategies)
-- [Mikroservis arxitekturasi](#microservice-architecture)
-  - [Oddiy mikroservis arxitekturasi nimaga o'xshaydi?](#what-does-a-typical-microservice-architecture-look-like)
-  - [Mikroservisning eng yaxshi amaliyotlari](#microservice-best-practices)
-  - [Mikroservislar uchun qanday texnologik stek ishlatiladi?](#what-tech-stack-is-commonly-used-for-microservices)
-  - [Nega Kafka tez](#why-is-kafka-fast)
-- [To'lov tizimlari](#payment-systems)
-  - [To'lov tizimini qanday o'rganish mumkin?](#how-to-learn-payment-systems)
-  - [Nima uchun kredit karta "banklardagi eng daromadli mahsulot" deb ataladi? VISA/Mastercard qanday qilib pul ishlaydi?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
-  - [Savdogarlar do'konida kredit kartani o'tkazganimizda VISA qanday ishlaydi?](#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop)
-  - [Dunyo bo'ylab to'lov tizimlari seriyasi (1-qism): Hindistonda yagona to'lov interfeysi (UPI)](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
+- [Architecture patterns](#architecture-patterns)
+  - [MVC, MVP, MVVM, MVVM-C, and VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
+  - [18 Key Design Patterns Every Developer Should Know](#18-key-design-patterns-every-developer-should-know)
+- [Database](#database)
+  - [A nice cheat sheet of different databases in cloud services](#a-nice-cheat-sheet-of-different-databases-in-cloud-services)
+  - [8 Data Structures That Power Your Databases](#8-data-structures-that-power-your-databases)
+  - [How is an SQL statement executed in the database?](#how-is-an-sql-statement-executed-in-the-database)
+  - [CAP theorem](#cap-theorem)
+  - [Types of Memory and Storage](#types-of-memory-and-storage)
+  - [Visualizing a SQL query](#visualizing-a-sql-query)
+  - [SQL language](#sql-language)
+- [Cache](#cache)
+  - [Data is cached everywhere](#data-is-cached-everywhere)
+  - [Why is Redis so fast?](#why-is-redis-so-fast)
+  - [How can Redis be used?](#how-can-redis-be-used)
+  - [Top caching strategies](#top-caching-strategies)
+- [Microservice architecture](#microservice-architecture)
+  - [What does a typical microservice architecture look like?](#what-does-a-typical-microservice-architecture-look-like)
+  - [Microservice Best Practices](#microservice-best-practices)
+  - [What tech stack is commonly used for microservices?](#what-tech-stack-is-commonly-used-for-microservices)
+  - [Why is Kafka fast](#why-is-kafka-fast)
+- [Payment systems](#payment-systems)
+  - [How to learn payment systems?](#how-to-learn-payment-systems)
+  - [Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
+  - [How does VISA work when we swipe a credit card at a merchant’s shop?](#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop)
+  - [Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
 - [DevOps](#devops)
-  - [DevOps va SRE va platforma muhandisligi. Farqi nimada?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
-  - [K8s (Kubernetes) nima?](#what-is-k8s-kubernetes)
-  - [Docker va Kubernetes. Qaysi birini ishlatishimiz kerak?](#docker-vs-kubernetes-which-one-should-we-use)
-  - [Docker qanday ishlaydi?](#how-does-docker-work)
+  - [DevOps vs. SRE vs. Platform Engineering. What is the difference?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
+  - [What is k8s (Kubernetes)?](#what-is-k8s-kubernetes)
+  - [Docker vs. Kubernetes. Which one should we use?](#docker-vs-kubernetes-which-one-should-we-use)
+  - [How does Docker work?](#how-does-docker-work)
 - [GIT](#git)
-  - [Git buyruqlari qanday ishlaydi](#how-git-commands-work)
-  - [Git qanday ishlaydi?](#how-does-git-work)
-  - [Git merge va Git rebase](#git-merge-vs-git-rebase)
-- [Bulutli xizmatlar](#cloud-services)
-  - [Turli xil bulut xizmatlarining chiroyli cheat varag'i (2023 yil nashri)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
-  - [Mahalliy bulut nima?](#what-is-cloud-native)
-- [Ishlab chiquvchi mahsuldorlik vositalari](#developer-productivity-tools)
-  - [JSON fayllarini vizualizatsiya qilish](#visualize-json-files)
-  - [Kodni avtomatik ravishda arxitektura diagrammalariga aylantiring](#automatically-turn-code-into-architecture-diagrams)
+  - [How Git Commands work](#how-git-commands-work)
+  - [How does Git Work?](#how-does-git-work)
+  - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
+- [Cloud Services](#cloud-services)
+  - [A nice cheat sheet of different cloud services (2023 edition)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
+  - [What is cloud native?](#what-is-cloud-native)
+- [Developer productivity tools](#developer-productivity-tools)
+  - [Visualize JSON files](#visualize-json-files)
+  - [Automatically turn code into architecture diagrams](#automatically-turn-code-into-architecture-diagrams)
 - [Linux](#linux)
-  - [Linux fayl tizimi tushuntirildi](#linux-file-system-explained)
-  - [Siz bilishingiz kerak bo'lgan 18 ta eng ko'p ishlatiladigan Linux buyruqlari](#18-most-used-linux-commands-you-should-know)
-- [Xavfsizlik](#security)
-  - [HTTPS qanday ishlaydi?](#how-does-https-work)
-  - [Oauth 2.0 oddiy shartlar bilan tushuntirilgan.](#oauth-20-explained-with-simple-terms)
-  - [Autentifikatsiya mexanizmlarining 4 ta eng yaxshi shakllari](#top-4-forms-of-authentication-mechanisms)
-  - [Sessiya, cookie, JWT, token, SSO va OAuth 2.0 - ular nima?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
-  - [Ma'lumotlar bazasida parollarni qanday xavfsiz saqlash va parolni qanday tekshirish mumkin?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
-  - [10 yoshli bolaga JSON Web Token (JWT) haqida tushuntirish](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
-  - [Google Authenticator (yoki 2 faktorli autentifikatsiyaning boshqa turlari) qanday ishlaydi?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
-- [Haqiqiy dunyo misollari](#real-world-case-studies)
-  - [Netflixning Tech Stacki](#netflixs-tech-stack)
-  - [Twitter arxitekturasi 2022](#twitter-architecture-2022)
-  - [Oxirgi 15 yil ichida Airbnb mikroservis arxitekturasining evolyutsiyasi](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
-  - [Monorepo va mikrorepo.](#monorepo-vs-microrepo)
-  - [Stack Overflow veb-saytini qanday loyihalashtirasiz?](#how-will-you-design-the-stack-overflow-website)
-  - [Nima uchun Amazon Prime Video monitoringi serversizdan monolitga o'tdi? Qanday qilib 90% xarajatlarni tejash mumkin?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
-  - [Disney Hotstar turnir davomida 5 milliard kulgichni qanday suratga oladi?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
-  - [Discord qanday qilib trillionlab xabarlarni saqlaydi](#how-discord-stores-trillions-of-messages)
-  - [YouTube, TikTok live yoki Twitch-da jonli video oqimlari qanday ishlaydi?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
+  - [Linux file system explained](#linux-file-system-explained)
+  - [18 Most-used Linux Commands You Should Know](#18-most-used-linux-commands-you-should-know)
+- [Security](#security)
+  - [How does HTTPS work?](#how-does-https-work)
+  - [Oauth 2.0 Explained With Simple Terms.](#oauth-20-explained-with-simple-terms)
+  - [Top 4 Forms of Authentication Mechanisms](#top-4-forms-of-authentication-mechanisms)
+  - [Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
+  - [How to store passwords safely in the database and how to validate a password?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
+  - [Explaining JSON Web Token (JWT) to a 10 year old Kid](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
+  - [How does Google Authenticator (or other types of 2-factor authenticators) work?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
+- [Real World Case Studies](#real-world-case-studies)
+  - [Netflix's Tech Stack](#netflixs-tech-stack)
+  - [Twitter Architecture 2022](#twitter-architecture-2022)
+  - [Evolution of Airbnb’s microservice architecture over the past 15 years](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
+  - [Monorepo vs. Microrepo.](#monorepo-vs-microrepo)
+  - [How will you design the Stack Overflow website?](#how-will-you-design-the-stack-overflow-website)
+  - [Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
+  - [How does Disney Hotstar capture 5 Billion Emojis during a tournament?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
+  - [How Discord Stores Trillions Of Messages](#how-discord-stores-trillions-of-messages)
+  - [How do video live streamings work on YouTube, TikTok live, or Twitch?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
 
 <!-- /TOC -->
 
-## Aloqa protokollari
+## Communication protocols
 
-Arxitektura uslublari amaliy dasturlash interfeysining (API) turli komponentlari bir-biri bilan qanday o'zaro ta'sir qilishini belgilaydi.Natijada, ular API-larni loyihalash va qurishda standart yondashuvni ta'minlash orqali samaradorlik, ishonchlilik va boshqa tizimlar bilan integratsiya qulayligini ta'minlaydi. Bu erda eng ko'p ishlatiladigan uslublar:
+Architecture styles define how different components of an application programming interface (API) interact with one another. As a result, they ensure efficiency, reliability, and ease of integration with other systems by providing a standard approach to designing and building APIs. Here are the most used styles:
 
 <p>
   <img src="images/api-architecture-styles.png" style="width: 640px">
 </p>
 
-- SOAP:
+- SOAP: 
+
+  Mature, comprehensive, XML-based
   
-  Yetuk, keng qamrovli, XML-ga asoslangan 
-  
-  Korporativ ilovalar uchun eng yaxshi
+  Best for enterprise applications 
 
-- RESTful:
+- RESTful: 
 
-  Ommabop, amalga oshirish oson, HTTP usullari
+  Popular, easy-to-implement, HTTP methods 
 
-  Veb-xizmatlar uchun ideal
+  Ideal for web services 
 
-- GraphQL:
+- GraphQL: 
 
-  So'rov tili, maxsus ma'lumotlarni so'rash
+  Query language, request specific data 
 
-  Tarmoq yukini kamaytiradi, tezroq javob beradi
+  Reduces network overhead, faster responses 
 
-- gRPC:
+- gRPC: 
 
-  Zamonaviy, yuqori samarali, protokol buferlari
+  Modern, high-performance, Protocol Buffers 
 
-  Mikroservislar arxitekturasi uchun javob beradi
+  Suitable for microservices architectures 
 
-- WebSocket:
+- WebSocket: 
 
-  Real-time, bidirectional, persistent connections
+  Real-time, bidirectional, persistent connections 
 
-  Kam kechikishli ma'lumotlar almashinuvi uchun juda mos keladi
+  Perfect for low-latency data exchange 
 
-- Webhook:
+- Webhook: 
 
-  Voqealarga asoslangan, HTTP qo'ng'iroqlari, asinxron
+  Event-driven, HTTP callbacks, asynchronous 
 
-  Voqea sodir bo'lganda tizimlarni xabardor qiladi
+  Notifies systems when events occur
 
 
-### REST API va GraphQL
+### REST API vs. GraphQL
 
-API dizayni haqida gap ketganda, REST va GraphQL har birining kuchli va zaif tomonlari bor.
+When it comes to API design, REST and GraphQL each have their own strengths and weaknesses.
 
-Quyidagi diagrammada REST va GraphQL o'rtasidagi tezkor taqqoslash ko'rsatilgan.
+The diagram below shows a quick comparison between REST and GraphQL.
 
 <p>
   <img src="images/graphQL.jpg">
@@ -164,108 +164,108 @@ Quyidagi diagrammada REST va GraphQL o'rtasidagi tezkor taqqoslash ko'rsatilgan.
 
 REST
 
-- CRUD operatsiyalari uchun GET, POST, PUT, DELETE kabi standart HTTP usullaridan foydalanadi.
-- Alohida xizmatlar/ilovalar o'rtasida oddiy, bir xil interfeyslar kerak bo'lganda yaxshi ishlaydi.
-- Keshlash strategiyalarini amalga oshirish oson.
-- Salbiy tomoni shundaki, u alohida so'nggi nuqtalardan tegishli ma'lumotlarni yig'ish uchun bir nechta aylanishlarni talab qilishi mumkin.
+- Uses standard HTTP methods like GET, POST, PUT, DELETE for CRUD operations.
+- Works well when you need simple, uniform interfaces between separate services/applications.
+- Caching strategies are straightforward to implement.
+- The downside is it may require multiple roundtrips to assemble related data from separate endpoints.
 
 GraphQL
 
-- Mijozlarga kerakli ma'lumotlarni aniq so'rashlari uchun yagona so'nggi nuqtani taqdim etadi.
-- Mijozlar ichki so'rovlarda talab qilinadigan aniq maydonlarni belgilaydi va server faqat shu maydonlarni o'z ichiga olgan optimallashtirilgan foydali yuklarni qaytaradi.
-- Ma'lumotlarni o'zgartirish uchun mutatsiyalarni va real vaqtda bildirishnomalar uchun obunalarni qo'llab-quvvatlaydi.
-- Bir nechta manbalardan ma'lumotlarni jamlash uchun ajoyib va tez rivojlanayotgan frontend talablari bilan yaxshi ishlaydi.
-- Biroq, u murakkablikni mijoz tomoniga o'tkazadi va agar to'g'ri himoyalanmagan bo'lsa, haqoratli so'rovlarga ruxsat berishi mumkin.
-- Keshlash strategiyalari RESTga qaraganda murakkabroq bo'lishi mumkin.
+- Provides a single endpoint for clients to query for precisely the data they need.
+- Clients specify the exact fields required in nested queries, and the server returns optimized payloads containing just those fields.
+- Supports Mutations for modifying data and Subscriptions for real-time notifications.
+- Great for aggregating data from multiple sources and works well with rapidly evolving frontend requirements.
+- However, it shifts complexity to the client side and can allow abusive queries if not properly safeguarded
+- Caching strategies can be more complicated than REST.
 
-REST va GraphQL o'rtasidagi eng yaxshi tanlov dastur va ishlab chiqish guruhining o'ziga xos talablariga bog'liq. GraphQL murakkab yoki tez-tez o'zgaruvchan frontend ehtiyojlari uchun juda mos keladi, REST esa oddiy va izchil shartnomalar afzal ko'rilgan ilovalarga mos keladi.
+The best choice between REST and GraphQL depends on the specific requirements of the application and development team. GraphQL is a good fit for complex or frequently changing frontend needs, while REST suits applications where simple and consistent contracts are preferred.
 
-Hech bir API yondashuvi kumush o'q emas. To'g'ri uslubni tanlash uchun talablar va kelishuvlarni diqqat bilan baholash muhimdir. REST va GraphQL ikkalasi ham ma'lumotlarni oshkor qilish va zamonaviy ilovalarni quvvatlantirish uchun to'g'ri tanlovdir.
+Neither API approach is a silver bullet. Carefully evaluating requirements and tradeoffs is important to pick the right style. Both REST and GraphQL are valid options for exposing data and powering modern applications.
 
 
-### gRPC qanday ishlaydi?
+### How does gRPC work?
 
-RPC (Remote Procedure Call) "**remote(masofaviy)**" deb nomlanadi, chunki u xizmatlar mikroservis arxitekturasi ostida turli serverlarga o'rnatilganda masofaviy xizmatlar o'rtasida aloqa o'rnatish imkonini beradi. Foydalanuvchi nuqtai nazaridan, u mahalliy funktsiya chaqiruvi kabi ishlaydi.
+RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
 
-Quyidagi diagramma **gRPC** uchun umumiy ma'lumotlar oqimini ko'rsatadi.
+The diagram below illustrates the overall data flow for **gRPC**.
 
 <p>
   <img src="images/grpc.jpg">
 </p>
 
-1-qadam: REST qo'ng'irog'i mijozdan amalga oshiriladi. So'rovning asosiy qismi odatda JSON formatida bo'ladi.
+Step 1: A REST call is made from the client. The request body is usually in JSON format.
 
-2-4-qadamlar: Buyurtma xizmati (gRPC mijozi) REST qo'ng'irog'ini qabul qiladi, uni o'zgartiradi va to'lov xizmatiga RPC qo'ng'irog'ini qiladi. gRPC **client stub(mijoz stubi)** ni ikkilik formatga kodlaydi va uni past darajadagi transport qatlamiga yuboradi.
+Steps 2 - 4: The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gRPC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
 
-5-qadam: gRPC paketlarni HTTP2 orqali tarmoq orqali yuboradi. Ikkilik kodlash va tarmoqni optimallashtirish tufayli gRPC JSONga qaraganda 5X tezroq deb aytiladi.
+Step 5: gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
 
-6-8-qadamlar: Toʻlov xizmati (gRPC serveri) tarmoqdan paketlarni qabul qiladi, ularni dekodlaydi va server ilovasini ishga tushiradi.
+Steps 6 - 8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
 
-9-11-qadamlar: Natija server ilovasidan qaytariladi va kodlanadi va transport qatlamiga yuboriladi.
+Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.
 
-12-14-qadamlar: Buyurtma xizmati paketlarni qabul qiladi, ularni dekodlaydi va natijani mijoz ilovasiga yuboradi.
+Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.
 
-### Webhook nima?
+### What is a webhook?
 
-Quyidagi diagrammada so'rov va Webhook o'rtasidagi taqqoslash ko'rsatilgan.
+The diagram below shows a comparison between polling and Webhook. 
 
 <p>
   <img src="images/webhook.jpeg" style="width: 680px" />
 </p>
 
-Faraz qilaylik, biz elektron tijorat veb-saytini ishga tushiramiz. Mijozlar to'lov operatsiyalari uchun to'lov xizmatiga o'tadigan API shlyuzi orqali buyurtma xizmatiga buyurtma yuboradilar. Keyin to'lov xizmati tranzaktsiyalarni bajarish uchun tashqi to'lov xizmati provayderi (PSP) bilan gaplashadi.
+Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions. 
 
-Tashqi PSP bilan aloqa qilishning ikki yo'li mavjud.
+There are two ways to handle communications with the external PSP. 
 
-**1. Short polling(Qisqa ovoz berish)**
+**1. Short polling** 
 
-To'lov so'rovi PSP ga yuborilgandan so'ng, to'lov xizmati PSP dan to'lov holati haqida so'rashda davom etadi. Bir necha turdan so'ng, PSP nihoyat holatga qaytadi.
+After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status. 
 
-Qisqa so'rovning ikkita kamchiligi bor:
-* Doimiy ravishda vaziyatni so'rash to'lov xizmatidan resurslarni talab qiladi.
-* Tashqi xizmat to'lov xizmati bilan to'g'ridan-to'g'ri bog'lanib, xavfsizlik zaifliklarini yaratadi.
+Short polling has two drawbacks: 
+* Constant polling of the status requires resources from the payment service. 
+* The External service communicates directly with the payment service, creating security vulnerabilities. 
 
-**2. Webhook**
+**2. Webhook** 
 
-Biz webhukni tashqi xizmatda ro'yxatdan o'tkazishimiz mumkin. Buning ma'nosi: so'rov bo'yicha yangilanishlar mavjud bo'lganda, menga ma'lum bir URL orqali qo'ng'iroq qiling. PSP qayta ishlashni tugatgandan so'ng, to'lov holatini yangilash uchun HTTP so'rovini chaqiradi.
+We can register a webhook with the external service. It means: call me back at a certain URL when you have updates on the request. When the PSP has completed the processing, it will invoke the HTTP request to update the payment status.
 
-Shu tarzda, dasturlash paradigmasi o'zgartiriladi va to'lov xizmati endi to'lov holatini so'rash uchun resurslarni isrof qilishiga hojat yo'q.
+In this way, the programming paradigm is changed, and the payment service doesn’t need to waste resources to poll the payment status anymore.
 
-Agar PSP hech qachon qo'ng'iroq qilmasa nima bo'ladi? Biz har soatda to'lov holatini tekshirish uchun uy ishlarini o'rnatishimiz mumkin.
+What if the PSP never calls back? We can set up a housekeeping job to check payment status every hour.
 
-WebhooksWebhuklar ko'pincha teskari API yoki push API deb ataladi, chunki server mijozga HTTP so'rovlarini yuboradi. Webhukdan foydalanishda 3 narsaga e'tibor qaratishimiz kerak:
+Webhooks are often referred to as reverse APIs or push APIs because the server sends HTTP requests to the client. We need to pay attention to 3 things when using a webhook:
 
-1. Biz tashqi xizmat qo'ng'iroq qilish uchun tegishli APIni loyihalashimiz kerak.
-2. Xavfsizlik nuqtai nazaridan API shlyuzida tegishli qoidalarni o'rnatishimiz kerak.
-3. Biz tashqi xizmatda to'g'ri URL manzilini ro'yxatdan o'tkazishimiz kerak.
+1. We need to design a proper API for the external service to call.
+2. We need to set up proper rules in the API gateway for security reasons.
+3. We need to register the correct URL at the external service.
 
-### API ish faoliyatini qanday yaxshilash mumkin?
+### How to improve API performance?
 
-Quyidagi diagrammada API ish faoliyatini yaxshilash uchun 5 ta umumiy hiyla ko'rsatilgan.
+The diagram below shows 5 common tricks to improve API performance.
 
 <p>
   <img src="images/api-performance.jpg">
 </p>
 
-Pagination(Sahifalar)
+Pagination
 
-Natijaning o'lchami katta bo'lsa, bu keng tarqalgan optimallashtirishdir. Natijalar xizmatning javob berish qobiliyatini yaxshilash uchun mijozga qaytariladi.
+This is a common optimization when the size of the result is large. The results are streaming back to the client to improve the service responsiveness.
 
-Asynchronous Logging(Asinxron ro'yxatga olish)
+Asynchronous Logging
 
-Sinxron ro'yxatga olish har bir qo'ng'iroq uchun disk bilan ishlaydi va tizimni sekinlashtirishi mumkin. Asinxron ro'yxatga olish jurnallarni avval qulflanmagan buferga yuboradi va darhol qaytadi. Jurnallar diskka vaqti-vaqti bilan tozalanadi. Bu kiritish-chiqarish xarajatlarini sezilarli darajada kamaytiradi.
+Synchronous logging deals with the disk for every call and can slow down the system. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I/O overhead.
 
-Caching(Keshlash)
+Caching
 
-Biz tez-tez foydalaniladigan ma'lumotlarni keshga saqlashimiz mumkin. Mijoz to'g'ridan-to'g'ri ma'lumotlar bazasiga tashrif buyurish o'rniga, avval keshni so'rashi mumkin. Agar kesh o'tkazib yuborilgan bo'lsa, mijoz ma'lumotlar bazasidan so'rashi mumkin. Redis kabi keshlar ma'lumotlarni xotirada saqlaydi, shuning uchun ma'lumotlarga kirish ma'lumotlar bazasiga qaraganda ancha tezroq.
+We can cache frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
 
-Payload Compression(Yuk yukini siqish)
+Payload Compression
 
-So'rovlar va javoblar uzatiladigan ma'lumotlar hajmi ancha kichik bo'lishi uchun gzip va boshqalar yordamida siqilishi mumkin. Bu yuklash va yuklab olishni tezlashtiradi.
+The requests and responses can be compressed using gzip etc so that the transmitted data size is much smaller. This speeds up the upload and download.
 
-Connection Pool(Aloqa hovuzi)
+Connection Pool
 
-Resurslarga kirishda biz ko'pincha ma'lumotlar bazasidan ma'lumotlarni yuklashimiz kerak. Yopuvchi db ulanishlarini ochish sezilarli yukni oshiradi. Shunday qilib, biz DB ga ochiq ulanishlar hovuzi orqali ulanishimiz kerak. Ulanish havzasi ulanishning hayot aylanishini boshqarish uchun javobgardir.
+When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.
 
 ### HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)
 
@@ -291,7 +291,7 @@ The diagram below illustrates the key features.
 
 QUIC is based on UDP. It introduces streams as first-class citizens at the transport layer. QUIC streams share the same QUIC connection, so no additional handshakes and slow starts are required to create new ones, but QUIC streams are delivered independently such that in most cases packet loss affecting one stream doesn't affect others.
 
-### SOAP va REST va GraphQL va RPC
+### SOAP vs REST vs GraphQL vs RPC
 
 The diagram below illustrates the API timeline and API styles comparison.
 
@@ -304,7 +304,7 @@ You can check out the use cases of each style in the diagram.
 </p>
 
 
-### Code First va API First 
+### Code First vs. API First 
 
 The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
 
@@ -329,7 +329,7 @@ The possibility of having surprises toward the end of the project lifecycle is r
 
 Because we have designed the API first, the tests can be designed while the code is being developed. In a way, we also have TDD (Test Driven Design) when using API first development.
 
-### HTTP holat kodlari
+### HTTP status codes
 
 <p>
   <img src="images/http-status-code.jpg" style="width: 540px" />
@@ -344,7 +344,7 @@ Redirection (300-399)
 Client Error (400-499) 
 Server Error (500-599) 
 
-### API shlyuzi nima qiladi?
+### What does API gateway do? 
 
 The diagram below shows the details. 
 
@@ -368,7 +368,7 @@ Step 8 - The API gateway transforms the request into the appropriate protocol an
 
 Steps 9-12: The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
 
-### Qanday qilib samarali va xavfsiz API-larni loyihalashtiramiz?
+### How do we design effective and safe APIs?
 
 The diagram below shows typical API designs with a shopping cart example. 
 
@@ -379,7 +379,7 @@ The diagram below shows typical API designs with a shopping cart example.
 
 Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
 
-### TCP/IP inkapsulyatsiyasi
+### TCP/IP encapsulation 
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
 
@@ -403,7 +403,7 @@ Steps 6-10: When Device B receives the bits from the network, it performs the de
 
 We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.
 
-### Nima uchun Nginx "teskari" proksi-server deb ataladi?
+### Why is Nginx called a “reverse” proxy?
 
 The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.
 
@@ -428,7 +428,7 @@ A reverse proxy is good for:
 3. Caching static contents
 4. Encrypting and decrypting SSL communications
 
-### Umumiy yuklarni muvozanatlash algoritmlari qanday?
+### What are the common load-balancing algorithms?
 
 The diagram below shows 6 common algorithms. 
 
@@ -464,7 +464,7 @@ The diagram below shows 6 common algorithms.
 
     A new request is sent to the service instance with the fastest response time.
 
-### URL, URI, URN - Farqlarni bilasizmi?
+### URL, URI, URN - Do you know the differences? 
 
 The diagram below shows a comparison of URL, URI, and URN. 
 
