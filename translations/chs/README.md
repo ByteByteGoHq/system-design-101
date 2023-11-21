@@ -90,12 +90,12 @@
     - [你应该知道的 18 个最常用的 Linux 命令](#你应该知道的-18-个最常用的-linux-命令)
   - [安全](#安全)
     - [HTTPS 是如何工作的？](#https-是如何工作的)
-    - [Oauth 2.0 Explained With Simple Terms.](#oauth-20-explained-with-simple-terms)
-    - [Top 4 Forms of Authentication Mechanisms](#top-4-forms-of-authentication-mechanisms)
-    - [Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
+    - [简明扼要解释下 Oauth 2.0。](#简明扼要解释下-oauth-20)
+    - [身份验证机制的前四种形式](#身份验证机制的前四种形式)
+    - [会话、Cookie、JWT、令牌、SSO 和 OAuth 2.0 - 它们分别是什么？](#会话cookiejwt令牌sso-和-oauth-20---它们分别是什么)
     - [如何将密码安全地存储到数据库中，以及如何验证密码？](#如何将密码安全地存储到数据库中以及如何验证密码)
-    - [Explaining JSON Web Token (JWT) to a 10 year old Kid](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
-    - [How does Google Authenticator (or other types of 2-factor authenticators) work?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
+    - [向一个十岁小孩解释 JSON Web Token (JWT)](#向一个十岁小孩解释-json-web-token-jwt)
+    - [Google Authenticator（或者其它类型的两步认证器）是如何工作的？](#google-authenticator或者其它类型的两步认证器是如何工作的)
   - [现实世界中的案例学习](#现实世界中的案例学习)
     - [Netflix 的技术栈](#netflix-的技术栈)
     - [Twitter 架构 2022](#twitter-架构-2022)
@@ -1312,7 +1312,7 @@ Linux 命令是用来与操作系统交互的指令。它们帮助我们管理�
 
 ### HTTPS 是如何工作的？
 
-Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. 
+超文本传输安全协议（Hypertext Transfer Protocol Secure，HTTPS）是超文本传输协议（Hypertext Transfer Protocol，HTTP）的扩展。HTTPS 使用传输层安全性（Transport Layer Security，TLS）传输加密数据。即使数据被在线劫持，劫持者得到的也只是二进制码。 
 
 <p>
   <img src="../../images/https.jpg" />
@@ -1320,87 +1320,87 @@ Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Tran
 
 数据是如何被加密解密的？
 
-步骤 1 - The client (browser) and the server establish a TCP connection.
+步骤 1 - 客户端（浏览器）和服务器端建立一个 TCP 连接。
 
-步骤 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
+步骤 2 - 客户端发送一条“client hello”消息给服务器端。这条消息包含了一组必要的加密算法（密码套件）以及它支持的最新的 TLS 版本。接着，服务器端用一条“server hello”消息进行响应，以便浏览器知道它是否支持这些算法和 TLS 版本。
 
-The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate. 
+接着，服务器端发送 SSL 证书给客户端。证书包含公钥、主机名、过期日期等。客户端会验证此证书。
 
-步骤 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key. 
+步骤 3 - 验证 SSL 证书后，客户端生成一个会话密钥，然后使用公钥对其进行加密。服务器端收到了这个加密的会话密钥后，使用私钥对其进行解密。
 
-步骤 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
+步骤 4 - 现在，客户端和服务器端都持有相同的会话密钥（对称加密），因此，加密数据就可以通过安全的双向通道进行传输了。
 
-Why does HTTPS switch to symmetric encryption during data transmission? There are two main reasons:
+为什么在数据传输过程中，HTTPS 要切换到对称加密呢？有两个主要原因：
 
-1. Security: The asymmetric encryption goes only one way. This means that if the server tries to send the encrypted data back to the client, anyone can decrypt the data using the public key.
+1. 安全性：非对称加密只能单向进行。这意味着，如果服务器端尝试将加密数据发送回客户端，那么任何人都可以使用公钥解密数据。
 
-2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
+2. 服务器资源：非对称加密增加了相当多的数学计算开销。因此，它不适用于长会话中的数据传输。
 
-### Oauth 2.0 Explained With Simple Terms. 
+### 简明扼要解释下 Oauth 2.0。 
 
-OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. 
+OAuth 2.0 是一个强大且安全的框架，允许不同应用代表用户安全地彼此之间进行交互，而无需共享敏感的凭据。 
 
 <p>
   <img src="../../images/oAuth2.jpg" />
 </p>
 
-The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). 
+OAuth 中涉及的实体包括用户、服务器和身份提供商（Identity Provider，IDP）。 
 
-What Can an OAuth Token Do? 
+OAuth 令牌（OAuth Token）能做什么？
 
-When you use OAuth, you get an OAuth token that represents your identity and permissions. This token can do a few important things: 
+使用 OAuth 时，你会获得一个代表你身份和权限的 OAuth 令牌。这个令牌可以执行一些重要的操作： 
 
-Single Sign-On (SSO): With an OAuth token, you can log into multiple services or apps using just one login, making life easier and safer. 
+单点登录（Single Sign-On，SSO）：使用一个 OAuth 令牌，只要进行一次登录操作，你就可以登录到多个服务或者应用，让生活轻松安全多了。
 
-Authorization Across Systems: The OAuth token allows you to share your authorization or access rights across various systems, so you don't have to log in separately everywhere. 
+系统间授权（Authorization Across Systems）：OAuth 令牌让你可以在各个系统之间共享你的授权或者访问权限，因此，你不需要在每处单独登录。 
 
-Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won't see everything. 
+访问用户资料（Accessing User Profile）：拥有 OAuth 令牌的应用可以访问你允许的用户资料的特定部分内容，但不会看到所有内容。 
 
-Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
+记住，OAuth 2.0 的目标是在确保你和你的数据安全的同时，让你在不同的应用和服务之间的在线体验变得更加无缝和轻松。
 
-### Top 4 Forms of Authentication Mechanisms 
+### 身份验证机制的前四种形式
 
 <p>
   <img src="../../images/top4-most-used-auth.jpg" />
 </p>
 
-1. SSH Keys: 
+1. SSH 密钥： 
    
-    Cryptographic keys are used to access remote systems and servers securely 
+    使用加密密钥来安全访问远程系统和服务器。 
 
-1. OAuth Tokens: 
+2. OAuth 令牌： 
 
-    Tokens that provide limited access to user data on third-party applications 
+    令牌为第三方应用提供对用户数据的有限访问权限。 
 
-1. SSL Certificates: 
+3. SSL 证书： 
   
-    Digital certificates ensure secure and encrypted communication between servers and clients 
+    数字证书确保服务器端和客户端之间的安全和加密通信。 
 
-1. Credentials: 
+4. 凭据： 
 
-    User authentication information is used to verify and grant access to various systems and services
+    使用用户身份验证信息来验证并授予对各种系统和服务的访问权限。
 
-### Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?
+### 会话、Cookie、JWT、令牌、SSO 和 OAuth 2.0 - 它们分别是什么？
 
-These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.
+这些术语都与用户身份管理相关。当你登录进一个网站时，你要声明自己是谁（身份验证，identification）。你的身份经过验证（认证,authentication），并被授予必要的权限（授权，authorization）。过去，许多解决方案被提出来，而这个解决方案列表还在不断增长中。
 
 <p>
   <img src="../../images/session.jpeg" />
 </p>
 
-From simple to complex, here is my understanding of user identity management:
+由简而繁，下面是我关于用户身份管理的理解：
 
-- WWW-Authenticate is the most basic method. You are asked for the username and password by the browser. As a result of the inability to control the login life cycle, it is seldom used today.
+- WWW-Authenticate 是最基本的方法。浏览器要求你提供用户名和密码。由于无法控制登录生命周期，因此现今已经很少使用了。
 
-- A finer control over the login life cycle is session-cookie. The server maintains session storage, and the browser keeps the ID of the session. A cookie usually only works with browsers and is not mobile app friendly.
+- 对登录生命周期有更精细的控制的是 session-cookie。服务器维护会话存储，浏览器保留会话 ID。Cookie 通常仅适用于浏览器，不太适用于移动应用。
 
-- To address the compatibility issue, the token can be used. The client sends the token to the server, and the server validates the token. The downside is that the token needs to be encrypted and decrypted, which may be time-consuming.
+- 要解决兼容性问题，可以使用令牌。客户端将令牌发送到服务器，然后服务器验证令牌。这种方法的缺点是需要对令牌进行加密和解密，这一过程可能会耗时。
 
-- JWT is a standard way of representing tokens. This information can be verified and trusted because it is digitally signed. Since JWT contains the signature, there is no need to save session information on the server side.
+- JWT 是表示令牌的标准方式。由于可以对这些信息进行数字签名，因此它们可以被验证和信任。由于 JWT 包含签名，因此无需在服务器端保存会话信息。 
 
-- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information.
+- 通过使用 SSO（单点登录），您只需进行一次登录操作，即可登录到多个网站。它使用CAS（central authentication service，中央认证服务）来维护跨站点信息。
 
-- By using OAuth 2.0, you can authorize one website to access your information on another website.
+- 通过使用 OAuth 2.0，你可以授权一个网站访问你在另一个网站上的信息。
 
 ### 如何将密码安全地存储到数据库中，以及如何验证密码？
 
@@ -1409,89 +1409,90 @@ From simple to complex, here is my understanding of user identity management:
 </p>
 
  
-**Things NOT to do**
+**不要做的事**
 
-- Storing passwords in plain text is not a good idea because anyone with internal access can see them.
+- 明文存储密码并非明智之举，因为任何一个具有内部访问权限的人都可以看到它们。
 
-- Storing password hashes directly is not sufficient because it is pruned to precomputation attacks, such as rainbow tables. 
+- 直接存储密码哈希值并不够，因为它容易受到预计算攻击（precomputation attack）的影响，例如彩虹表（rainbow table）。 
 
-- To mitigate precomputation attacks, we salt the passwords. 
+- 要缓解预计算攻击，我们使用 salt 来加密密码。 
 
-**What is salt?**
+**什么是 salt？**
 
-According to OWASP guidelines, “a salt is a unique, randomly generated string that is added to each password as part of the hashing process”.
+根据 OWASP 指南，“salt 是在散列过程中添加到每个密码中的随机生成的唯一字符串”。
  
-**How to store a password and salt?**
+**如何存储密码和 salt？**
 
-1. the hash result is unique to each password.
-1. The password can be stored in the database using the following format: hash(password + salt).
+1. 哈希结果对于每个密码都是唯一的。
+2. 密码可以以以下格式存储在数据库中：hash(password + salt)。
 
 **如何验证密码？**
 
-To validate a password, it can go through the following process:
+要验证一个密码，可以经过以下过程：
 
-1. A client enters the password.
-2. The system fetches the corresponding salt from the database.
-3. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
-4. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid. 
+1. 客户端输入密码。
+2. 系统从数据库中获取对应的 salt。
+3. 系统将 salt 附加到密码后，然后对结果进行哈希操作。让我们将哈希过的值称为 H1。
+4. 系统对比 H1 和 H2（数据库中存储的哈希值）。如果二者相等，那么密码就是有效的。
 
-### Explaining JSON Web Token (JWT) to a 10 year old Kid
+### 向一个十岁小孩解释 JSON Web Token (JWT)
 
 <p>
   <img src="../../images/jwt.jpg" />
 </p>
 
-Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
+想象一下，你有一个特殊的盒子，叫做 JWT。这个盒子里有三个部分：一个头部、一个负载和一个签名。
 
-The header is like the label on the outside of the box. It tells us what type of box it is and how it's secured. It's usually written in a format called JSON, which is just a way to organize information using curly braces { } and colons : .
+头部就像盒子外部的标签。它告诉我们盒子的类型以及如何保护它。通常以 JSON 的格式（只是一种使用花括号"{ }"和冒号“:”组织信息的方式）编写。
 
-The payload is like the actual message or information you want to send. It could be your name, age, or any other data you want to share. It's also written in JSON format, so it's easy to understand and work with.
-Now, the signature is what makes the JWT secure. It's like a special seal that only the sender knows how to create. The signature is created using a secret code, kind of like a password. This signature ensures that nobody can tamper with the contents of the JWT without the sender knowing about it.
+负载就像你想要发送的实际消息或者信息。可以是你的名字、年龄或者任何你想要分享的数据。它也是以 JSON 格式编写的，因此，易于理解和处理。
 
-When you want to send the JWT to a server, you put the header, payload, and signature inside the box. Then you send it over to the server. The server can easily read the header and payload to understand who you are and what you want to do.
+而签名则是让 JWT 保持安全的东西。它就像一种特殊的印章，只有发送者知道如何创建它。这个签名是使用一种秘密代码生成的，有点像密码。它确保了没有人能够在发送者不知情的情况下篡改 JWT 的内容。
 
-### How does Google Authenticator (or other types of 2-factor authenticators) work?
+当你想把 JWT 发送给服务端时，你把头部、负载和签名放进箱子里。然后把它发送到服务器。服务器可以轻松读取头部和负载，以了解你是谁，以及你想要做什么。
 
-Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
+### Google Authenticator（或者其它类型的两步认证器）是如何工作的？
+
+Google Authenticator 通常用于在已启用两步验证（2-factor authentication）的情况下登录我们的账户。那么，它是如何保证安全的呢？
  
-Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail. 
+Google Authenticator 是一种基于软件的身份验证器，它实现了两步验证服务。下图提供了详细信息。 
 
 <p>
   <img src="../../images/google_authenticate.jpeg" />
 </p>
 
 
-There are two stages involved:
+涉及两个阶段：
 
-- Stage 1 - The user enables Google two-step verification.
-- Stage 2 - The user uses the authenticator for logging in, etc.
+- 第一阶段 - 用户启用 Google 两步验证。
+- 第二阶段 - 用户使用身份验证器进行登录等操作。
 
-Let’s look at these stages.
+让我们看看这两个阶段。
+
+**第一阶段**
+
+步骤 1 和 2：Bob 打开网页来启用两步验证。前端请求一个密钥。身份验证服务为 Bob 生成密钥并将其存储在数据库中。
  
-**Stage 1**
-
-Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
+步骤 3：身份验证服务返回一个 URI 给前端。这个 URI 由密钥颁发者、用户名和密钥组成。这个 URI以二维码的形式显示在网页上。
  
-Step 3: The authentication service returns a URI to the front end. The URI is composed of a key issuer, username, and secret key. The URI is displayed in the form of a QR code on the web page.
- 
-Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
+步骤 4：然后，Bob 使用 Google Authenticator 扫描生成的二维码。密钥存储在身份验证器中。
 
-**Stage 2**
-Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
+**第二阶段**
+步骤 1 和 2：Bob 想要使用 Google 两步验证登录网站。为此，他需要密码。Google Authenticator 每30秒使用 TOTP（Time-based One Time Password，基于时间的一次性密码）算法生成一个6位数的密码。Bob使用这个生成的密码来登录网站。
  
-Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
+步骤 3 和 4：前端将 Bob 输入的密码发送到后端进行身份验证。身份验证服务从数据库中读取密钥，然后使用与客户端相同的 TOTP 算法生成一个6位数的密码。
  
-Step 5: The authentication service compares the two passwords generated by the client and the server, and returns the comparison result to the frontend. Bob can proceed with the login process only if the two passwords match.
+步骤 5：身份验证服务比较客户端和服务器分别生成的两个密码，并将比较结果返回给前端。只有在两个密码匹配时，Bob 才能继续登录过程。
  
-Is this authentication mechanism safe? 
+这种身份验证机制安全吗？ 
 
-- Can the secret key be obtained by others? 
+- 其他人能获取密钥吗？ 
 
-    We need to make sure the secret key is transmitted using HTTPS. The authenticator client and the database store the secret key, and we need to make sure the secret keys are encrypted.
+   我们需要确保密钥是使用HTTPS 传输的。身份验证器客户端和数据库存储密钥，因此，我们需要确保这些密钥是加密的。
 
-- Can the 6-digit password be guessed by hackers?
+- 黑客能猜测这个6位数密码吗？
     
-    No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
+    不能。密码有6位数字，因此，生成的密码有100万种可能的组合。此外，密码每30秒更改一次。如果黑客想要在30秒内猜测出密码，那么他们需要每秒输入30,000个组合。
 
 
 ##  现实世界中的案例学习
