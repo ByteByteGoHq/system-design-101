@@ -1135,65 +1135,65 @@ Docker 架构中有 3 个组件：
 
 ### Git 命令是如何工作的？
 
-To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: 
+首先，确定代码存储在何处是至关重要的。通常假设只有两个地方 —— 一份代码在像 Github 这样的远程服务器上，而另一份则在我们的本地机器上。然而，这不完全正确。Git 在我们的机器上维护了三份本地存储，这意味着，我们的代码可以在四个地方找到： 
 
 <p>
   <img src="../../images/git-commands.png" style="width: 600px" />
 </p>
 
 
-- Working directory: where we edit files 
-- Staging area: a temporary location where files are kept for the next commit 
-- Local repository: contains the code that has been committed 
-- Remote repository: the remote server that stores the code 
+- 工作目录（Working directory）：我们编辑文件的地方 
+- 暂存区（Staging area）：一个临时区域，代码保存在此处，以备下一次提交 
+- 本地仓库（Local repository）：包含已提交的代码 
+- 远程仓库（Remote repository）：存储代码的远程服务器 
 
-Most Git commands primarily move files between these four locations. 
+大多数的 Git 命令主要在这四个位置之间移动文件。 
 
 ### Git 的工作原理
 
-The diagram below shows the Git workflow. 
+下图显示了 Git 的工作流程。
 
 <p>
   <img src="../../images/git-workflow.jpeg" style="width: 520px" />
 </p>
 
 
-Git is a distributed version control system. 
+Git 是一个分布式版本控制系统。 
 
-Every developer maintains a local copy of the main repository and edits and commits to the local copy. 
+每一位开发者都维护了主仓库的一份本地拷贝，他们编辑以及提交到这个本地拷贝中。
 
-The commit is very fast because the operation doesn’t interact with the remote repository. 
+提交操作是非常快的，因为此操作并不与远程仓库进行交互。 
 
-If the remote repository crashes, the files can be recovered from the local repositories. 
+如果远程仓库挂了，可以从本地仓库恢复文件。 
 
 ### Git merge vs. Git rebase
 
-What are the differences?
+有何不同？
 
 <p>
   <img src="../../images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
 
 
-When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
+当我们将一个 Git 分支的**更改合并**到另一个分支时，我们可以使用“git merge” 或者“git rebase”。下图显示了两个命令的工作原理。
 
 **Git merge**
 
-This creates a new commit G’ in the main branch. G’ ties the histories of both main and feature branches.
+这在主分支创建了一个新的提交 G’。G’ 将主分支和特性分支的历史记录连接在一起。
 
-Git merge is **non-destructive**. Neither the main nor the feature branch is changed.
+Git merge 是**非破坏性的**。主分支和特性分支都不会被修改。
 
 **Git rebase**
 
-Git rebase moves the feature branch histories to the head of the main branch. It creates new commits E’, F’, and G’ for each commit in the feature branch.
+Git rebase 将特性分支的历史记录移动到主分支的头部。它为特性分支中的每次提交，分别创建新的提交 E’、F’ 和 G’。
 
-The benefit of rebase is that it has a linear **commit history**.
+rebase 的好处是，通过它，我们可以拥有一个线性的**提交历史记录**。
 
-Rebase can be dangerous if “the golden rule of git rebase” is not followed.
+如果不遵循“git rebase 的黄金法则”，rebase 就有可能是一种危险操作。
 
-**The Golden Rule of Git Rebase**
+**git rebase 的黄金法则**
 
-Never use it on public branches!
+永远不要在公共分支上使用它！
 
 ## 云服务
 
