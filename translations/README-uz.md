@@ -40,20 +40,20 @@ Tizim dizayni bo'yicha intervyuga tayyorlanyapsizmi yoki tizimlar qanday ishlash
   - [Umumiy yuklarni muvozanatlash algoritmlari qanday?](#umumiy-yuklarni-muvozanatlash-algoritmlari-qanday)
   - [URL, URI, URN - Farqlarni bilasizmi?](#url-uri-urn---farqlarni-bilasizmi)
 - [CI/CD](#cicd)
-  - [CI/CD quvur liniyasi oddiy so'zlar bilan tushuntirilgan](#cicd-pipeline-explained-in-simple-terms)
+  - [CI/CD quvur liniyasi oddiy so'zlar bilan tushuntirilgan](#cicd-quvur-liniyasi-oddiy-sozlar-bilan-tushuntirilgan)
   - [Netflix Tech Stack (CI/CD Pipeline)](#netflix-tech-stack-cicd-pipeline)
-- [Arxitektura naqshlari](#architecture-patterns)
-  - [MVC, MVP, MVVM, MVVM-C va VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
-  - [Har bir dasturchi bilishi kerak bo'lgan 18 ta asosiy dizayn naqshlari](#18-key-design-patterns-every-developer-should-know)
-- [Ma'lumotlar bazasi](#database)
-  - [Bulutli xizmatlardagi turli xil ma'lumotlar bazalarining chiroyli cheat varag'i  ](#a-nice-cheat-sheet-of-different-databases-in-cloud-services)
-  - [Ma'lumotlar bazalaringizni quvvatlantiradigan 8 ta ma'lumotlar tuzilmasi](#8-data-structures-that-power-your-databases)
-  - [Ma'lumotlar bazasida SQL operatori qanday bajariladi?](#how-is-an-sql-statement-executed-in-the-database)
-  - [CAP teoremasi](#cap-theorem)
-  - [Xotira va saqlash turlari](#types-of-memory-and-storage)
-  - [SQL so'rovini vizualizatsiya qilish](#visualizing-a-sql-query)
-  - [SQL tili](#sql-language)
-- [Kesh](#cache)
+- [Arxitektura naqshlari](#arxitektura-naqshlari)
+  - [MVC, MVP, MVVM, MVVM-C va VIPER](#mvc-mvp-mvvm-mvvm-c-va-viper)
+  - [Har bir dasturchi bilishi kerak bo'lgan 18 ta asosiy dizayn naqshlari](#har-bir-dasturchi-bilishi-kerak-bolgan-18-ta-asosiy-dizayn-naqshlari)
+- [Ma'lumotlar bazasi](#malumotlar-bazasi)
+  - [Bulutli xizmatlardagi turli xil ma'lumotlar bazalarining chiroyli cheat varag'i](#bulutli-xizmatlardagi-turli-xil-malumotlar-bazalarining-chiroyli-cheat-varagi)
+  - [Ma'lumotlar bazalaringizni quvvatlantiradigan 8 ta ma'lumotlar tuzilmasi](#malumotlar-bazalaringizni-quvvatlantiradigan-8-ta-malumotlar-tuzilmasi)
+  - [Ma'lumotlar bazasida SQL operatori qanday bajariladi?](#malumotlar-bazasida-sql-operatori-qanday-bajariladi)
+  - [CAP teoremasi](#cap-teoremasi)
+  - [Xotira va saqlash turlari](#xotira-va-saqlash-turlari)
+  - [SQL so'rovini vizualizatsiya qilish](#sql-sorovini-vizualizatsiya-qilish)
+  - [SQL tili](#sql-tili)
+- [Kesh](#kesh)
   - [Ma'lumotlar hamma joyda keshlangan](#data-is-cached-everywhere)
   - [Nima uchun Redis juda tez?](#why-is-redis-so-fast)
   - [Redis-dan qanday foydalanish mumkin?](#how-can-redis-be-used)
@@ -491,34 +491,34 @@ Agar siz ushbu mavzu bo'yicha batafsil ma'lumot olishni istasangiz, men [W3C'nin
 
 ## CI/CD
 
-### CI/CD Pipeline Explained in Simple Terms
+### CI/CD quvur liniyasi oddiy so'zlar bilan tushuntirilgan
 
 <p>
   <img src="../images/ci-cd-pipeline.jpg" style="width: 680px" />
 </p>
 
-Section 1 - SDLC with CI/CD
+1-bo'lim - CI/CD bilan SDLC
 
-The software development life cycle (SDLC) consists of several key stages: development, testing, deployment, and maintenance. CI/CD automates and integrates these stages to enable faster and more reliable releases.
+Dasturiy ta'minotni ishlab chiqish hayotiy tsikli (SDLC) bir necha asosiy bosqichlardan iborat: ishlab chiqish, sinovdan o'tkazish, joylashtirish va texnik xizmat ko'rsatish. CI/CD tezroq va ishonchli relizlarni yoqish uchun ushbu bosqichlarni avtomatlashtiradi va birlashtiradi.
 
-When code is pushed to a git repository, it triggers an automated build and test process. End-to-end (e2e) test cases are run to validate the code. If tests pass, the code can be automatically deployed to staging/production. If issues are found, the code is sent back to development for bug fixing. This automation provides fast feedback to developers and reduces the risk of bugs in production.
+Kod git omboriga yuborilsa, u avtomatlashtirilgan qurish va sinov jarayonini ishga tushiradi. Kodni tekshirish uchun end-to-end (e2e) test holatlari ishga tushiriladi. Agar testlar muvaffaqiyatli o'tsa, kod avtomatik ravishda sahnalashtirish/ishlab chiqarishga o'rnatilishi mumkin. Muammolar aniqlansa, kod xatolarni tuzatish uchun ishlab chiqishga qaytariladi. Ushbu avtomatlashtirish ishlab chiquvchilarga tezkor javob beradi va ishlab chiqarishdagi xatolar xavfini kamaytiradi.
 
-Section 2 - Difference between CI and CD
+2-bo'lim - CI va CD o'rtasidagi farq
 
-Continuous Integration (CI) automates the build, test, and merge process. It runs tests whenever code is committed to detect integration issues early. This encourages frequent code commits and rapid feedback.
+Uzluksiz integratsiya (CI) qurish, sinovdan o'tkazish va birlashtirish jarayonini avtomatlashtiradi. U integratsiya muammolarini erta aniqlash uchun kod so'ralganda testlarni o'tkazadi. Bu tez-tez kod topshirishni va tezkor fikr-mulohazalarni rag'batlantiradi.
 
-Continuous Delivery (CD) automates release processes like infrastructure changes and deployment. It ensures software can be released reliably at any time through automated workflows. CD may also automate the manual testing and approval steps required before production deployment.
+Uzluksiz yetkazib berish (CD) infratuzilmani o'zgartirish va joylashtirish kabi reliz jarayonlarini avtomatlashtiradi. Bu dasturiy ta'minotni avtomatlashtirilgan ish oqimlari orqali istalgan vaqtda ishonchli tarzda chiqarishni ta'minlaydi. CD, shuningdek, ishlab chiqarishni joylashtirishdan oldin talab qilinadigan qo'lda sinov va tasdiqlash bosqichlarini avtomatlashtirishi mumkin.
 
-Section 3 - CI/CD Pipeline
+3-bo'lim - CI/CD quvur liniyasi
 
-A typical CI/CD pipeline has several connected stages:
-- The developer commits code changes to the source control
-- CI server detects changes and triggers the build
-- Code is compiled, and tested (unit, integration tests)
-- Test results reported to the developer
-- On success, artifacts are deployed to staging environments
-- Further testing may be done on staging before release
-- CD system deploys approved changes to production
+Oddiy CI/CD quvur liniyasi bir nechta bog'langan bosqichlarga ega:
+- Ishlab chiquvchi manba boshqaruviga kod o'zgarishlarini kiritadi
+- CI server o'zgarishlarni aniqlaydi va qurilishni ishga tushiradi
+- Kod tuzilgan va sinovdan o'tgan (birlik, integratsiya testlari)
+- Sinov natijalari ishlab chiquvchiga xabar qilinadi
+- Muvaffaqiyatga erishgandan so'ng, artefaktlar sahnalashtirish muhitiga joylashtiriladi
+- Chiqarishdan oldin sahnalashtirishda qo'shimcha sinovlar o'tkazilishi mumkin
+- CD tizimi ishlab chiqarishga tasdiqlangan o'zgarishlarni kiritadi
 
 ### Netflix Tech Stack (CI/CD Pipeline)
 
@@ -526,25 +526,25 @@ A typical CI/CD pipeline has several connected stages:
   <img src="../images/netflix-ci-cd.jpg" style="width: 720px" />
 </p>
 
-Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation. 
+Rejalashtirish: Netflix Engineering rejalashtirish uchun JIRA va hujjatlar uchun Confluence-dan foydalanadi. 
 
-Coding: Java is the primary programming language for the backend service, while other languages are used for different use cases.  
+Kodlash: Java backend xizmati uchun asosiy dasturlash tilidir, boshqa tillar esa turli xil foydalanish holatlari uchun ishlatiladi.
 
-Build: Gradle is mainly used for building, and Gradle plugins are built to support various use cases.  
+Build: Gradle asosan qurilish uchun ishlatiladi va Gradle plaginlari turli xil foydalanish holatlarini qo'llab-quvvatlash uchun qurilgan.
 
-Packaging: Package and dependencies are packed into an Amazon Machine Image (AMI) for release. 
+Qadoqlash: Paket va bog'liqliklar chiqarish uchun Amazon Machine Image (AMI) ichiga qadoqlangan. 
 
-Testing: Testing emphasizes the production culture's focus on building chaos tools.  
+Sinov: Sinov ishlab chiqarish madaniyatining betartiblik vositalarini yaratishga qaratilganligini ta'kidlaydi.
 
-Deployment: Netflix uses its self-built Spinnaker for canary rollout deployment.  
+Joylashtirish: Netflix kanareykalarni tarqatish uchun o'z-o'zidan ishlab chiqarilgan Spinnaker-dan foydalanadi.
 
-Monitoring: The monitoring metrics are centralized in Atlas, and Kayenta is used to detect anomalies.  
+Monitoring: Monitoring ko'rsatkichlari Atlasda markazlashtirilgan va Kayenta anomaliyalarni aniqlash uchun ishlatiladi.  
 
-Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling. 
+Voqea haqida hisobot: Hodisalar ustuvorlikka ko'ra jo'natiladi va PagerDuty hodisani hal qilish uchun ishlatiladi.
 
-## Architecture patterns
+## Arxitektura naqshlari
 
-### MVC, MVP, MVVM, MVVM-C, and VIPER
+### MVC, MVP, MVVM, MVVM-C va VIPER
 These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? 
 
 <p>
@@ -556,7 +556,7 @@ These architecture patterns are among the most commonly used in app development,
 - Most patterns include a "model" (M) to manage business data 
 - "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
 
-### 18 Key Design Patterns Every Developer Should Know
+### Har bir dasturchi bilishi kerak bo'lgan 18 ta asosiy dizayn naqshlari
 
 Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns: 
 
@@ -583,9 +583,9 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 - Observer: News Broadcaster - Notifies classes about changes in other objects. 
 - Visitor: Skillful Guest - Adds new operations to a class without altering it.
 
-## Database
+## Ma'lumotlar bazasi
 
-### A nice cheat sheet of different databases in cloud services
+### Bulutli xizmatlardagi turli xil ma'lumotlar bazalarining chiroyli cheat varag'i
 
 <p>
   <img src="../images/cloud-dbs2.png" />
@@ -597,7 +597,7 @@ We hope this cheat sheet provides high-level direction to pinpoint the right ser
 
 Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate. 
 
-### 8 Data Structures That Power Your Databases
+### Ma'lumotlar bazalaringizni quvvatlantiradigan 8 ta ma'lumotlar tuzilmasi
 
 The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format. 
 
@@ -616,7 +616,7 @@ The following are some of the most popular data structures used for indexing dat
 - Suffix tree: for string pattern search 
 - R-tree: multi-dimension search, such as finding the nearest neighbor 
 
-### How is an SQL statement executed in the database?
+### Ma'lumotlar bazasida SQL operatori qanday bajariladi?
 
 The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
 
@@ -641,7 +641,7 @@ Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transactio
 
 Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
 
-###  CAP theorem
+###  CAP teoremasi
 
 The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing. 
 
@@ -669,14 +669,14 @@ The “2 of 3” formulation can be useful, **but this simplification could be m
 
 I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.
 
-### Types of Memory and Storage
+### Xotira va saqlash turlari
 
 <p>
   <img src="../images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
 </p>
 
 
-### Visualizing a SQL query
+### SQL so'rovini vizualizatsiya qilish
 
 <p>
   <img src="../images/sql-execution-order.jpg" style="width: 580px" />
@@ -696,7 +696,7 @@ The execution of SQL is highly complex and involves many considerations, such as
 - Concurrency control 
 - Transaction management 
 
-### SQL language 
+### SQL tili
 
 In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? 
 
@@ -714,7 +714,7 @@ There are 5 components of the SQL language:
 
 For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. 
 
-## Cache
+## Kesh
 
 ### Data is cached everywhere
 
