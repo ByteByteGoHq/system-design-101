@@ -102,11 +102,11 @@
     - [过去 15 年 Airbnb 微服务架构的演进之路](#过去-15-年-airbnb-微服务架构的演进之路)
     - [Monorepo vs. Microrepo.](#monorepo-vs-microrepo)
     - [如果是你，你要如何设计 Stack Overflow 网站？](#如果是你你要如何设计-stack-overflow-网站)
-    - [Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
-    - [How does Disney Hotstar capture 5 Billion Emojis during a tournament?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
-    - [Discord 是怎样存储 Trillions Of Messages](#discord-是怎样存储-trillions-of-messages)
-    - [How do video live streamings work on YouTube, TikTok live, or Twitch?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
-  - [License](#license)
+    - [为什么 Amazon Prime Video 监控从无服务（Serverless）转向了单体架（Monolithic）？它是怎样节省九成成本的呢？](#为什么-amazon-prime-video-监控从无服务serverless转向了单体架monolithic它是怎样节省九成成本的呢)
+    - [Disney Hotstar 是如何在锦标赛期间捕获 50 亿个表情符号的？](#disney-hotstar-是如何在锦标赛期间捕获-50-亿个表情符号的)
+    - [Discord 是怎样存储数万亿条消息的](#discord-是怎样存储数万亿条消息的)
+    - [YouTube、TikTok Live 或 Twitch 上的视频直播是如何工作的呢？](#youtubetiktok-live-或-twitch-上的视频直播是如何工作的呢)
+  - [许可](#许可)
 
 <!-- /TOC -->
 
@@ -1499,31 +1499,31 @@ Google Authenticator 是一种基于软件的身份验证器，它实现了两�
 
 ### Netflix 的技术栈
 
-This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
+本文基于许多 Netflix 工程博客和开源项目的研究。若有任何不当之处，请随时告诉我们。
 
 <p>
   <img src="../../images/netflix tech stack.png" style="width: 680px" />
 </p>
 
-**Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
+**移动和 Web**：Netflix 采用 Swift 和 Kotlin 来构建原生移动应用。而对于 Web 应用，它使用 React。
 
-**Frontend/server communication**: Netflix uses GraphQL.
+**前端和服务器之间的通信**：Netflix 使用 GraphQL。
 
-**Backend services**: Netflix relies on ZUUL, Eureka, the Spring Boot framework, and other technologies.
+**后端服务**：Netflix 依赖 ZUUL、Eureka、Spring Boot 框架和其他技术。
 
-**Databases**: Netflix utilizes EV cache, Cassandra, CockroachDB, and other databases.
+**数据库**：Netflix 利用 EV Cache、Cassandra、CockroachDB 和其他数据库。
 
-**Messaging/streaming**: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.
+**消息传递/流处理**：Netflix 使用 Apache Kafka 和 Fink 进行消息传递和流处理。
 
-**Video storage**: Netflix uses S3 and Open Connect for video storage.
+**视频存储**：Netflix 使用 S3 和 Open Connect 进行视频存储。
 
-**Data processing**: Netflix utilizes Flink and Spark for data processing, which is then visualized using Tableau. Redshift is used for processing structured data warehouse information.
+**数据处理**: Netflix 利用 Flink 和 Spark 进行数据处理，然后使用 Tableau 进行可视化。Redshift 被用于结构化数据仓库信息的处理。
 
-**CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.
+**CI/CD**：对于 CI/CD 流程，Netflix 使用各种工具，例如 JIRA、Confluence、PagerDuty、Jenkins、Gradle、Chaos Monkey、Spinnaker、Atlas 等。
 
 ### Twitter 架构 2022
 
-Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. 
+是的，这就是真正的 Twitter 架构。它由 Elon Musk 发布，我们对其进行了重绘以便于更好的阅读。 
 
 <p>
   <img src="../../images/twitter-arch.jpeg" />
@@ -1532,153 +1532,153 @@ Yes, this is the real Twitter architecture. It is posted by Elon Musk and redraw
 
 ### 过去 15 年 Airbnb 微服务架构的演进之路
 
-Airbnb’s microservice architecture went through 3 main stages. 
+Airbnb 的微服务架构经历了三个主要阶段。 
 
 <p>
   <img src="../../images/airbnb_arch.jpeg" />
 </p>
 
 
-Monolith (2008 - 2017)
+单体架构（Monolith） (2008 - 2017)
 
-Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith. 
+Airbnb 最初只是一个简单的房东房客市场。它使用 Ruby on Rails 构建 —— 单体架构。 
 
-What’s the challenge?
+有何挑战？
 
-- Confusing team ownership + unowned code
-- Slow deployment 
+- 团队所有权混乱 + 无主代码
+- 部署慢 
 
-Microservices (2017 - 2020)
+微服务（Microservices） (2017 - 2020)
 
-Microservice aims to solve those challenges. In the microservice architecture, key services include:
+微服务旨在解决上述挑战。在微服务架构中，关键的服务包含：
 
-- Data fetching service
-- Business logic data service
-- Write workflow service
-- UI aggregation service
-- Each service had one owning team
+- 数据获取服务
+- 业务逻辑数据服务
+- 写工作流服务
+- UI 聚合服务
+- 每一个服务都由一个团队专门负责
 
-What’s the challenge?
+有何挑战？
 
-Hundreds of services and dependencies were difficult for humans to manage.
+对人类来说，数百个服务和依赖是难以管理的。
 
-Micro + macroservices (2020 - present)
+微服务 + 宏服务（Micro + macroservices） (2020 - present)
 
-This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
+这是 Airbnb 现在正在努力实现的架构。微服务和宏服务混合模型侧重于 API 的统一。
 
 ### Monorepo vs. Microrepo. 
 
-Which is the best? Why do different companies choose different options? 
+何为最佳之选？为什么不同的公司选择不同的选项？ 
 
 <p>
   <img src="../../images/monorepo-microrepo.jpg" />
 </p>
 
 
-Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
+Monorepo 并不是一个新东西；Linux 和 Windows 都是用 Monorepo 创建的。为了提升可伸缩性和构建速度，谷歌开发了内部专用的工具链，以便更快地对其进行扩展，并制定了严格的编码质量标准，以保持代码一致性。 
 
-Amazon and Netflix are major ambassadors of the Microservice philosophy. This approach naturally separates the service code into separate repositories. It scales faster but can lead to governance pain points later on. 
+Amazon 和 Netflix 是微服务理念的主要簇拥者。这种方法自然地将服务代码分开存储在不同的存储库中。它能更快地扩展，但后期可能会导致治理方面的问题。 
 
-Within Monorepo, each service is a folder, and every folder has a BUILD config and OWNERS permission control. Every service member is responsible for their own folder. 
+在 Monorepo 中国呢，每个服务都是一个文件夹，每一个文件夹都有一个 BUILD 配置和 OWNERS 权限控制。每一个服务成员负责他们自己的文件夹。 
 
-On the other hand, in Microrepo, each service is responsible for its repository, with the build config and permissions typically set for the entire repository. 
+另一方面，在 Microrepo 中，每一个服务负责它们自己的存储库，而构建配置和权限通常是为整个存储库设置的。 
 
-In Monorepo, dependencies are shared across the entire codebase regardless of your business, so when there's a version upgrade, every codebase upgrades their version. 
+在 Monorepo 中，无论业务是什么，整个代码库都共享依赖项，因此，当有版本升级时，每一个代码库都会升级它们的版本。 
 
-In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules. 
+在 Microrepo 中，每一个存储库控制自己的依赖项。业务根据自己的安排选择何时升级版本。 
 
-Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. 
+Monorepo 有提交标准。Google 的代码评审以其高标准而闻名，确保Monorepo 具有一致的质量标准，而无论业务是什么。 
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different. 
-Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others. 
+Microrepo 可以设置自己的标准，也可以通过采纳最佳实践来使用共享标准。它可以更快地为业务进行扩展，但代码质量可能会有所不同。 
+Google 工程师构建了 Bazel，而 Meta 构建了 Buck。还可以用一些其他的开源工具，包括 Nix、Lerna 等。 
 
-Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
+多年以来，Microrepo 拥有了更多支持工具，其中包括 Java 的 Maven 和 Gradle、NodeJS 的 NPM 以及 C/C++ 的 CMake for C/C++。 
 
 ### 如果是你，你要如何设计 Stack Overflow 网站？
 
-If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
+如果你的答案是本地服务器（on-premise server）和单体架构（位于下图底部），那么你有可能面试失败，但这正是它现实中的构建方式！
 
 <p>
   <img src="../../images/stackoverflow.jpg" />
 </p>
 
 
-**What people think it should look like**
+**人们觉得它应该是什么样子的呢**
 
-The interviewer is probably expecting something like the top portion of the picture.
+面试官可能期待类似于上图顶部那样子的回答。
 
-- Microservice is used to decompose the system into small components.
-- Each service has its own database. Use cache heavily.
-- The service is sharded.
-- The services talk to each other asynchronously through message queues.
-- The service is implemented using Event Sourcing with CQRS.
-- Showing off knowledge in distributed systems such as eventual consistency, CAP theorem, etc.
+- 使用微服务来将系统分解为小组件。
+- 每个服务都有自己的数据库。重度使用缓存。
+- 服务是分片的。
+- 服务之间通过消息队列异步通信。
+- 服务是使用 CQRS （Command Query Responsibility Segregation） 和 Event Sourcing 来实现的。
+- 展示分布式系统方面的知识，例如最终一致性（eventual consistency）、CAP 定理等。
 
-**What it actually is**
+**实际上呢**
 
-Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
+Stack Overflow 仅用九台本地服务器即可满足所有流量需求，而且它是单体的！它拥有自己的服务器并且并没有在云上运行。
 
-This is contrary to all our popular beliefs these days. 
+这与我们当下所有流行的信念背道而驰。 
 
-### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
+### 为什么 Amazon Prime Video 监控从无服务（Serverless）转向了单体架（Monolithic）？它是怎样节省九成成本的呢？
 
-The diagram below shows the architecture comparison before and after the migration. 
+下图是迁移前后的架构对比。 
 
 <p>
   <img src="../../images/serverless-to-monolithic.jpeg" />
 </p>
 
 
-What is Amazon Prime Video Monitoring Service? 
+Amazon Prime Video 监控服务是什么？ 
 
-Prime Video service needs to monitor the quality of thousands of live streams. The monitoring tool automatically analyzes the streams in real time and identifies quality issues like block corruption, video freeze, and sync problems. This is an important process for customer satisfaction. 
+Prime Video 服务需要监控数千个直播流的质量。这个监控工具自动实时分析流，识别诸如块损坏、视频冻结和同步问题这样的质量问题。这对于提高客户满意度来说，是一个重要的过程。 
 
-There are 3 steps: media converter, defect detector, and real-time notification. 
+共有三步：媒体转换器（media converter）、缺陷检测器（defect detector）和实时通知（real-time notification）。 
 
-- What is the problem with the old architecture? 
+- 旧架构有什么问题？ 
 
-  The old architecture was based on Amazon Lambda, which was good for building services quickly. However, it was not cost-effective when running the architecture at a high scale. The two most expensive operations are: 
+  旧架构基于 Amazon Lambda，适用于快速构建服务。然而，当大规模运行此架构时，就成本而言，并不划算。其中两个最贵的操作是： 
 
-1. The orchestration workflow - AWS step functions charge users by state transitions and the orchestration performs multiple state transitions every second. 
+1. 编排工作流 —— AWS Step Functions 按状态转换收费，而编排每秒会执行多次状态转换。 
 
-2. Data passing between distributed components - the intermediate data is stored in Amazon S3 so that the next stage can download. The download can be costly when the volume is high. 
+2. 在分布式组件之间传递数据 —— 中间数据存储在 Amazon S3 中，以便下一个阶段可以下载。当数据量很大的时候，下载操作可能很昂贵。 
 
-- Monolithic architecture saves 90% cost 
+- 单体架构节约了九成成本 
 
-  A monolithic architecture is designed to address the cost issues. There are still 3 components, but the media converter and defect detector are deployed in the same process, saving the cost of passing data over the network. Surprisingly, this approach to deployment architecture change led to 90% cost savings! 
+  单体架构旨在解决成本问题。在此架构中，仍然有 3 个组件，但是，媒体转换器和缺陷检测器部署在同一进程中，从而节省了通过网络传递数据所带来的开销。令人惊讶的是，这种部署架构的变更节省了九成成本！ 
 
-This is an interesting and unique case study because microservices have become a go-to and fashionable choice in the tech industry. It's good to see that we are having more discussions about evolving the architecture and having more honest discussions about its pros and cons. Decomposing components into distributed microservices comes with a cost. 
+这是一个有趣且独一无二的案例研究，因为微服务已经成为了科技行业的时尚首选。很高兴看到我们对架构的演变进行了更多的讨论，并且对其利弊也进行了更加诚实的讨论。将组件分解为分布式微服务是有成本的。
 
-- What did Amazon leaders say about this? 
+- Amazon 的领导人对此有何评论？ 
   
-  Amazon CTO Werner Vogels: “Building **evolvable software systems** is a strategy, not a religion. And revisiting your architecture with an open mind is a must.” 
+  Amazon 的 CTO Werner Vogel：“构建**可进化的软件系统**是一种策略，而不是一种宗教。以开放的心态审视你的架构是必须的。” 
 
-Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”. 
+前 Amazon 可持续性副总裁 Adrian Cockcroft：“Prime Video 团队走的是我称之为**无服务优先（Serverless First）**的道路…我并不主张**仅无服务（Serverless Only）**”。 
 
-### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
+### Disney Hotstar 是如何在锦标赛期间捕获 50 亿个表情符号的？
 
 <p>
   <img src="../../images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
 
 
-1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
+1. 客户端通过标准的 HTTP 请求发送表情符号。你可以将 Golang 服务看成一个典型的 Web 服务器。选择 Golang 是因为它很好的支持了并发。线程在 Golang 中是轻量的。
 
-2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
+2. 由于写入量非常大，Kafka（消息队列）被用作缓冲区。
 
-3. Emoji data are aggregated by a streaming processing service called Spark. It aggregates data every 2 seconds, which is configurable. There is a trade-off to be made based on the interval. A shorter interval means emojis are delivered to other clients faster but it also means more computing resources are needed.
+3. 表情符号数据由一个名为 Spark 的流处理服务来进行聚合。它每 2 秒聚合一次数据，这个时间是可配置的。根据时间间隔需要进行权衡。较短的间隔意味着，表情符号将更快地被传递给其他客户端，但同时也意味着需要更多的计算资源。
 
-4. Aggregated data is written to another Kafka. 
+4. 将被聚合的数据写入到另一个 Kafka。 
 
-5. The PubSub consumers pull aggregated emoji data from Kafka. 
+5. PubSub 消费者从 Kafka 拉取聚合的表情符号数据。 
 
-6. Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.
+6. 通过 PubSub 基础设施，表情符号被实时传递给其他客户端。PubSub 基础设施很有意思。Hotstar 考虑了以下协议：Socketio、NATS、MQTT 和 gRPC，最终选择了 MQTT。
  
-A similar design is adopted by LinkedIn which streams a million likes/sec.
+LinkedIn 也采用了类似的设计，每秒流式传输一百万个赞。
 
-### Discord 是怎样存储 Trillions Of Messages 
+### Discord 是怎样存储数万亿条消息的 
 
-The diagram below shows the evolution of message storage at Discord: 
+下图显示了 Discord 的消息存储的演进之路： 
 
 <p>
   <img src="../../images/discord-store-messages.jpg" />
@@ -1687,54 +1687,54 @@ The diagram below shows the evolution of message storage at Discord:
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB 
 
-In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen. 
+在 2015 年，Discord 的第一个版本建立在单个 MongoDB 副本之上。到了2015 年 11 月左右，MongoDB 已经存储了 1 亿条数据，此时，RAM 再也无法容纳数据和索引了。延迟变得不可预测。消息存储需要移到另一个数据库。Cassandra 被选中。 
 
-In 2017, Discord had 12 Cassandra nodes and stored billions of messages. 
+在 2017 年，Discord 拥有 12 个 Cassandra 节点，存储了数十亿条消息。 
 
-At the beginning of 2022, it had 177 nodes with trillions of messages. At this point, latency was unpredictable, and maintenance operations became too expensive to run. 
+到了 2022 年初，它拥有 177 个节点，存储了数万亿条消息。此时，延迟再次不可预测，而维护操作也成本过高以致无法进行。 
 
-There are several reasons for the issue: 
+这个问题的出现有几个原因：
 
-- Cassandra uses the LSM tree for the internal data structure. The reads are more expensive than the writes. There can be many concurrent reads on a server with hundreds of users, resulting in hotspots. 
-- Maintaining clusters, such as compacting SSTables, impacts performance. 
-- Garbage collection pauses would cause significant latency spikes 
+- Cassandra 的内部数据结构使用了 LSM 树。读取比写入更昂贵。在具有数百用户的服务器上可能会有许多并发读取操作，从而导致热点问题。 
+- 维护集群，例如紧凑的 SSTable，这会影响性能。 
+- 垃圾回收暂停会导致显著的延迟波动 
 
-ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its architecture to have a monolithic API, a data service written in Rust, and ScyllaDB-based storage. 
+ScyllaDB 是一种兼容 Cassandra 的数据库，用C++编写。Discord 重新设计了其架构，使其具有一个单体 API，一个用 Rust 编写的数据服务以及基于 ScyllaDB 的存储。 
 
-The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra. 
+ScyllaDB 中的 p99 读取延迟为15 毫秒，而 Cassandra 则为 40-125 毫秒。p99 写入延迟为 5 毫秒，而 Cassandra 则为 5-70 毫秒。 
 
-### How do video live streamings work on YouTube, TikTok live, or Twitch?
+### YouTube、TikTok Live 或 Twitch 上的视频直播是如何工作的呢？
  
-Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
+直播与常规的流媒体不同，因为直播的视频内容是通过互联网实时传输的，通常延迟只有几秒钟。
  
-The diagram below explains what happens behind the scenes to make this possible.
+下图解释了使其成为可能的幕后工作流。
 
 <p>
   <img src="../../images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
  
-Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
+步骤 1：麦克风和摄像头捕获原始视频数据。数据稍后被发送到服务器端。
  
-Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
+步骤 2：视频数据被压缩和编码。例如，压缩算法将背景与其他视频元素分离。压缩后，视频被编码为诸如 H.264 之类的标准。在此步骤之后，视频数据的大小会小得多。
  
-Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
+步骤 3：编码数据被分成更小的段，每一段长度通常为几秒，因此，大大缩短了下载或者流式传输的时间。
  
-Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
+步骤 4：发送分段数据到流媒体服务器。流媒体服务器需要支持不同的设备和网络条件。这称为“自适应比特率流式传输（Adaptive Bitrate Streaming）”。这意味着我们在步骤2和步骤3中需要生成具有不同比特率的多个文件。
  
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
+步骤 5：推送直播流数据到由 CDN（Content Delivery Network，内容传输网络）支持的边缘服务器（edge server）。数百万观众可以从附近的边缘服务器观看视频。CDN 显著降低了数据传输延迟。 
  
-Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
+步骤 6：观众的设备解码和解压视频数据，并在视频播放器中播放视频。
  
-Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
+步骤 7 和 8：如果需要存储视频以供重播，那么编码数据会被发送到存储服务器（storage server），观众可以稍后从中请求重播。
  
-Standard protocols for live streaming include:
+直播流媒体的标准协议包括：
 
-- RTMP (Real-Time Messaging Protocol): This was originally developed by Macromedia to transmit data between a Flash player and a server. Now it is used for streaming video data over the internet. Note that video conferencing applications like Skype use RTC (Real-Time Communication) protocol for lower latency.
-- HLS (HTTP Live Streaming): It requires the H.264 or H.265 encoding. Apple devices accept only HLS format.
-- DASH (Dynamic Adaptive Streaming over HTTP): DASH does not support Apple devices.
-- Both HLS and DASH support adaptive bitrate streaming.
+- RTMP（Real-Time Messaging Protocol，实时消息传输协议）：该协议最初由 Macromedia 开发，用于在 Flash 播放器和服务器之间传输数据。现在，它用来通过互联网传输视频数据。注意，视频会议应用程序（如Skype）使用 RTC（Real-Time Communication，实时通信）协议来获得更低的延迟。
+- HLS（HTTP Live Streaming，HTTP实时流传输）：它要求 H.264 或 H.265 编码。Apple 设备仅接受 HLS 格式。
+- DASH（Dynamic Adaptive Streaming over HTTP，基于HTTP的动态自适应流传输）：DASH不支持Apple设备。
+- HLS 和 DASH 都支持自适应比特率流传输。
 
-## License
+## 许可
 
 <p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
