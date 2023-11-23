@@ -935,29 +935,29 @@ Nolinchi nusxa - dastur konteksti va yadro konteksti o'rtasida bir nechta ma'lum
 
 ###  Nima uchun kredit karta "banklardagi eng daromadli mahsulot" deb ataladi? VISA/Mastercard qanday qilib pul ishlaydi? 
 
-The diagram below shows the economics of the credit card payment flow.
+Quyidagi diagrammada kredit karta to'lovlari oqimining iqtisodiyoti ko'rsatilgan.
 
 <p>
   <img src="../images/how does visa makes money.jpg" style="width: 640px" />
 </p>
 
-1.&nbsp;&nbsp;The cardholder pays a merchant $100 to buy a product.
+1.&nbsp;&nbsp;Karta egasi mahsulot sotib olish uchun savdogarga 100 dollar to'laydi.
 
-2.&nbsp;The merchant benefits from the use of the credit card with higher sales volume and needs to compensate the issuer and the card network for providing the payment service. The acquiring bank sets a fee with the merchant, called the “merchant discount fee.”
+2.&nbsp;Savdogar yuqori savdo hajmiga ega kredit kartasidan foydalanishdan foyda oladi va to'lov xizmatini taqdim etganlik uchun emitent va karta tarmog'iga kompensatsiya to'lashi kerak. Qabul qiluvchi bank savdogardan "savdogar chegirma to'lovi" deb nomlangan to'lovni belgilaydi.
 
-3 - 4. The acquiring bank keeps $0.25 as the acquiring markup, and $1.75 is paid to the issuing bank as the interchange fee. The merchant discount fee should cover the interchange fee. 
+3 - 4.  Ekvaying bank ekvayring ustamasi sifatida 0,25 AQSh dollarini ushlab turadi va 1,75 AQSh dollari almashuv komissiyasi sifatida emitent bankka to'lanadi. Savdogar chegirma to'lovi almashinuv to'lovini qoplashi kerak.
 
-  The interchange fee is set by the card network because it is less efficient for each issuing bank to negotiate fees with each merchant.
+O'zaro almashish to'lovi karta tarmog'i tomonidan belgilanadi, chunki har bir emitent bank uchun har bir savdogar bilan to'lovlarni kelishib olish unchalik samarali emas.
 
-5.&nbsp;&nbsp;The card network sets up the network assessments and fees with each bank, which pays the card network for its services every month. For example, VISA charges a 0.11% assessment, plus a $0.0195 usage fee, for every swipe.
+5.&nbsp;&nbsp;Karta tarmogʻi har bir bank bilan tarmoqni baholash va toʻlovlarni oʻrnatadi, u har oy karta tarmogʻiga oʻz xizmatlari uchun toʻlaydi. Masalan, VISA har bir surish uchun 0,11% baho va 0,0195 AQSh dollari miqdorida foydalanish to'lovini oladi.
 
-6.&nbsp;&nbsp;The cardholder pays the issuing bank for its services.
+6.&nbsp;&nbsp;Karta egasi emitent bankka xizmatlari uchun to'laydi.
 
-Why should the issuing bank be compensated?
+Nima uchun emitent bank kompensatsiya to'lashi kerak?
 
-- The issuer pays the merchant even if the cardholder fails to pay the issuer. 
-- The issuer pays the merchant before the cardholder pays the issuer.
-- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc. 
+- Emitent karta egasi emitentga to'lamagan taqdirda ham savdogarga to'laydi. 
+- Emitent karta egasi emitentga to'lashdan oldin savdogarga to'laydi.
+- Emitent boshqa operatsion xarajatlarga ega, jumladan, mijozlar hisoblarini boshqarish, hisobotlarni taqdim etish, firibgarlikni aniqlash, risklarni boshqarish, kliring va hisob-kitoblar va boshqalar.
 
 ### Savdogarlar do'konida kredit kartani o'tkazganimizda VISA qanday ishlaydi?
 
@@ -966,44 +966,44 @@ Why should the issuing bank be compensated?
 </p>
 
 
-VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
+VISA, Mastercard va American Express pul mablag'larini kliring va hisob-kitob qilish uchun karta tarmoqlari sifatida ishlaydi. Kartani qabul qiluvchi bank va kartani emitent banki har xil bo'lishi mumkin va ko'pincha bir-biridan farq qiladi. Agar banklar birin-ketin hisob-kitoblarni vositachisiz amalga oshirsalar, har bir bank boshqa barcha banklar bilan hisob-kitob qilishlari kerak edi. Bu juda samarasiz. 
  
-The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
+Quyidagi diagrammada VISA ning kredit karta bilan to'lov jarayonidagi roli ko'rsatilgan. Ikkita oqim ishtirok etadi. Avtorizatsiya oqimi mijoz kredit kartasini surish paytida sodir bo'ladi. Qo'lga olish va hisob-kitoblar oqimi savdogar kunning oxirida pul olishni xohlasa sodir bo'ladi.
  
-- Authorization Flow
+- Avtorizatsiya oqimi
 
-Step 0: The card issuing bank issues credit cards to its customers. 
+0-qadam: Kartani chiqaruvchi bank o'z mijozlariga kredit kartalarini chiqaradi.
  
-Step 1: The cardholder wants to buy a product and swipes the credit card at the Point of Sale (POS) terminal in the merchant’s shop.
+1-qadam: Karta egasi mahsulot sotib olmoqchi va kredit kartani sotuvchining do'konidagi Savdo nuqtasi (POS) terminalida suradi.
  
-Step 2: The POS terminal sends the transaction to the acquiring bank, which has provided the POS terminal.
+2-qadam: POS-terminal tranzaktsiyani POS-terminalni taqdim etgan ekvaying bankka yuboradi.
  
-Steps 3 and 4: The acquiring bank sends the transaction to the card network, also called the card scheme. The card network sends the transaction to the issuing bank for approval.
+3 va 4-qadamlar: Ekvaying bank tranzaktsiyani kartalar tarmog'iga yuboradi, shuningdek, karta sxemasi deb ataladi. Karta tarmog'i tranzaksiyani tasdiqlash uchun emitent bankka yuboradi.
  
-Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal. 
+4.1, 4.2 va 4.3-qadamlar: Agar tranzaktsiya tasdiqlangan bo'lsa, emitent bank pulni muzlatib qo'yadi. Tasdiqlash yoki rad etish ekvayerga, shuningdek POS terminalga qaytariladi.
  
-- Capture and Settlement Flow
+- Qo'lga olish va joylashtirish oqimi
 
-Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
+1 va 2-qadamlar: Savdogar kun oxirida pul yig'ishni xohlaydi, shuning uchun ular POS terminalida "qo'lga olish" tugmasini bosadilar. Tranzaktsiyalar to'plamda ekvayerga yuboriladi. Ekvayer paketli faylni tranzaktsiyalar bilan karta tarmog'iga yuboradi.
  
-Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
+3-qadam: Karta tarmog'i turli ekvayerlardan yig'ilgan tranzaktsiyalar uchun kliringni amalga oshiradi va kliring fayllarini turli emitent banklarga yuboradi.
  
-Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
+4-qadam: Emitent banklar kliring fayllari to'g'riligini tasdiqlaydi va tegishli ekvayring banklarga pul o'tkazadi.
  
-Step 5: The acquiring bank then transfers money to the merchant’s bank. 
+5-qadam: Ekvayer bank so'ng savdogarning bankiga pul o'tkazadi. 
  
-Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
+6-qadam: Karta tarmog'i turli ekvayring banklardan tranzaktsiyalarni tozalaydi. Kliring - bu o'zaro kompensatsiya operatsiyalari hisoblangan jarayondir, shuning uchun umumiy operatsiyalar soni kamayadi.
  
-In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
+Bu jarayonda karta tarmog'i har bir bank bilan gaplashish yukini o'z zimmasiga oladi va buning evaziga xizmat haqi oladi.
 
 ### Dunyo bo'ylab to'lov tizimlari seriyasi (1-qism): Hindistonda yagona to'lov interfeysi (UPI)
 
 
-What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
+UPI nima? UPI - bu Hindiston Milliy To'lovlar Korporatsiyasi tomonidan ishlab chiqilgan tezkor real vaqtda to'lov tizimi.
 
-It accounts for 60% of digital retail transactions in India today.
+Bugungi kunda Hindistondagi raqamli chakana savdo operatsiyalarining 60% ni tashkil qiladi.
 
-UPI = payment markup language + standard for interoperable payments
+UPI = to'lovni belgilash tili + o'zaro to'lovlar uchun standart
 
 
 <p>
@@ -1015,63 +1015,63 @@ UPI = payment markup language + standard for interoperable payments
 
 ###  DevOps va SRE va platforma muhandisligi. Farqi nimada?
 
-The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. 
+DevOps, SRE va Platform Engineering kontseptsiyalari turli vaqtlarda paydo bo'lgan va turli shaxslar va tashkilotlar tomonidan ishlab chiqilgan.
 
 <p>
   <img src="../images/devops-sre-platform.jpg" />
 </p>
 
-DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. 
+DevOps kontseptsiya sifatida 2009 yilda Agile konferentsiyasida Patrik Debois va Endryu Shafer tomonidan taqdim etilgan. Ular hamkorlik madaniyatini va dasturiy ta'minotni ishlab chiqishning butun hayotiy tsikli uchun umumiy mas'uliyatni rag'batlantirish orqali dasturiy ta'minotni ishlab chiqish va operatsiyalar o'rtasidagi tafovutni bartaraf etishga intildi.
 
-SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s to address operational challenges in managing large-scale, complex systems. Google developed SRE practices and tools, such as the Borg cluster management system and the Monarch monitoring system, to improve the reliability and efficiency of their services. 
+SRE yoki Site Reliability Engineering 2000-yillarning boshida Google tomonidan keng koʻlamli, murakkab tizimlarni boshqarishdagi operatsion muammolarni hal qilish uchun kashshof boʻlgan. Google xizmatlarining ishonchliligi va samaradorligini oshirish uchun Borg klasterini boshqarish tizimi va Monarch monitoring tizimi kabi SRE amaliyotlari va vositalarini ishlab chiqdi.
 
-Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective. 
+Platforma muhandisligi - bu SRE muhandisligi asosiga qurilgan eng yangi kontseptsiya. Platforma muhandisligining aniq kelib chiqishi unchalik aniq emas, lekin bu odatda DevOps va SRE amaliyotlarining kengaytmasi sifatida tushuniladi, asosiy e'tibor butun biznes istiqbolini qo'llab-quvvatlaydigan mahsulotni ishlab chiqish uchun keng qamrovli platformani taqdim etishga qaratilgan.
 
-It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. 
+Ta'kidlash joizki, bu tushunchalar turli davrlarda paydo bo'lgan. Ularning barchasi dasturiy ta'minotni ishlab chiqish va ishlashda hamkorlik, avtomatlashtirish va samaradorlikni oshirishning kengroq tendentsiyasi bilan bog'liq.
 
 ### K8s (Kubernetes) nima?
 
-K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.
+K8s konteyner orkestrlash tizimidir. U konteynerni joylashtirish va boshqarish uchun ishlatiladi. Uning dizayniga Google ichki tizimi Borg katta ta'sir ko'rsatadi.
 
 <p>
   <img src="../images/k8s.jpeg" style="width: 680px" />
 </p>
 
-A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
+K8s klasteri konteynerlashtirilgan ilovalarni ishga tushiradigan tugunlar deb ataladigan ishchi mashinalar to'plamidan iborat. Har bir klasterda kamida bitta ishchi tugun mavjud.
 
-The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
+Ishchi tugun(lar) dastur ish yukining komponentlari bo'lgan podlarni joylashtiradi. Boshqaruv tekisligi ishchi tugunlarni va klasterdagi podlarni boshqaradi. Ishlab chiqarish muhitida boshqaruv tekisligi odatda bir nechta kompyuterlar bo'ylab ishlaydi va klaster odatda xatolarga chidamlilik va yuqori mavjudlikni ta'minlaydigan bir nechta tugunlarni boshqaradi.
 
-- Control Plane Components
+- Tekshirish tekisligi komponentlari
 
-1. API Server
+1. API serveri
 
-    The API server talks to all the components in the k8s cluster. All the operations on pods are executed by talking to the API server.
+    API serveri k8s klasteridagi barcha komponentlar bilan gaplashadi. Podkalardagi barcha operatsiyalar API serveri bilan gaplashish orqali amalga oshiriladi.
 
-2. Scheduler
+2. Rejalashtiruvchi
 
-    The scheduler watches pod workloads and assigns loads on newly created pods.
+    Rejalashtiruvchi pod ish yuklarini kuzatadi va yangi yaratilgan podkalarga yuklarni tayinlaydi.
 
-3. Controller Manager
+3. Nazoratchi menejeri
 
-    The controller manager runs the controllers, including Node Controller, Job Controller, EndpointSlice Controller, and ServiceAccount Controller.
+    Nazoratchi menejeri kontrollerlarni, jumladan Node Controller, Job Controller, EndpointSlice Controller va ServiceAccount Controllerni boshqaradi.
 
 4. Etcd
     
-    etcd is a key-value store used as Kubernetes' backing store for all cluster data.
+    etcd - barcha klaster ma'lumotlari uchun Kubernetesning qo'llab-quvvatlovchi do'koni sifatida foydalaniladigan kalit-qiymat do'koni.
 
-- Nodes
+- Tugunlar
 
-1. Pods
+1. Podlar
 
-    A pod is a group of containers and is the smallest unit that k8s administers. Pods have a single IP address applied to every container within the pod.
+    Pod - bu konteynerlar guruhi va k8s boshqaradigan eng kichik birlikdir. Podlar pod ichidagi har bir konteynerga qo'llaniladigan yagona IP-manzilga ega.
 
 2. Kubelet
 
-    An agent that runs on each node in the cluster. It ensures containers are running in a Pod.
+    Klasterdagi har bir tugunda ishlaydigan agent. Bu konteynerlarning Podda ishlashini ta'minlaydi.
 
-3. Kube Proxy
+3. Kube proksi
 
-    Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
+    Kube-proksi - bu klasteringizdagi har bir tugunda ishlaydigan tarmoq proksi-serveri. U xizmatdan tugunga keladigan trafikni yo'naltiradi. U ish uchun so'rovlarni to'g'ri konteynerlarga yuboradi.
 
 ### Docker va Kubernetes. Qaysi birini ishlatishimiz kerak?
 
@@ -1080,118 +1080,117 @@ The worker node(s) host the Pods that are the components of the application work
 </p>
 
 
-What is Docker ? 
+Docker nima?
 
-Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies. 
+Docker ochiq kodli platforma bo'lib, u alohida konteynerlarda ilovalarni paketlash, tarqatish va ishga tushirish imkonini beradi. U konteynerlashtirishga qaratilgan bo'lib, ilovalar va ularning bog'liqliklarini qamrab oladigan engil muhitlarni ta'minlaydi. 
 
-What is Kubernetes ? 
+Kubernetes nima?
 
-Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes. 
+Ko'pincha K8s deb ataladigan Kubernetes ochiq manbali konteyner orkestr platformasidir. U tugunlar klasterida konteynerlashtirilgan ilovalarni joylashtirish, masshtablash va boshqarishni avtomatlashtirish uchun asos yaratadi. 
 
-How are both different from each other ? 
+Ikkalasi bir-biridan qanday farq qiladi?
 
-Docker: Docker operates at the individual container level on a single operating system host. 
+Docker: Docker bitta operatsion tizim xostida individual konteyner darajasida ishlaydi.
 
-You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex. 
+Har bir xostni qo'lda boshqarishingiz kerak va tarmoqlarni sozlash, xavfsizlik siyosati va bir nechta tegishli konteynerlar uchun saqlash murakkab bo'lishi mumkin.
 
-Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications. 
+Kubernetes: Kubernetes klaster darajasida ishlaydi. U bir nechta hostlarda bir nechta konteynerli ilovalarni boshqaradi, yuklarni muvozanatlash, masshtablash va ilovalarning kerakli holatini ta'minlash kabi vazifalarni avtomatlashtirishni ta'minlaydi.
 
-In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. 
+Muxtasar qilib aytganda, Docker alohida xostlarda konteynerlashtirish va konteynerlarni ishga tushirishga e'tibor qaratadi, Kubernetes esa xostlar klasteri bo'ylab konteynerlarni boshqarish va tartibga solishga ixtisoslashgan.
 
 ### Docker qanday ishlaydi?
 
-The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull” 
-and “docker run”. 
+Quyidagi diagrammada Docker arxitekturasi va biz "docker build", "docker pull" va "docker run" ni ishga tushirganimizda qanday ishlashi ko'rsatilgan.
 
 <p>
   <img src="../images/docker.jpg" style="width: 680px" />
 </p>
 
-There are 3 components in Docker architecture: 
+Docker arxitekturasida 3 ta komponent mavjud:
 
-- Docker client 
+- Docker mijozi
     
-    The docker client talks to the Docker daemon. 
+    Docker mijozi Docker demoni bilan gaplashadi.
 
 - Docker host 
 
-    The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. 
+    Docker demoni Docker API so‘rovlarini tinglaydi va tasvirlar, konteynerlar, tarmoqlar va hajmlar kabi Docker obyektlarini boshqaradi.
 
-- Docker registry 
+- Docker registrlari 
 
-    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. 
+    Docker registrida Docker tasvirlari saqlanadi. Docker Hub - bu hamma foydalanishi mumkin bo'lgan ommaviy reestr.
 
-Let’s take the “docker run” command as an example. 
+Misol sifatida "docker run" buyrug'ini olaylik.
 
-  1. Docker pulls the image from the registry. 
-  1. Docker creates a new container. 
-  1. Docker allocates a read-write filesystem to the container. 
-  1. Docker creates a network interface to connect the container to the default network. 
-  1. Docker starts the container.
+  1. Docker tasvirni registrdan oladi.
+  2. Docker yangi konteyner yaratadi.
+  3. Docker konteynerga o'qish va yozish fayl tizimini ajratadi.
+  4. Docker konteynerni standart tarmoqqa ulash uchun tarmoq interfeysini yaratadi.
+  5. Docker konteynerni ishga tushiradi.
 
 ## GIT
 
 ### Git buyruqlari qanday ishlaydi
 
-To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: 
+Boshlash uchun kodimiz qayerda saqlanishini aniqlash kerak. Umumiy taxmin shundan iboratki, faqat ikkita joy bor - biri Github kabi uzoq serverda, ikkinchisi bizning mahalliy mashinamizda. Biroq, bu to'liq aniq emas. Git bizning mashinamizda uchta mahalliy xotirani saqlaydi, ya'ni bizning kodimizni to'rtta joyda topish mumkin:
 
 <p>
   <img src="../images/git-commands.png" style="width: 600px" />
 </p>
 
 
-- Working directory: where we edit files 
-- Staging area: a temporary location where files are kept for the next commit 
-- Local repository: contains the code that has been committed 
-- Remote repository: the remote server that stores the code 
+- Ishchi katalog: biz fayllarni tahrir qiladigan joy
+- Sahna maydoni: fayllar keyingi topshiriq uchun saqlanadigan vaqtinchalik joy
+- Mahalliy ombor: o'rnatilgan kodni o'z ichiga oladi
+- Masofaviy ombor: kodni saqlaydigan masofaviy server
 
-Most Git commands primarily move files between these four locations. 
+Ko'pgina Git buyruqlari asosan fayllarni ushbu to'rtta joy o'rtasida ko'chiradi.
 
 ### Git qanday ishlaydi?
 
-The diagram below shows the Git workflow. 
+Quyidagi diagrammada Git ish jarayoni ko'rsatilgan.
 
 <p>
   <img src="../images/git-workflow.jpeg" style="width: 520px" />
 </p>
 
 
-Git is a distributed version control system. 
+Git - bu taqsimlangan versiyani boshqarish tizimi.
 
-Every developer maintains a local copy of the main repository and edits and commits to the local copy. 
+Har bir ishlab chiquvchi asosiy omborning mahalliy nusxasini saqlaydi va mahalliy nusxani tahrirlaydi va majburiyatini oladi.
 
-The commit is very fast because the operation doesn’t interact with the remote repository. 
+Amal qilish juda tez, chunki operatsiya masofaviy ombor bilan o'zaro ta'sir qilmaydi.
 
-If the remote repository crashes, the files can be recovered from the local repositories. 
+Agar masofaviy ombor ishlamay qolsa, fayllar mahalliy omborlardan tiklanishi mumkin. 
 
-### Git merge va Git rebase]
+### Git merge va Git rebase
 
-What are the differences?
+Qanday farqlar bor?
 
 <p>
   <img src="../images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
 
 
-When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
+**O'zgarishlar**ni bir Git filialidan boshqasiga **birlashtirgan**da, biz "git merge" yoki "git rebase" dan foydalanishimiz mumkin. Quyidagi diagrammada ikkita buyruq qanday ishlashi ko'rsatilgan.
 
 **Git merge**
 
-This creates a new commit G’ in the main branch. G’ ties the histories of both main and feature branches.
+Bu asosiy filialda yangi G' majburiyatini yaratadi. G' asosiy va xususiyatli tarmoqlarning tarixini bog'laydi.
 
-Git merge is **non-destructive**. Neither the main nor the feature branch is changed.
+Git birlashmasi **buzilmaydi**. Na asosiy, na xususiyat filiali o'zgartirilmaydi.
 
-**Git rebase**
+**Git birlashmasi (Git rebase)**
 
-Git rebase moves the feature branch histories to the head of the main branch. It creates new commits E’, F’, and G’ for each commit in the feature branch.
+Git rebase xususiyat filiallari tarixini asosiy filialning boshiga o'tkazadi. U xususiyat bo'limidagi har bir topshiriq uchun yangi E', F' va G' majburiyatlarini yaratadi.
 
-The benefit of rebase is that it has a linear **commit history**.
+Qayta tiklashning afzalligi shundaki, u chiziqli **majburiyat tarixiga (commit history)** ega.
 
-Rebase can be dangerous if “the golden rule of git rebase” is not followed.
+Agar "git rebase ning oltin qoidasiga" rioya qilinmasa, rebase xavfli bo'lishi mumkin.
 
-**The Golden Rule of Git Rebase**
+**Git Rebase ning oltin qoidasi (The Golden Rule of Git Rebase)**
 
-Never use it on public branches!
+Uni hech qachon ommaviy filiallarida ishlatmang!
 
 ## Bulutli xizmatlar
 
@@ -1204,43 +1203,43 @@ Never use it on public branches!
 
 ### Mahalliy bulut nima?
 
-Below is a diagram showing the evolution of architecture and processes since the 1980s. 
+Quyida 1980-yillardan beri arxitektura va jarayonlarning evolyutsiyasini ko'rsatadigan diagramma keltirilgan.
 
 <p>
   <img src="../images/cloud-native.jpeg" style="width: 640px" />
 </p>
 
-Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. 
+Tashkilotlar bulutli mahalliy texnologiyalardan foydalangan holda ommaviy, xususiy va gibrid bulutlarda kengaytiriladigan ilovalarni yaratishi va ishga tushirishi mumkin.
 
-This means the applications are designed to leverage cloud features, so they are resilient to load and easy to scale. 
+Bu shuni anglatadiki, ilovalar bulut xususiyatlaridan foydalanish uchun mo'ljallangan, shuning uchun ular yuklanishga chidamli va masshtablash oson.
 
-Cloud native includes 4 aspects: 
+Cloud native 4 jihatni o'z ichiga oladi:
 
-1. Development process 
+1. Rivojlanish jarayoni 
 
-    This has progressed from waterfall to agile to DevOps. 
+    Bu sharsharadan agilegacha, DevOpsga o'tdi.
 
-2. Application Architecture 
+2. Ilova arxitekturasi
 
-    The architecture has gone from monolithic to microservices. Each service is designed to be small, adaptive to the limited resources in cloud containers. 
+    Arxitektura monolitlikdan mikroservislarga o'tdi. Har bir xizmat kichik, bulutli konteynerlardagi cheklangan resurslarga moslashish uchun mo'ljallangan.
 
-3. Deployment & packaging 
+3. Joylashtirish va qadoqlash
 
-    The applications used to be deployed on physical servers. Then around 2000, the applications that were not sensitive to latency were usually deployed on virtual servers. With cloud native applications, they are packaged into docker images and deployed in containers. 
+    Ilovalar jismoniy serverlarda o'rnatilar edi. Keyin 2000-yillarda kechikishga sezgir bo'lmagan ilovalar odatda virtual serverlarda o'rnatildi. Bulutli mahalliy ilovalar bilan ular docker tasvirlariga o'raladi va konteynerlarga joylashtiriladi.
 
-4. Application infrastructure 
+4. Ilova infratuzilmasi
 
-    The applications are massively deployed on cloud infrastructure instead of self-hosted servers. 
+    Ilovalar o'z-o'zidan joylashtirilgan serverlar o'rniga bulutli infratuzilmada ommaviy ravishda joylashtirilgan.
 
 ## Ishlab chiquvchi mahsuldorlik vositalari
 
 ### JSON fayllarini vizualizatsiya qilish
 
-Nested JSON files are hard to read.
+Ichki JSON fayllarini o'qish qiyin.
 
-**JsonCrack** generates graph diagrams from JSON files and makes them easy to read.
+**JsonCrack** JSON fayllaridan grafik diagrammalarni yaratadi va ularni o'qishni osonlashtiradi.
 
-Additionally, the generated diagrams can be downloaded as images.
+Bundan tashqari, yaratilgan diagrammalarni tasvir sifatida yuklab olish mumkin.
 
 <p>
   <img src="../images/json-cracker.jpeg" />
@@ -1254,12 +1253,12 @@ Additionally, the generated diagrams can be downloaded as images.
 </p>
 
 
-What does it do?
+Bu nima qiladi?
 
-- Draw the cloud system architecture in Python code.
-- Diagrams can also be rendered directly inside the Jupyter Notebooks.
-- No design tools are needed. 
-- Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc. 
+- Python kodida bulut tizimi arxitekturasini chizing.
+- Diagrammalar to'g'ridan-to'g'ri Jupyter noutbuklarida ham ko'rsatilishi mumkin.
+- Dizayn vositalari kerak emas.
+- Quyidagi provayderlarni qo'llab-quvvatlaydi: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud va boshqalar.
  
 [Github repo](https://github.com/mingrammer/diagrams)
 
@@ -1271,91 +1270,90 @@ What does it do?
   <img src="../images/linux-file-systems.jpg" style="width: 680px" />
 </p>
 
-The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.
+Linux fayl tizimi uyushmagan shaharchaga o'xshar edi, u erda odamlar o'z uylarini xohlagan joyda quradilar. Biroq, 1994 yilda Linux fayl tizimini tartibga solish uchun Fayl tizimi ierarxiyasi standarti (FHS) joriy etildi.
 
-By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
-To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
+FHS kabi standartni amalga oshirish orqali dasturiy ta'minot turli xil Linux distributivlarida izchil tartibni ta'minlashi mumkin. Shunga qaramay, barcha Linux distributivlari ushbu standartga qat'iy rioya qilmaydi. Ular ko'pincha o'zlarining noyob elementlarini o'z ichiga oladi yoki muayyan talablarga javob beradi. Ushbu standartda malakali bo'lish uchun siz kashf qilishdan boshlashingiz mumkin. Navigatsiya uchun "cd" va katalog tarkibini ro'yxatga olish uchun "ls" kabi buyruqlardan foydalaning. Fayl tizimini ildiz (/) dan boshlab daraxt sifatida tasavvur qiling. Vaqt o'tishi bilan u siz uchun ikkinchi tabiatga aylanadi va sizni malakali Linux ma'muriga aylantiradi.
 
 ### Siz bilishingiz kerak bo'lgan 18 ta eng ko'p ishlatiladigan Linux buyruqlari
 
-Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. 
+Linux buyruqlari operatsion tizim bilan o'zaro ishlash uchun ko'rsatmalardir. Ular fayllarni, kataloglarni, tizim jarayonlarini va tizimning boshqa ko'plab jihatlarini boshqarishga yordam beradi. Linux-ga asoslangan tizimlarni samarali va samarali boshqarish uchun siz ushbu buyruqlar bilan tanishishingiz kerak.
 
-This diagram below shows popular Linux commands: 
+Quyidagi diagrammada mashhur Linux buyruqlari ko'rsatilgan:
 
 <p>
   <img src="../images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
 
-- ls - List files and directories 
-- cd - Change the current directory 
-- mkdir - Create a new directory 
-- rm - Remove files or directories 
-- cp - Copy files or directories 
-- mv - Move or rename files or directories 
-- chmod - Change file or directory permissions 
-- grep - Search for a pattern in files 
-- find - Search for files and directories 
-- tar - manipulate tarball archive files 
-- vi - Edit files using text editors 
-- cat - display the content of files 
-- top - Display processes and resource usage 
-- ps - Display processes information 
-- kill - Terminate a process by sending a signal 
-- du - Estimate file space usage 
-- ifconfig - Configure network interfaces  
-- ping - Test network connectivity between hosts 
+- ls - Fayllar va kataloglarni ro'yxatlash
+- cd - Joriy katalogni o'zgartirish
+- mkdir - Yangi katalog yarating
+- rm - Fayllar yoki kataloglarni olib tashlang
+- cp - fayllar yoki kataloglarni nusxalash
+- mv - fayllar yoki kataloglarni ko'chirish yoki nomini o'zgartirish
+- chmod - fayl yoki katalog ruxsatlarini o'zgartirish
+- grep - fayllardan naqsh izlash 
+- find - fayllar va kataloglarni qidirish
+- tar - tarball arxiv fayllarini boshqarish
+- vi - matn muharrirlari yordamida fayllarni tahrirlash 
+- cat - fayllar tarkibini ko'rsatish 
+- top - jarayonlar va resurslardan foydalanishni ko'rsatish
+- ps - displey ma'lumotlarni qayta ishlaydi 
+- kill - signal yuborish orqali jarayonni tugatish 
+- du - fayl maydonidan foydalanishni taxmin qilish 
+- ifconfig - Tarmoq interfeyslarini sozlang  
+- ping - Xostlar o'rtasida tarmoq ulanishini sinab ko'ring
 
 ## Xavfsizlik
 
 ### HTTPS qanday ishlaydi?
 
-Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. 
+Xavfsiz gipermatn uzatish protokoli (HTTPS) gipermatnni uzatish protokolining (HTTP) kengaytmasi bo'lib, HTTPS shifrlangan ma'lumotlarni Transport Layer Security (TLS) yordamida uzatadi. 
 
 <p>
   <img src="../images/https.jpg" />
 </p>
 
 
-How is the data encrypted and decrypted?
+Ma'lumotlar qanday shifrlangan va shifrlangan?
 
-Step 1 - The client (browser) and the server establish a TCP connection.
+1-qadam - mijoz (brauzer) va server TCP ulanishini o'rnatadi.
 
-Step 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
+2-qadam - Mijoz serverga "mijozga salom" yuboradi. Xabarda zarur shifrlash algoritmlari toʻplami (shifr toʻplami) va u qoʻllab-quvvatlaydigan soʻnggi TLS versiyasi mavjud. Server "serverga salom" bilan javob beradi, shuning uchun brauzer algoritmlar va TLS versiyasini qo'llab-quvvatlashi mumkinligini biladi.
 
-The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate. 
+Keyin server mijozga SSL sertifikatini yuboradi. Sertifikatda ochiq kalit, xost nomi, amal qilish muddati va boshqalar mavjud. Mijoz sertifikatni tasdiqlaydi.
 
-Step 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key. 
+3-qadam - SSL sertifikatini tekshirgandan so'ng, mijoz sessiya kalitini yaratadi va uni ochiq kalit yordamida shifrlaydi. Server shifrlangan seans kalitini oladi va uni shaxsiy kalit bilan hal qiladi.
 
-Step 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
+4-qadam -- Endi mijoz ham, server ham bir xil seans kalitiga ega (simmetrik shifrlash), shifrlangan maʼlumotlar xavfsiz ikki yoʻnalishli kanalda uzatiladi.
 
-Why does HTTPS switch to symmetric encryption during data transmission? There are two main reasons:
+Nima uchun HTTPS ma'lumotlarni uzatishda nosimmetrik shifrlashga o'tadi? Ikkita asosiy sabab bor:
 
-1. Security: The asymmetric encryption goes only one way. This means that if the server tries to send the encrypted data back to the client, anyone can decrypt the data using the public key.
+1. Xavfsizlik: assimetrik shifrlash faqat bitta yo'l bilan amalga oshiriladi. Bu shuni anglatadiki, agar server shifrlangan ma'lumotlarni mijozga qaytarib yuborishga harakat qilsa, har kim ochiq kalit yordamida ma'lumotlarning shifrini ochishi mumkin.
 
-2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
+2. Server resurslari: assimetrik shifrlash juda ko'p matematik yuklarni qo'shadi. Uzoq seanslarda ma'lumotlarni uzatish uchun mos emas.
 
 ### Oauth 2.0 oddiy shartlar bilan tushuntirilgan.
 
-OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. 
+OAuth 2.0 kuchli va xavfsiz tizim boʻlib, u turli ilovalarga maxfiy hisob maʼlumotlarini baham koʻrmasdan foydalanuvchilar nomidan bir-biri bilan xavfsiz oʻzaro aloqada boʻlish imkonini beradi.
 
 <p>
   <img src="../images/oAuth2.jpg" />
 </p>
 
-The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). 
+OAuth bilan bog'liq bo'lgan ob'ektlar - bu foydalanuvchi, server va identifikatsiya provayderi (IDP).
 
-What Can an OAuth Token Do? 
+OAuth tokeni nima qila oladi?
 
-When you use OAuth, you get an OAuth token that represents your identity and permissions. This token can do a few important things: 
+OAuth-dan foydalanganda siz shaxsingiz va ruxsatlaringizni ifodalovchi OAuth tokenini olasiz. Ushbu token bir nechta muhim ishlarni bajarishi mumkin:
 
-Single Sign-On (SSO): With an OAuth token, you can log into multiple services or apps using just one login, making life easier and safer. 
+Yagona tizimga kirish (SSO): OAuth tokeni yordamida siz faqat bitta login yordamida bir nechta xizmatlar yoki ilovalarga kirishingiz mumkin, bu esa hayotni oson va xavfsizroq qiladi.
 
-Authorization Across Systems: The OAuth token allows you to share your authorization or access rights across various systems, so you don't have to log in separately everywhere. 
+Tizimlar bo'ylab avtorizatsiya: OAuth tokeni avtorizatsiya yoki kirish huquqlarini turli tizimlar bo'ylab almashish imkonini beradi, shuning uchun hamma joyda alohida tizimga kirishingiz shart emas.
 
-Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won't see everything. 
+Foydalanuvchi profiliga kirish: OAuth tokeni boʻlgan ilovalar siz ruxsat bergan foydalanuvchi profilingizning ayrim qismlariga kirishi mumkin, lekin ular hammasini koʻra olmaydi.
 
-Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
+Esingizda bo'lsin, OAuth 2.0 barcha ilovalar va xizmatlarda onlayn tajribangizni muammosiz va muammosiz qilish bilan birga sizni va ma'lumotlaringizni xavfsiz saqlashga qaratilgan.
 
 ### Autentifikatsiya mexanizmlarining 4 ta eng yaxshi shakllari
 
@@ -1363,43 +1361,43 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
   <img src="../images/top4-most-used-auth.jpg" />
 </p>
 
-1. SSH Keys: 
+1. SSH kalitlari:
    
-    Cryptographic keys are used to access remote systems and servers securely 
+    Kriptografik kalitlar masofaviy tizimlar va serverlarga xavfsiz kirish uchun ishlatiladi 
 
-1. OAuth Tokens: 
+1. OAuth tokenlari:
 
-    Tokens that provide limited access to user data on third-party applications 
+    Uchinchi tomon ilovalarida foydalanuvchi ma'lumotlariga cheklangan kirishni ta'minlaydigan tokenlar
 
-1. SSL Certificates: 
+1. SSL sertifikatlari:
   
-    Digital certificates ensure secure and encrypted communication between servers and clients 
+    Raqamli sertifikatlar serverlar va mijozlar o'rtasida xavfsiz va shifrlangan aloqani ta'minlaydi 
 
-1. Credentials: 
+1. Hisob maʼlumotlari:: 
 
-    User authentication information is used to verify and grant access to various systems and services
+    Foydalanuvchi autentifikatsiya ma'lumotlari turli tizimlar va xizmatlarga kirishni tekshirish va ruxsat berish uchun ishlatiladi
 
 ### Sessiya, cookie, JWT, token, SSO va OAuth 2.0 - ular nima?
 
-These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.
+Ushbu shartlarning barchasi foydalanuvchi identifikatorini boshqarish bilan bog'liq. Veb-saytga kirganingizda, siz kimligingizni e'lon qilasiz (identifikatsiya). Shaxsingiz tasdiqlandi (autentifikatsiya) va sizga kerakli ruxsatnomalar (avtorizatsiya) beriladi. O'tmishda ko'plab echimlar taklif qilingan va ro'yxat o'sib bormoqda.
 
 <p>
   <img src="../images/session.jpeg" />
 </p>
 
-From simple to complex, here is my understanding of user identity management:
+Oddiydan murakkabgacha, men foydalanuvchi identifikatorini boshqarish haqidagi tushuncham:
 
-- WWW-Authenticate is the most basic method. You are asked for the username and password by the browser. As a result of the inability to control the login life cycle, it is seldom used today.
+- WWW-Authenticate - eng asosiy usul. Brauzer sizdan foydalanuvchi nomi va parolni so'raydi. Loginning hayot aylanishini nazorat qila olmaslik natijasida bugungi kunda u kamdan-kam qo'llaniladi.
 
-- A finer control over the login life cycle is session-cookie. The server maintains session storage, and the browser keeps the ID of the session. A cookie usually only works with browsers and is not mobile app friendly.
+- Kirishning hayotiy siklini yanada nozik nazorat qilish - bu seans-cookie. Server seans xotirasini saqlaydi, brauzer esa sessiya identifikatorini saqlaydi. Cookie odatda faqat brauzerlar bilan ishlaydi va mobil ilovaga mos kelmaydi.
 
-- To address the compatibility issue, the token can be used. The client sends the token to the server, and the server validates the token. The downside is that the token needs to be encrypted and decrypted, which may be time-consuming.
+- Moslik muammosini hal qilish uchun tokendan foydalanish mumkin. Mijoz tokenni serverga yuboradi va server tokenni tasdiqlaydi. Salbiy tomoni shundaki, token shifrlanishi va shifrlanishi kerak, bu ko'p vaqt talab qilishi mumkin.
 
-- JWT is a standard way of representing tokens. This information can be verified and trusted because it is digitally signed. Since JWT contains the signature, there is no need to save session information on the server side.
+- JWT tokenlarni ifodalashning standart usulidir. Ushbu ma'lumot raqamli imzolanganligi sababli tekshirilishi va ishonchli bo'lishi mumkin. JWT imzoni o'z ichiga olganligi sababli, sessiya ma'lumotlarini server tomonida saqlashga hojat yo'q.
 
-- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information.
+- SSO (bitta tizimga kirish) yordamida siz faqat bir marta tizimga kirishingiz va bir nechta veb-saytlarga kirishingiz mumkin. U saytlararo ma'lumotlarni saqlash uchun CAS (markaziy autentifikatsiya xizmati) dan foydalanadi.
 
-- By using OAuth 2.0, you can authorize one website to access your information on another website.
+- OAuth 2.0 dan foydalanib, siz bitta veb-saytga boshqa veb-saytdagi ma'lumotlaringizga kirishga ruxsat berishingiz mumkin.
 
 ### Ma'lumotlar bazasida parollarni qanday xavfsiz saqlash va parolni qanday tekshirish mumkin?
 
@@ -1408,31 +1406,31 @@ From simple to complex, here is my understanding of user identity management:
 </p>
 
  
-**Things NOT to do**
+**Qilinmaydigan narsalar**
 
-- Storing passwords in plain text is not a good idea because anyone with internal access can see them.
+- Parollarni oddiy matnda saqlash yaxshi fikr emas, chunki ichki kirish huquqiga ega bo'lgan har bir kishi ularni ko'rishi mumkin.
 
-- Storing password hashes directly is not sufficient because it is pruned to precomputation attacks, such as rainbow tables. 
+- Parol xeshlarini to'g'ridan-to'g'ri saqlash etarli emas, chunki u kamalak jadvallari kabi oldindan hisoblash hujumlari uchun kesilgan.
 
-- To mitigate precomputation attacks, we salt the passwords. 
+- Oldindan hisoblash hujumlarini yumshatish uchun biz parollarni tuzlaymiz.
 
-**What is salt?**
+**Tuz (salt) nima??**
 
-According to OWASP guidelines, “a salt is a unique, randomly generated string that is added to each password as part of the hashing process”.
+OWASP ko'rsatmalariga ko'ra, "tuz - bu xeshlash jarayonining bir qismi sifatida har bir parolga qo'shiladigan noyob, tasodifiy yaratilgan satr".
  
-**How to store a password and salt?**
+**Parol va tuzni qanday saqlash kerak?**
 
-1. the hash result is unique to each password.
-1. The password can be stored in the database using the following format: hash(password + salt).
+1. xesh natijasi har bir parol uchun noyobdir.
+1. Parol ma'lumotlar bazasida quyidagi formatda saqlanishi mumkin: hash(parol + tuz).
 
-**How to validate a password?**
+**Parolni qanday tekshirish mumkin?**
 
-To validate a password, it can go through the following process:
+Parolni tasdiqlash uchun u quyidagi jarayondan o'tishi mumkin:
 
-1. A client enters the password.
-1. The system fetches the corresponding salt from the database.
-1. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
-1. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid. 
+1. Mijoz parolni kiritadi.
+2. Tizim ma'lumotlar bazasidan mos keladigan tuzni oladi.
+3. Tizim tuzni parolga qo'shib, uni xeshlaydi. Xeshlangan qiymatni H1 deb ataymiz.
+4. Tizim H1 va H2 ni taqqoslaydi, bu erda H2 ma'lumotlar bazasida saqlangan xeshdir. Agar ular bir xil bo'lsa, parol haqiqiy hisoblanadi.
 
 ### 10 yoshli bolaga JSON Web Token (JWT) haqida tushuntirish
 
@@ -1440,57 +1438,60 @@ To validate a password, it can go through the following process:
   <img src="../images/jwt.jpg" />
 </p>
 
-Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
+Tasavvur qiling-a, sizda JWT deb nomlangan maxsus quti bor. Ushbu qutining ichida uchta qism mavjud: sarlavha, foydali yuk va imzo.
 
-The header is like the label on the outside of the box. It tells us what type of box it is and how it's secured. It's usually written in a format called JSON, which is just a way to organize information using curly braces { } and colons : .
+Sarlavha qutining tashqi tomonidagi yorliq kabi. U qanday turdagi quti ekanligini va qanday himoyalanganligini aytadi. U odatda JSON deb nomlangan formatda yoziladi, bu shunchaki jingalak qavslar { } va ikki nuqta : yordamida ma'lumotni tartibga solish usulidir.
 
-The payload is like the actual message or information you want to send. It could be your name, age, or any other data you want to share. It's also written in JSON format, so it's easy to understand and work with.
-Now, the signature is what makes the JWT secure. It's like a special seal that only the sender knows how to create. The signature is created using a secret code, kind of like a password. This signature ensures that nobody can tamper with the contents of the JWT without the sender knowing about it.
+Foydali yuk siz yubormoqchi bo'lgan haqiqiy xabar yoki ma'lumotga o'xshaydi. Bu sizning ismingiz, yoshingiz yoki siz baham ko'rmoqchi bo'lgan boshqa ma'lumotlar bo'lishi mumkin. U JSON formatida ham yozilgan, shuning uchun uni tushunish va ishlash oson.
+Endi imzo JWTni xavfsiz qiladi. Bu maxsus muhrga o'xshaydi, uni qanday yaratishni faqat jo'natuvchi biladi. Imzo parol kabi maxfiy kod yordamida yaratiladi. Ushbu imzo jo'natuvchi bu haqda bilmasdan JWT mazmunini hech kim o'zgartira olmasligini ta'minlaydi.
 
-When you want to send the JWT to a server, you put the header, payload, and signature inside the box. Then you send it over to the server. The server can easily read the header and payload to understand who you are and what you want to do.
+JWT-ni serverga yubormoqchi bo'lganingizda, siz sarlavhani, foydali yukni va imzoni qutiga qo'yasiz. Keyin uni serverga yuborasiz. Server sizning kimligingizni va nima qilishni xohlayotganingizni tushunish uchun sarlavha va foydali yukni osongina o'qiy oladi.
 
 ### Google Authenticator (yoki 2 faktorli autentifikatsiyaning boshqa turlari) qanday ishlaydi?
+Ikki bosqich mavjud: 1-bosqich - foydalanuvchi Google ikki bosqichli tekshiruvini yoqadi. 2-bosqich - foydalanuvchi tizimga kirish uchun autentifikatordan foydalanadi va hokazo.
 
-Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
+Google Authenticator odatda 2 faktorli autentifikatsiya yoqilganda hisobimizga kirish uchun ishlatiladi. Qanday qilib u xavfsizlikni kafolatlaydi?
  
-Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail. 
+Google Authenticator - bu ikki bosqichli tekshirish xizmatini amalga oshiradigan dasturiy ta'minotga asoslangan autentifikatsiya. Quyidagi diagrammada batafsil ma'lumot berilgan.
 
 <p>
   <img src="../images/google_authenticate.jpeg" />
 </p>
 
 
-There are two stages involved:
+Ikki bosqich mavjud
 
-- Stage 1 - The user enables Google two-step verification. 
-- Stage 2 - The user uses the authenticator for logging in, etc.
+- 1-bosqich - foydalanuvchi Google ikki bosqichli tekshiruvini yoqadi.
+- 2-bosqich - foydalanuvchi tizimga kirish uchun autentifikatordan foydalanadi va hokazo.
 
-Let’s look at these stages.
+Keling, ushbu bosqichlarni ko'rib chiqaylik.
  
-**Stage 1**
+**1-bosqich**
 
-Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
- 
-Step 3: The authentication service returns a URI to the front end. The URI is composed of a key issuer, username, and secret key. The URI is displayed in the form of a QR code on the web page.
- 
-Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
+1 va 2-qadamlar: Bob ikki bosqichli tekshiruvni yoqish uchun veb-sahifani ochadi. Old tomon maxfiy kalitni so'raydi. Autentifikatsiya xizmati Bob uchun maxfiy kalitni yaratadi va uni ma'lumotlar bazasida saqlaydi.
 
-**Stage 2**
-Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
+3-qadam: Autentifikatsiya xizmati URI-ni old tomonga qaytaradi. URI kalit emitent, foydalanuvchi nomi va maxfiy kalitdan iborat. URI veb-sahifada QR kod ko'rinishida ko'rsatiladi.
  
-Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
+3-qadam: Autentifikatsiya xizmati URI-ni old tomonga qaytaradi. URI kalit emitent, foydalanuvchi nomi va maxfiy kalitdan iborat. URI veb-sahifada QR kod ko'rinishida ko'rsatiladi. 
  
-Step 5: The authentication service compares the two passwords generated by the client and the server, and returns the comparison result to the frontend. Bob can proceed with the login process only if the two passwords match.
+4-qadam: Keyin Bob yaratilgan QR kodni skanerlash uchun Google Authenticator-dan foydalanadi. Maxfiy kalit autentifikatorda saqlanadi.
+
+**2-bosqich**
+1 va 2-qadamlar: Bob Google ikki bosqichli tekshiruvi bilan veb-saytga kirmoqchi. Buning uchun unga parol kerak. Har 30 soniyada Google Authenticator TOTP (Vaqtga asoslangan bir martalik parol) algoritmi yordamida 6 xonali parolni yaratadi. Bob veb-saytga kirish uchun paroldan foydalanadi.
  
-Is this authentication mechanism safe? 
+3 va 4-qadamlar: Frontend autentifikatsiya qilish uchun Bob kiritgan parolni backendga yuboradi. Autentifikatsiya xizmati ma'lumotlar bazasidan maxfiy kalitni o'qiydi va mijoz bilan bir xil TOTP algoritmidan foydalangan holda 6 xonali parolni yaratadi.
+ 
+5-qadam: Autentifikatsiya xizmati mijoz va server tomonidan yaratilgan ikkita parolni solishtiradi va taqqoslash natijasini frontendga qaytaradi. Bob kirish jarayonini faqat ikkita parol mos kelgan taqdirdagina davom ettirishi mumkin.
+ 
+Ushbu autentifikatsiya mexanizmi xavfsizmi?
 
-- Can the secret key be obtained by others? 
+- Yashirin kalitni boshqalar olishi mumkinmi?
 
-    We need to make sure the secret key is transmitted using HTTPS. The authenticator client and the database store the secret key, and we need to make sure the secret keys are encrypted.
+    Yashirin kalit HTTPS orqali uzatilishiga ishonch hosil qilishimiz kerak. Autentifikatsiya mijozi va ma'lumotlar bazasi maxfiy kalitni saqlaydi va biz maxfiy kalitlar shifrlanganligiga ishonch hosil qilishimiz kerak.
 
-- Can the 6-digit password be guessed by hackers?
+- 6 xonali parolni xakerlar taxmin qilishlari mumkinmi?
     
-    No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
+    Yo'q. Parol 6 ta raqamga ega, shuning uchun yaratilgan parol 1 million potentsial kombinatsiyaga ega. Bundan tashqari, parol har 30 soniyada o'zgaradi. Agar xakerlar parolni 30 soniya ichida taxmin qilmoqchi bo'lsa, ular soniyasiga 30 000 ta kombinatsiyani kiritishlari kerak.
 
 
 ##  Haqiqiy dunyo misollari
