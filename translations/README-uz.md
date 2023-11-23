@@ -54,56 +54,56 @@ Tizim dizayni bo'yicha intervyuga tayyorlanyapsizmi yoki tizimlar qanday ishlash
   - [SQL so'rovini vizualizatsiya qilish](#sql-sorovini-vizualizatsiya-qilish)
   - [SQL tili](#sql-tili)
 - [Kesh](#kesh)
-  - [Ma'lumotlar hamma joyda keshlangan](#data-is-cached-everywhere)
-  - [Nima uchun Redis juda tez?](#why-is-redis-so-fast)
-  - [Redis-dan qanday foydalanish mumkin?](#how-can-redis-be-used)
-  - [Eng yaxshi keshlash strategiyalari](#top-caching-strategies)
-- [Mikroservis arxitekturasi](#microservice-architecture)
-  - [Oddiy mikroservis arxitekturasi nimaga o'xshaydi?](#what-does-a-typical-microservice-architecture-look-like)
-  - [Mikroservisning eng yaxshi amaliyotlari](#microservice-best-practices)
-  - [Mikroservislar uchun qanday texnologik stek ishlatiladi?](#what-tech-stack-is-commonly-used-for-microservices)
-  - [Nega Kafka tez](#why-is-kafka-fast)
-- [To'lov tizimlari](#payment-systems)
-  - [To'lov tizimini qanday o'rganish mumkin?](#how-to-learn-payment-systems)
-  - [Nima uchun kredit karta "banklardagi eng daromadli mahsulot" deb ataladi? VISA/Mastercard qanday qilib pul ishlaydi?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
-  - [Savdogarlar do'konida kredit kartani o'tkazganimizda VISA qanday ishlaydi?](#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop)
-  - [Dunyo bo'ylab to'lov tizimlari seriyasi (1-qism): Hindistonda yagona to'lov interfeysi (UPI)](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
+  - [Ma'lumotlar hamma joyda keshlangan](#malumotlar-hamma-joyda-keshlangan)
+  - [Nima uchun Redis juda tez?](#nima-uchun-redis-juda-tez)
+  - [Redisdan qanday foydalanish mumkin?](#redisdan-qanday-foydalanish-mumkin)
+  - [Eng yaxshi keshlash strategiyalari](#eng-yaxshi-keshlash-strategiyalari )
+- [Mikroservis arxitekturasi](#mikroservis-arxitekturasi)
+  - [Oddiy mikroservis arxitekturasi nimaga o'xshaydi?](#oddiy-mikroservis-arxitekturasi-nimaga-oxshaydi)
+  - [Mikroservisning eng yaxshi amaliyotlari](#mikroservisning-eng-yaxshi-amaliyotlari)
+  - [Mikroservislar uchun qanday texnologik stek ishlatiladi?](#mikroservislar-uchun-qanday-texnologik-stek-ishlatiladi)
+  - [Nega Kafka tez](#nega-kafka-tez)
+- [To'lov tizimlari](#tolov-tizimlari)
+  - [To'lov tizimini qanday o'rganish mumkin?](#tolov-tizimini-qanday-organish-mumkin)
+  - [Nima uchun kredit karta "banklardagi eng daromadli mahsulot" deb ataladi? VISA/Mastercard qanday qilib pul ishlaydi?](#nima-uchun-kredit-karta-banklardagi-eng-daromadli-mahsulot-deb-ataladi-visamastercard-qanday-qilib-pul-ishlaydi)
+  - [Savdogarlar do'konida kredit kartani o'tkazganimizda VISA qanday ishlaydi?](#savdogarlar-dokonida-kredit-kartani-otkazganimizda-visa-qanday-ishlaydi)
+  - [Dunyo bo'ylab to'lov tizimlari seriyasi (1-qism): Hindistonda yagona to'lov interfeysi (UPI)](#dunyo-boylab-tolov-tizimlari-seriyasi-1-qism-hindistonda-yagona-tolov-interfeysi-upi)
 - [DevOps](#devops)
-  - [DevOps va SRE va platforma muhandisligi. Farqi nimada?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
-  - [K8s (Kubernetes) nima?](#what-is-k8s-kubernetes)
-  - [Docker va Kubernetes. Qaysi birini ishlatishimiz kerak?](#docker-vs-kubernetes-which-one-should-we-use)
-  - [Docker qanday ishlaydi?](#how-does-docker-work)
+  - [DevOps va SRE va platforma muhandisligi. Farqi nimada?](#devops-va-sre-va-platforma-muhandisligi-farqi-nimada)
+  - [K8s (Kubernetes) nima?](#k8s-kubernetes-nima)
+  - [Docker va Kubernetes. Qaysi birini ishlatishimiz kerak?](#docker-va-kubernetes-qaysi-birini-ishlatishimiz-kerak)
+  - [Docker qanday ishlaydi?](#docker-qanday-ishlaydi)
 - [GIT](#git)
-  - [Git buyruqlari qanday ishlaydi](#how-git-commands-work)
-  - [Git qanday ishlaydi?](#how-does-git-work)
-  - [Git merge va Git rebase](#git-merge-vs-git-rebase)
-- [Bulutli xizmatlar](#cloud-services)
-  - [Turli xil bulut xizmatlarining chiroyli cheat varag'i (2023 yil nashri)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
-  - [Mahalliy bulut nima?](#what-is-cloud-native)
-- [Ishlab chiquvchi mahsuldorlik vositalari](#developer-productivity-tools)
-  - [JSON fayllarini vizualizatsiya qilish](#visualize-json-files)
-  - [Kodni avtomatik ravishda arxitektura diagrammalariga aylantiring](#automatically-turn-code-into-architecture-diagrams)
+  - [Git buyruqlari qanday ishlaydi](#git-buyruqlari-qanday-ishlaydi)
+  - [Git qanday ishlaydi?](#git-qanday-ishlaydi)
+  - [Git merge va Git rebase](#git-merge-va-git-rebase)
+- [Bulutli xizmatlar](#bulutli-xizmatlar)
+  - [Turli xil bulut xizmatlarining chiroyli cheat varag'i (2023 yil nashri)](#turli-xil-bulut-xizmatlarining-chiroyli-cheat-varagi-2023-yil-nashri)
+  - [Mahalliy bulut nima?](#mahalliy-bulut-nima)
+- [Ishlab chiquvchi mahsuldorlik vositalari](#ishlab-chiquvchi-mahsuldorlik-vositalari)
+  - [JSON fayllarini vizualizatsiya qilish](#json-fayllarini-vizualizatsiya-qilish)
+  - [Kodni avtomatik ravishda arxitektura diagrammalariga aylantiring](#kodni-avtomatik-ravishda-arxitektura-diagrammalariga-aylantiring)
 - [Linux](#linux)
-  - [Linux fayl tizimi tushuntirildi](#linux-file-system-explained)
-  - [Siz bilishingiz kerak bo'lgan 18 ta eng ko'p ishlatiladigan Linux buyruqlari](#18-most-used-linux-commands-you-should-know)
-- [Xavfsizlik](#security)
-  - [HTTPS qanday ishlaydi?](#how-does-https-work)
-  - [Oauth 2.0 oddiy shartlar bilan tushuntirilgan.](#oauth-20-explained-with-simple-terms)
-  - [Autentifikatsiya mexanizmlarining 4 ta eng yaxshi shakllari](#top-4-forms-of-authentication-mechanisms)
-  - [Sessiya, cookie, JWT, token, SSO va OAuth 2.0 - ular nima?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
-  - [Ma'lumotlar bazasida parollarni qanday xavfsiz saqlash va parolni qanday tekshirish mumkin?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
-  - [10 yoshli bolaga JSON Web Token (JWT) haqida tushuntirish](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
-  - [Google Authenticator (yoki 2 faktorli autentifikatsiyaning boshqa turlari) qanday ishlaydi?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
-- [Haqiqiy dunyo misollari](#real-world-case-studies)
-  - [Netflixning Tech Stacki](#netflixs-tech-stack)
-  - [Twitter arxitekturasi 2022](#twitter-architecture-2022)
-  - [Oxirgi 15 yil ichida Airbnb mikroservis arxitekturasining evolyutsiyasi](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
-  - [Monorepo va mikrorepo.](#monorepo-vs-microrepo)
-  - [Stack Overflow veb-saytini qanday loyihalashtirasiz?](#how-will-you-design-the-stack-overflow-website)
-  - [Nima uchun Amazon Prime Video monitoringi serversizdan monolitga o'tdi? Qanday qilib 90% xarajatlarni tejash mumkin?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
-  - [Disney Hotstar turnir davomida 5 milliard kulgichni qanday suratga oladi?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
-  - [Discord qanday qilib trillionlab xabarlarni saqlaydi](#how-discord-stores-trillions-of-messages)
-  - [YouTube, TikTok live yoki Twitch-da jonli video oqimlari qanday ishlaydi?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
+  - [Linux fayl tizimi tushuntirildi](#linux-fayl-tizimi-tushuntirildi)
+  - [Siz bilishingiz kerak bo'lgan 18 ta eng ko'p ishlatiladigan Linux buyruqlari](#siz-bilishingiz-kerak-bolgan-18-ta-eng-kop-ishlatiladigan-linux-buyruqlari)
+- [Xavfsizlik](#xavfsizlik)
+  - [HTTPS qanday ishlaydi?](#https-qanday-ishlaydi)
+  - [Oauth 2.0 oddiy shartlar bilan tushuntirilgan.](#oauth-20-oddiy-shartlar-bilan-tushuntirilgan)
+  - [Autentifikatsiya mexanizmlarining 4 ta eng yaxshi shakllari](#autentifikatsiya-mexanizmlarining-4-ta-eng-yaxshi-shakllari)
+  - [Sessiya, cookie, JWT, token, SSO va OAuth 2.0 - ular nima?](#sessiya-cookie-jwt-token-sso-va-oauth-20---ular-nima)
+  - [Ma'lumotlar bazasida parollarni qanday xavfsiz saqlash va parolni qanday tekshirish mumkin?](#malumotlar-bazasida-parollarni-qanday-xavfsiz-saqlash-va-parolni-qanday-tekshirish-mumkin)
+  - [10 yoshli bolaga JSON Web Token (JWT) haqida tushuntirish](#10-yoshli-bolaga-json-web-token-jwt-haqida-tushuntirish)
+  - [Google Authenticator (yoki 2 faktorli autentifikatsiyaning boshqa turlari) qanday ishlaydi?](#google-authenticator-yoki-2-faktorli-autentifikatsiyaning-boshqa-turlari-qanday-ishlaydi)
+- [Haqiqiy dunyo misollari](#haqiqiy-dunyo-misollari)
+  - [Netflixning Tech Stacki](#netflixning-tech-stacki)
+  - [Twitter arxitekturasi 2022](#twitter-arxitekturasi-2022)
+  - [Oxirgi 15 yil ichida Airbnb mikroservis arxitekturasining evolyutsiyasi](#oxirgi-15-yil-ichida-airbnb-mikroservis-arxitekturasining-evolyutsiyasi)
+  - [Monorepo va mikrorepo.](#monorepo-va-mikrorepo)
+  - [Stack Overflow veb-saytini qanday loyihalashtirasiz?](#stack-overflow-veb-saytini-qanday-loyihalashtirasiz)
+  - [Nima uchun Amazon Prime Video monitoringi serversizdan monolitga o'tdi? Qanday qilib 90% xarajatlarni tejash mumkin?](#nima-uchun-amazon-prime-video-monitoringi-serversizdan-monolitga-otdi-qanday-qilib-90-xarajatlarni-tejash-mumkin)
+  - [Disney Hotstar turnir davomida 5 milliard kulgichni qanday suratga oladi?](#disney-hotstar-turnir-davomida-5-milliard-kulgichni-qanday-suratga-oladi)
+  - [Discord qanday qilib trillionlab xabarlarni saqlaydi?](#discord-qanday-qilib-trillionlab-xabarlarni-saqlaydi)
+  - [YouTube, TikTok live yoki Twitch-da jonli video oqimlari qanday ishlaydi?](#youtube-tiktok-live-yoki-twitch-da-jonli-video-oqimlari-qanday-ishlaydi)
 
 <!-- /TOC -->
 
@@ -545,43 +545,43 @@ Voqea haqida hisobot: Hodisalar ustuvorlikka ko'ra jo'natiladi va PagerDuty hodi
 ## Arxitektura naqshlari
 
 ### MVC, MVP, MVVM, MVVM-C va VIPER
-These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? 
+Ushbu arxitektura naqshlari iOS yoki Android platformalarida ilovalarni ishlab chiqishda eng ko'p qo'llaniladi. Ishlab chiquvchilar ularni oldingi naqshlarning cheklovlarini yengish uchun taqdim etdilar. Xo'sh, ular qanday farq qiladi?
 
 <p>
   <img src="../images/client arch patterns.png" style="width: 720px" />
 </p>
 
-- MVC, the oldest pattern, dates back almost 50 years 
-- Every pattern has a "view" (V) responsible for displaying content and receiving user input 
-- Most patterns include a "model" (M) to manage business data 
-- "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
+- MVC, eng qadimgi naqsh deyarli 50 yil oldin paydo bo'lgan
+- Har bir naqsh kontentni ko'rsatish va foydalanuvchi ma'lumotlarini qabul qilish uchun javobgar bo'lgan "ko'rinish" (V) ga ega
+- Aksariyat naqshlar biznes ma'lumotlarini boshqarish uchun "model" (M) ni o'z ichiga oladi
+- "Controller", "presenter" va "view-model" ko'rinish va model o'rtasida vositachilik qiluvchi tarjimonlardir (VIPER naqshidagi "obyekt")
 
 ### Har bir dasturchi bilishi kerak bo'lgan 18 ta asosiy dizayn naqshlari
 
-Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns: 
+Naqshlar umumiy dizayn muammolariga qayta foydalanish mumkin bo'lgan echimlar bo'lib, natijada yanada silliq va samaraliroq ishlab chiqish jarayoniga olib keladi. Ular yaxshi dasturiy tuzilmalarni yaratish uchun rejalar bo'lib xizmat qiladi. Bu eng mashhur naqshlardan ba'zilari: 
 
 <p>
   <img src="../images/18-oo-patterns.png" />
 </p>
 
-- Abstract Factory: Family Creator - Makes groups of related items. 
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
-- Prototype: Clone Maker - Creates copies of fully prepared examples. 
-- Singleton: One and Only - A special class with just one instance. 
-- Adapter: Universal Plug - Connects things with different interfaces. 
-- Bridge: Function Connector - Links how an object works to what it does. 
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
-- Decorator: Customizer - Adds features to objects without changing their core. 
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
-- Flyweight: Space Saver - Shares small, reusable items efficiently. 
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
-- Command: Task Wrapper - Turns a request into an object, ready for action. 
-- Iterator: Collection Explorer - Accesses elements in a collection one by one. 
-- Mediator: Communication Hub - Simplifies interactions between different classes. 
-- Memento: Time Capsule - Captures and restores an object's state. 
-- Observer: News Broadcaster - Notifies classes about changes in other objects. 
-- Visitor: Skillful Guest - Adds new operations to a class without altering it.
+- Abstract Factory: Family Creator - tegishli elementlar guruhlarini yaratadi. 
+- Quruvchi: Lego Master - yaratilish va tashqi ko'rinishini alohida saqlagan holda ob'ektlarni bosqichma-bosqich quradi. 
+- Prototip: Clone Maker - to'liq tayyorlangan misollarning nusxalarini yaratadi. 
+- Singleton: One and Only - Faqat bitta misolga ega maxsus sinf. 
+- Adapter: Universal Plug - turli interfeyslarga ega narsalarni ulaydi. 
+- Ko'prik: Funktsiya ulagichi - ob'ekt qanday ishlashini u nima bilan bog'laydi. 
+- Kompozit: Tree Builder - oddiy va murakkab qismlarning daraxtga o'xshash tuzilmalarini hosil qiladi. 
+- Dekorator: moslashtiruvchi - ob'ektlarning asosiy qismini o'zgartirmasdan ularga xususiyatlar qo'shadi. 
+- Fasad: Yagona oyna - yagona, soddalashtirilgan interfeysga ega butun tizimni ifodalaydi. 
+- Flyweight: Space Saver - kichik, qayta foydalanish mumkin bo'lgan narsalarni samarali taqsimlaydi. 
+- Proksi: Stand-In Actor - kirish yoki harakatlarni boshqaradigan boshqa ob'ektni ifodalaydi. 
+- Mas'uliyat zanjiri: so'rov o'tkazmasi - so'rovni ko'rib chiqilgunga qadar ob'ektlar zanjiri orqali o'tkazadi. 
+- Buyruq: Task Wrapper - so'rovni harakatga tayyor ob'ektga aylantiradi. 
+- Iterator: Collection Explorer - To'plamdagi elementlarga birma-bir murojaat qiladi. 
+- Mediator: Communication Hub - turli sinflar o'rtasidagi o'zaro aloqalarni soddalashtiradi. 
+- Yodgorlik: Vaqt kapsulasi - ob'ekt holatini suratga oladi va tiklaydi. 
+- Observer: News Broadcaster - boshqa ob'ektlardagi o'zgarishlar haqida sinflarni xabardor qiladi. 
+- Mehmon: Mohir mehmon - sinfni o'zgartirmasdan unga yangi operatsiyalar qo'shadi.
 
 ## Ma'lumotlar bazasi
 
@@ -591,83 +591,83 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
   <img src="../images/cloud-dbs2.png" />
 </p>
 
-Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue. 
+Loyihangiz uchun to'g'ri ma'lumotlar bazasini tanlash murakkab vazifadir. Har biri alohida foydalanish holatlariga mos keladigan ko'plab ma'lumotlar bazasi variantlari tezda qaror qabul qilishning charchashiga olib kelishi mumkin. 
 
-We hope this cheat sheet provides high-level direction to pinpoint the right service that aligns with your project's needs and avoid potential pitfalls. 
+Umid qilamizki, ushbu hiyla varaqasi loyihangiz ehtiyojlariga mos keladigan to'g'ri xizmatni aniqlash va yuzaga kelishi mumkin bo'lgan tuzoqlardan qochish uchun yuqori darajadagi yo'nalish beradi.
 
-Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate. 
+Eslatma: Google maʼlumotlar bazasidan foydalanish holatlari uchun cheklangan hujjatlarga ega. Garchi biz mavjud bo'lgan narsalarni ko'rib chiqish va eng yaxshi variantni topish uchun qo'limizdan kelganini qilgan bo'lsak ham, ba'zi yozuvlar aniqroq bo'lishi kerak bo'lishi mumkin. 
 
 ### Ma'lumotlar bazalaringizni quvvatlantiradigan 8 ta ma'lumotlar tuzilmasi
 
-The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format. 
+Javob sizning foydalanish holatingizga qarab farq qiladi. Ma'lumotlar xotirada yoki diskda indekslanishi mumkin. Xuddi shunday, ma'lumotlar formatlari ham farqlanadi, masalan, raqamlar, satrlar, geografik koordinatalar va boshqalar. Tizim og'ir yozish yoki o'qish uchun og'ir bo'lishi mumkin. Bu omillarning barchasi ma'lumotlar bazasi indeksi formatini tanlashga ta'sir qiladi.
 
 <p>
   <img src="../images/8-ds-db.jpg" />
 </p>
 
-The following are some of the most popular data structures used for indexing data: 
+Quyida ma'lumotlarni indekslash uchun ishlatiladigan eng mashhur ma'lumotlar tuzilmalari keltirilgan:
 
-- Skiplist: a common in-memory index type. Used in Redis 
-- Hash index: a very common implementation of the “Map” data structure (or “Collection”) 
-- SSTable: immutable on-disk “Map” implementation 
-- LSM tree: Skiplist + SSTable. High write throughput 
-- B-tree: disk-based solution. Consistent read/write performance 
-- Inverted index: used for document indexing. Used in Lucene 
-- Suffix tree: for string pattern search 
-- R-tree: multi-dimension search, such as finding the nearest neighbor 
+- Skiplist: umumiy xotiradagi indeks turi. Redisda ishlatiladi
+- Xesh indeksi: "Xarita" ma'lumotlar strukturasining (yoki "To'plam") juda keng tarqalgan qo'llanilishi.
+- SSTable: o'zgarmas diskda "Xarita" ni amalga oshirish
+- LSM daraxti: Skiplist + SSTable. Yuqori yozish qobiliyati
+- B-daraxt: diskga asoslangan yechim. Doimiy o'qish/yozish samaradorligi 
+- Inverted indeks: hujjatlarni indekslash uchun ishlatiladi. Lucenda ishlatiladi
+- Suffiks daraxti: qator namunalarini qidirish uchun
+- R-daraxt: ko'p o'lchovli qidiruv, masalan, eng yaqin qo'shnini topish 
 
 ### Ma'lumotlar bazasida SQL operatori qanday bajariladi?
 
-The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
+Quyidagi diagrammada jarayon ko'rsatilgan. E'tibor bering, turli xil ma'lumotlar bazalari uchun arxitekturalar har xil, diagrammada ba'zi umumiy dizaynlar ko'rsatilgan.
 
 <p>
   <img src="../images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
 
 
-Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
+1-qadam - SQL bayonoti ma'lumotlar bazasiga transport qatlami protokoli (masalan, TCP) orqali yuboriladi.
 
-Step 2 - The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
+2-qadam - SQL bayonoti buyruq tahlilchisiga yuboriladi, u erda sintaktik va semantik tahlildan o'tadi va keyin so'rovlar daraxti hosil bo'ladi.
 
-Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan. 
+3-qadam - so'rovlar daraxti optimallashtiruvchiga yuboriladi. Optimallashtiruvchi ijro rejasini yaratadi.
 
-Step 4 - The execution plan is sent to the executor. The executor retrieves data from the execution.
+4-bosqich - ijro rejasi ijrochiga yuboriladi. Ijrochi ijrodan ma'lumotlarni oladi.
 
-Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
+5-qadam - Kirish usullari bajarish uchun zarur bo'lgan ma'lumotlarni olish mantiqini ta'minlaydi, ma'lumotlarni saqlash mexanizmidan oladi.
 
-Step 6 - Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
+6-qadam - Kirish usullari SQL bayonotining faqat o'qish uchun ekanligini hal qiladi. Agar so'rov faqat o'qish uchun bo'lsa (SELECT iborasi), u keyingi ishlov berish uchun bufer menejeriga uzatiladi. Bufer menejeri kesh yoki ma'lumotlar fayllaridagi ma'lumotlarni qidiradi.
 
-Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
+7-qadam - Agar bayonot UPDATE yoki INSERT bo'lsa, u keyingi qayta ishlash uchun tranzaksiya menejeriga uzatiladi.
 
-Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
+8-qadam - Tranzaksiya paytida ma'lumotlar blokirovka rejimida. Bu qulflash menejeri tomonidan kafolatlanadi. Shuningdek, u tranzaksiyaning ACID xususiyatlarini ta'minlaydi. 
 
 ###  CAP teoremasi
 
-The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing. 
+CAP teoremasi kompyuter fanidagi eng mashhur atamalardan biridir, ammo men turli ishlab chiquvchilar turli xil tushunchalarga ega ekanligiga aminman. Keling, bu nima ekanligini va nima uchun bu chalkash bo'lishi mumkinligini ko'rib chiqaylik.
 
 <p>
   <img src="../images/cap theorem.jpeg" />
 </p>
 
-CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
+CAP teoremasi taqsimlangan tizim bir vaqtning o'zida ushbu uchta kafolatdan ikkitadan ko'pini ta'minlay olmasligini bildiradi.
 
-**Consistency**: consistency means all clients see the same data at the same time no matter which node they connect to.
+**Muvofiqlik**: izchillik barcha mijozlar qaysi tugunga ulanishidan qat'i nazar, bir vaqtning o'zida bir xil ma'lumotlarni ko'rishini anglatadi.
 
-**Availability**: availability means any client that requests data gets a response even if some of the nodes are down.
+**Mavjudlik**: mavjudlik degani, ma'lumotlarni so'ragan har qanday mijoz, hatto ba'zi tugunlar ishlamay qolgan bo'lsa ham, javob oladi.
 
-**Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions. 
+**Bo'limga tolerantlik**: bo'lim ikki tugun o'rtasidagi aloqa uzilishini bildiradi. Bo'limga tolerantlik tizim tarmoq bo'limlariga qaramay ishlashda davom etishini anglatadi.
 
-The “2 of 3” formulation can be useful, **but this simplification could be misleading**.
+"2 dan 3" formulasi foydali bo'lishi mumkin, **ammo bu soddalashtirish noto'g'ri bo'lishi mumkin**.
 
-1. Picking a database is not easy. Justifying our choice purely based on the CAP theorem is not enough. For example, companies don't choose Cassandra for chat applications simply because it is an AP system. There is a list of good characteristics that make Cassandra a desirable option for storing chat messages. We need to dig deeper.
+1. Ma'lumotlar bazasini tanlash oson emas. Bizning tanlovimizni faqat CAP teoremasi asosida asoslash etarli emas. Masalan, kompaniyalar AP tizimi bo'lgani uchun chat ilovalari uchun Cassandrani tanlamaydi.Cassandrani chat xabarlarini saqlash uchun kerakli variantga aylantiradigan yaxshi xususiyatlar ro'yxati mavjud. Biz chuqurroq qazishimiz kerak.
 
-2. “CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare”. Quoted from the paper: CAP Twelve Years Later: How the “Rules” Have Changed.
+2. "CAP dizayn maydonining faqat kichik bir qismini taqiqlaydi: kamdan-kam uchraydigan qismlar mavjud bo'lganda mukammal mavjudlik va mustahkamlik". Maqoladan iqtibos: O'n ikki yil o'tib CAP: "Qoidalar" qanday o'zgargan.
 
-3. The theorem is about 100% availability and consistency. A more realistic discussion would be the trade-offs between latency and consistency when there is no network partition. See PACELC theorem for more details.
+3. Teorema taxminan 100% mavjudlik va izchillikdir. Tarmoq bo'limi bo'lmaganda kechikish va izchillik o'rtasidagi kelishuv yanada realroq muhokama bo'ladi. Batafsil ma'lumot uchun PACELC teoremasiga qarang.
 
-**Is the CAP theorem actually useful?**
+**CAP teoremasi haqiqatan ham foydalimi?**
 
-I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.
+O'ylaymanki, bu hali ham foydali, chunki u bizning fikrimizni bir qator munozaralar uchun ochadi, ammo bu hikoyaning faqat bir qismi. To'g'ri ma'lumotlar bazasini tanlashda biz chuqurroq qazishimiz kerak.
 
 ### Xotira va saqlash turlari
 
@@ -682,137 +682,136 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
   <img src="../images/sql-execution-order.jpg" style="width: 580px" />
 </p>
 
-SQL statements are executed by the database system in several steps, including: 
+SQL bayonotlari ma'lumotlar bazasi tizimi tomonidan bir necha bosqichda amalga oshiriladi, jumladan: 
 
-- Parsing the SQL statement and checking its validity 
-- Transforming the SQL into an internal representation, such as relational algebra 
-- Optimizing the internal representation and creating an execution plan that utilizes index information 
-- Executing the plan and returning the results 
+- SQL bayonotini tahlil qilish va uning haqiqiyligini tekshirish 
+- SQLni relyatsion algebra kabi ichki tasvirga aylantirish
+- Ichki vakillikni optimallashtirish va indeks ma'lumotlaridan foydalanadigan ijro rejasini yaratish
+- Rejani bajarish va natijalarni qaytarish
 
-The execution of SQL is highly complex and involves many considerations, such as: 
+SQL-ni bajarish juda murakkab va ko'plab fikrlarni o'z ichiga oladi, masalan:
 
-- The use of indexes and caches 
-- The order of table joins 
-- Concurrency control 
-- Transaction management 
+- Indekslar va keshlardan foydalanish 
+- Jadvalni birlashtirish tartibi 
+- Parametrlarni nazorat qilish 
+- Tranzaksiyalarni boshqarish
 
 ### SQL tili
 
-In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? 
+1986 yilda SQL (Structured Query Language) standartga aylandi. Keyingi 40 yil ichida u relyatsion ma'lumotlar bazasini boshqarish tizimlari uchun dominant tilga aylandi. Eng so'nggi standartni (ANSI SQL 2016) o'qish ko'p vaqt talab qilishi mumkin. Uni qanday o'rganishim mumkin?
 
 <p>
   <img src="../images/how-to-learn-sql.jpg" />
 </p>
 
-There are 5 components of the SQL language: 
+SQL tilining 5 ta komponenti mavjud:
 
-- DDL: data definition language, such as CREATE, ALTER, DROP 
-- DQL: data query language, such as SELECT 
-- DML: data manipulation language, such as INSERT, UPDATE, DELETE 
-- DCL: data control language, such as GRANT, REVOKE 
-- TCL: transaction control language, such as COMMIT, ROLLBACK 
+- DDL: CREATE, ALTER, DROP kabi ma'lumotlarni aniqlash tili
+- DQL: ma'lumotlar so'rovi tili, masalan, SELECT
+- DML: INSERT, UPDATE, DELETE kabi ma'lumotlarni manipulyatsiya qilish tili 
+- DCL: ma'lumotlarni boshqarish tili, masalan, GRANT, REVOKE
+- TCL: COMMIT, ROLLBACK kabi tranzaktsiyalarni boshqarish tili
 
-For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. 
+Backend muhandisi uchun siz uning ko'p qismini bilishingiz kerak bo'lishi mumkin. Ma'lumotlar tahlilchisi sifatida siz DQL haqida yaxshi tushunchaga ega bo'lishingiz kerak bo'lishi mumkin. Sizga eng mos keladigan mavzularni tanlang.
 
 ## Kesh
 
-### Data is cached everywhere
+### Ma'lumotlar hamma joyda keshlangan
 
-This diagram illustrates where we cache data in a typical architecture.
+Ushbu diagramma odatiy arxitekturada ma'lumotlarni keshlash joyini ko'rsatadi.
 
 <p>
   <img src="../images/where do we cache data.jpeg" style="width: 720px" />
 </p>
 
 
-There are **multiple layers** along the flow.
+Oqim bo'ylab **bir nechta qatlamlar** mavjud.
 
-1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
-2. CDN: CDN caches static web resources. The clients can retrieve data from a CDN node nearby.
-3. Load Balancer: The load Balancer can cache resources as well.
-4. Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.
-5. Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.
-6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.
-7. Full-text Search: we sometimes need to use full-text searches like Elastic Search for document search or log search. A copy of data is indexed in the search engine as well.
-8. Database: Even in the database, we have different levels of caches:
-- WAL(Write-ahead Log): data is written to WAL first before building the B tree index
-- Bufferpool: A memory area allocated to cache query results
-- Materialized View: Pre-compute query results and store them in the database tables for better query performance
-- Transaction log: record all the transactions and database updates
-- Replication Log: used to record the replication state in a database cluster
+1. Mijoz ilovalari: HTTP javoblari brauzer tomonidan keshlanishi mumkin. Biz HTTP orqali birinchi marta maʼlumot soʻrayapmiz va ular HTTP sarlavhasida amal qilish muddati siyosati bilan qaytariladi; biz yana ma'lumotlarni so'raymiz va mijoz ilovasi avval brauzer keshidan ma'lumotlarni olishga harakat qiladi.
+2. CDN: CDN statik veb-resurslarni keshlaydi. Mijozlar yaqin atrofdagi CDN tugunidan ma'lumotlarni olishlari mumkin.
+3. Load Balancer: Load Balancer resurslarni ham keshlashi mumkin.
+4. Xabarlar infratuzilmasi: Xabar brokerlari xabarlarni avval diskda saqlaydi va keyin iste'molchilar ularni o'z tezligida oladilar. Saqlash siyosatiga qarab, ma'lumotlar ma'lum vaqt davomida Kafka klasterlarida keshlanadi.
+5. Xizmatlar: Xizmatda keshning bir nechta qatlamlari mavjud. Agar ma'lumotlar CPU keshida keshlanmagan bo'lsa, xizmat ma'lumotlarni xotiradan olishga harakat qiladi. Ba'zan xizmatda ma'lumotlarni diskda saqlash uchun ikkinchi darajali kesh mavjud.
+6. Taqsimlangan kesh: Redis kabi taqsimlangan kesh xotirada bir nechta xizmatlar uchun kalit-qiymat juftlarini saqlaydi. Bu ma'lumotlar bazasiga qaraganda ancha yaxshi o'qish/yozish unumdorligini ta'minlaydi.
+7. To'liq matnli qidiruv: biz ba'zan hujjat qidirish yoki jurnaldan qidirish uchun Elastik qidiruv kabi to'liq matnli qidiruvlardan foydalanishimiz kerak. Ma'lumotlarning nusxasi qidiruv tizimida ham indekslanadi.
+8. Ma'lumotlar bazasi: Hatto ma'lumotlar bazasida ham bizda turli darajadagi keshlar mavjud:
+- WAL (Oldindan yozish jurnali): ma'lumotlar B daraxti indeksini yaratishdan oldin WAL-ga yoziladi
+- Bufferpool: Kesh so'rovi natijalari uchun ajratilgan xotira maydoni
+- Materiallashtirilgan ko'rinish: so'rov natijalarini oldindan hisoblab chiqing va so'rovlar yaxshi ishlashi uchun ularni ma'lumotlar bazasi jadvallarida saqlang
+- Tranzaksiya jurnali: barcha tranzaktsiyalar va ma'lumotlar bazasi yangilanishlarini yozib oling
+- Replikatsiya jurnali: ma'lumotlar bazasi klasterida replikatsiya holatini yozish uchun ishlatiladi
 
-### Why is Redis so fast? 
+### Nima uchun Redis juda tez?
 
-There are 3 main reasons as shown in the diagram below.
+Quyidagi diagrammada ko'rsatilgandek 3 ta asosiy sabab bor.
 
 <p>
   <img src="../images/why_redis_fast.jpeg" />
 </p>
 
 
-1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
-2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
-3. Redis leverages several efficient lower-level data structures.
+1. Redis - bu RAMga asoslangan ma'lumotlar do'koni. RAMga kirish tasodifiy diskdan foydalanishdan kamida 1000 marta tezroq.
+2. Redis ijro samaradorligi uchun IO multiplekslash va bitta torli bajarish siklidan foydalanadi.
+3. Redis bir nechta samarali quyi darajadagi ma'lumotlar tuzilmalaridan foydalanadi.
 
-Question: Another popular in-memory store is Memcached. Do you know the differences between Redis and Memcached?
+Savol: Yana bir mashhur xotira do'koni - Memcached. Redis va Memcached o'rtasidagi farqni bilasizmi?
 
-You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.
+Siz ushbu diagrammaning uslubi oldingi postlarimdan farq qilganini payqagan bo'lishingiz mumkin. Iltimos, qaysi birini afzal ko'rishingizni menga xabar bering.
 
-### How can Redis be used?
+### Redisdan qanday foydalanish mumkin?
 
 <p>
   <img src="../images/top-redis-use-cases.jpg" style="width: 520px" />
 </p>
 
 
-There is more to Redis than just caching. 
+Redisda keshlashdan ko'ra ko'proq narsa bor.
 
-Redis can be used in a variety of scenarios as shown in the diagram. 
+Diagrammada ko'rsatilganidek, Redis turli stsenariylarda ishlatilishi mumkin.
 
-- Session 
+- Sessiya 
 
-  We can use Redis to share user session data among different services. 
+  Biz Redisdan foydalanuvchi sessiyasi ma'lumotlarini turli xizmatlar o'rtasida almashish uchun foydalanishimiz mumkin. 
 
-- Cache 
+- Kesh  
 
-  We can use Redis to cache objects or pages, especially for hotspot data. 
+  Ob'ektlar yoki sahifalarni keshlash uchun Redis-dan foydalanishimiz mumkin, ayniqsa hotspot ma'lumotlari uchun. 
 
-- Distributed lock 
+- Tarqalgan qulf  
 
-  We can use a Redis string to acquire locks among distributed services. 
+  Tarqatilgan xizmatlar orasida qulflarni olish uchun Redis qatoridan foydalanishimiz mumkin. 
 
-- Counter 
+- Hisoblagich  
 
-  We can count how many likes or how many reads for articles. 
+  Biz maqolalar uchun qancha yoqtirish yoki qancha o'qishni hisoblashimiz mumkin. 
 
-- Rate limiter 
+- Tarif cheklovchisi  
 
-  We can apply a rate limiter for certain user IPs. 
+  Biz ma'lum foydalanuvchi IP-lari uchun tarif cheklovchisini qo'llashimiz mumkin. 
 
 - Global ID generator 
 
-  We can use Redis Int for global ID. 
+  Global ID uchun Redis Int dan foydalanishimiz mumkin. 
 
-- Shopping cart 
+- Xarid savati  
 
-  We can use Redis Hash to represent key-value pairs in a shopping cart. 
+  Xarid qilish savatidagi kalit-qiymat juftligini ko'rsatish uchun Redis Hash-dan foydalanishimiz mumkin. 
 
-- Calculate user retention 
+- Foydalanuvchini ushlab turishni hisoblash 
 
-  We can use Bitmap to represent the user login daily and calculate user retention. 
+  Bitmap-dan foydalanuvchi loginini har kuni ko'rsatish va foydalanuvchini ushlab turishini hisoblash uchun foydalanishimiz mumkin. 
 
-- Message queue 
+- Xabar navbati 
 
-  We can use List for a message queue. 
+  Biz xabarlar navbati uchun List-dan foydalanishimiz mumkin 
 
-- Ranking 
+- Reyting 
 
-  We can use ZSet to sort the articles. 
+  Maqolalarni saralash uchun ZSet dan foydalanishimiz mumkin.
 
-### Top caching strategies
+### Eng yaxshi keshlash strategiyalari
 
-Designing large-scale systems usually requires careful consideration of caching. 
-Below are five caching strategies that are frequently utilized. 
+Katta miqyosli tizimlarni loyihalash odatda keshlashni diqqat bilan ko'rib chiqishni talab qiladi. Quyida tez-tez ishlatiladigan beshta keshlash strategiyasi keltirilgan. 
 
 <p>
   <img src="../images/top_caching_strategy.jpeg" style="width: 680px" />
@@ -820,55 +819,55 @@ Below are five caching strategies that are frequently utilized.
 
 
 
-## Microservice architecture
+## Mikroservis arxitekturasi
 
-### What does a typical microservice architecture look like? 
+### Oddiy mikroservis arxitekturasi nimaga o'xshaydi? 
 
 <p>
   <img src="../images/typical-microservice-arch.jpg" style="width: 520px" />
 </p>
 
 
-The diagram below shows a typical microservice architecture. 
+Quyidagi diagrammada mikroservisning odatiy arxitekturasi ko'rsatilgan.
 
-- Load Balancer: This distributes incoming traffic across multiple backend services. 
-- CDN (Content Delivery Network): CDN is a group of geographically distributed servers that hold static content for faster delivery. The clients look for content in CDN first, then progress  to backend services.
-- API Gateway: This handles incoming requests and routes them to the relevant services. It talks to the identity provider and service discovery.
-- Identity Provider: This handles authentication and authorization for users. 
-- Service Registry & Discovery: Microservice registration and discovery happen in this component, and the API gateway looks for relevant services in this component to talk to. 
-- Management: This component is responsible for monitoring the services.
-- Microservices: Microservices are designed and deployed in different domains. Each domain has its own database. The API gateway talks to the microservices via REST API or other protocols, and the microservices within the same domain talk to each other using RPC (Remote Procedure Call).
+- Load Balancer: Bu kiruvchi trafikni bir nechta backend xizmatlariga taqsimlaydi.
+- CDN (Content Delivery Network): CDN bu tezroq yetkazib berish uchun statik tarkibga ega bo'lgan geografik taqsimlangan serverlar guruhidir. Mijozlar avval CDN-da tarkibni qidiradi, keyin esa backend xizmatlariga o'tadi.
+- API Gateway: Bu kiruvchi so'rovlarni ko'rib chiqadi va ularni tegishli xizmatlarga yo'naltiradi. U identifikatsiya provayderi va xizmat kashfiyoti bilan gaplashadi.
+- Identifikatsiya provayderi: Bu foydalanuvchilar uchun autentifikatsiya va avtorizatsiya bilan shug'ullanadi. 
+- Xizmat reestri va kashfiyot: Mikroservisni ro'yxatdan o'tkazish va ochish ushbu komponentda sodir bo'ladi va API shlyuzi suhbatlashish uchun ushbu komponentda tegishli xizmatlarni qidiradi. 
+- Boshqaruv: Ushbu komponent xizmatlarni kuzatish uchun javobgardir.
+- Mikroservislar: Mikroservislar turli sohalarda ishlab chiqilgan va joylashtirilgan. Har bir domen o'z ma'lumotlar bazasiga ega. API shlyuzi REST API yoki boshqa protokollar orqali mikroservislar bilan gaplashadi va bir domendagi mikroservislar RPC (Remote Procedure Call) yordamida bir-biri bilan gaplashadi.
 
-Benefits of microservices:
+Mikroservislarning afzalliklari:
 
-- They can be quickly designed, deployed, and horizontally scaled.
-- Each domain can be independently maintained by a dedicated team.
-- Business requirements can be customized in each domain and better supported, as a result.
+- Ular tezda ishlab chiqilishi, joylashtirilishi va gorizontal ravishda o'lchanishi mumkin.
+- Har bir domen maxsus guruh tomonidan mustaqil ravishda saqlanishi mumkin.
+- Biznes talablari har bir domenda moslashtirilishi va natijada yaxshiroq qo'llab-quvvatlanishi mumkin.
 
-### Microservice Best Practices
+### Mikroservisning eng yaxshi amaliyotlari
 
-A picture is worth a thousand words: 9 best practices for developing microservices.
+Rasm ming so'zga arziydi: mikroservislarni ishlab chiqish bo'yicha 9 ta eng yaxshi amaliyot.
 
 <p>
   <img src="../images/microservice-best-practices.jpeg" />
 </p>
 
  
-When we develop microservices, we need to follow the following best practices: 
+Mikroservislarni ishlab chiqishda biz quyidagi eng yaxshi amaliyotlarga amal qilishimiz kerak: 
 
-1. Use separate data storage for each microservice 
-2. Keep code at a similar level of maturity 
-3. Separate build for each microservice 
-4. Assign each microservice with a single responsibility 
-5. Deploy into containers 
-6. Design stateless services 
-7. Adopt domain-driven design
-8. Design micro frontend 
-9. Orchestrating microservices 
+1. Har bir mikroxizmat uchun alohida maʼlumotlarni saqlashdan foydalaning  
+2. Kodni xuddi shunday etuklik darajasida saqlang 
+3. Har bir mikroservis uchun alohida tuzilma  
+4. Har bir mikroxizmatni bitta mas'uliyat bilan tayinlang responsibility 
+5. Konteynerlarga joylashtiring 
+6. Fuqaroligi bo'lmagan xizmatlarni loyihalash 
+7. Domenga asoslangan dizaynni qabul qiling
+8. Mikro frontendni loyihalash
+9. Mikroservislarni tashkil qilish
 
-### What tech stack is commonly used for microservices?
+### Mikroservislar uchun qanday texnologik stek ishlatiladi?
 
-Below you will find a diagram showing the microservice tech stack, both for the development phase and for production.
+Quyida siz mikroservis texnologiyalari stekini ishlab chiqish bosqichida ham, ishlab chiqarishda ham ko'rsatadigan diagrammani topasiz.
 
 <p>
   <img src="../images/microservice-tech.jpeg" />
@@ -877,64 +876,64 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 
 ▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
-- Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
-- Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
-- Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
+- Define API - Bu frontend va backend o'rtasida shartnoma o'rnatadi. Buning uchun Postman yoki OpenAPI dan foydalanishimiz mumkin.
+- Ishlab chiqish - Node.js yoki react frontend ishlab chiqish uchun, java/python/go esa backend ishlab chiqish uchun mashhur. Bundan tashqari, API ta'riflariga muvofiq API shlyuzidagi konfiguratsiyalarni o'zgartirishimiz kerak.
+- Uzluksiz integratsiya - avtomatlashtirilgan sinov uchun JUnit va Jenkins. Kod Docker tasviriga qadoqlangan va mikroservislar sifatida joylashtirilgan.
 
 ▶️ 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
-- NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
-- API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
-- The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
-Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
-- Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.
-- Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
-- Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
+- NGinx yuk balanslagichlari uchun keng tarqalgan tanlovdir. Cloudflare CDN (Content Delivery Network) bilan ta'minlaydi. 
+- API Gateway - Biz shlyuz uchun bahor yuklashdan foydalanishimiz mumkin va xizmatni aniqlash uchun Eureka/Zookeeper dan foydalanishimiz mumkin.
+- Mikroservislar bulutlarda joylashtirilgan. Bizda AWS, Microsoft Azure yoki Google GCP orasida variantlar mavjud. Kesh va to'liq matnli qidiruv - Redis kalit-qiymat juftlarini keshlash uchun keng tarqalgan tanlovdir. Elasticsearch to'liq matnli qidiruv uchun ishlatiladi.
+- Aloqa - xizmatlar bir-biri bilan gaplashishi uchun biz xabar almashish infra Kafka yoki RPC dan foydalanishimiz mumkin.
+- Qat'iylik - Biz aloqador ma'lumotlar bazasi uchun MySQL yoki PostgreSQL va ob'ektlarni saqlash uchun Amazon S3 dan foydalanishimiz mumkin. Agar kerak bo'lsa, biz Cassandra-dan keng ustunli do'kon uchun ham foydalanishimiz mumkin.
+- Boshqaruv va monitoring - Ko'plab mikroservislarni boshqarish uchun umumiy Ops vositalariga Prometey, Elastic Stack va Kubernetes kiradi.
 
-### Why is Kafka fast
+### Nega Kafka tez
 
-There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.
+Kafkaning ishlashiga hissa qo'shgan ko'plab dizayn qarorlari mavjud. Ushbu postda biz ikkitasiga e'tibor qaratamiz. Bizning fikrimizcha, bu ikkisi eng ko'p og'irlikni ko'targan.
 
 <p>
   <img src="../images/why_is_kafka_fast.jpeg" />
 </p>
 
-1. The first one is Kafka’s reliance on Sequential I/O.
-2. The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.
+1. Birinchisi, Kafkaning Sequential I/U-ga tayanishi.
+2. Kafkaning ishlash ustunligini ta'minlaydigan ikkinchi dizayn tanlovi - bu samaradorlikka e'tibor: nol nusxa ko'chirish printsipi.
  
-The diagram illustrates how the data is transmitted between producer and consumer, and what zero-copy means.
+Diagrammada ma'lumotlar ishlab chiqaruvchi va iste'molchi o'rtasida qanday uzatilishi va nol nusxasi nimani anglatishini ko'rsatadi.
  
-- Step 1.1 - 1.3: Producer writes data to the disk 
-- Step 2: Consumer reads data without zero-copy
+- 1.1 - 1.3-qadam: Ishlab chiqaruvchi diskka ma'lumotlarni yozadi
+- 2-qadam: Iste'molchi ma'lumotlarni nol nusxasiz o'qiydi
 
-2.1 The data is loaded from disk to OS cache
+2.1 Ma'lumotlar diskdan OS keshiga yuklanadi
 
-2.2 The data is copied from OS cache to Kafka application
+2.2 Ma'lumotlar OT keshidan Kafka ilovasiga ko'chiriladi
 
-2.3 Kafka application copies the data into the socket buffer 
+2.3 Kafka ilovasi ma'lumotlarni rozetka buferiga ko'chiradi
 
-2.4 The data is copied from socket buffer to network card
+2.4 Ma'lumotlar soket buferidan tarmoq kartasiga ko'chiriladi
 
-2.5 The network card sends data out to the consumer
+2.5 Tarmoq kartasi ma'lumotlarni iste'molchiga yuboradi
 
+- 3-qadam: Iste'molchi ma'lumotlarni nol nusxada o'qiydi
+
+3.1: Ma'lumotlar diskdan OS keshiga yuklanadi
+
+3.2 OT keshi ma'lumotlarni sendfile() buyrug'i orqali to'g'ridan-to'g'ri tarmoq kartasiga ko'chiradi 
+
+3.3 Tarmoq kartasi ma'lumotlarni iste'molchiga yuboradi
  
-- Step 3: Consumer reads data with zero-copy
+Nolinchi nusxa - dastur konteksti va yadro konteksti o'rtasida bir nechta ma'lumotlar nusxalarini saqlash uchun yorliq.
 
-3.1: The data is loaded from disk to OS cache
-3.2 OS cache directly copies the data to the network card via sendfile() command
-3.3 The network card sends data out to the consumer
- 
-Zero copy is a shortcut to save the multiple data copies between application context and kernel context.
+## To'lov tizimlari
 
-## Payment systems
-
-### How to learn payment systems?
+### To'lov tizimini qanday o'rganish mumkin?
 
 <p>
   <img src="../images/learn-payments.jpg" />
 </p>
 
-###  Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money? 
+###  Nima uchun kredit karta "banklardagi eng daromadli mahsulot" deb ataladi? VISA/Mastercard qanday qilib pul ishlaydi? 
 
 The diagram below shows the economics of the credit card payment flow.
 
@@ -960,7 +959,7 @@ Why should the issuing bank be compensated?
 - The issuer pays the merchant before the cardholder pays the issuer.
 - The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc. 
 
-### How does VISA work when we swipe a credit card at a merchant’s shop?
+### Savdogarlar do'konida kredit kartani o'tkazganimizda VISA qanday ishlaydi?
 
 <p>
   <img src="../images/visa_payment.jpeg" />
@@ -997,7 +996,7 @@ Step 4: The card network clears up the transactions from different acquiring ban
  
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
-### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
+### Dunyo bo'ylab to'lov tizimlari seriyasi (1-qism): Hindistonda yagona to'lov interfeysi (UPI)
 
 
 What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
@@ -1014,7 +1013,7 @@ UPI = payment markup language + standard for interoperable payments
 
 ## DevOps
 
-###  DevOps vs. SRE vs. Platform Engineering. What is the difference?
+###  DevOps va SRE va platforma muhandisligi. Farqi nimada?
 
 The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. 
 
@@ -1030,7 +1029,7 @@ Platform Engineering is a more recent concept, building on the foundation of SRE
 
 It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. 
 
-### What is k8s (Kubernetes)?
+### K8s (Kubernetes) nima?
 
 K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.
 
@@ -1074,7 +1073,7 @@ The worker node(s) host the Pods that are the components of the application work
 
     Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
 
-### Docker vs. Kubernetes. Which one should we use? 
+### Docker va Kubernetes. Qaysi birini ishlatishimiz kerak?
 
 <p>
   <img src="../images/docker-vs-k8s.jpg" style="width: 680px" />
@@ -1099,7 +1098,7 @@ Kubernetes: Kubernetes operates at the cluster level. It manages multiple contai
 
 In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. 
 
-### How does Docker work? 
+### Docker qanday ishlaydi?
 
 The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull” 
 and “docker run”. 
@@ -1132,7 +1131,7 @@ Let’s take the “docker run” command as an example.
 
 ## GIT
 
-### How Git Commands work
+### Git buyruqlari qanday ishlaydi
 
 To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: 
 
@@ -1148,7 +1147,7 @@ To begin with, it's essential to identify where our code is stored. The common a
 
 Most Git commands primarily move files between these four locations. 
 
-### How does Git Work?
+### Git qanday ishlaydi?
 
 The diagram below shows the Git workflow. 
 
@@ -1165,7 +1164,7 @@ The commit is very fast because the operation doesn’t interact with the remote
 
 If the remote repository crashes, the files can be recovered from the local repositories. 
 
-### Git merge vs. Git rebase
+### Git merge va Git rebase]
 
 What are the differences?
 
@@ -1194,16 +1193,16 @@ Rebase can be dangerous if “the golden rule of git rebase” is not followed.
 
 Never use it on public branches!
 
-## Cloud Services
+## Bulutli xizmatlar
 
-### A nice cheat sheet of different cloud services (2023 edition)
+### Turli xil bulut xizmatlarining chiroyli cheat varag'i (2023 yil nashri)
 
 <p>
   <img src="../images/cloud-compare.jpg" />
 </p>
 
 
-### What is cloud native?
+### Mahalliy bulut nima?
 
 Below is a diagram showing the evolution of architecture and processes since the 1980s. 
 
@@ -1233,9 +1232,9 @@ Cloud native includes 4 aspects:
 
     The applications are massively deployed on cloud infrastructure instead of self-hosted servers. 
 
-## Developer productivity tools
+## Ishlab chiquvchi mahsuldorlik vositalari
 
-### Visualize JSON files
+### JSON fayllarini vizualizatsiya qilish
 
 Nested JSON files are hard to read.
 
@@ -1248,7 +1247,7 @@ Additionally, the generated diagrams can be downloaded as images.
 </p>
 
 
-### Automatically turn code into architecture diagrams
+### Kodni avtomatik ravishda arxitektura diagrammalariga aylantiring
 
 <p>
   <img src="../images/diagrams_as_code.jpeg" style="width: 640px" />
@@ -1266,7 +1265,7 @@ What does it do?
 
 ## Linux
 
-### Linux file system explained
+### Linux fayl tizimi tushuntirildi
 
 <p>
   <img src="../images/linux-file-systems.jpg" style="width: 680px" />
@@ -1277,7 +1276,7 @@ The Linux file system used to resemble an unorganized town where individuals con
 By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
 To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
 
-### 18 Most-used Linux Commands You Should Know 
+### Siz bilishingiz kerak bo'lgan 18 ta eng ko'p ishlatiladigan Linux buyruqlari
 
 Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. 
 
@@ -1307,9 +1306,9 @@ This diagram below shows popular Linux commands:
 - ifconfig - Configure network interfaces  
 - ping - Test network connectivity between hosts 
 
-## Security
+## Xavfsizlik
 
-### How does HTTPS work?
+### HTTPS qanday ishlaydi?
 
 Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. 
 
@@ -1336,7 +1335,7 @@ Why does HTTPS switch to symmetric encryption during data transmission? There ar
 
 2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
 
-### Oauth 2.0 Explained With Simple Terms. 
+### Oauth 2.0 oddiy shartlar bilan tushuntirilgan.
 
 OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. 
 
@@ -1358,7 +1357,7 @@ Accessing User Profile: Apps with an OAuth token can access certain parts of you
 
 Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
 
-### Top 4 Forms of Authentication Mechanisms 
+### Autentifikatsiya mexanizmlarining 4 ta eng yaxshi shakllari
 
 <p>
   <img src="../images/top4-most-used-auth.jpg" />
@@ -1380,7 +1379,7 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
 
     User authentication information is used to verify and grant access to various systems and services
 
-### Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?
+### Sessiya, cookie, JWT, token, SSO va OAuth 2.0 - ular nima?
 
 These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.
 
@@ -1402,7 +1401,7 @@ From simple to complex, here is my understanding of user identity management:
 
 - By using OAuth 2.0, you can authorize one website to access your information on another website.
 
-### How to store passwords safely in the database and how to validate a password? 
+### Ma'lumotlar bazasida parollarni qanday xavfsiz saqlash va parolni qanday tekshirish mumkin?
 
 <p>
   <img src="../images/salt.jpg" style="width: 720px" />
@@ -1435,7 +1434,7 @@ To validate a password, it can go through the following process:
 1. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
 1. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid. 
 
-### Explaining JSON Web Token (JWT) to a 10 year old Kid
+### 10 yoshli bolaga JSON Web Token (JWT) haqida tushuntirish
 
 <p>
   <img src="../images/jwt.jpg" />
@@ -1450,7 +1449,7 @@ Now, the signature is what makes the JWT secure. It's like a special seal that o
 
 When you want to send the JWT to a server, you put the header, payload, and signature inside the box. Then you send it over to the server. The server can easily read the header and payload to understand who you are and what you want to do.
 
-### How does Google Authenticator (or other types of 2-factor authenticators) work?
+### Google Authenticator (yoki 2 faktorli autentifikatsiyaning boshqa turlari) qanday ishlaydi?
 
 Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
  
@@ -1494,9 +1493,9 @@ Is this authentication mechanism safe?
     No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
 
 
-##  Real World Case Studies
+##  Haqiqiy dunyo misollari
 
-### Netflix's Tech Stack
+### Netflixning Tech Stacki
 
 This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
 
@@ -1520,7 +1519,7 @@ This post is based on research from many Netflix engineering blogs and open-sour
 
 **CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.
 
-### Twitter Architecture 2022
+### Twitter arxitekturasi 2022
 
 Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. 
 
@@ -1529,7 +1528,7 @@ Yes, this is the real Twitter architecture. It is posted by Elon Musk and redraw
 </p>
 
 
-### Evolution of Airbnb’s microservice architecture over the past 15 years
+### Oxirgi 15 yil ichida Airbnb mikroservis arxitekturasining evolyutsiyasi
 
 Airbnb’s microservice architecture went through 3 main stages. 
 
@@ -1565,7 +1564,7 @@ Micro + macroservices (2020 - present)
 
 This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
 
-### Monorepo vs. Microrepo. 
+### Monorepo va mikrorepo.
 
 Which is the best? Why do different companies choose different options? 
 
@@ -1593,7 +1592,7 @@ Google engineers built Bazel, and Meta built Buck. There are other open-source t
 
 Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
 
-### How will you design the Stack Overflow website? 
+### Stack Overflow veb-saytini qanday loyihalashtirasiz?
 
 If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
 
@@ -1619,7 +1618,7 @@ Stack Overflow serves all the traffic with only 9 on-premise web servers, and it
 
 This is contrary to all our popular beliefs these days. 
 
-### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
+### Nima uchun Amazon Prime Video monitoringi serversizdan monolitga o'tdi? Qanday qilib 90% xarajatlarni tejash mumkin?
 
 The diagram below shows the architecture comparison before and after the migration. 
 
@@ -1654,7 +1653,7 @@ This is an interesting and unique case study because microservices have become a
 
 Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”. 
 
-### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
+### Disney Hotstar turnir davomida 5 milliard kulgichni qanday suratga oladi?
 
 <p>
   <img src="../images/hotstar_emojis.jpeg" style="width: 720px" />
@@ -1675,7 +1674,7 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
  
 A similar design is adopted by LinkedIn which streams a million likes/sec.
 
-### How Discord Stores Trillions Of Messages 
+### Discord qanday qilib trillionlab xabarlarni saqlaydi?
 
 The diagram below shows the evolution of message storage at Discord: 
 
@@ -1702,7 +1701,7 @@ ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its
 
 The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra. 
 
-### How do video live streamings work on YouTube, TikTok live, or Twitch?
+### YouTube, TikTok live yoki Twitch-da jonli video oqimlari qanday ishlaydi?
  
 Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
  
