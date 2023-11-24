@@ -1498,31 +1498,31 @@ Ushbu autentifikatsiya mexanizmi xavfsizmi?
 
 ### Netflixning Tech Stacki
 
-This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
+Ushbu post ko'plab Netflix muhandislik bloglari va ochiq manba loyihalari tadqiqotlariga asoslangan. Agar biron bir noaniqliklarga duch kelsangiz, iltimos, bizga xabar bering.
 
 <p>
   <img src="../images/netflix tech stack.png" style="width: 680px" />
 </p>
 
-**Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
+**Mobil va veb**: Netflix mahalliy mobil ilovalarni yaratish uchun Swift va Kotlinni qabul qildi. O'zining veb-ilovasi uchun u React-dan foydalanadi.
 
-**Frontend/server communication**: Netflix uses GraphQL.
+**Frontend/server aloqasi**: Netflix GraphQL-dan foydalanadi.
 
-**Backend services**: Netflix relies on ZUUL, Eureka, the Spring Boot framework, and other technologies.
+**Backend xizmatlari**: Netflix ZUUL, Eureka, Spring Boot ramkasi va boshqa texnologiyalarga tayanadi.
 
-**Databases**: Netflix utilizes EV cache, Cassandra, CockroachDB, and other databases.
+**Ma'lumotlar bazalari**: Netflix EV keshi, Cassandra, CockroachDB va boshqa ma'lumotlar bazalaridan foydalanadi.
 
-**Messaging/streaming**: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.
+**Xabar almashish/striming**: Netflix xabar almashish va oqimlash uchun Apache Kafka va Fink-dan foydalanadi.
 
-**Video storage**: Netflix uses S3 and Open Connect for video storage.
+**Video saqlash**: Netflix video saqlash uchun S3 va Open Connect-dan foydalanadi.
 
-**Data processing**: Netflix utilizes Flink and Spark for data processing, which is then visualized using Tableau. Redshift is used for processing structured data warehouse information.
+**Ma'lumotlarni qayta ishlash**: Netflix ma'lumotlarni qayta ishlash uchun Flink va Spark-dan foydalanadi, keyin esa Tableau yordamida vizualizatsiya qilinadi. Redshift tuzilgan ma'lumotlar ombori ma'lumotlarini qayta ishlash uchun ishlatiladi.
 
-**CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.
+**CI/CD**: Netflix CI/CD jarayonlari uchun JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas va boshqalar kabi turli xil vositalardan foydalanadi.
 
 ### Twitter arxitekturasi 2022
 
-Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. 
+Ha, bu haqiqiy Twitter arxitekturasi. U Elon Mask tomonidan joylashtirilgan va biz uni yaxshiroq o'qish uchun qayta chizganmiz.
 
 <p>
   <img src="../images/twitter-arch.jpeg" />
@@ -1531,128 +1531,128 @@ Yes, this is the real Twitter architecture. It is posted by Elon Musk and redraw
 
 ### Oxirgi 15 yil ichida Airbnb mikroservis arxitekturasining evolyutsiyasi
 
-Airbnb’s microservice architecture went through 3 main stages. 
+Airbnb mikroservis arxitekturasi 3 asosiy bosqichdan o'tdi.
 
 <p>
   <img src="../images/airbnb_arch.jpeg" />
 </p>
 
 
-Monolith (2008 - 2017)
+Monolit (2008 - 2017)
 
-Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith. 
+Airbnb mezbonlar va mehmonlar uchun oddiy bozor sifatida boshlangan. Bu Ruby on Rails ilovasida - monolitda qurilgan. 
 
-What’s the challenge?
+Qiyinchilik nima?
 
-- Confusing team ownership + unowned code
-- Slow deployment 
+- Chalkash jamoa egaligi + egaliksiz kod
+- Sekin joylashtirish
 
-Microservices (2017 - 2020)
+Mikroservislar (2017 - 2020)
 
-Microservice aims to solve those challenges. In the microservice architecture, key services include:
+Microservice ushbu muammolarni hal qilishga qaratilgan. Mikroservis arxitekturasida asosiy xizmatlarga quyidagilar kiradi:
 
-- Data fetching service
-- Business logic data service
-- Write workflow service
-- UI aggregation service
-- Each service had one owning team
+- Ma'lumot olish xizmati
+- Biznes mantiqiy ma'lumotlar xizmati
+- Ish jarayonini yozish xizmati
+- UI yig'ish xizmati
+- Har bir xizmatning bitta egasi bor edi
 
-What’s the challenge?
+Qiyinchilik nima?
 
-Hundreds of services and dependencies were difficult for humans to manage.
+Yuzlab xizmatlar va qaramliklarni boshqarish odamlar uchun qiyin edi.
 
-Micro + macroservices (2020 - present)
+Micro + makroservislar (2020 yildan hozirgi kungacha)
 
-This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
+Hozirda Airbnb shu narsa ustida ishlamoqda. Mikro va makroservis gibrid modeli asosiy e'tibor API larni birlashtirishga qaratilgan.
 
 ### Monorepo va mikrorepo.
 
-Which is the best? Why do different companies choose different options? 
+Qaysi biri eng yaxshisi? Nima uchun turli kompaniyalar turli xil variantlarni tanlaydilar?
 
 <p>
   <img src="../images/monorepo-microrepo.jpg" />
 </p>
 
 
-Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
+Monorepo yangi emas; Linux va Windows ikkalasi ham Monorepo yordamida yaratilgan. Kengaytirish va qurish tezligini yaxshilash uchun Google uni tezroq kengaytirish uchun ichki maxsus asboblar zanjirini va uni izchil saqlash uchun qattiq kodlash sifat standartlarini ishlab chiqdi. 
 
-Amazon and Netflix are major ambassadors of the Microservice philosophy. This approach naturally separates the service code into separate repositories. It scales faster but can lead to governance pain points later on. 
+Amazon va Netflix Microservice falsafasining asosiy elchilaridir. Ushbu yondashuv tabiiy ravishda xizmat kodini alohida omborlarga ajratadi. U tezroq tarqaladi, lekin keyinchalik boshqaruvning og'riqli nuqtalariga olib kelishi mumkin. 
 
-Within Monorepo, each service is a folder, and every folder has a BUILD config and OWNERS permission control. Every service member is responsible for their own folder. 
+Monorepo ichida har bir xizmat papka bo'lib, har bir jildda BUILD konfiguratsiyasi va HONERS ruxsati boshqaruvi mavjud. Har bir xizmatchi o'z papkasi uchun javobgardir.
 
-On the other hand, in Microrepo, each service is responsible for its repository, with the build config and permissions typically set for the entire repository. 
+Boshqa tomondan, Microrepo-da har bir xizmat o'z ombori uchun javobgar bo'lib, qurish konfiguratsiyasi va ruxsatlar odatda butun ombor uchun o'rnatiladi.
 
-In Monorepo, dependencies are shared across the entire codebase regardless of your business, so when there's a version upgrade, every codebase upgrades their version. 
+Monorepo-da bog'liqliklar biznesingizdan qat'i nazar, butun kod bazasi bo'ylab taqsimlanadi, shuning uchun versiyani yangilash mavjud bo'lganda, har bir kod bazasi o'z versiyasini yangilaydi.
 
-In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules. 
+Microrepo-da bog'liqliklar har bir ombor ichida nazorat qilinadi. Korxonalar o'z jadvallari asosida o'z versiyalarini qachon yangilashni tanlashadi.
 
-Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. 
+Monorepoda ro'yxatdan o'tish uchun standart mavjud. Google-ning kodni ko'rib chiqish jarayoni biznesdan qat'i nazar, Monorepo uchun izchil sifat standartini ta'minlaydigan yuqori barni o'rnatishi bilan mashhur.
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different. 
-Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others. 
+Microrepo o'z standartini o'rnatishi yoki eng yaxshi tajribalarni o'z ichiga olgan umumiy standartni qabul qilishi mumkin. U biznes uchun tezroq kengayishi mumkin, ammo kod sifati biroz boshqacha bo'lishi mumkin.
+Google muhandislari Bazelni, Meta esa Bakni yaratdi. Boshqa ochiq manbali vositalar mavjud, jumladan Nix, Lerna va boshqalar.
 
-Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
+Yillar davomida Microrepo ko'proq qo'llab-quvvatlanadigan vositalarga ega bo'ldi, jumladan Java uchun Maven va Gradle, NodeJS uchun NPM va C/C++ uchun CMake va boshqalar.
 
 ### Stack Overflow veb-saytini qanday loyihalashtirasiz?
 
-If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
+Agar sizning javobingiz mahalliy serverlar va monolit (quyidagi rasmning pastki qismida) bo'lsa, siz intervyuda muvaffaqiyatsiz bo'lishingiz mumkin, ammo u haqiqatda shunday qurilgan!
 
 <p>
   <img src="../images/stackoverflow.jpg" />
 </p>
 
 
-**What people think it should look like**
+**Odamlar qanday ko'rinishi kerak deb o'ylashadi**
 
-The interviewer is probably expecting something like the top portion of the picture.
+Suhbatdosh, ehtimol, rasmning yuqori qismiga o'xshash narsani kutmoqda.
 
-- Microservice is used to decompose the system into small components.
-- Each service has its own database. Use cache heavily.
-- The service is sharded.
-- The services talk to each other asynchronously through message queues.
-- The service is implemented using Event Sourcing with CQRS.
-- Showing off knowledge in distributed systems such as eventual consistency, CAP theorem, etc.
+- Mikroservis tizimni kichik qismlarga ajratish uchun ishlatiladi.
+- Har bir xizmat o'z ma'lumotlar bazasiga ega. Keshni qattiq ishlating.
+- Xizmat ajratilgan.
+- Xizmatlar bir-biri bilan asinxron tarzda xabarlar navbatlari orqali gaplashadi.
+- Xizmat CQRS bilan Event Sourcing yordamida amalga oshiriladi.
+- Taqsimlangan tizimlarda bilimlarni namoyish qilish, masalan, yakuniy izchillik, CAP teoremasi va boshqalar.
 
-**What it actually is**
+**Bu aslida nima**
 
-Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
+Stack Overflow barcha trafikni faqat 9 ta mahalliy veb-serverlar bilan ta'minlaydi va u monolitda! Uning o'z serverlari bor va bulutda ishlamaydi.
 
-This is contrary to all our popular beliefs these days. 
+Bu bizning barcha mashhur e'tiqodlarimizga ziddir.
 
 ### Nima uchun Amazon Prime Video monitoringi serversizdan monolitga o'tdi? Qanday qilib 90% xarajatlarni tejash mumkin?
 
-The diagram below shows the architecture comparison before and after the migration. 
+Quyidagi diagrammada migratsiyadan oldin va keyin arxitektura taqqoslash ko'rsatilgan.
 
 <p>
   <img src="../images/serverless-to-monolithic.jpeg" />
 </p>
 
 
-What is Amazon Prime Video Monitoring Service? 
+Amazon Prime Video Monitoring xizmati nima?
 
-Prime Video service needs to monitor the quality of thousands of live streams. The monitoring tool automatically analyzes the streams in real time and identifies quality issues like block corruption, video freeze, and sync problems. This is an important process for customer satisfaction. 
+Prime Video xizmati minglab jonli translatsiyalar sifatini kuzatishi kerak. Monitoring vositasi real vaqtda oqimlarni avtomatik ravishda tahlil qiladi va blokirovka buzilishi, videoni muzlatish va sinxronlash muammolari kabi sifat muammolarini aniqlaydi. Bu mijozlar ehtiyojini qondirish uchun muhim jarayon.
 
-There are 3 steps: media converter, defect detector, and real-time notification. 
+3 bosqich mavjud: media konvertori, nuqsonlarni aniqlovchi va real vaqtda bildirishnoma. 
 
-- What is the problem with the old architecture? 
+- Eski arxitekturada qanday muammo bor?
 
-  The old architecture was based on Amazon Lambda, which was good for building services quickly. However, it was not cost-effective when running the architecture at a high scale. The two most expensive operations are: 
+  Qadimgi arxitektura Amazon Lambda-ga asoslangan bo'lib, u tezda xizmatlarni qurish uchun yaxshi edi. Biroq, arxitekturani yuqori miqyosda ishga tushirishda bu iqtisodiy jihatdan samarali emas edi. Ikkita eng qimmat operatsiya:
 
-1. The orchestration workflow - AWS step functions charge users by state transitions and the orchestration performs multiple state transitions every second. 
+1. Orkestratsiya ish oqimi - AWS qadam funktsiyalari foydalanuvchilarni holat o'tishlari bo'yicha to'laydi va orkestr har soniyada bir nechta holat o'tishlarini amalga oshiradi.
 
-2. Data passing between distributed components - the intermediate data is stored in Amazon S3 so that the next stage can download. The download can be costly when the volume is high. 
+2. Taqsimlangan komponentlar o'rtasida ma'lumotlar uzatish - oraliq ma'lumotlar Amazon S3 da saqlanadi, shunda keyingi bosqich yuklab olinadi. Ovoz balandligi baland bo'lsa, yuklab olish qimmatga tushishi mumkin.
 
-- Monolithic architecture saves 90% cost 
+- Monolitik arxitektura 90% xarajatlarni tejaydi
 
-  A monolithic architecture is designed to address the cost issues. There are still 3 components, but the media converter and defect detector are deployed in the same process, saving the cost of passing data over the network. Surprisingly, this approach to deployment architecture change led to 90% cost savings! 
+  Monolitik arxitektura xarajatlar bilan bog'liq muammolarni hal qilish uchun mo'ljallangan. Hali ham 3 ta komponent mavjud, biroq media konvertor va nuqson detektori bir xil jarayonda joylashtiriladi, bu esa tarmoq orqali ma'lumotlarni uzatish xarajatlarini tejaydi. Ajablanarlisi shundaki, joylashtirish arxitekturasini o'zgartirishga bunday yondashuv xarajatlarni 90% tejashga olib keldi! 
 
-This is an interesting and unique case study because microservices have become a go-to and fashionable choice in the tech industry. It's good to see that we are having more discussions about evolving the architecture and having more honest discussions about its pros and cons. Decomposing components into distributed microservices comes with a cost. 
+Bu qiziqarli va noyob misoldir, chunki mikroservislar texnologiya sanoatida mashhur va moda tanloviga aylandi. Biz arxitekturani rivojlantirish va uning ijobiy va salbiy tomonlari haqida ko'proq halol muhokamalar olib borayotganimizni ko'rish juda yaxshi. Komponentlarni taqsimlangan mikroservislarga ajratish qimmatga tushadi.
 
-- What did Amazon leaders say about this? 
+- Amazon rahbarlari bu haqda nima dedilar?
   
-  Amazon CTO Werner Vogels: “Building **evolvable software systems** is a strategy, not a religion. And revisiting your architecture with an open mind is a must.” 
+  Amazon CTO Verner Vogels: "**Rivojlanuvchan dasturiy ta'minot tizimlarini** yaratish din emas, balki strategiyadir. Va arxitekturangizni ochiq fikr bilan qayta ko'rib chiqish shart.".
 
-Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”. 
+Amazonning Barqarorlik bo'yicha sobiq vitse-prezidenti Adrian Kokkroft: "Prime Video jamoasi men **birinchi bo'lib Serversiz** deb ataydigan yo'ldan bordi... Men Faqat **Serversizni** yoqlamayman".
 
 ### Disney Hotstar turnir davomida 5 milliard kulgichni qanday suratga oladi?
 
@@ -1661,23 +1661,23 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
 </p>
 
 
-1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
+1. Mijozlar emojilarni standart HTTP so'rovlari orqali yuboradilar. Golang xizmatini odatiy veb-server sifatida tasavvur qilishingiz mumkin. Golang tanlangan, chunki u parallellikni yaxshi qo'llab-quvvatlaydi. Golangdagi iplar engildir.
 
-2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
+2. Yozish hajmi juda yuqori bo'lgani uchun bufer sifatida Kafka (xabar navbati) ishlatiladi.
 
-3. Emoji data are aggregated by a streaming processing service called Spark. It aggregates data every 2 seconds, which is configurable. There is a trade-off to be made based on the interval. A shorter interval means emojis are delivered to other clients faster but it also means more computing resources are needed.
+3. Emoji ma'lumotlari Spark deb nomlangan oqimni qayta ishlash xizmati tomonidan jamlanadi. U sozlanishi mumkin bo'lgan har 2 soniyada ma'lumotlarni jamlaydi. Interval asosida amalga oshiriladigan savdo-sotiq mavjud. Qisqaroq intervalli emojilar boshqa mijozlarga tezroq yetkazilishini anglatadi, lekin bu ko'proq hisoblash resurslari kerakligini anglatadi.
 
-4. Aggregated data is written to another Kafka. 
+4. Yig'ilgan ma'lumotlar boshqa Kafkaga yoziladi.
 
-5. The PubSub consumers pull aggregated emoji data from Kafka. 
+5. PubSub iste'molchilari Kafkadan jamlangan emoji ma'lumotlarini olishadi.
 
-6. Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.
+6. Emojilar boshqa mijozlarga real vaqt rejimida PubSub infratuzilmasi orqali yetkaziladi. PubSub infratuzilmasi qiziqarli. Hotstar quyidagi protokollarni ko'rib chiqdi: Socketio, NATS, MQTT va gRPC va MQTT bilan hisob-kitob qildi.
  
-A similar design is adopted by LinkedIn which streams a million likes/sec.
+Shunga o'xshash dizayn LinkedIn tomonidan qabul qilingan bo'lib, u sekundiga millionlab yoqtirishlarni oladi.
 
 ### Discord qanday qilib trillionlab xabarlarni saqlaydi?
 
-The diagram below shows the evolution of message storage at Discord: 
+Quyidagi diagrammada Discord-da xabarlarni saqlash evolyutsiyasi ko'rsatilgan:
 
 <p>
   <img src="../images/discord-store-messages.jpg" />
@@ -1686,54 +1686,54 @@ The diagram below shows the evolution of message storage at Discord:
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB 
 
-In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen. 
+2015 yilda Discord-ning birinchi versiyasi bitta MongoDB nusxasi ustiga qurilgan. Taxminan 2015 yil noyabr oyida MongoDB 100 million xabarni saqladi va operativ xotira ma'lumotlarni va indeksni boshqa saqlay olmadi. Kechikish oldindan aytib bo'lmaydigan bo'lib qoldi. Xabarni saqlash boshqa ma'lumotlar bazasiga ko'chirilishi kerak. Kassandra tanlandi.
 
-In 2017, Discord had 12 Cassandra nodes and stored billions of messages. 
+2017 yilda Discord 12 ta Cassandra tuguniga ega bo'lib, milliardlab xabarlarni saqlagan.
 
-At the beginning of 2022, it had 177 nodes with trillions of messages. At this point, latency was unpredictable, and maintenance operations became too expensive to run. 
+2022 yil boshida u trillionlab xabarlarga ega 177 tugunga ega edi. Bu vaqtda kechikishni oldindan aytib bo'lmaydi va texnik xizmat ko'rsatish operatsiyalari bajarish uchun juda qimmatga tushdi.
 
-There are several reasons for the issue: 
+Muammoning bir nechta sabablari bor:
 
-- Cassandra uses the LSM tree for the internal data structure. The reads are more expensive than the writes. There can be many concurrent reads on a server with hundreds of users, resulting in hotspots. 
-- Maintaining clusters, such as compacting SSTables, impacts performance. 
-- Garbage collection pauses would cause significant latency spikes 
+- Kassandra ichki ma'lumotlar tuzilishi uchun LSM daraxtidan foydalanadi. O'qishlar yozishdan qimmatroq. Yuzlab foydalanuvchilari bo'lgan serverda bir vaqtning o'zida ko'plab o'qishlar bo'lishi mumkin, natijada ulanish nuqtalari paydo bo'ladi. 
+- Klasterlarni saqlash, masalan, SSTablelarni ixchamlashtirish, ishlashga ta'sir qiladi.
+- Axlat yig'ish to'xtatilishi sezilarli kechikishlarga olib keladi
 
-ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its architecture to have a monolithic API, a data service written in Rust, and ScyllaDB-based storage. 
+ScyllaDB - bu C++ da yozilgan Cassandra mos ma'lumotlar bazasi. Discord o'z arxitekturasini monolit API, Rust-da yozilgan ma'lumotlar xizmati va ScyllaDB-ga asoslangan saqlash uchun qayta ishlab chiqdi.
 
-The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra. 
+ScyllaDB-da p99 o'qish kechikishi Cassandra-da 40-125ms bilan solishtirganda 15ms ni tashkil qiladi. p99 yozish kechikishi Kassandrada 5-70 ms ga nisbatan 5 ms ni tashkil qiladi. 
 
 ### YouTube, TikTok live yoki Twitch-da jonli video oqimlari qanday ishlaydi?
  
-Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
+Jonli translatsiya oddiy oqimdan farq qiladi, chunki video kontent real vaqtda internet orqali yuboriladi, odatda bir necha soniya kechikish bilan.
  
-The diagram below explains what happens behind the scenes to make this possible.
+Quyidagi diagramma buni amalga oshirish uchun sahna ortida nima sodir bo'lishini tushuntiradi.
 
 <p>
   <img src="../images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
  
-Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
+1-qadam: Xom video ma'lumotlari mikrofon va kamera tomonidan olinadi. Ma'lumotlar server tomoniga yuboriladi.
  
-Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
+2-qadam: Video ma'lumotlar siqiladi va kodlanadi. Masalan, siqish algoritmi fon va boshqa video elementlarini ajratib turadi. Siqilgandan so'ng, video H.264 kabi standartlarga kodlangan. Ushbu bosqichdan so'ng video ma'lumotlarining hajmi ancha kichik bo'ladi.
  
-Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
+3-qadam: Kodlangan ma'lumotlar kichikroq segmentlarga bo'linadi, odatda uzunligi soniyalar, shuning uchun yuklab olish yoki oqimlash uchun juda kam vaqt talab etiladi.
  
-Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
+4-qadam: Segmentlangan ma'lumotlar oqim serveriga yuboriladi. Oqim serveri turli qurilmalar va tarmoq sharoitlarini qo'llab-quvvatlashi kerak. Bu "Adaptive Bitrate Streaming" deb ataladi. Bu 2 va 3-bosqichlarda turli bit tezligida bir nechta fayllarni ishlab chiqarishimiz kerakligini anglatadi.
  
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
+5-qadam: Jonli oqim ma'lumotlari CDN (Content Delivery Network.) tomonidan qo'llab-quvvatlanadigan chekka serverlarga uzatiladi. Millionlab tomoshabinlar videoni yaqin atrofdagi chekka serverdan ko'rishlari mumkin. CDN ma'lumotlar uzatish kechikishini sezilarli darajada kamaytiradi.
  
-Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
+6-qadam: Tomoshabinlar qurilmalari video ma'lumotlarini dekodlaydi va ochadi va videoni video pleerda o'ynaydi.
  
-Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
+7 va 8-qadamlar: Agar videoni takrorlash uchun saqlash kerak bo'lsa, kodlangan ma'lumotlar saqlash serveriga yuboriladi va tomoshabinlar keyinchalik undan takrorlashni talab qilishlari mumkin.
  
-Standard protocols for live streaming include:
+Jonli efir uchun standart protokollarga quyidagilar kiradi:
 
-- RTMP (Real-Time Messaging Protocol): This was originally developed by Macromedia to transmit data between a Flash player and a server. Now it is used for streaming video data over the internet. Note that video conferencing applications like Skype use RTC (Real-Time Communication) protocol for lower latency.
-- HLS (HTTP Live Streaming): It requires the H.264 or H.265 encoding. Apple devices accept only HLS format.
-- DASH (Dynamic Adaptive Streaming over HTTP): DASH does not support Apple devices.
-- Both HLS and DASH support adaptive bitrate streaming.
+- RTMP (Real-Time Messaging Protocol): Bu dastlab Macromedia tomonidan Flash pleer va server o'rtasida ma'lumotlarni uzatish uchun ishlab chiqilgan. Endi u internet orqali video ma'lumotlarni uzatish uchun ishlatiladi. E'tibor bering, Skype kabi video konferentsiya ilovalari kamroq kechikish uchun RTC (Real-Time Communication) protokolidan foydalanadi.
+- HLS (HTTP Live Streaming): U H.264 yoki H.265 kodlashni talab qiladi. Apple qurilmalari faqat HLS formatini qabul qiladi.
+- DASH (HTTP orqali dinamik adaptiv oqim): DASH Apple qurilmalarini qo'llab-quvvatlamaydi.
+- HLS ham, DASH ham adaptiv bit tezligini qo'llab-quvvatlaydi.
 
 ## License
 
-<p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" >Ushbu ish <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0</a> bo'yicha litsenziyalangan <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></p>
