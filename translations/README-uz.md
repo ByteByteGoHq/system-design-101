@@ -141,7 +141,7 @@ Arxitektura uslublari amaliy dasturlash interfeysining (API) turli komponentlari
 
 - WebSocket:
 
-  Real-time, bidirectional, persistent connections
+  Real vaqtda, ikki tomonlama, doimiy ulanishlar
 
   Kam kechikishli ma'lumotlar almashinuvi uchun juda mos keladi
 
@@ -233,7 +233,7 @@ Shu tarzda, dasturlash paradigmasi o'zgartiriladi va to'lov xizmati endi to'lov 
 
 Agar PSP hech qachon qo'ng'iroq qilmasa nima bo'ladi? Biz har soatda to'lov holatini tekshirish uchun uy ishlarini o'rnatishimiz mumkin.
 
-WebhooksWebhuklar ko'pincha teskari API yoki push API deb ataladi, chunki server mijozga HTTP so'rovlarini yuboradi. Webhukdan foydalanishda 3 narsaga e'tibor qaratishimiz kerak:
+Webhuklar ko'pincha teskari API yoki push API deb ataladi, chunki server mijozga HTTP so'rovlarini yuboradi. Webhukdan foydalanishda 3 narsaga e'tibor qaratishimiz kerak:
 
 1. Biz tashqi xizmat qo'ng'iroq qilish uchun tegishli APIni loyihalashimiz kerak.
 2. Xavfsizlik nuqtai nazaridan API shlyuzida tegishli qoidalarni o'rnatishimiz kerak.
@@ -319,7 +319,7 @@ Kodni yozishdan va xizmatlar chegaralarini sinchkovlik bilan belgilashdan oldin 
 
 - Alohida funktsional guruhlar bir xil tilda gapirishlari kerak va maxsus funktsional guruhlar faqat o'zlarining tarkibiy qismlari va xizmatlari uchun javobgardir. Tashkilotga API dizayni orqali bir xil tilda gapirish tavsiya etiladi. 
 
-Kod yozishdan oldin API dizaynini tasdiqlash uchun so'rovlar va javoblarni masxara qilishimiz mumkin.
+Kod yozishdan oldin API dizaynini tasdiqlash uchun so'rovlar va javoblarni haqiqiy bo'lmagan xomaki qilishimiz mumkin.
 
 - Dasturiy ta'minot sifati va ishlab chiquvchining mahsuldorligini oshirish Loyiha boshlanganda noaniqliklarning ko'pini bartaraf etganimiz sababli, umumiy ishlab chiqish jarayoni yanada silliqlashadi va dasturiy ta'minot sifati sezilarli darajada yaxshilanadi.
 
@@ -405,7 +405,7 @@ Tarmoq modelida qatlamlar kerak, chunki har bir qatlam o'z mas'uliyatiga e'tibor
 
 ### Nima uchun Nginx "teskari" proksi-server deb ataladi?
 
-Quyidagi diagrammada 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 va 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐱𝐨 oʻrtasidagi farqlar koʻrsatilgan.
+Quyidagi diagrammada 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 va 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲 oʻrtasidagi farqlar koʻrsatilgan.
 
 <p>
   <img src="../images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px" />
