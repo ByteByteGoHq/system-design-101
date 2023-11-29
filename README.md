@@ -98,7 +98,7 @@ Whether you're preparing for a System Design Interview or you simply want to und
   - [Netflix's Tech Stack](#netflixs-tech-stack)
   - [Twitter Architecture 2022](#twitter-architecture-2022)
   - [Evolution of Airbnb’s microservice architecture over the past 15 years](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
-  - [Monorepo vs. Microrepo.](#monorepo-vs-microrepo)
+  - [Monorepo vs. Microrepo](#monorepo-vs-microrepo)
   - [How will you design the Stack Overflow website?](#how-will-you-design-the-stack-overflow-website)
   - [Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
   - [How does Disney Hotstar capture 5 Billion Emojis during a tournament?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
@@ -151,7 +151,6 @@ Architecture styles define how different components of an application programmin
 
   Notifies systems when events occur
 
-
 ### REST API vs. GraphQL
 
 When it comes to API design, REST and GraphQL each have their own strengths and weaknesses.
@@ -193,17 +192,17 @@ The diagram below illustrates the overall data flow for **gRPC**.
   <img src="images/grpc.jpg">
 </p>
 
-Step 1: A REST call is made from the client. The request body is usually in JSON format.
+**Step 1:** A REST call is made from the client. The request body is usually in JSON format.
 
-Steps 2 - 4: The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gRPC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
+**Steps 2 - 4:** The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gPRC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
 
-Step 5: gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
+**Step 5:** gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
 
-Steps 6 - 8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
+**Steps 6 - 8:** The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
 
-Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.
+**Steps 9 - 11:** The result is returned from the server application, and gets encoded and sent to the transport layer.
 
-Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.
+**Steps 12 - 14:** The order service receives the packets, decodes them, and sends the result to the client application.
 
 ### What is a webhook?
 
@@ -303,7 +302,6 @@ You can check out the use cases of each style in the diagram.
   <img src="images/SOAP vs REST vs GraphQL vs RPC.jpeg" />
 </p>
 
-
 ### Code First vs. API First 
 
 The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
@@ -311,7 +309,6 @@ The diagram below shows the differences between code-first development and API-f
 <p>
   <img src="images/api_first.jpg" style="width: 680px" />
 </p>
-
 
 - Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
 
@@ -335,7 +332,6 @@ Because we have designed the API first, the tests can be designed while the code
   <img src="images/http-status-code.jpg" style="width: 540px" />
 </p>
 
-
 The response codes for HTTP are divided into five categories: 
 
 Informational (100-199) 
@@ -352,21 +348,21 @@ The diagram below shows the details.
   <img src="images/api_gateway.jpg" style="width: 520px" />
 </p>
 
-Step 1 - The client sends an HTTP request to the API gateway. 
+**Step 1:** The client sends an HTTP request to the API gateway. 
 
-Step 2 - The API gateway parses and validates the attributes in the HTTP request. 
+**Step 2:** The API gateway parses and validates the attributes in the HTTP request. 
 
-Step 3 - The API gateway performs allow-list/deny-list checks. 
+**Step 3:** The API gateway performs allow-list/deny-list checks. 
 
-Step 4 - The API gateway talks to an identity provider for authentication and authorization. 
+**Step 4:** The API gateway talks to an identity provider for authentication and authorization. 
 
-Step 5 - The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. 
+**Step 5:** The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. 
 
-Steps 6 and 7 - Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. 
+**Steps 6 and 7:** Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. 
 
-Step 8 - The API gateway transforms the request into the appropriate protocol and sends it to backend microservices. 
+**Step 8:** The API gateway transforms the request into the appropriate protocol and sends it to backend microservices. 
 
-Steps 9-12: The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
+**Steps 9-12:** The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
 
 ### How do we design effective and safe APIs?
 
@@ -375,7 +371,6 @@ The diagram below shows typical API designs with a shopping cart example.
 <p>
   <img src="images/safe-apis.jpg" />
 </p>
-
 
 Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
 
@@ -389,17 +384,17 @@ How is data sent over the network? Why do we need so many layers in the OSI mode
 
 The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
 
-Step 1: When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.
+**Step 1:** When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.
 
-Step 2: Then a TCP or a UDP header is added to the data. It is encapsulated into TCP segments at the transport layer. The header contains the source port, destination port, and sequence number.
+**Step 2:** Then a TCP or a UDP header is added to the data. It is encapsulated into TCP segments at the transport layer. The header contains the source port, destination port, and sequence number.
 
-Step 3: The segments are then encapsulated with an IP header at the network layer. The IP header contains the source/destination IP addresses.
+**Step 3:** The segments are then encapsulated with an IP header at the network layer. The IP header contains the source/destination IP addresses.
 
-Step 4: The IP datagram is added a MAC header at the data link layer, with source/destination MAC addresses.
+**Step 4:** The IP datagram is added a MAC header at the data link layer, with source/destination MAC addresses.
 
-Step 5: The encapsulated frames are sent to the physical layer and sent over the network in binary bits.
+**Step 5:** The encapsulated frames are sent to the physical layer and sent over the network in binary bits.
 
-Steps 6-10: When Device B receives the bits from the network, it performs the de-encapsulation process, which is a reverse processing of the encapsulation process. The headers are removed layer by layer, and eventually, Device B can read the data.
+**Steps 6-10:** When Device B receives the bits from the network, it performs the de-encapsulation process, which is a reverse processing of the encapsulation process. The headers are removed layer by layer, and eventually, Device B can read the data.
 
 We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.
 
@@ -564,24 +559,24 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
   <img src="images/18-oo-patterns.png" />
 </p>
 
-- Abstract Factory: Family Creator - Makes groups of related items. 
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
-- Prototype: Clone Maker - Creates copies of fully prepared examples. 
-- Singleton: One and Only - A special class with just one instance. 
-- Adapter: Universal Plug - Connects things with different interfaces. 
-- Bridge: Function Connector - Links how an object works to what it does. 
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
-- Decorator: Customizer - Adds features to objects without changing their core. 
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
-- Flyweight: Space Saver - Shares small, reusable items efficiently. 
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
-- Command: Task Wrapper - Turns a request into an object, ready for action. 
-- Iterator: Collection Explorer - Accesses elements in a collection one by one. 
-- Mediator: Communication Hub - Simplifies interactions between different classes. 
-- Memento: Time Capsule - Captures and restores an object's state. 
-- Observer: News Broadcaster - Notifies classes about changes in other objects. 
-- Visitor: Skillful Guest - Adds new operations to a class without altering it.
+- **Abstract Factory**: Family Creator - Makes groups of related items. 
+- **Builder**: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
+- **Prototype**: Clone Maker - Creates copies of fully prepared examples. 
+- **Singleton**: One and Only - A special class with just one instance. 
+- **Adapter**: Universal Plug - Connects things with different interfaces. 
+- **Bridge**: Function Connector - Links how an object works to what it does. 
+- **Composite**: Tree Builder - Forms tree-like structures of simple and complex parts. 
+- **Decorator**: Customizer - Adds features to objects without changing their core. 
+- **Facade**: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
+- **Flyweight**: Space Saver - Shares small, reusable items efficiently. 
+- **Proxy**: Stand-In Actor - Represents another object, controlling access or actions. 
+- **Chain of Responsibility**: Request Relay - Passes a request through a chain of objects until handled. 
+- **Command**: Task Wrapper - Turns a request into an object, ready for action. 
+- **Iterator**: Collection Explorer - Accesses elements in a collection one by one. 
+- **Mediator**: Communication Hub - Simplifies interactions between different classes. 
+- **Memento**: Time Capsule - Captures and restores an object's state. 
+- **Observer**: News Broadcaster - Notifies classes about changes in other objects. 
+- **Visitor**: Skillful Guest - Adds new operations to a class without altering it.
 
 ## Database
 
@@ -624,22 +619,21 @@ The diagram below shows the process. Note that the architectures for different d
   <img src="images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
 
+**Step 1:** A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
 
-Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
+**Step 2:** The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
 
-Step 2 - The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
+**Step 3:** The query tree is sent to the optimizer. The optimizer creates an execution plan. 
 
-Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan. 
+**Step 4:** The execution plan is sent to the executor. The executor retrieves data from the execution.
 
-Step 4 - The execution plan is sent to the executor. The executor retrieves data from the execution.
+**Step 5:** Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
 
-Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
+**Step 6:** Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
 
-Step 6 - Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
+**Step 7:** If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
 
-Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
-
-Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
+**Step 8:** During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
 
 ###  CAP theorem
 
@@ -674,7 +668,6 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
 <p>
   <img src="images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
 </p>
-
 
 ### Visualizing a SQL query
 
@@ -724,7 +717,6 @@ This diagram illustrates where we cache data in a typical architecture.
   <img src="images/where do we cache data.jpeg" style="width: 720px" />
 </p>
 
-
 There are **multiple layers** along the flow.
 
 1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
@@ -749,7 +741,6 @@ There are 3 main reasons as shown in the diagram below.
   <img src="images/why_redis_fast.jpeg" />
 </p>
 
-
 1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
 2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
 3. Redis leverages several efficient lower-level data structures.
@@ -763,7 +754,6 @@ You might have noticed the style of this diagram is different from my previous p
 <p>
   <img src="images/top-redis-use-cases.jpg" style="width: 520px" />
 </p>
-
 
 There is more to Redis than just caching. 
 
@@ -818,8 +808,6 @@ Below are five caching strategies that are frequently utilized.
   <img src="images/top_caching_strategy.jpeg" style="width: 680px" />
 </p>
 
-
-
 ## Microservice architecture
 
 ### What does a typical microservice architecture look like? 
@@ -827,7 +815,6 @@ Below are five caching strategies that are frequently utilized.
 <p>
   <img src="images/typical-microservice-arch.jpg" style="width: 520px" />
 </p>
-
 
 The diagram below shows a typical microservice architecture. 
 
@@ -852,7 +839,6 @@ A picture is worth a thousand words: 9 best practices for developing microservic
 <p>
   <img src="images/microservice-best-practices.jpeg" />
 </p>
-
  
 When we develop microservices, we need to follow the following best practices: 
 
@@ -864,7 +850,7 @@ When we develop microservices, we need to follow the following best practices:
 6. Design stateless services 
 7. Adopt domain-driven design
 8. Design micro frontend 
-9. Orchestrating microservices 
+9. Orchestrating microservices
 
 ### What tech stack is commonly used for microservices?
 
@@ -874,14 +860,13 @@ Below you will find a diagram showing the microservice tech stack, both for the 
   <img src="images/microservice-tech.jpeg" />
 </p>
 
-
-▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
+#### Pre-production
 
 - Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
 - Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
 - Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
 
-▶️ 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
+#### Production
 
 - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
 - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
@@ -917,7 +902,6 @@ The diagram illustrates how the data is transmitted between producer and consume
 
 2.5 The network card sends data out to the consumer
 
- 
 - Step 3: Consumer reads data with zero-copy
 
 3.1: The data is loaded from disk to OS cache
@@ -958,7 +942,7 @@ Why should the issuing bank be compensated?
 
 - The issuer pays the merchant even if the cardholder fails to pay the issuer. 
 - The issuer pays the merchant before the cardholder pays the issuer.
-- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc. 
+- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc.
 
 ### How does VISA work when we swipe a credit card at a merchant’s shop?
 
@@ -966,12 +950,11 @@ Why should the issuing bank be compensated?
   <img src="images/visa_payment.jpeg" />
 </p>
 
-
 VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
  
 The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
  
-- Authorization Flow
+#### Authorization Flow
 
 Step 0: The card issuing bank issues credit cards to its customers. 
  
@@ -983,22 +966,21 @@ Steps 3 and 4: The acquiring bank sends the transaction to the card network, als
  
 Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal. 
  
-- Capture and Settlement Flow
+#### Capture and Settlement Flow
 
 Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
  
 Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
  
+> _Note: Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced._
+ 
 Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
  
 Step 5: The acquiring bank then transfers money to the merchant’s bank. 
  
-Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
- 
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
 ### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
-
 
 What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
 
@@ -1006,11 +988,9 @@ It accounts for 60% of digital retail transactions in India today.
 
 UPI = payment markup language + standard for interoperable payments
 
-
 <p>
   <img src="images/how-does-upi-work.png"  style="width: 600px" />
 </p>
-
 
 ## DevOps
 
@@ -1042,7 +1022,7 @@ A k8s cluster consists of a set of worker machines, called nodes, that run conta
 
 The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
 
-- Control Plane Components
+#### Control Plane Components
 
 1. API Server
 
@@ -1060,7 +1040,7 @@ The worker node(s) host the Pods that are the components of the application work
     
     etcd is a key-value store used as Kubernetes' backing store for all cluster data.
 
-- Nodes
+#### Nodes
 
 1. Pods
 
@@ -1080,16 +1060,15 @@ The worker node(s) host the Pods that are the components of the application work
   <img src="images/docker-vs-k8s.jpg" style="width: 680px" />
 </p>
 
-
-What is Docker ? 
+#### What is Docker? 
 
 Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies. 
 
-What is Kubernetes ? 
+#### What is Kubernetes? 
 
 Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes. 
 
-How are both different from each other ? 
+#### How are both different from each other? 
 
 Docker: Docker operates at the individual container level on a single operating system host. 
 
@@ -1140,7 +1119,6 @@ To begin with, it's essential to identify where our code is stored. The common a
   <img src="images/git-commands.png" style="width: 600px" />
 </p>
 
-
 - Working directory: where we edit files 
 - Staging area: a temporary location where files are kept for the next commit 
 - Local repository: contains the code that has been committed 
@@ -1155,7 +1133,6 @@ The diagram below shows the Git workflow.
 <p>
   <img src="images/git-workflow.jpeg" style="width: 520px" />
 </p>
-
 
 Git is a distributed version control system. 
 
@@ -1172,7 +1149,6 @@ What are the differences?
 <p>
   <img src="images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
-
 
 When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
 
@@ -1201,7 +1177,6 @@ Never use it on public branches!
 <p>
   <img src="images/cloud-compare.jpg" />
 </p>
-
 
 ### What is cloud native?
 
@@ -1247,13 +1222,11 @@ Additionally, the generated diagrams can be downloaded as images.
   <img src="images/json-cracker.jpeg" />
 </p>
 
-
 ### Automatically turn code into architecture diagrams
 
 <p>
   <img src="images/diagrams_as_code.jpeg" style="width: 640px" />
 </p>
-
 
 What does it do?
 
@@ -1287,25 +1260,24 @@ This diagram below shows popular Linux commands:
   <img src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
-
-- ls - List files and directories 
-- cd - Change the current directory 
-- mkdir - Create a new directory 
-- rm - Remove files or directories 
-- cp - Copy files or directories 
-- mv - Move or rename files or directories 
-- chmod - Change file or directory permissions 
-- grep - Search for a pattern in files 
-- find - Search for files and directories 
-- tar - manipulate tarball archive files 
-- vi - Edit files using text editors 
-- cat - display the content of files 
-- top - Display processes and resource usage 
-- ps - Display processes information 
-- kill - Terminate a process by sending a signal 
-- du - Estimate file space usage 
-- ifconfig - Configure network interfaces  
-- ping - Test network connectivity between hosts 
+- `ls` - List files and directories 
+- `cd` - Change the current directory 
+- `mkdir` - Create a new directory 
+- `rm` - Remove files or directories 
+- `cp` - Copy files or directories 
+- `mv` - Move or rename files or directories 
+- `chmod` - Change file or directory permissions 
+- `grep` - Search for a pattern in files 
+- `find` - Search for files and directories 
+- `tar` - manipulate tarball archive files 
+- `vi` - Edit files using text editors 
+- `cat` - display the content of files 
+- `top` - Display processes and resource usage 
+- `ps` - Display processes information 
+- `kill` - Terminate a process by sending a signal 
+- `du` - Estimate file space usage 
+- `ifconfig` - Configure network interfaces  
+- `ping` - Test network connectivity between hosts 
 
 ## Security
 
@@ -1316,7 +1288,6 @@ Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Tran
 <p>
   <img src="images/https.jpg" />
 </p>
-
 
 How is the data encrypted and decrypted?
 
@@ -1408,7 +1379,6 @@ From simple to complex, here is my understanding of user identity management:
   <img src="images/salt.jpg" style="width: 720px" />
 </p>
 
- 
 **Things NOT to do**
 
 - Storing passwords in plain text is not a good idea because anyone with internal access can see them.
@@ -1460,7 +1430,6 @@ Google Authenticator is a software-based authenticator that implements a two-ste
   <img src="images/google_authenticate.jpeg" />
 </p>
 
-
 There are two stages involved:
 
 - Stage 1 - The user enables Google two-step verification. 
@@ -1468,7 +1437,7 @@ There are two stages involved:
 
 Let’s look at these stages.
  
-**Stage 1**
+#### Stage 1
 
 Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
  
@@ -1476,7 +1445,8 @@ Step 3: The authentication service returns a URI to the front end. The URI is co
  
 Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
 
-**Stage 2**
+#### Stage 2
+
 Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
  
 Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
@@ -1492,7 +1462,6 @@ Is this authentication mechanism safe?
 - Can the 6-digit password be guessed by hackers?
     
     No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
-
 
 ##  Real World Case Studies
 
@@ -1528,7 +1497,6 @@ Yes, this is the real Twitter architecture. It is posted by Elon Musk and redraw
   <img src="images/twitter-arch.jpeg" />
 </p>
 
-
 ### Evolution of Airbnb’s microservice architecture over the past 15 years
 
 Airbnb’s microservice architecture went through 3 main stages. 
@@ -1537,8 +1505,7 @@ Airbnb’s microservice architecture went through 3 main stages.
   <img src="images/airbnb_arch.jpeg" />
 </p>
 
-
-Monolith (2008 - 2017)
+#### Monolith (2008 - 2017)
 
 Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith. 
 
@@ -1547,7 +1514,7 @@ What’s the challenge?
 - Confusing team ownership + unowned code
 - Slow deployment 
 
-Microservices (2017 - 2020)
+#### Microservices (2017 - 2020)
 
 Microservice aims to solve those challenges. In the microservice architecture, key services include:
 
@@ -1561,18 +1528,17 @@ What’s the challenge?
 
 Hundreds of services and dependencies were difficult for humans to manage.
 
-Micro + macroservices (2020 - present)
+#### Micro + macroservices (2020 - present)
 
 This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
 
-### Monorepo vs. Microrepo. 
+### Monorepo vs. Microrepo
 
 Which is the best? Why do different companies choose different options? 
 
 <p>
   <img src="images/monorepo-microrepo.jpg" />
 </p>
-
 
 Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
 
@@ -1601,7 +1567,6 @@ If your answer is on-premise servers and monolith (on the bottom of the followin
   <img src="images/stackoverflow.jpg" />
 </p>
 
-
 **What people think it should look like**
 
 The interviewer is probably expecting something like the top portion of the picture.
@@ -1617,7 +1582,7 @@ The interviewer is probably expecting something like the top portion of the pict
 
 Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
 
-This is contrary to all our popular beliefs these days. 
+This is contrary to all our popular beliefs these days.
 
 ### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
 
@@ -1626,7 +1591,6 @@ The diagram below shows the architecture comparison before and after the migrati
 <p>
   <img src="images/serverless-to-monolithic.jpeg" />
 </p>
-
 
 What is Amazon Prime Video Monitoring Service? 
 
@@ -1660,7 +1624,6 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
   <img src="images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
 
-
 1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
 
 2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
@@ -1682,7 +1645,6 @@ The diagram below shows the evolution of message storage at Discord:
 <p>
   <img src="images/discord-store-messages.jpg" />
 </p>
-
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB 
 
@@ -1712,20 +1674,19 @@ The diagram below explains what happens behind the scenes to make this possible.
   <img src="images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
+**Step 1:** The raw video data is captured by a microphone and camera. The data is sent to the server side.
  
-Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
+**Step 2:** The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
  
-Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
+**Step 3:** The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
  
-Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
+**Step 4:** The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
  
-Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
+**Step 5:** The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
  
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
+**Step 6:** The viewers’ devices decode and decompress the video data and play the video in a video player.
  
-Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
- 
-Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
+**Steps 7 and 8:** If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
  
 Standard protocols for live streaming include:
 
