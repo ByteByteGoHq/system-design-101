@@ -1590,7 +1590,7 @@ Amazon 和 Netflix 是微服务理念的主要簇拥者。这种方法自然地�
 Monorepo 有提交标准。Google 的代码评审以其高标准而闻名，确保Monorepo 具有一致的质量标准，而无论业务是什么。 
 
 Microrepo 可以设置自己的标准，也可以通过采纳最佳实践来使用共享标准。它可以更快地为业务进行扩展，但代码质量可能会有所不同。 
-Google 工程师构建了 Bazel，而 Meta 构建了 Buck。还可以用一些其他的开源工具，包括 Nix、Lerna 等。 
+Google 工程师构建了 Bazel，而 Meta 构建了 Buck。还可以用一些其他的开源工具，包括 Nx、Lerna 等。 
 
 多年以来，Microrepo 拥有了更多支持工具，其中包括 Java 的 Maven 和 Gradle、NodeJS 的 NPM 以及 C/C++ 的 CMake for C/C++。 
 
