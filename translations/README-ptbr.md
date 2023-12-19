@@ -26,7 +26,7 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
 
 - [Protocólos de Comunicação](#protocolos-de-comunicacao)
   - [REST API vs. GraphQL](#rest-api-vs-graphql)
-  - [How does gRPC work?](#how-does-grpc-work)
+  - [Como o gRPC funciona?](#como-o-grpc-funciona)
   - [What is a webhook?](#what-is-a-webhook)
   - [How to improve API performance?](#how-to-improve-api-performance)
   - [HTTP 1.0 -\> HTTP 1.1 -\> HTTP 2.0 -\> HTTP 3.0 (QUIC)](#http-10---http-11---http-20---http-30-quic)
@@ -183,27 +183,27 @@ A melhor escolha entre REST e GraphQL depende nos requisitos específicos da apl
 Nenhuma abordagem dessas APIs é uma solução milagrosa. Avaliar cuidadosamente os requisitos e as compensações é importante para escolher o estilo certo. Tanto REST quanto GraphQL são opções válidas para expor dados e impulsionar aplicações modernas.
 
 
-### How does gRPC work?
+### Como o gRPC funciona?
 
-RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
+RCP (Chamada de Procedimento Remota, _Remote Procedure Call_) é chamada de "**remota**" pois habilita comunicação entre serviços quando estes são implantados em servidores sob a arquitetura de microsserviços. Do ponto de vista do usuário, ele age como uma chamada de função local.
 
-The diagram below illustrates the overall data flow for **gRPC**.
+O diagrama abaixo ilustra o fluxo geral de dados para o **gRPC**.
 
 <p>
   <img src="../images/grpc.jpg">
 </p>
 
-Step 1: A REST call is made from the client. The request body is usually in JSON format.
+Passo 1: Uma chamada REST parte do cliente. O corpo da requisição é geralmetne em formato JSON.
 
-Steps 2 - 4: The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gRPC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
+Passo 2 - 4: O Serviço de Pedidos (_Order Service_, que é o cliente gRPC) recebe a chamada REST, a transforma e realiza uma chamada RPC para o Serviço de Pagamentos (_Payment Service_). O gRPC codifica o stub do cliente em um formato binário e o envia para a camada de transporte de baixo nível.
 
-Step 5: gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
+Passp 5: O gRPC envia os pacotes pela rede via HTTP2. Por conta da codificação binária e otimizações de rede, o gRPC é dito ser 5x mais rápido que JSON.
 
-Steps 6 - 8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
+Passo 6 - 8: O Serviço de Pagamentos (_Payment Service_, servidor gRPC) recebe os pacotes da rede, os decodifica e invoca a aplicação do servidor.
 
-Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.
+Passos 9 - 11: O resultado é retornado pela aplicação do servidor, codificado e enviado para a camada de transporte.
 
-Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.
+Passos 12 - 14: O Serviço de Pedidos (_Order Service_, cliente gRPC) recebe os pacotes, os decodifica e envia o resultado para a aplicação cliente.
 
 ### What is a webhook?
 
