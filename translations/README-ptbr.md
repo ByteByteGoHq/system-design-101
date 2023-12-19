@@ -129,7 +129,7 @@ Estilos de arquiteturas definem como os diferentes componentes de uma interface 
 
 - GraphQL:
 
-  Linguagem de Busca, requisita dados específicos
+  Linguagem de Consulta, requisita dados específicos
 
   Reduz sobrecarga de rede, respostas mais rápidas
 
@@ -164,23 +164,23 @@ O diagrama abaixo mostra uma rápida comparação entre REST e GraphQL.
 
 REST
 
-- Uses standard HTTP methods like GET, POST, PUT, DELETE for CRUD operations.
-- Works well when you need simple, uniform interfaces between separate services/applications.
-- Caching strategies are straightforward to implement.
-- The downside is it may require multiple roundtrips to assemble related data from separate endpoints.
+- Utiliza métodos HTTP padrões como GET, POST, PUT, DELETE para operações CRUD.
+- Funciona bem quando você precisa de uma interface simples e uniforme entre serviços/aplicações separadas.
+- Estratégias de cache são de simples implementação.
+- O lado negativo é que pode levar diversas viagens de ida-e-volta para montar os dados relacionados de endpoints separados.
 
 GraphQL
 
-- Provides a single endpoint for clients to query for precisely the data they need.
-- Clients specify the exact fields required in nested queries, and the server returns optimized payloads containing just those fields.
-- Supports Mutations for modifying data and Subscriptions for real-time notifications.
-- Great for aggregating data from multiple sources and works well with rapidly evolving frontend requirements.
-- However, it shifts complexity to the client side and can allow abusive queries if not properly safeguarded
-- Caching strategies can be more complicated than REST.
+- Fornece um único ponto para clientes realizarem consultas em qualquer dado que precisem.
+- Os clientes especificam os campos exatos necessários em consultas aninhadas, e o servidor retorna cargas otimizadas contendo apenas esses campos.
+- Suporta Mutations para modificar dados e Subscriptions para notificações em tempo real.
+- Ótima para agregar dados de diversas fontes e se adapta bem com requeritos requisitos de frontend que evoluem rapidamente.
+- No entanto, isso transfere a complexidade para o lado do cliente e pode permitir consultas abusivas se não forem devidamente protegidas.
+- Estratégias de Caching podem ser mais complexas que REST.
 
-The best choice between REST and GraphQL depends on the specific requirements of the application and development team. GraphQL is a good fit for complex or frequently changing frontend needs, while REST suits applications where simple and consistent contracts are preferred.
+A melhor escolha entre REST e GraphQL depende nos requisitos específicos da aplicação e time de desenvolvimento. GraphQL é uma boa opção para necessidades frontend complexas ou que mudam frequentemente, enquanto REST é adequado para aplicações onde contratos simples e consistentes são preferidos.
 
-Neither API approach is a silver bullet. Carefully evaluating requirements and tradeoffs is important to pick the right style. Both REST and GraphQL are valid options for exposing data and powering modern applications.
+Nenhuma abordagem dessas APIs é uma solução milagrosa. Avaliar cuidadosamente os requisitos e as compensações é importante para escolher o estilo certo. Tanto REST quanto GraphQL são opções válidas para expor dados e impulsionar aplicações modernas.
 
 
 ### How does gRPC work?
