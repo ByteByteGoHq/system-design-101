@@ -42,8 +42,8 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Quais são os algoritmos de distribuição de carga comuns?](#quais-são-os-algoritmos-de-distribuição-de-carga-comuns)
     - [URL, URI, URN - Você sabe a diferênça?](#url-uri-urn---você-sabe-a-diferênça)
   - [CI/CD](#cicd)
-    - [CI/CD Pipeline Explained in Simple Terms](#cicd-pipeline-explained-in-simple-terms)
-    - [Netflix Tech Stack (CI/CD Pipeline)](#netflix-tech-stack-cicd-pipeline)
+    - [Pipeline CI/CD Explicado em Termos Simples](#pipeline-cicd-explicado-em-termos-simples)
+    - [Netflix Stack Tecnológico (Pipeline de CI/CD)](#netflix-stack-tecnológico-pipeline-de-cicd)
   - [Architecture patterns](#architecture-patterns)
     - [MVC, MVP, MVVM, MVVM-C, and VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
     - [18 Key Design Patterns Every Developer Should Know](#18-key-design-patterns-every-developer-should-know)
@@ -489,57 +489,57 @@ Se você deseja obter mais detalhes sobre o assunto, eu recomendaria a [explica�
 
 ## CI/CD
 
-### CI/CD Pipeline Explained in Simple Terms
+### Pipeline CI/CD Explicado em Termos Simples
 
 <p>
   <img src="../images/ci-cd-pipeline.jpg" style="width: 680px" />
 </p>
 
-Section 1 - SDLC with CI/CD
+Seção 1 - SDLC com CI/CD
 
-The software development life cycle (SDLC) consists of several key stages: development, testing, deployment, and maintenance. CI/CD automates and integrates these stages to enable faster and more reliable releases.
+O ciclo de vida de desenvolvimento de software (SDLC, _Software Development Life Cycle_) consiste em várias etapas-chave: desenvolvimento, teste, implantação e manutenção. CI/CD automatiza e integra essas etapas para possibilitar lançamentos mais rápidos e confiáveis.
 
-When code is pushed to a git repository, it triggers an automated build and test process. End-to-end (e2e) test cases are run to validate the code. If tests pass, the code can be automatically deployed to staging/production. If issues are found, the code is sent back to development for bug fixing. This automation provides fast feedback to developers and reduces the risk of bugs in production.
+Quando o código é enviado para um repositório Git, isso aciona um processo automatizado de compilação e teste. Casos de teste de ponta a ponta (end-to-end ou e2e) são executados para validar o código. Se os testes são bem-sucedidos, o código pode ser implantado automaticamente no ambiente de preparo/produção. Se problemas são identificados, o código é enviado de volta para o desenvolvimento para correção de bugs. Essa automação proporciona um feedback rápido aos desenvolvedores e reduz o risco de erros em produção.
 
-Section 2 - Difference between CI and CD
+Seção 2 - Diferença entre CI e CD
 
-Continuous Integration (CI) automates the build, test, and merge process. It runs tests whenever code is committed to detect integration issues early. This encourages frequent code commits and rapid feedback.
+Integração Continua (CI, Continous Integrations) automatiza o processo de compilação, teste e o processo de implantação. Roda testes quando código é comitado para detecção de problemas de integração precocemente. Isso encoraja commits frequentes e feedback rápido.
 
-Continuous Delivery (CD) automates release processes like infrastructure changes and deployment. It ensures software can be released reliably at any time through automated workflows. CD may also automate the manual testing and approval steps required before production deployment.
+Entrega Contínua (CD, Continuous Delivery) automatiza processos de lançamento como mudanças de infraestrutura e implantação. Garante que o software possa ser lançado de maneira confiável a qualquer momento por meio de fluxos de trabalho automatizados. A CD também pode automatizar etapas de teste manual e aprovação necessárias antes da implantação em produção.
 
-Section 3 - CI/CD Pipeline
+Seção 3 - Pipeline de CI/CD
 
-A typical CI/CD pipeline has several connected stages:
+Um pipeline típico de CI/CD tem alguns estágios conectados:
 
-- The developer commits code changes to the source control
-- CI server detects changes and triggers the build
-- Code is compiled, and tested (unit, integration tests)
-- Test results reported to the developer
-- On success, artifacts are deployed to staging environments
-- Further testing may be done on staging before release
-- CD system deploys approved changes to production
+- O desenvolvedor comita mudanças de código para o controle de versão
+- O servidor de CI detecta as mudanças e dá início à compilação
+- Code é compilado e testado (unitário e de integração)
+- Os resultados são reportados ao desenvolvedor
+- No sucesso, artefatos são lançados para o ambiente de preparo (staging)
+- Testes adicionais podem ser realizados no ambiente de preparo antes do lançamento
+- O sistema de CD lança mudanças aprovadas para produção
 
-### Netflix Tech Stack (CI/CD Pipeline)
+### Netflix Stack Tecnológico (Pipeline de CI/CD)
 
 <p>
   <img src="../images/netflix-ci-cd.jpg" style="width: 720px" />
 </p>
 
-Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation.
+Planejamento: A Engenharia da Netflix utiliza o JIRA para planejamento e o Confluence para documentação.
 
-Coding: Java is the primary programming language for the backend service, while other languages are used for different use cases.
+Codificação: Java é a linguagem de programação principal para o serviço backend, enquanto outras linguagens são utilizadas para diferentes casos de uso.
 
-Build: Gradle is mainly used for building, and Gradle plugins are built to support various use cases.
+Compilação: Gradle é principalmente utilizado para compilação, e plugins do Gradle são construídos para suportar vários casos de uso.
 
-Packaging: Package and dependencies are packed into an Amazon Machine Image (AMI) for release.
+Empacotamento: O pacote e suas dependências são empacotados em uma Imagem de Máquina Amazon (AMI, _Amazon Machine Image_) para lançamento.
 
-Testing: Testing emphasizes the production culture's focus on building chaos tools.
+Testes: Os testes enfatizam o foco da cultura de produção na construção de ferramentas de caos.
 
-Deployment: Netflix uses its self-built Spinnaker for canary rollout deployment.
+Implantação: A Netflix utiliza sua própria ferramenta Spinnaker para implantação de rollout de canário.
 
-Monitoring: The monitoring metrics are centralized in Atlas, and Kayenta is used to detect anomalies.
+Monitoramento: As métricas de monitoramento são centralizadas no Atlas, e o Kayenta é utilizado para detectar anomalias.
 
-Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling.
+Relatório de Incidentes: Incidentes são despachados de acordo com a prioridade, e o PagerDuty é utilizado para o tratamento de incidentes.
 
 ## Architecture patterns
 
