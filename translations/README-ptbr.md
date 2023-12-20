@@ -44,9 +44,9 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
   - [CI/CD](#cicd)
     - [Pipeline CI/CD Explicado em Termos Simples](#pipeline-cicd-explicado-em-termos-simples)
     - [Netflix Stack Tecnológico (Pipeline de CI/CD)](#netflix-stack-tecnológico-pipeline-de-cicd)
-  - [Architecture patterns](#architecture-patterns)
-    - [MVC, MVP, MVVM, MVVM-C, and VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
-    - [18 Key Design Patterns Every Developer Should Know](#18-key-design-patterns-every-developer-should-know)
+  - [Padões de Arquitetura](#padões-de-arquitetura)
+    - [MVC, MVP, MVVM, MVVM-C, e VIPER](#mvc-mvp-mvvm-mvvm-c-e-viper)
+    - [18 Padrões de Design Essenciais Que Todo Desenvolvedor Deve Conhecer](#18-padrões-de-design-essenciais-que-todo-desenvolvedor-deve-conhecer)
   - [Database](#database)
     - [A nice cheat sheet of different databases in cloud services](#a-nice-cheat-sheet-of-different-databases-in-cloud-services)
     - [8 Data Structures That Power Your Databases](#8-data-structures-that-power-your-databases)
@@ -541,47 +541,47 @@ Monitoramento: As métricas de monitoramento são centralizadas no Atlas, e o Ka
 
 Relatório de Incidentes: Incidentes são despachados de acordo com a prioridade, e o PagerDuty é utilizado para o tratamento de incidentes.
 
-## Architecture patterns
+## Padões de Arquitetura
 
-### MVC, MVP, MVVM, MVVM-C, and VIPER
+### MVC, MVP, MVVM, MVVM-C, e VIPER
 
-These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ?
+Esses padrões de arquitetura estão entre os mais comumente utilizados no desenvolvimento de aplicativos, seja nas plataformas iOS ou Android. Os desenvolvedores os introduziram para superar as limitações de padrões anteriores. Então, como eles diferem?
 
 <p>
   <img src="../images/client arch patterns.png" style="width: 720px" />
 </p>
 
-- MVC, the oldest pattern, dates back almost 50 years
-- Every pattern has a "view" (V) responsible for displaying content and receiving user input
-- Most patterns include a "model" (M) to manage business data
-- "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
+- MVC (Modelo-Visão-Controle, _Model View Controller_), o padrão mais antigo, de quase 50 anos
+- Cada padrão possui uma "visão", _view_ (V) responsável por exibir conteúdo e receber entrada do usuário
+- A maioria dos padrões incluem um "modelo", _model_ (M) para manusear dados de negócio
+- "Controller", "presenter" e "view-model" são tradutores que atuam como mediadores entre a "view" e o "model" (ou "entity" no padrão VIPER).
 
-### 18 Key Design Patterns Every Developer Should Know
+### 18 Padrões de Design Essenciais Que Todo Desenvolvedor Deve Conhecer
 
-Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns:
+Padrões são soluções reutilizáveis para problemas comuns de design, resultando em um processo de desenvolvimento mais linear e eficiente. Eles servem como modelos para construir estruturas de software mais sólidas. Aqui estão alguns dos padrões mais populares:
 
 <p>
   <img src="../images/18-oo-patterns.png" />
 </p>
 
-- Abstract Factory: Family Creator - Makes groups of related items.
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate.
-- Prototype: Clone Maker - Creates copies of fully prepared examples.
-- Singleton: One and Only - A special class with just one instance.
-- Adapter: Universal Plug - Connects things with different interfaces.
-- Bridge: Function Connector - Links how an object works to what it does.
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts.
-- Decorator: Customizer - Adds features to objects without changing their core.
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface.
-- Flyweight: Space Saver - Shares small, reusable items efficiently.
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions.
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled.
-- Command: Task Wrapper - Turns a request into an object, ready for action.
-- Iterator: Collection Explorer - Accesses elements in a collection one by one.
-- Mediator: Communication Hub - Simplifies interactions between different classes.
-- Memento: Time Capsule - Captures and restores an object's state.
-- Observer: News Broadcaster - Notifies classes about changes in other objects.
-- Visitor: Skillful Guest - Adds new operations to a class without altering it.
+- Fábrica Abstrata (_Abstract Factory_): Criador de Famílias - Cria grupos de itens relacionados.
+- Construtor (_Builder_): Mestre Lego - Constrói objetos passo a passo, mantendo a criação e a aparência separadas.
+- Protótipo (_Prototype_): Clone Maker - Cria cópias de exemplos totalmente preparados.
+- Singleton: Único e Exclusivo - Uma classe especial com apenas uma instâcia.
+- Adaptador(_Adapter_): Plugue Universal - Conecta coisas com interfaces diferentes.
+- Ponte (_Bridge_): Connectador Funcional - Liga como um objeto funciona ao que ele faz.
+- Composito (_Composite_): Constutor de Árvores - Forma uma estruturas semelhantes a árvore com partes simples e complexas.
+- Decorador (_Decorator_): Customizador - Adiciona funcionalidade a objetos sem alterar seu núcleo.
+- Façada (_Facade_): Tudo em Um - Representa um sistema inteiro com uma única interface simplificada.
+- Peso Mosca (_Flyweight_): Economizador de Espaço - Compartilha itens pequenos e reutilizáveis de maneira eficiente.
+- Proxy: Ator Substituto - Representa outro objeto, controlando acesso ou ações.
+- Cadeia de Responsabilidades (_Chain of Responsibility_): Relé de Requisições - Passa uma requisição por uma cadeia de objetos até que seja tratada.
+- Comando (_Command_): Envelopador de Tarefas - Transforma uma solicitação em um objeto, pronto para atuar.
+- Iterador (_Iterator_): Exploração de Coleções - Acessa elementos em uma coleção, um a um.
+- Mediador (_Mediator_): Central de Comunicações - Simplifica interações entre classes distintas.
+- Lembrança (_Memento_): Cápsula do Tempo - Captura e restaura o estado de um objeto.
+- Observador (_Observer_): Emissora de Notícias - Notifica classes sobre mudanças em outros objetos.
+- Visitante (_Visitor_): Hóspede Habilidoso - Adiciona novas operações a uma classe sem alterá-la.
 
 ## Database
 
