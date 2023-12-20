@@ -18,7 +18,7 @@
 
 Explique sistemas complexos com desenhos e termos simples. 
 
-Quer você esteja se preparando para uma entevista de Projeto de Sistemas ou apenas queira entender como sistemas funcionam por baixo dos panos, esperamos que esse repositório te ajude a conseguir.
+Quer você esteja se preparando para uma entevista de Projeto de Sistemas ou apenas querendo entender como sistemas funcionam por baixo dos panos, esperamos que esse repositório te ajude a conseguir.
 
 # Conteúdo
 
@@ -40,8 +40,8 @@ Quer você esteja se preparando para uma entevista de Projeto de Sistemas ou ape
   - [Quais são os algoritmos comuns de balanceamento de carga?](#quais-são-os-algoritmos-comuns-de-balanceamento-de-carga)
   - [URL, URI, URN - Você conhece as diferenças?](#url-uri-urn---você-conhece-as-diferenças)
 - [CI/CD](#cicd)
-  - [CI/CD Pipeline Explained in Simple Terms](#cicd-pipeline-explained-in-simple-terms)
-  - [Netflix Tech Stack (CI/CD Pipeline)](#netflix-tech-stack-cicd-pipeline)
+  - [Pipeline de CI/CD Explicado em Termos Simples](#pipeline-de-cicd-explicado-em-termos-simples)
+  - [Pilha Técnica da Netflix (Pipeline de CI/CD)](#pilha-técnica-da-netflix-pipeline-de-cicd)
 - [Architecture patterns](#architecture-patterns)
   - [MVC, MVP, MVVM, MVVM-C, and VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
   - [18 Key Design Patterns Every Developer Should Know](#18-key-design-patterns-every-developer-should-know)
@@ -491,7 +491,7 @@ If you would like to learn more detail on the subject, I would recommend [W3C’
 
 ## CI/CD
 
-### CI/CD Pipeline Explained in Simple Terms
+### Pipeline de CI/CD Explicado em Termos Simples
 
 <p>
   <img src="images/ci-cd-pipeline.jpg" style="width: 680px" />
@@ -520,7 +520,7 @@ A typical CI/CD pipeline has several connected stages:
 - Further testing may be done on staging before release
 - CD system deploys approved changes to production
 
-### Netflix Tech Stack (CI/CD Pipeline)
+### Pilha Técnica da Netflix (Pipeline de CI/CD)
 
 <p>
   <img src="images/netflix-ci-cd.jpg" style="width: 720px" />
