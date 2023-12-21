@@ -64,13 +64,12 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Como é uma arquitetura típica de microsserviços?](#como-é-uma-arquitetura-típica-de-microsserviços)
     - [Melhores Práticas em Microsserviços](#melhores-práticas-em-microsserviços)
     - [Qual pilha tecnológica é comumente utilizada para microsserviços?](#qual-pilha-tecnológica-é-comumente-utilizada-para-microsserviços)
-    - [Why is Kafka fast](#why-is-kafka-fast)
     - [Por quê Kafka é tão rápido](#por-quê-kafka-é-tão-rápido)
-  - [Payment systems](#payment-systems)
-    - [How to learn payment systems?](#how-to-learn-payment-systems)
-    - [Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
-    - [How does VISA work when we swipe a credit card at a merchant’s shop?](#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop)
-    - [Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
+  - [Sistemas de Pagamento](#sistemas-de-pagamento)
+    - [Como aprender sistemas de pagamento?](#como-aprender-sistemas-de-pagamento)
+    - [Por que o cartão de crédito é chamado de "o produto mais lucrativo para os bancos"? Como que a VISA/Mastercard ganham dinheiro?](#por-que-o-cartão-de-crédito-é-chamado-de-o-produto-mais-lucrativo-para-os-bancos-como-que-a-visamastercard-ganham-dinheiro)
+    - [Como a VISA funciona quando nós passamos o cartão de crédito em uma loja?](#como-a-visa-funciona-quando-nós-passamos-o-cartão-de-crédito-em-uma-loja)
+    - [Série de Sistemas de Pagamento ao Redor do Mundo (Parte 1): Interface Unificada de Pagamentos (UPI, _Unified Payments Interface_) na Índia](#série-de-sistemas-de-pagamento-ao-redor-do-mundo-parte-1-interface-unificada-de-pagamentos-upi-unified-payments-interface-na-índia)
   - [DevOps](#devops)
     - [DevOps vs. SRE vs. Platform Engineering. What is the difference?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
     - [What is k8s (Kubernetes)?](#what-is-k8s-kubernetes)
@@ -889,8 +888,6 @@ Abaixo você irá encontrar um diagrama mostrando a pilha tecnológica de micros
 - Persistencia - Podemos utilizar MySQL ou PostgreSQL para banco de dados relactionais e Amazon S3 para armazenamento de objeto. Também podemos utilizar Cassandra para armazenamento wide-column (coluna-larga) se necessário.
 - Gerenciamento & Monitoramento - Para manusear tantos microsserviços, as ferramentas comuns incluem Prometheus, Elastic Stack e Kubernetes.
 
-### Why is Kafka fast
-
 ### Por quê Kafka é tão rápido
 
 Houveram muitas decisões de design que contribuem para a performance do Kafka. Neste post, vamos focar em duas. Acreditamos que estas duas tenham o maior impacto.
@@ -925,83 +922,83 @@ O diagrama ilustra como o dado transmitido entre produtor e consumidor e o que z
 
 Zero-Copy é um atalho para salvar as multiplas copias entre contexto de usuário e contexto de kernel.
 
-## Payment systems
+## Sistemas de Pagamento
 
-### How to learn payment systems?
+### Como aprender sistemas de pagamento?
 
 <p>
   <img src="../images/learn-payments.jpg" />
 </p>
 
-### Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?
+### Por que o cartão de crédito é chamado de "o produto mais lucrativo para os bancos"? Como que a VISA/Mastercard ganham dinheiro?
 
-The diagram below shows the economics of the credit card payment flow.
+O diagrama abaixo mostra a economia do fluxo de pagamento com cartão de crédito.
 
 <p>
   <img src="../images/how does visa makes money.jpg" style="width: 640px" />
 </p>
 
-1.&nbsp;&nbsp;The cardholder pays a merchant $100 to buy a product.
+1.&nbsp;&nbsp;O titular do cartão paga $100 a um comerciante para comprar um produto.
 
-2.&nbsp;The merchant benefits from the use of the credit card with higher sales volume and needs to compensate the issuer and the card network for providing the payment service. The acquiring bank sets a fee with the merchant, called the “merchant discount fee.”
+2.&nbsp;O comerciante se beneficia do uso do cartão de crédito com um volume de vendas mais alto e precisa compensar o emissor e a rede de cartões por fornecer o serviço de pagamento. O banco adquirente estabelece uma taxa com o comerciante, chamada "taxa de desconto do comerciante".
 
-3 - 4. The acquiring bank keeps $0.25 as the acquiring markup, and $1.75 is paid to the issuing bank as the interchange fee. The merchant discount fee should cover the interchange fee.
+3 - 4. O banco adquirente retém $0,25 como a margem adquirente, e $1,75 é pago ao banco emissor como taxa de intercâmbio. A taxa de desconto do comerciante deve cobrir a taxa de intercâmbio.
 
-The interchange fee is set by the card network because it is less efficient for each issuing bank to negotiate fees with each merchant.
+A taxa de intercâmbio é estabelecida pela rede de cartões, pois seria menos eficiente para cada banco emissor negociar taxas com cada comerciante individualmente.
 
-5.&nbsp;&nbsp;The card network sets up the network assessments and fees with each bank, which pays the card network for its services every month. For example, VISA charges a 0.11% assessment, plus a $0.0195 usage fee, for every swipe.
+5.&nbsp;&nbsp;A rede de cartões estabelece as avaliações e taxas de rede com cada banco, que paga à rede de cartões por seus serviços a cada mês. Por exemplo, a VISA cobra uma avaliação de 0,11%, além de uma taxa de uso de $0,0195, para cada transação.
 
-6.&nbsp;&nbsp;The cardholder pays the issuing bank for its services.
+6.&nbsp;&nbsp;O titular do cartão paga ao banco emissor pelos seus serviços.
 
-Why should the issuing bank be compensated?
+Por que o banco emissor precisa ser compensado?
 
-- The issuer pays the merchant even if the cardholder fails to pay the issuer.
-- The issuer pays the merchant before the cardholder pays the issuer.
-- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc.
+- O emissor paga ao comerciante mesmo se o titular do cartão deixar de pagar ao emissor.
+- O emissor paga ao comerciante antes mesmo de o titular do cartão pagar ao emissor.
+- O emissor tem outros custos operacionais, incluindo a gestão de contas do cliente, emissão de extratos, detecção de fraudes, gestão de riscos, compensação & liquidação, entre outros.
 
-### How does VISA work when we swipe a credit card at a merchant’s shop?
+### Como a VISA funciona quando nós passamos o cartão de crédito em uma loja?
 
 <p>
   <img src="../images/visa_payment.jpeg" />
 </p>
 
-VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.
+VISA, Mastercard e American Express atuam como redes de cartões para a compensação e liquidação de fundos. O banco adquirente e o banco emissor do cartão podem ser - e muitas vezes são - diferentes. Se os bancos fossem liquidar as transações individualmente, sem um intermediário, cada banco teria que liquidar as transações com todos os outros bancos. Isso seria bastante ineficiente.
 
-The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
+O diagrama acima mostra o papel da VISA no processo de pagamento com cartão de crédito. Existem dois fluxos envolvidos. O fluxo de autorização ocorre quando o cliente passa o cartão de crédito. O fluxo de captura e liquidação ocorre quando o comerciante deseja receber o dinheiro no final do dia.
 
-- Authorization Flow
+- Fluxo de autorização
 
-Step 0: The card issuing bank issues credit cards to its customers.
+Passo 0: O banco emissor do cartão emite cartões de crédito para seus clientes.
 
-Step 1: The cardholder wants to buy a product and swipes the credit card at the Point of Sale (POS) terminal in the merchant’s shop.
+Passo 1: O titular do cartão deseja comprar um produto e passa o cartão de crédito no terminal de ponto de venda (POS, _Point of Sale_) na loja do comerciante.
 
-Step 2: The POS terminal sends the transaction to the acquiring bank, which has provided the POS terminal.
+Passo 2: O terminal POS envia a transação para o banco adquirente, que forneceu o terminal POS.
 
-Steps 3 and 4: The acquiring bank sends the transaction to the card network, also called the card scheme. The card network sends the transaction to the issuing bank for approval.
+Passos 3 e 4: O banco adquirente envia a transação para a rede de cartões, também chamada de esquema de cartão. A rede de cartões envia a transação para o banco emissor para aprovação.
 
-Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal.
+Passos 4.1, 4.2 e 4.3: O banco emissor reserva o dinheiro se a transação for aprovada. A aprovação ou rejeição é enviada de volta para o adquirente, assim como para o terminal POS.
 
-- Capture and Settlement Flow
+- Fluxo de Captura e Liquidação
 
-Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
+Passos 1 e 2: O comerciante deseja receber o dinheiro no final do dia, então eles acionam a "captura" no terminal POS. As transações são enviadas em lote para o adquirente. O adquirente envia o arquivo em lote com as transações para a rede de cartões.
 
-Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
+Passo 3: A rede de cartões realiza a compensação para as transações coletadas de diferentes adquirentes e envia os arquivos de compensação para diferentes bancos emissores.
 
-Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
+Passo 4: Os bancos emissores confirmam a correção dos arquivos de compensação e transferem dinheiro para os respectivos bancos adquirentes.
 
-Step 5: The acquiring bank then transfers money to the merchant’s bank.
+Passo 5: O banco adquirente, então, transfere dinheiro para o banco do comerciante.
 
-Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
+Passo 4: A rede de cartões liquida as transações de diferentes bancos adquirentes. A liquidação é um processo no qual as transações de compensação mútua são compensadas, reduzindo assim o número total de transações.
 
-In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
+No processo, a rede de cartões assume o encargo de falar com cada banco, em troca, recebendo as taxas de serviço.
 
-### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
+### Série de Sistemas de Pagamento ao Redor do Mundo (Parte 1): Interface Unificada de Pagamentos (UPI, _Unified Payments Interface_) na Índia
 
-What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
+O que é UPI? UPI é um sistema de pagamento instantâneo em tempo real desenvolvido pela National Payments Corporation of India.
 
-It accounts for 60% of digital retail transactions in India today.
+Atualmente, representa 60% das transações digitais no varejo na Índia.
 
-UPI = payment markup language + standard for interoperable payments
+UPI = linguagem de marcação de pagamento + padrão para pagamentos interoperáveis
 
 <p>
   <img src="../images/how-does-upi-work.png"  style="width: 600px" />
