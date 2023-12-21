@@ -79,9 +79,9 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Como Comandos do Git funcionam](#como-comandos-do-git-funcionam)
     - [Como o Git funciona?](#como-o-git-funciona)
     - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
-  - [Cloud Services](#cloud-services)
-    - [A nice cheat sheet of different cloud services (2023 edition)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
-    - [What is cloud native?](#what-is-cloud-native)
+  - [Serviços Cloud](#serviços-cloud)
+    - [Um guia prático útil de diferentes serviços em nuvem (edição 2023).](#um-guia-prático-útil-de-diferentes-serviços-em-nuvem-edição-2023)
+    - [O que é cloud native?](#o-que-é-cloud-native)
   - [Developer productivity tools](#developer-productivity-tools)
     - [Visualize JSON files](#visualize-json-files)
     - [Automatically turn code into architecture diagrams](#automatically-turn-code-into-architecture-diagrams)
@@ -1183,43 +1183,43 @@ O rebase pode ser perigoso se "a regra de ouro do git rebase" não for seguida.
 
 Nunca utilize ele em branches públicos!
 
-## Cloud Services
+## Serviços Cloud
 
-### A nice cheat sheet of different cloud services (2023 edition)
+### Um guia prático útil de diferentes serviços em nuvem (edição 2023).
 
 <p>
   <img src="../images/cloud-compare.jpg" />
 </p>
 
-### What is cloud native?
+### O que é cloud native?
 
-Below is a diagram showing the evolution of architecture and processes since the 1980s.
+Abaixo é um diagrama mostrando a evoluçã de arquiteturas e processos desde 1980.
 
 <p>
   <img src="../images/cloud-native.jpeg" style="width: 640px" />
 </p>
 
-Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies.
+Organizações podem construir e rodar aplicações escaláveis em clouds públicas, privadas e hibridas utilizando tecnologias cloud native.
 
-This means the applications are designed to leverage cloud features, so they are resilient to load and easy to scale.
+Isso significa que aplicações são projetadas para aproveitar características da cloud, tornando-as resilientes à cargas fáceis de escalar.
 
-Cloud native includes 4 aspects:
+Cloud native inclui 4 aspectos:
 
-1. Development process
+1. Processo de Desenvolvimento
 
-   This has progressed from waterfall to agile to DevOps.
+   Isso evoluiu do modelo waterfall para o ágil e, posteriormente, para o DevOps.
 
-2. Application Architecture
+2. Arquitetura de Aplicação
 
-   The architecture has gone from monolithic to microservices. Each service is designed to be small, adaptive to the limited resources in cloud containers.
+   A arquitetura foi de monolito para microsserviços. Cada serviço é projetado para ser pequeno, adaptativo para os recursos limitados em containers na cloud.
 
-3. Deployment & packaging
+3. Implantação & Empacotamento
 
-   The applications used to be deployed on physical servers. Then around 2000, the applications that were not sensitive to latency were usually deployed on virtual servers. With cloud native applications, they are packaged into docker images and deployed in containers.
+   As aplicações que eram implantados em servidores físicos. Então, por volta do ano 2000, as aplicações que não eram sensitivas à latência foram implantadas em servidores virtuais. Com aplicações cloud native, eles foram empacotados em imagens docker e implantados em containers.
 
-4. Application infrastructure
+4. Infraestrutura de Aplicação
 
-   The applications are massively deployed on cloud infrastructure instead of self-hosted servers.
+   As aplicações são implantadas em massa em infraestrutura de nuvem em vez de servidores auto-hospedados.
 
 ## Developer productivity tools
 
