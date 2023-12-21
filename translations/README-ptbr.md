@@ -82,9 +82,9 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
   - [Serviços Cloud](#serviços-cloud)
     - [Um guia prático útil de diferentes serviços em nuvem (edição 2023).](#um-guia-prático-útil-de-diferentes-serviços-em-nuvem-edição-2023)
     - [O que é cloud native?](#o-que-é-cloud-native)
-  - [Developer productivity tools](#developer-productivity-tools)
-    - [Visualize JSON files](#visualize-json-files)
-    - [Automatically turn code into architecture diagrams](#automatically-turn-code-into-architecture-diagrams)
+  - [Ferramentas de produtividade para desenvolvedores](#ferramentas-de-produtividade-para-desenvolvedores)
+    - [Visualizar arquivos JSON](#visualizar-arquivos-json)
+    - [Transformar código em diagramas de arquitetura de forma automática](#transformar-código-em-diagramas-de-arquitetura-de-forma-automática)
   - [Linux](#linux)
     - [Linux file system explained](#linux-file-system-explained)
     - [18 Most-used Linux Commands You Should Know](#18-most-used-linux-commands-you-should-know)
@@ -1221,32 +1221,32 @@ Cloud native inclui 4 aspectos:
 
    As aplicações são implantadas em massa em infraestrutura de nuvem em vez de servidores auto-hospedados.
 
-## Developer productivity tools
+## Ferramentas de produtividade para desenvolvedores
 
-### Visualize JSON files
+### Visualizar arquivos JSON
 
-Nested JSON files are hard to read.
+Arquivos JSON aninhados podem ser difíceis de ler.
 
-**JsonCrack** generates graph diagrams from JSON files and makes them easy to read.
+**JsonCrack** gera diagramas de grafo a partir de arquivos JSON e os torna fáceis de ler.
 
-Additionally, the generated diagrams can be downloaded as images.
+Além disso, os diagramas gerados podem ser baixados como imagens.
 
 <p>
   <img src="../images/json-cracker.jpeg" />
 </p>
 
-### Automatically turn code into architecture diagrams
+### Transformar código em diagramas de arquitetura de forma automática
 
 <p>
   <img src="../images/diagrams_as_code.jpeg" style="width: 640px" />
 </p>
 
-What does it do?
+O que ele faz?
 
-- Draw the cloud system architecture in Python code.
-- Diagrams can also be rendered directly inside the Jupyter Notebooks.
-- No design tools are needed.
-- Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc.
+- Desenha a arquitetura do sistema cloud em código python.
+- Diagramas podem ser renderizados diretamente dentro de Jupyter Notebooks.
+- Nenhuma ferramenta de design necessária.
+- Suporta os seguintes fornecedores: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud etc.
 
 [Github repo](https://github.com/mingrammer/diagrams)
 
