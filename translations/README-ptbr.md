@@ -47,11 +47,11 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
   - [Padões de Arquitetura](#padões-de-arquitetura)
     - [MVC, MVP, MVVM, MVVM-C, e VIPER](#mvc-mvp-mvvm-mvvm-c-e-viper)
     - [18 Padrões de Design Essenciais Que Todo Desenvolvedor Deve Conhecer](#18-padrões-de-design-essenciais-que-todo-desenvolvedor-deve-conhecer)
-  - [Database](#database)
-    - [A nice cheat sheet of different databases in cloud services](#a-nice-cheat-sheet-of-different-databases-in-cloud-services)
-    - [8 Data Structures That Power Your Databases](#8-data-structures-that-power-your-databases)
-    - [How is an SQL statement executed in the database?](#how-is-an-sql-statement-executed-in-the-database)
-    - [CAP theorem](#cap-theorem)
+  - [Bancos de Dados](#bancos-de-dados)
+    - [Um guia prático de diferentes bancos de dados em serviços de nuvem](#um-guia-prático-de-diferentes-bancos-de-dados-em-serviços-de-nuvem)
+    - [8 Estruturas de Dados que Impulsionam seus Bancos de Dados](#8-estruturas-de-dados-que-impulsionam-seus-bancos-de-dados)
+    - [Como um comando SQL é executado no Banco de Dados?](#como-um-comando-sql-é-executado-no-banco-de-dados)
+    - [Teorema CAP](#teorema-cap)
     - [Types of Memory and Storage](#types-of-memory-and-storage)
     - [Visualizing a SQL query](#visualizing-a-sql-query)
     - [SQL language](#sql-language)
@@ -583,82 +583,82 @@ Padrões são soluções reutilizáveis para problemas comuns de design, resulta
 - Observador (_Observer_): Emissora de Notícias - Notifica classes sobre mudanças em outros objetos.
 - Visitante (_Visitor_): Hóspede Habilidoso - Adiciona novas operações a uma classe sem alterá-la.
 
-## Database
+## Bancos de Dados
 
-### A nice cheat sheet of different databases in cloud services
+### Um guia prático de diferentes bancos de dados em serviços de nuvem
 
 <p>
   <img src="../images/cloud-dbs2.png" />
 </p>
 
-Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue.
+Escolher o banco de dados correto para o seu projeto é uma tarefa complexa. Muitas opções de bancos de dados, cada uma adequada a casos de uso distintos, podem rapidamente levar à fadiga de decisões.
 
-We hope this cheat sheet provides high-level direction to pinpoint the right service that aligns with your project's needs and avoid potential pitfalls.
+Esperamos que este guia prático forneça direcionamento de alto nível para identificar o serviço correto que esteja alinhado com as necessidades do seu projeto e evite possíveis ciladas.
 
-Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate.
+Nota: O Google limitou a documentação para os casos de uso de seus banco de dados. Mesmo que tenhamos feito o nosso melhor para examinar o que estava disponível e chegar à melhor opção, algumas das entradas podem precisar de maior precisão.
 
-### 8 Data Structures That Power Your Databases
+### 8 Estruturas de Dados que Impulsionam seus Bancos de Dados
 
-The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format.
+A resposta irá variar dependendo do seu caso de uso. Dados podem ser indexados em memória ou em disco. Similarmente, os formatos dos dados variam, como números, strings, coordenadas geográficas etc. O sistema pode ser intensivo em escrita (write-heavy) ou intensivo em leitura (read-heavy). Todos esses fatores afetam a escolha do formato de índice do banco de dados.
 
 <p>
   <img src="../images/8-ds-db.jpg" />
 </p>
 
-The following are some of the most popular data structures used for indexing data:
+A seguir estão algumas das estruturas de dados mais populares usadas para indexar dados:
 
-- Skiplist: a common in-memory index type. Used in Redis
-- Hash index: a very common implementation of the “Map” data structure (or “Collection”)
-- SSTable: immutable on-disk “Map” implementation
-- LSM tree: Skiplist + SSTable. High write throughput
-- B-tree: disk-based solution. Consistent read/write performance
-- Inverted index: used for document indexing. Used in Lucene
-- Suffix tree: for string pattern search
-- R-tree: multi-dimension search, such as finding the nearest neighbor
+- Skiplist: um tipo comum de índice em memória. Usado no Redis
+- Índice de hash: uma implementação muito comum da estrutura de dados "Mapa" (ou "Coleção")
+- SSTable: implementação em disco e imutável do "Mapa"
+- Árvore LSM: Skiplist + SSTable. Alta taxa de gravação
+- B-tree: solução baseada em disco. Desempenho de leitura/gravação consistente
+- Índice invertido: usado para indexação de documentos. Usado no Lucene
+- Árvore de sufixos: para pesquisa de padrões em strings
+- R-tree: pesquisa multidimensional, como encontrar o vizinho mais próximo
 
-### How is an SQL statement executed in the database?
+### Como um comando SQL é executado no Banco de Dados?
 
-The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
+O diagrama abaixo demonstra o processo. Note que a arquitetura de diferentes bancos são diferentes, o diagrama apresenta alguns designs comuns.
 
 <p>
   <img src="../images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
 
-Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
+Passo 1 - Uma instrução SQL é enviada para o banco de dados por meio de um protocolo de camada de transporte (por exemplo, TCP).
 
-Step 2 - The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
+Passo 2 - A instrução SQL é enviada ao analisador (_parser_) de comandos, onde passa por análise sintática e semântica, e em seguida, uma árvore de consulta é gerada.
 
-Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan.
+Passo 3 - A árvore de consulta é enviada ao otimizador. O otimizador cria um plano de execução.
 
-Step 4 - The execution plan is sent to the executor. The executor retrieves data from the execution.
+Passo 4 - O plano de execução é enviado ao executor. O executor recupera os dados da execução.
 
-Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine.
+Passo 5 - Métodos de acesso fornecem a lógica de recuperação de dados necessária para a execução, recuperando dados do mecanismo de armazenamento (_storage engine_).
 
-Step 6 - Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
+Passo 6 - Os métodos de acesso decidem se a instrução SQL é somente leitura. Se a consulta for somente leitura (instrução SELECT), ela é enviada para o gerenciador de buffer para processamento adicional. O gerenciador de buffer procura os dados no cache ou nos arquivos de dados.
 
-Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
+Passo 7 - Se a instrução for um UPDATE ou INSERT, ela é enviada para o gerenciador de transações para processamento adicional.
 
-Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties.
+Passo 8 - Durante uma transação, os dados estão em modo de bloqueio. Isso é garantido pelo gerenciador de bloqueio. Ele também assegura as propriedades ACID da transação.
 
-### CAP theorem
+### Teorema CAP
 
-The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing.
+O Teorema CAP é um dos termos mais famosos na ciência da computação, mas aposto que desenvolvedores diferentes tem interpretações diferentes. Vamos examinar o que é e por que pode ser confuso.
 
 <p>
   <img src="../images/cap theorem.jpeg" />
 </p>
 
-CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
+O teorema CAP afirma que um sistema distribuído não pode fornecer mais do que duas destas três garantias simultaneamente.
 
-**Consistency**: consistency means all clients see the same data at the same time no matter which node they connect to.
+**Consistência**: consistência significa que todos os clientes enxergam os mesmos dados ao mesmo tempo, não importando em qual nó eles se conectam.
 
-**Availability**: availability means any client that requests data gets a response even if some of the nodes are down.
+**Disponibilidade**: disponibilidade significa que qualquer cliente que realizar uma requisição de dados terá uma resposta, mesmo que alguns nós não estejam de pé.
 
-**Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions.
+**Tolerância de Partição**: uma partição indica uma quebra na comunicação entre dois nós. Uma tolerância de partição significa que o sistema continua em operação apesar de partições de redes.
 
-The “2 of 3” formulation can be useful, **but this simplification could be misleading**.
+A formulação "2 de 3" pode ser útil, **mas essa simplificação pode ser enganosa**.
 
-1. Picking a database is not easy. Justifying our choice purely based on the CAP theorem is not enough. For example, companies don't choose Cassandra for chat applications simply because it is an AP system. There is a list of good characteristics that make Cassandra a desirable option for storing chat messages. We need to dig deeper.
+1. Escolher um banco de dados não é fácil. Justificar sua escolha puramente no teorema CAP não é o suficiente. Por exemplo, companhias não escolhem Cassandra para aplicativos de cat simplesmente por ser um sistema AP. Há uma lista de características que tornam uma opção boa para armazenamento de mensagens de chat. Precisamos cavar mais fundo.
 
 2. “CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare”. Quoted from the paper: CAP Twelve Years Later: How the “Rules” Have Changed.
 
