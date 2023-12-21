@@ -71,10 +71,10 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Como a VISA funciona quando nós passamos o cartão de crédito em uma loja?](#como-a-visa-funciona-quando-nós-passamos-o-cartão-de-crédito-em-uma-loja)
     - [Série de Sistemas de Pagamento ao Redor do Mundo (Parte 1): Interface Unificada de Pagamentos (UPI, _Unified Payments Interface_) na Índia](#série-de-sistemas-de-pagamento-ao-redor-do-mundo-parte-1-interface-unificada-de-pagamentos-upi-unified-payments-interface-na-índia)
   - [DevOps](#devops)
-    - [DevOps vs. SRE vs. Platform Engineering. What is the difference?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
-    - [What is k8s (Kubernetes)?](#what-is-k8s-kubernetes)
-    - [Docker vs. Kubernetes. Which one should we use?](#docker-vs-kubernetes-which-one-should-we-use)
-    - [How does Docker work?](#how-does-docker-work)
+    - [DevOps vs. SRE vs. Platform Engineering. Qual a diferença?](#devops-vs-sre-vs-platform-engineering-qual-a-diferença)
+    - [O que é k8s (Kubernetes)?](#o-que-é-k8s-kubernetes)
+    - [Docker vs. Kubernetes. Qual eu deveria usar?](#docker-vs-kubernetes-qual-eu-deveria-usar)
+    - [Como o Docker funciona?](#como-o-docker-funciona)
   - [GIT](#git)
     - [How Git Commands work](#how-git-commands-work)
     - [How does Git Work?](#how-does-git-work)
@@ -1006,120 +1006,119 @@ UPI = linguagem de marcação de pagamento + padrão para pagamentos interoperá
 
 ## DevOps
 
-### DevOps vs. SRE vs. Platform Engineering. What is the difference?
+### DevOps vs. SRE vs. Platform Engineering. Qual a diferença?
 
-The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations.
+Os conceitos de DevOps, SRE (Engenharia de Confiabilidade do Site, _Site Reliability Engineering_) e Platform Egineering (Engenharia de Plataforma) surgiram em momentos diferentes e foram desenvolvidos por diversos indivíduos e organizações.
 
 <p>
   <img src="../images/devops-sre-platform.jpg" />
 </p>
 
-DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle.
+O conceito de DevOps foi introduzido em 2009 por Patrick Debois e Andrew Shafer a conferência Ágil (_Alige_ conference). Eles buscaram reduzir a lacuna entre o desenvolvimento de software e as operações, promovendo uma cultura colaborativa e responsabilidade compartilhada por todo o ciclo de vida do desenvolvimento de software.
 
-SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s to address operational challenges in managing large-scale, complex systems. Google developed SRE practices and tools, such as the Borg cluster management system and the Monarch monitoring system, to improve the reliability and efficiency of their services.
+O SRE, ou Engenharia de Confiabilidade de Sites, foi pioneirizado pelo Google no início dos anos 2000 para lidar com desafios operacionais no gerenciamento de sistemas complexos em grande escala. O Google desenvolveu práticas e ferramentas de SRE, como o sistema de gerenciamento de clusters Borg e o sistema de monitoramento Monarch, para aprimorar a confiabilidade e eficiência de seus serviços.
 
-Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective.
+A Engenharia de Plataformas é um conceito mais recente, construindo sobre a base da engenharia SRE. As origens precisas da Engenharia de Plataformas são menos claras, mas geralmente é entendida como uma extensão das práticas DevOps e SRE, com foco em fornecer uma plataforma abrangente para o desenvolvimento de produtos que suporta toda a perspectiva do negócio.
 
-It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations.
+Vale ressaltar que, embora esses conceitos tenham surgido em momentos diferentes, todos estão relacionados à tendência mais ampla de aprimorar a colaboração, automação e eficiência no desenvolvimento e operações de software.
 
-### What is k8s (Kubernetes)?
+### O que é k8s (Kubernetes)?
 
-K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.
+O K8s é um sistema de orquestração de contêineres. Ele é usado para implantação e gerenciamento de contêineres. Seu design é fortemente influenciado pelo sistema interno do Google chamado Borg.
 
 <p>
   <img src="../images/k8s.jpeg" style="width: 680px" />
 </p>
 
-A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
+Um cluster K8s consistem em um conjunto de máquinas workers (trabalhadores, secundários) que rodam aplicações containerizadas. Todo cluster tem pelo menos um nó worker.
 
-The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
+O(s) nó(s) worker(s) hospedam os Pods que são os componentes da carga de trabalho da aplicação. O plano de controle (_control plane_) gerencia os nós de trabalho e os Pods no cluster. Em ambientes de produção, o plano de controle geralmente é executado em vários computadores, e um cluster geralmente executa vários nós, proporcionando tolerância a falhas e alta disponibilidade.
 
-- Control Plane Components
+- Componentem do Plano de Controle
 
-1. API Server
+1. Servidor da API
 
-   The API server talks to all the components in the k8s cluster. All the operations on pods are executed by talking to the API server.
+   O servidor da API se comunica com todos os componented do cluster k8s. Todas as operações nos pods são executadas por meio de comunicação com o servidor de API.
 
-2. Scheduler
+2. Escalonador (_Scheduler_)
 
-   The scheduler watches pod workloads and assigns loads on newly created pods.
+   O escalonador (_scheduler_) observa cargas de trabalho nas pods e aloca cargas em pods recém-criados.
 
-3. Controller Manager
+3. Gerenciador de Controladores
 
-   The controller manager runs the controllers, including Node Controller, Job Controller, EndpointSlice Controller, and ServiceAccount Controller.
+   O gerenciador de controladores executa os controladores, incluindo Node Controller, Job Controller, EndpointSlice Controller e ServiceAccount Controller.
 
 4. Etcd
 
-   etcd is a key-value store used as Kubernetes' backing store for all cluster data.
+   etcd é um armazenamento de chave-valor usado como armazenamento principal do Kubernetes para todos os dados do cluster.
 
-- Nodes
+- Nós
 
 1. Pods
 
-   A pod is a group of containers and is the smallest unit that k8s administers. Pods have a single IP address applied to every container within the pod.
+   Um pod é um grupo de contêineres e é a menor unidade administrada pelo Kubernetes. Os Pods têm um único endereço IP aplicado a cada contêiner dentro do pod.
 
 2. Kubelet
 
-   An agent that runs on each node in the cluster. It ensures containers are running in a Pod.
+   Um agente que é executado em cada nó no cluster. Ele garante que os contêineres estejam em execução em um Pod.
 
 3. Kube Proxy
 
-   Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
+   O Kube-proxy é um proxy de rede que é executado em cada nó do seu cluster. Ele direciona o tráfego que entra em um nó proveniente do serviço e encaminha solicitações de trabalho para os contêineres corretos.
 
-### Docker vs. Kubernetes. Which one should we use?
+### Docker vs. Kubernetes. Qual eu deveria usar?
 
 <p>
   <img src="../images/docker-vs-k8s.jpg" style="width: 680px" />
 </p>
 
-What is Docker ?
+O que é Docker ?
 
-Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies.
+O Docker é uma plataforma de código aberto que permite empacotar, distribuir e executar aplicativos em contêineres isolados. Ele se concentra na containerização, fornecendo ambientes leves que encapsulam aplicativos e suas dependências.
 
-What is Kubernetes ?
+O que é Kubernetes ?
 
-Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes.
+O Kubernetes, frequentemente referido como K8s, é uma plataforma de orquestração de contêineres de código aberto. Ele fornece um framework para automatizar a implantação, escalabilidade e gerenciamento de aplicativos em contêineres em um cluster de nós.
 
-How are both different from each other ?
+Como eles diferem entre si ?
 
-Docker: Docker operates at the individual container level on a single operating system host.
+Docker: O Docker opera no nível individual do contêiner em um único sistema operacional hospedeiro.
 
-You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex.
+É necessário gerenciar manualmente cada hospedeiro, e configurar redes, políticas de segurança e armazenamento para vários contêineres relacionados pode ser complexo.
 
-Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications.
+Kubernetes: O Kubernetes opera no nível do cluster. Ele gerencia múltiplos aplicativos em contêineres em vários hospedeiros, proporcionando automação para tarefas como balanceamento de carga, escalabilidade e garantia do estado desejado dos aplicativos.
 
-In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts.
+Em resumo, o Docker foca na containerização e na execução de contêineres em hospedeiros individuais, enquanto o Kubernetes se especializa em gerenciar e orquestrar contêineres em escala, em um cluster de hospedeiros.
 
-### How does Docker work?
+### Como o Docker funciona?
 
-The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull”
-and “docker run”.
+O diagrama abaixo mostra a arquitetura do Docker e como ela funciona quando executamos os comandos "docker build", "docker pull" e "docker run".
 
 <p>
   <img src="../images/docker.jpg" style="width: 680px" />
 </p>
 
-There are 3 components in Docker architecture:
+Há 3 components em uma arquitetura Docker:
 
-- Docker client
+- Cliente Docker
 
-  The docker client talks to the Docker daemon.
+  O cliente docker fala com o Docker daemon.
 
-- Docker host
+- Hospedeiro Docker (_host_)
 
-  The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.
+  O Docker daemon escuta por requisições de API do Docker e gerencia objetos do Docker, como imagens, contêineres, redes e volumes.
 
-- Docker registry
+- Registro do Docker (_registry_)
 
-  A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use.
+  Um registro do Docker armazena imagens do Docker. O Docker Hub é um registro público que qualquer pessoa pode utilizar.
 
-Let’s take the “docker run” command as an example.
+Vamos tomar o comando "docker run" como exemplo.
 
-1. Docker pulls the image from the registry.
-1. Docker creates a new container.
-1. Docker allocates a read-write filesystem to the container.
-1. Docker creates a network interface to connect the container to the default network.
-1. Docker starts the container.
+1. O Docker puxa a imagem do registro.
+2. O Docker cria um novo container.
+3. O Docker aloca um sistema de arquivos de leitura-escrita para o container.
+4. O Docker cria uma interface de rede e conecta ao container para a rede padrão.
+5. O Docker inicializa o container.
 
 ## GIT
 
