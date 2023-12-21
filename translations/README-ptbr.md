@@ -88,14 +88,14 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
   - [Linux](#linux)
     - [Sistema de Arquivos do Linux explicado](#sistema-de-arquivos-do-linux-explicado)
     - [18 Comandos Linux Mais Utilizados que Você Deve Conhecer](#18-comandos-linux-mais-utilizados-que-você-deve-conhecer)
-  - [Security](#security)
-    - [How does HTTPS work?](#how-does-https-work)
-    - [Oauth 2.0 Explained With Simple Terms.](#oauth-20-explained-with-simple-terms)
-    - [Top 4 Forms of Authentication Mechanisms](#top-4-forms-of-authentication-mechanisms)
-    - [Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
-    - [How to store passwords safely in the database and how to validate a password?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
-    - [Explaining JSON Web Token (JWT) to a 10 year old Kid](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
-    - [How does Google Authenticator (or other types of 2-factor authenticators) work?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
+  - [Segurança](#segurança)
+    - [Como o HTTPS funciona?](#como-o-https-funciona)
+    - [Oauth 2.0 Explicado com Termos Simples.](#oauth-20-explicado-com-termos-simples)
+    - [Principais 4 Formas de Mecanismos de Autenticação](#principais-4-formas-de-mecanismos-de-autenticação)
+    - [Sessão, cookie, JWT, token, SSO, e OAuth 2.0 - o que são?](#sessão-cookie-jwt-token-sso-e-oauth-20---o-que-são)
+    - [Como armazenar senhas de forma segura em bancos de dados e como validá-las?](#como-armazenar-senhas-de-forma-segura-em-bancos-de-dados-e-como-validá-las)
+    - [Explicando JSON Web Token (JWT) para uma criança de 10 anos de idade](#explicando-json-web-token-jwt-para-uma-criança-de-10-anos-de-idade)
+    - [Como o Autenticador do Google (ou outros tipos de autenticadores de 2-fatores) funciona?](#como-o-autenticador-do-google-ou-outros-tipos-de-autenticadores-de-2-fatores-funciona)
   - [Real World Case Studies](#real-world-case-studies)
     - [Netflix's Tech Stack](#netflixs-tech-stack)
     - [Twitter Architecture 2022](#twitter-architecture-2022)
@@ -1291,187 +1291,190 @@ O diagrama abaixo mostra comandos Linux populares:
 - ifconfig - Configura interfaces de rede
 - ping - Testa conectividade via rede entre hospedeiros (hosts)
 
-## Security
+## Segurança
 
-### How does HTTPS work?
+### Como o HTTPS funciona?
 
-Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code.
+Protocolo de Transferência de Hipertexto Seguro (HTTPS, _Hypertext Transfer Protocol Secure_) é uma extensão do Protocolo de Transferência de Hipertexto (HTTP). HTTPS transmite dados encriptados utilizando Securança na Camada de de Transporte (TLC, _Transport Layer Security_). Se os dados forem sequestrados online, tudo que o sequestrador recebe é lixo binário.
 
 <p>
   <img src="../images/https.jpg" />
 </p>
 
-How is the data encrypted and decrypted?
+Como os dados são encriptados e decriptados?
 
-Step 1 - The client (browser) and the server establish a TCP connection.
+Passo 1 - O cliente (navegador) e o servidor estabelecem uma conexão TCP.
 
-Step 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
+Passo 2 - O cliente envia um "client hello" para o servidor. A mensagem contém um conjunto de algoritmos de criptografia necessários (suites de cifras) e a última versão do TLS que ele pode suportar. O servidor responde com um "server hello" para que o navegador saiba se pode suportar os algoritmos e a versão do TLS.
 
-The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate.
+O servidor então envia o certificado SSL para o cliente. O certificado contém a chave pública, hostname, data de expiração etc. O cliente valida o certificado.
 
-Step 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key.
+Passo 3 - Após a validação do certificado SSL, o cliente gera a chave de sessão e encripta utilizando a chave pública. O servidor recebe a chave de sessão encriptada e a decripta com a chave privada.
 
-Step 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
+Passo 4 - Agora que tanto o cliente como o servidor possuem a mesma chave de sessão (criptografia simétrica), os dados encriptados são transmitidos em um canal bi-direcional seguro.
 
-Why does HTTPS switch to symmetric encryption during data transmission? There are two main reasons:
+Por que HTTPS troca para criptografia simétrica durante a transmissão de dados? Há duas razões principais:
 
-1. Security: The asymmetric encryption goes only one way. This means that if the server tries to send the encrypted data back to the client, anyone can decrypt the data using the public key.
+1. Segurança: A criptografia simétrica funciona apenas de um lado. Isso significa que se o servidor tentar enviar dados criptografados de volta para o cliente, qualquer pessoa consegue decriptar os dados utilizando a chave pública.
 
-2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
+1. Recursos do Servidor: A criptografia assimétrica adiciona uma carga matemática significativa. Não é adequada para transmissões de dados em sessões longas.
 
-### Oauth 2.0 Explained With Simple Terms.
+### Oauth 2.0 Explicado com Termos Simples.
 
-OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials.
+OAuth 2.0 é um framework poderoso e seguro que permite diferentes aplicações interagirem uma com as outras de formas seguras em nome dos usuários, sem compartilhar credenciais sensíveis.
 
 <p>
   <img src="../images/oAuth2.jpg" />
 </p>
 
-The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP).
+A entidade envolvida com OAuth são: o Usuário, o Servidor e o Provedor de Identidade (IDP, _Identity Provider_).
 
-What Can an OAuth Token Do?
+O que um Token OAuth pode fazer?
 
-When you use OAuth, you get an OAuth token that represents your identity and permissions. This token can do a few important things:
+Quando você utiliza OAuth, você recebe um OAuth token que representa sua identidade e permissões. Esse token pode fazer algumas coisas importantes:
 
-Single Sign-On (SSO): With an OAuth token, you can log into multiple services or apps using just one login, making life easier and safer.
+Single Sign-On (SSO): Com um token OAuth, você pode fazer login em vários serviços ou aplicativos com um único login, tornando a vida mais fácil e segura.
 
-Authorization Across Systems: The OAuth token allows you to share your authorization or access rights across various systems, so you don't have to log in separately everywhere.
+Autorização Entre Sistemas: O token OAuth permite que você compartilhe suas permissões ou direitos de acesso em vários sistemas, evitando que você precise fazer login separadamente em cada lugar.
 
-Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won't see everything.
+Acesso ao Perfil do Usuário: Aplicativos com um token OAuth podem acessar partes específicas do seu perfil de usuário que você permite, mas eles não verão tudo.
 
-Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
+Lembre-se, o OAuth 2.0 visa manter você e seus dados seguros, tornando suas experiências online contínuas e sem complicações em diferentes aplicativos e serviços.
 
-### Top 4 Forms of Authentication Mechanisms
+### Principais 4 Formas de Mecanismos de Autenticação
 
 <p>
   <img src="../images/top4-most-used-auth.jpg" />
 </p>
 
-1. SSH Keys:
+1. Chaves SSH:
 
-   Cryptographic keys are used to access remote systems and servers securely
+   Chaves criptográficas são utilizadas para acesso remoto de sistemas e servidores de forma segura
 
-1. OAuth Tokens:
+2. Tokens OAuth:
 
-   Tokens that provide limited access to user data on third-party applications
+   Tokens que fornecem acesso limitado aos dados do usuário em aplicativos de terceiros.
 
-1. SSL Certificates:
+3. Certificados SSL:
 
-   Digital certificates ensure secure and encrypted communication between servers and clients
+   Certificados digitais garantem comunicação segura e encriptada entre servidores de clientes
 
-1. Credentials:
+4. Credenciais:
 
-   User authentication information is used to verify and grant access to various systems and services
+   As informações de autenticação do usuário são utilizadas para verificar e conceder acesso a vários sistemas e serviços.
 
-### Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?
+### Sessão, cookie, JWT, token, SSO, e OAuth 2.0 - o que são?
 
-These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.
+Esses termos estão todos relacionados à gestão da identidade do usuário. Quando você faz login em um site, declara quem é (identificação). Sua identidade é verificada (autenticação) e são concedidas as permissões necessárias (autorização). Muitas soluções foram propostas no passado, e a lista continua crescendo.
 
 <p>
   <img src="../images/session.jpeg" />
 </p>
 
-From simple to complex, here is my understanding of user identity management:
+De simples até complexo, aqui está a minha compreensão sobre a gestão de identidade do usuário:
 
-- WWW-Authenticate is the most basic method. You are asked for the username and password by the browser. As a result of the inability to control the login life cycle, it is seldom used today.
+- WWW-Authenticate é o método mais básico. O navegador solicita o nome de usuário e a senha. Devido à incapacidade de controlar o ciclo de vida do login, raramente é usado hoje em dia.
 
-- A finer control over the login life cycle is session-cookie. The server maintains session storage, and the browser keeps the ID of the session. A cookie usually only works with browsers and is not mobile app friendly.
+- Um controle mais refinado sobre o ciclo de vida do login é feito com session-cookie (cookie da sessão). O servidor mantém o armazenamento de sessão, e o navegador mantém o ID da sessão. Um cookie geralmente funciona apenas com navegadores e não é amigável para aplicativos móveis.
 
-- To address the compatibility issue, the token can be used. The client sends the token to the server, and the server validates the token. The downside is that the token needs to be encrypted and decrypted, which may be time-consuming.
+- Para lidar com o problema de compatibilidade, o token pode ser usado. O cliente envia o token para o servidor, e o servidor valida o token. A desvantagem é que o token precisa ser criptografado e descriptografado, o que pode ser demorado.
 
-- JWT is a standard way of representing tokens. This information can be verified and trusted because it is digitally signed. Since JWT contains the signature, there is no need to save session information on the server side.
+- JWT é uma maneira padrão de representar tokens. Essas informações podem ser verificadas e confiáveis porque são digitalmente assinadas. Como o JWT contém a assinatura, não é necessário salvar informações de sessão no lado do servidor.
 
-- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information.
+- Ao usar SSO (entrada única, _single sign-on_), você pode fazer login apenas uma vez e acessar vários sites. Ele utiliza o CAS (serviço de autenticação central, _central authentication service_) para manter informações entre sites.
 
-- By using OAuth 2.0, you can authorize one website to access your information on another website.
+- Ao usar OAuth 2.0, você pode autorizar um site a acessar suas informações em outro site.
 
-### How to store passwords safely in the database and how to validate a password?
+### Como armazenar senhas de forma segura em bancos de dados e como validá-las?
 
 <p>
   <img src="../images/salt.jpg" style="width: 720px" />
 </p>
 
-**Things NOT to do**
+**O que NÃO fazer**
 
-- Storing passwords in plain text is not a good idea because anyone with internal access can see them.
+- Armazenar senhas em texto puro não é uma boa ideia pois qualquer pessoa com acesso interno consegue vê-las.
 
-- Storing password hashes directly is not sufficient because it is pruned to precomputation attacks, such as rainbow tables.
+- Armazenar diretamente os hashes de senhas não é suficiente, pois está sujeito a ataques de pré-computação, como tabelas arco-íris (_rainbow tables_).
 
-- To mitigate precomputation attacks, we salt the passwords.
+- Para miticar ataques pré-computados, precisamos saltear as senhas.
 
-**What is salt?**
+**O que é sal**
 
-According to OWASP guidelines, “a salt is a unique, randomly generated string that is added to each password as part of the hashing process”.
+De acordo com as diretrizes da OWASP, "um _salt_ (sal) é uma string única e gerada aleatoriamente que é adicionada a cada senha como parte do processo de hash".
 
-**How to store a password and salt?**
+**Como armazenar uma senha e sal?**
 
-1. the hash result is unique to each password.
-1. The password can be stored in the database using the following format: hash(password + salt).
+1. O resultado do hash é único para cada senha.
+2. A senha pode ser armazenada no banco de dados usando o seguinte formato: hash(senha + salt).
 
-**How to validate a password?**
+**Como validar uma senha?**
 
-To validate a password, it can go through the following process:
+Para validar uma senha, ela pode passar pelo seguinte processo:
 
-1. A client enters the password.
-1. The system fetches the corresponding salt from the database.
-1. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
-1. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid.
+1. Um cliente insere a senha.
+2. O sistema recupera o salt correspondente do banco de dados.
+3. O sistema concatena o salt à senha e realiza o hash. Vamos chamar o valor hash resultante de H1.
+4. O sistema compara H1 e H2, onde H2 é o hash armazenado no banco de dados. Se forem iguais, a senha é válida.
 
-### Explaining JSON Web Token (JWT) to a 10 year old Kid
+### Explicando JSON Web Token (JWT) para uma criança de 10 anos de idade
 
 <p>
   <img src="../images/jwt.jpg" />
 </p>
 
-Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
+Imagine que você tem uma caixa especial chamada JWT. Dentro dessa caixa, existem três partes: um cabeçalho, uma carga útil e uma assinatura.
 
-The header is like the label on the outside of the box. It tells us what type of box it is and how it's secured. It's usually written in a format called JSON, which is just a way to organize information using curly braces { } and colons : .
+O cabeçalho é como a etiqueta do lado de fora da caixa. Ele nos diz que tipo de caixa é e como ela está protegida. Geralmente, é escrito em um formato chamado JSON, que é apenas uma maneira de organizar informações usando chaves { } e dois-pontos : .
 
-The payload is like the actual message or information you want to send. It could be your name, age, or any other data you want to share. It's also written in JSON format, so it's easy to understand and work with.
-Now, the signature is what makes the JWT secure. It's like a special seal that only the sender knows how to create. The signature is created using a secret code, kind of like a password. This signature ensures that nobody can tamper with the contents of the JWT without the sender knowing about it.
+A carga útil é como a mensagem ou a informação real que você deseja enviar. Pode ser seu nome, idade ou qualquer outro dado que você queira compartilhar. Também é escrito no formato JSON, tornando-o fácil de entender e utilizar.
 
-When you want to send the JWT to a server, you put the header, payload, and signature inside the box. Then you send it over to the server. The server can easily read the header and payload to understand who you are and what you want to do.
+Agora, a assinatura é o que torna o JWT seguro. É como um selo especial que apenas o remetente sabe como criar. A assinatura é criada usando um código secreto, algo semelhante a uma senha. Essa assinatura garante que ninguém pode adulterar o conteúdo do JWT sem que o remetente saiba sobre a alteração.
 
-### How does Google Authenticator (or other types of 2-factor authenticators) work?
+Quando você deseja enviar o JWT para um servidor, coloca o cabeçalho, a carga útil e a assinatura dentro da caixa. Em seguida, você envia para o servidor. O servidor pode ler facilmente o cabeçalho e a carga útil para entender quem você é e o que deseja fazer.
 
-Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
+### Como o Autenticador do Google (ou outros tipos de autenticadores de 2-fatores) funciona?
 
-Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail.
+O Autenticador do Google é comumente utilizado para fazer login em contas quando autenticação de dois-fatores está habilitada. Como ele garante segurança?
+
+O Autenticador doGoogle é um autenticador baseado em software que implementa um serviço de verificação de dois-fatores. O diagrama abaixo detalha.
 
 <p>
   <img src="../images/google_authenticate.jpeg" />
 </p>
 
-There are two stages involved:
+Existem duas etapas envolvidas:
 
-- Stage 1 - The user enables Google two-step verification.
-- Stage 2 - The user uses the authenticator for logging in, etc.
+- Etapa 1 - O usuário habilita a verificação de duas etapas do Google.
+- Etapa 2 - O usuário utiliza o autenticador para fazer login etc.
 
-Let’s look at these stages.
+Vamos analisar essas etapas.
 
-**Stage 1**
+**Etapa 1**
 
-Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
+Passo 1 and 2: Bob abre a página da web para habilitar a verificação em duas etapas. A interface solicita uma chave secreta. O serviço de autenticação gera a chave secreta para Bob e a armazena no banco de dados.
 
-Step 3: The authentication service returns a URI to the front end. The URI is composed of a key issuer, username, and secret key. The URI is displayed in the form of a QR code on the web page.
+Passp 3: O serviço de autenticação retorna uma URI para a interface. A URI é composta por um emissor de chave, nome de usuário e chave secreta. A URI é exibida na forma de um código QR na página da web.
 
-Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
+Passo 4: Bob então usa o Google Authenticator para escanear o código QR gerado. A chave secreta é armazenada no autenticador.
 
-**Stage 2**
-Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
+**Etapa 2**
 
-Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
+Passos 1 e 2: Bob deseja fazer login em um site com a verificação em duas etapas do Google. Para isso, ele precisa da senha. A cada 30 segundos, o Google Authenticator gera uma senha de 6 dígitos usando o algoritmo TOTP (Senha de Uso Único Baseada em Tempo, _Time-based One Time Password_). Bob usa a senha para acessar o site.
 
-Step 5: The authentication service compares the two passwords generated by the client and the server, and returns the comparison result to the frontend. Bob can proceed with the login process only if the two passwords match.
+Passos 3 e 4: A interface envia a senha que Bob insere para o backend para autenticação. O serviço de autenticação lê a chave secreta do banco de dados e gera uma senha de 6 dígitos usando o mesmo algoritmo TOTP que o cliente.
 
-Is this authentication mechanism safe?
+Passo 5: O serviço de autenticação compara as duas senhas geradas pelo cliente e pelo servidor, e retorna o resultado da comparação para a interface. Bob pode prosseguir com o processo de login apenas se as duas senhas coincidirem.
 
-- Can the secret key be obtained by others?
+O mecanismo de autenticação é seguro?
 
-  We need to make sure the secret key is transmitted using HTTPS. The authenticator client and the database store the secret key, and we need to make sure the secret keys are encrypted.
+- A chave secreta pode ser obtida por outras pessoas?
 
-- Can the 6-digit password be guessed by hackers?
-  No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
+  Nós precisamos garantir que a chave secreta é transmitida via HTTPS. O cliente do autenticador e o banco de dados armazenam a chave secreta, e precisamos garantir que as chaves secretas sejam criptografadas.
+
+- Os hackers podem adivinhar a senha de 6 dígitos?
+
+  Não. A senha possui 6 dígitos, o que resulta em 1 milhão de combinações potenciais. Além disso, a senha muda a cada 30 segundos. Se os hackers quiserem adivinhar a senha em 30 segundos, precisariam inserir 30.000 combinações por segundo.
 
 ## Real World Case Studies
 
