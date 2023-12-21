@@ -56,10 +56,10 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Visualizando uma consulta SQL](#visualizando-uma-consulta-sql)
     - [Linguagem SQL](#linguagem-sql)
   - [Cache](#cache)
-    - [Data is cached everywhere](#data-is-cached-everywhere)
-    - [Why is Redis so fast?](#why-is-redis-so-fast)
-    - [How can Redis be used?](#how-can-redis-be-used)
-    - [Top caching strategies](#top-caching-strategies)
+    - [Dados são cachados em toda parte](#dados-são-cachados-em-toda-parte)
+    - [Por que o Redis é tão rápido?](#por-que-o-redis-é-tão-rápido)
+    - [Como o Redis pode ser utilizado?](#como-o-redis-pode-ser-utilizado)
+    - [Principais Estratégias de Cache](#principais-estratégias-de-cache)
   - [Microservice architecture](#microservice-architecture)
     - [What does a typical microservice architecture look like?](#what-does-a-typical-microservice-architecture-look-like)
     - [Microservice Best Practices](#microservice-best-practices)
@@ -716,101 +716,102 @@ Para um engenheiro de backend, pode ser necessário saber a maior parte deles. C
 
 ## Cache
 
-### Data is cached everywhere
+### Dados são cachados em toda parte
 
-This diagram illustrates where we cache data in a typical architecture.
+Este diagrama ilustra onde nós cachamos dados em uma arquitetura típica.
 
 <p>
   <img src="../images/where do we cache data.jpeg" style="width: 720px" />
 </p>
 
-There are **multiple layers** along the flow.
+Existem múltiplas camadas ao longo do fluxo.
 
-1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
-2. CDN: CDN caches static web resources. The clients can retrieve data from a CDN node nearby.
-3. Load Balancer: The load Balancer can cache resources as well.
-4. Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.
-5. Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.
-6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.
-7. Full-text Search: we sometimes need to use full-text searches like Elastic Search for document search or log search. A copy of data is indexed in the search engine as well.
-8. Database: Even in the database, we have different levels of caches:
+1. Aplicativos cliente: As respostas HTTP podem ser armazenadas em cache pelo navegador. Solicitamos dados pela primeira vez por meio do HTTP, e eles são retornados com uma política de expiração no cabeçalho HTTP; solicitamos os dados novamente, e o aplicativo cliente tenta recuperar os dados primeiro do cache do navegador.
 
-- WAL(Write-ahead Log): data is written to WAL first before building the B tree index
-- Bufferpool: A memory area allocated to cache query results
+2. CDN: CDN (Rede de distribuição de Conteúdos, _Content Delivery Network_) cacha recursos web estáticos. Os clientes podem recuperar dados de um nó de CDN próximo.
+3. Distribuidor de Cargas: O distribuidor de cargas também pode cachar recursos.
+4. Infraestrutura de mensagens: Corretores de Mensagens (_Message Brokers_) armazenam mensagens primeiramente no disco, e depois os consumidores as recuperam em seu próprio ritmo. Dependendo da política de retenção, os dados são cachados em clusters Kafka por um curto período de tempo.
+5. Serviços: Há múltiplas camadas de cache em um serviço. Se o dado não está cachado no cache da CPU, o serviço irá tentar recuperar o dado da memória. As vezes o serviço tem uma segunda camada de cache para armazenar dados em disco.
+6. Cache Distribuído: Cache distribuído como Redis armazena pares chave-valor para múltiplos serviços em memória. Ele provê performance de leitura/escrita muito melhor que em um banco de dados.
+7. Pesquisa de Texto Completo (_Full-text Search_): as vezes precisamos realizar pesquisas de texto completas como Elastic Search para buscas em documentos ou logs. Uma cópia dos dados é indexada na ferramenta de busca também.
+8. Banco de Dados: Até mesmo nos bancos de dados, temos diferentes níveis de cache.
+
+- WAL (Write-ahead Log): os dados são gravados primeiro no WAL antes de construir o índice B-tree.
+- Bufferpool: Uma área de memória alocada para cachar os resultados das consultas
+- Visualização Materializada: Pré-calcular os resultados da consulta e armazená-los nas tabelas do banco de dados para melhorar o desempenho das consultas
 - Materialized View: Pre-compute query results and store them in the database tables for better query performance
-- Transaction log: record all the transactions and database updates
-- Replication Log: used to record the replication state in a database cluster
+- Log de Transação: registrar todas as transações e atualizações do banco de dados
+- Log de Replicação: usado para registrar o estado de replicação em um cluster de banco de dados.
 
-### Why is Redis so fast?
+### Por que o Redis é tão rápido?
 
-There are 3 main reasons as shown in the diagram below.
+Há 3 razões principais, como mostrado no diagrama abaixo.
 
 <p>
   <img src="../images/why_redis_fast.jpeg" />
 </p>
 
-1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
-2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
-3. Redis leverages several efficient lower-level data structures.
+1. Redis é um armazenamento baseado em memória RAM. O acesso à RAM é pelo menos 1000 vezes mais rápido que um acesso aleatório ao disco.
+2. O Redis alavanca multipleximento de IO e um loop single-threaded para eficácia de execução.
+3. O Redis utiliza algumas estruturas eficázes de baixo nível.
 
-Question: Another popular in-memory store is Memcached. Do you know the differences between Redis and Memcached?
+Pergunta: Outro armazenamento em memória popular é o Memcached. Você sabe as diferenças entre Redis e Memcached?
 
-You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.
+Você pode ter notado que o estilo deste diagrama é diferente dos posts anteriores. Por favor me avise sobre qual você prefere.
 
-### How can Redis be used?
+### Como o Redis pode ser utilizado?
 
 <p>
   <img src="../images/top-redis-use-cases.jpg" style="width: 520px" />
 </p>
 
-There is more to Redis than just caching.
+Há mais no redis do que apenas caching.
 
-Redis can be used in a variety of scenarios as shown in the diagram.
+O Redis pode ser utilizado em uma variedade de cenários, conforme mostrado no diagrama.
 
-- Session
+- Sessão
 
-  We can use Redis to share user session data among different services.
+  Nós podemos utilizar o Redis para compartilhar a sessão do usuário entre diferentes serviços.
 
 - Cache
 
-  We can use Redis to cache objects or pages, especially for hotspot data.
+  Nós podemos utilizar o Redis para cachar objetos ou páginas, especialmente para dados quentes (acessados com frequência alta, _hotspot data_).
 
-- Distributed lock
+- Trava distribuída
 
-  We can use a Redis string to acquire locks among distributed services.
+  Podemos usar o tipo de dado String do Redis para adquirir uma trava (_lock_) dentre serviços distribuídos.
 
-- Counter
+- Contador
 
-  We can count how many likes or how many reads for articles.
+  Podemos contar quantos likes ou quantas leituras em um artigo.
 
-- Rate limiter
+- Limitador de Taxa
 
-  We can apply a rate limiter for certain user IPs.
+  Podemos aplicar um limitador de taxa para determinados IPs de usuários.
 
-- Global ID generator
+- Gerador de ID Global
 
-  We can use Redis Int for global ID.
+  Podemos usar o tipo de dado Int no Redis para gerar IDs globais.
 
-- Shopping cart
+- Carrinho de Compras
 
-  We can use Redis Hash to represent key-value pairs in a shopping cart.
+  Podemos usar o tipo de dado Hash no Redis para representar pares chave-valor em um carrinho de compras.
 
-- Calculate user retention
+- Calcular Retenção de Usuários
 
-  We can use Bitmap to represent the user login daily and calculate user retention.
+  Podemos usar o tipo de dado Bitmap no Redis para representar os logins diários dos usuários e calcular a retenção de usuários.
 
-- Message queue
+- Fila de Mensagens
 
-  We can use List for a message queue.
+  Podemos usar o tipo de dado Lista no Redis para uma fila de mensagens.
 
 - Ranking
 
-  We can use ZSet to sort the articles.
+  Podemos usar o tipo de dado ZSet (conjunto ordenado) no Redis para classificar os artigos.
 
-### Top caching strategies
+### Principais Estratégias de Cache
 
-Designing large-scale systems usually requires careful consideration of caching.
-Below are five caching strategies that are frequently utilized.
+Projetar sistemas de larga escala geralmente requer consideração cuidadosa de caching. Abaixo são cinco estratégias de caching frequentemente utilizadas.
 
 <p>
   <img src="../images/top_caching_strategy.jpeg" style="width: 680px" />
