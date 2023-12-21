@@ -86,8 +86,8 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Visualizar arquivos JSON](#visualizar-arquivos-json)
     - [Transformar código em diagramas de arquitetura de forma automática](#transformar-código-em-diagramas-de-arquitetura-de-forma-automática)
   - [Linux](#linux)
-    - [Linux file system explained](#linux-file-system-explained)
-    - [18 Most-used Linux Commands You Should Know](#18-most-used-linux-commands-you-should-know)
+    - [Sistema de Arquivos do Linux explicado](#sistema-de-arquivos-do-linux-explicado)
+    - [18 Comandos Linux Mais Utilizados que Você Deve Conhecer](#18-comandos-linux-mais-utilizados-que-você-deve-conhecer)
   - [Security](#security)
     - [How does HTTPS work?](#how-does-https-work)
     - [Oauth 2.0 Explained With Simple Terms.](#oauth-20-explained-with-simple-terms)
@@ -1252,45 +1252,44 @@ O que ele faz?
 
 ## Linux
 
-### Linux file system explained
+### Sistema de Arquivos do Linux explicado
 
 <p>
   <img src="../images/linux-file-systems.jpg" style="width: 680px" />
 </p>
 
-The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.
+O sistema de arquivos do Linux costumava se assemelhar a uma cidade desorganizada onde indivíduos construíam suas casas onde queriam. No entando, em 1994, o Padrão de Hierarquia do Sistema de Arquivos (FHS, _Filesystem Hierarchy Standard_) foi introduzido para trazer ordem ao sistem de arquivos Linux.
 
-By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
-To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
+Ao implementar um padrão como o FHS, o software pode garantir um layout consistente em várias distribuições do Linux. No entando, nem todas as distribuições do Linux aderem estritamente a esse padrão. Elas frequentemente incorporam elementos exclusivos ou atendem a requisitos específicos. Para se tornar proficiente nesse padrão você pode começar explorando. Utilize comandos como "cd" para navegação e "ls" para listar os conteúdos de um diretório. Imagine o sistema de arquivos como uma árvore, começando pela raiz (/). Com o tempo, isso se tornará algo natural para você, transformando-o num administrador Linux habilidoso.
 
-### 18 Most-used Linux Commands You Should Know
+### 18 Comandos Linux Mais Utilizados que Você Deve Conhecer
 
-Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively.
+Comandos Linux são instruções para interagir com o sistema operacional. Eles ajudam a manusear arquivos, diretórios, processos e vários outros aspectos do sistema. Você precisa se tornar familiar com estes comands para navegar e manter um sistema baseado em Linux de forma eficiente e efetiva.
 
-This diagram below shows popular Linux commands:
+O diagrama abaixo mostra comandos Linux populares:
 
 <p>
   <img src="../images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
-- ls - List files and directories
-- cd - Change the current directory
-- mkdir - Create a new directory
-- rm - Remove files or directories
-- cp - Copy files or directories
-- mv - Move or rename files or directories
-- chmod - Change file or directory permissions
-- grep - Search for a pattern in files
-- find - Search for files and directories
-- tar - manipulate tarball archive files
-- vi - Edit files using text editors
-- cat - display the content of files
-- top - Display processes and resource usage
-- ps - Display processes information
-- kill - Terminate a process by sending a signal
-- du - Estimate file space usage
-- ifconfig - Configure network interfaces
-- ping - Test network connectivity between hosts
+- ls - Lista arquivos e diretórios
+- cd - Troca o diretório corrente
+- mkdir - Cria um novo diretório
+- rm - Remove arquivos e ou diretórios
+- cp - Copia arquivos e ou diretórios
+- mv - Move ou renomeia arquivos e ou diretórios
+- chmod - Muda permissoes de arquivos e ou diretórios
+- grep - Busca por um padrão em arquivos
+- find - Busca por arquivos e diretódios
+- tar - Marnipula arquivos tarball comprimidos
+- vi - Edita arquivos usando editores de texto
+- cat - Imprime o conteúdo de arquivos
+- top - Imprime processos e utilização de recursos
+- ps - Imprime informações de processos
+- kill - Termina um processo por enviar um sinal
+- du - Estima a utilização de espaço de arquivos
+- ifconfig - Configura interfaces de rede
+- ping - Testa conectividade via rede entre hospedeiros (hosts)
 
 ## Security
 
