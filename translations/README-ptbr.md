@@ -660,13 +660,13 @@ A formulação "2 de 3" pode ser útil, **mas essa simplificação pode ser enga
 
 1. Escolher um banco de dados não é fácil. Justificar sua escolha puramente no teorema CAP não é o suficiente. Por exemplo, companhias não escolhem Cassandra para aplicativos de cat simplesmente por ser um sistema AP. Há uma lista de características que tornam uma opção boa para armazenamento de mensagens de chat. Precisamos cavar mais fundo.
 
-2. “CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare”. Quoted from the paper: CAP Twelve Years Later: How the “Rules” Have Changed.
+2. "CAP proíbe apenas uma pequena parte do espaço de design: disponibilidade e consistência perfeitas na presença de partições, que são raras". Citado do artigo: CAP Twelve Years Later: How the "Rules" Have Changed.
 
-3. The theorem is about 100% availability and consistency. A more realistic discussion would be the trade-offs between latency and consistency when there is no network partition. See PACELC theorem for more details.
+3. O teorema trata de disponibilidade e consistência de 100%. Uma discussão mais realista envolveria as compensações entre latência e consistência quando não há partição de rede. Consulte o teorema PACELC para obter mais detalhes.
 
-**Is the CAP theorem actually useful?**
+**O teorema CAP é de fato útil?**
 
-I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.
+Acredito que ainda é útil por abrir nossas mentes para um novo conjunto de discussões sobre compensações, mas é apenas uma parte da história. Precisamos nos aprofundar para esolcher o banco de dados correto.
 
 ### Types of Memory and Storage
 
