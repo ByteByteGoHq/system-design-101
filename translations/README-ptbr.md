@@ -52,9 +52,9 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [8 Estruturas de Dados que Impulsionam seus Bancos de Dados](#8-estruturas-de-dados-que-impulsionam-seus-bancos-de-dados)
     - [Como um comando SQL é executado no Banco de Dados?](#como-um-comando-sql-é-executado-no-banco-de-dados)
     - [Teorema CAP](#teorema-cap)
-    - [Types of Memory and Storage](#types-of-memory-and-storage)
-    - [Visualizing a SQL query](#visualizing-a-sql-query)
-    - [SQL language](#sql-language)
+    - [Tipos de Memória e Armazenamento](#tipos-de-memória-e-armazenamento)
+    - [Visualizando uma consulta SQL](#visualizando-uma-consulta-sql)
+    - [Linguagem SQL](#linguagem-sql)
   - [Cache](#cache)
     - [Data is cached everywhere](#data-is-cached-everywhere)
     - [Why is Redis so fast?](#why-is-redis-so-fast)
@@ -668,49 +668,51 @@ A formulação "2 de 3" pode ser útil, **mas essa simplificação pode ser enga
 
 Acredito que ainda é útil por abrir nossas mentes para um novo conjunto de discussões sobre compensações, mas é apenas uma parte da história. Precisamos nos aprofundar para esolcher o banco de dados correto.
 
-### Types of Memory and Storage
+### Tipos de Memória e Armazenamento
 
 <p>
   <img src="../images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
 </p>
 
-### Visualizing a SQL query
+### Visualizando uma consulta SQL
 
 <p>
   <img src="../images/sql-execution-order.jpg" style="width: 580px" />
 </p>
 
-SQL statements are executed by the database system in several steps, including:
+As instruções SQL são executadas pelo sistema do banco de dados em várias etapas, incluindo:
 
-- Parsing the SQL statement and checking its validity
-- Transforming the SQL into an internal representation, such as relational algebra
-- Optimizing the internal representation and creating an execution plan that utilizes index information
-- Executing the plan and returning the results
+- Analisando a instrução SQL e verificando sua validade
+- Transformando o SQL em uma representação interna, como álgebra relacional
+- Otimizando a representação interna e criando um plano de execução que utiliza informações de índices
+- Executando o plano e retornando os resultados
 
-The execution of SQL is highly complex and involves many considerations, such as:
+A execução do SQL é altamente complexa e envolve muitas considerações, tais como:
 
-- The use of indexes and caches
-- The order of table joins
-- Concurrency control
-- Transaction management
+- O uso de índices e caches
+- A ordem de junções de tabelas
+- Controle de concorrência
+- Gerenciamento de transações
 
-### SQL language
+### Linguagem SQL
 
 In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it?
+
+Em 1986, SQL (Linguagem de Busca Estruturada, _Structured Query Language_) se tornou um padrão. Ao longo os próximos 40 anos, ela se tornou a linguagem dominante para sistemas de manuseamento de bancos de dados relacionais. Ler o último padrão (ANSI SQL 2016) pode ser demorado. Como posso aprenê-lo?
 
 <p>
   <img src="../images/how-to-learn-sql.jpg" />
 </p>
 
-There are 5 components of the SQL language:
+Há 5 componentes da linguagem SQL:
 
-- DDL: data definition language, such as CREATE, ALTER, DROP
-- DQL: data query language, such as SELECT
-- DML: data manipulation language, such as INSERT, UPDATE, DELETE
-- DCL: data control language, such as GRANT, REVOKE
-- TCL: transaction control language, such as COMMIT, ROLLBACK
+- DDL: linguagem de definição de dados, como CREATE, ALTER, DROP
+- DQL: linguagem de consulta de dados, como SELECT
+- DML: linguagem de manipulação de dados, como INSERT, UPDATE, DELETE
+- DCL: linguagem de controle de dados, como GRANT, REVOKE
+- TCL: linguagem de controle de transações, como COMMIT, ROLLBACK
 
-For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you.
+Para um engenheiro de backend, pode ser necessário saber a maior parte deles. Como um analista de dados, é importante ter uma boa noção do DQL. Selecione os tópicos que são mais relevantes para você.
 
 ## Cache
 
