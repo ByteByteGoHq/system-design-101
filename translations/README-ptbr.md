@@ -76,8 +76,8 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Docker vs. Kubernetes. Qual eu deveria usar?](#docker-vs-kubernetes-qual-eu-deveria-usar)
     - [Como o Docker funciona?](#como-o-docker-funciona)
   - [GIT](#git)
-    - [How Git Commands work](#how-git-commands-work)
-    - [How does Git Work?](#how-does-git-work)
+    - [Como Comandos do Git funcionam](#como-comandos-do-git-funcionam)
+    - [Como o Git funciona?](#como-o-git-funciona)
     - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
   - [Cloud Services](#cloud-services)
     - [A nice cheat sheet of different cloud services (2023 edition)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
@@ -1122,64 +1122,66 @@ Vamos tomar o comando "docker run" como exemplo.
 
 ## GIT
 
-### How Git Commands work
+### Como Comandos do Git funcionam
 
-To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places:
+Para começar, é essencial identificar onde nosso código está armazenado. A suposição comum é que só existem duas localidades - uma em um servidor remoto como Github e a outra em nossa máquina local. No entanto, isso não é totalmente preciso. O Git mantém três armazenamentos locais na nossa máquina, o que significa que nosso código pode estar em quatro lugares:
 
 <p>
   <img src="../images/git-commands.png" style="width: 600px" />
 </p>
 
-- Working directory: where we edit files
-- Staging area: a temporary location where files are kept for the next commit
-- Local repository: contains the code that has been committed
-- Remote repository: the remote server that stores the code
+- Diretório Atual (_Working Directory_): onde editamos arquivos
+- Área de Ensaio (_Staging Area_): um local temporário onde arquivos são mantidos para o próximo commit
+- Repositório Local: contém o código que foi confirmado (_commitetd_)
+- Repositório Remoto (_Remote_): o servidor remoto que armazena o código
 
-Most Git commands primarily move files between these four locations.
+A maioria dos comandos Git movimenta arquivos entre essas 4 localidades.
 
-### How does Git Work?
+### Como o Git funciona?
 
-The diagram below shows the Git workflow.
+O diagrama abaixo mostra o fluxo de trabalho do Git.
 
 <p>
   <img src="../images/git-workflow.jpeg" style="width: 520px" />
 </p>
 
-Git is a distributed version control system.
+Git é um sistema de controle de versões distribuído.
 
-Every developer maintains a local copy of the main repository and edits and commits to the local copy.
+Todos os desenvolvedores mantém uma copia local do repositório principal e edita e confirma (comita) na cópia logal.
 
-The commit is very fast because the operation doesn’t interact with the remote repository.
+O _commit_ é muito rápido pois a operação não interage com o repositório remoto.
 
-If the remote repository crashes, the files can be recovered from the local repositories.
+Se o repositorio remoto crasha, os arquivos podem ser recuperados pelas repositórios locais.
 
 ### Git merge vs. Git rebase
 
-What are the differences?
+Quais as diferenças?
+
+Quando nós **mesclamos (merge) alterações** de um branch (ramo) Git para outro, nós podemos usar ‘git merge’ ou ‘git rebase’. O diagrama abaixo mostra como os dois comandos funcionam.
 
 <p>
   <img src="../images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
 
-When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
-
 **Git merge**
 
-This creates a new commit G’ in the main branch. G’ ties the histories of both main and feature branches.
+Isso cria um novo commit G' no branch principal. G' une as histórias tanto do branch principal quanto do branch de recurso (_resource branch_).
 
-Git merge is **non-destructive**. Neither the main nor the feature branch is changed.
+O merge do Git é **não destrutivo**. Nem o branch principal nem o branch de recurso são alterados.
 
 **Git rebase**
 
 Git rebase moves the feature branch histories to the head of the main branch. It creates new commits E’, F’, and G’ for each commit in the feature branch.
 
-The benefit of rebase is that it has a linear **commit history**.
+O rebase do Git move as histórias do feature branch para o topo do branch principal. Ele cria novos commits E', F' e G' para cada commit no branch de recurso.
 
-Rebase can be dangerous if “the golden rule of git rebase” is not followed.
+A vantagem do rebase é que ele resulta em um **histórico de commits** linear.
 
-**The Golden Rule of Git Rebase**
+O rebase pode ser perigoso se "a regra de ouro do git rebase" não for seguida.
 
-Never use it on public branches!
+**A Regra de Ouro do Git Rebase**
+
+Nunca utilize ele em branches públicos!
 
 ## Cloud Services
 
