@@ -96,16 +96,16 @@ Seja que você esteja se preparando para uma Entrevista de Design de Sistemas ou
     - [Como armazenar senhas de forma segura em bancos de dados e como validá-las?](#como-armazenar-senhas-de-forma-segura-em-bancos-de-dados-e-como-validá-las)
     - [Explicando JSON Web Token (JWT) para uma criança de 10 anos de idade](#explicando-json-web-token-jwt-para-uma-criança-de-10-anos-de-idade)
     - [Como o Autenticador do Google (ou outros tipos de autenticadores de 2-fatores) funciona?](#como-o-autenticador-do-google-ou-outros-tipos-de-autenticadores-de-2-fatores-funciona)
-  - [Real World Case Studies](#real-world-case-studies)
-    - [Netflix's Tech Stack](#netflixs-tech-stack)
-    - [Twitter Architecture 2022](#twitter-architecture-2022)
-    - [Evolution of Airbnb’s microservice architecture over the past 15 years](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
+  - [Estudos de Caso do Mundo Real](#estudos-de-caso-do-mundo-real)
+    - [Pilha Tecnológica do Netflix](#pilha-tecnológica-do-netflix)
+    - [Arquitetura do Twitter 2022](#arquitetura-do-twitter-2022)
+    - [A Evolução da arquitetura de microsserviços do Airbnb nos ultimos 15 anos](#a-evolução-da-arquitetura-de-microsserviços-do-airbnb-nos-ultimos-15-anos)
     - [Monorepo vs. Microrepo.](#monorepo-vs-microrepo)
-    - [How will you design the Stack Overflow website?](#how-will-you-design-the-stack-overflow-website)
-    - [Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
-    - [How does Disney Hotstar capture 5 Billion Emojis during a tournament?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
-    - [How Discord Stores Trillions Of Messages](#how-discord-stores-trillions-of-messages)
-    - [How do video live streamings work on YouTube, TikTok live, or Twitch?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
+    - [Como você desenharia o website Stack Overflow?](#como-você-desenharia-o-website-stack-overflow)
+    - [Por que o monitoramenteo do Amazon Prime Video migrou de serverless para monólito? Como isso pode evitar 90% dos custos?](#por-que-o-monitoramenteo-do-amazon-prime-video-migrou-de-serverless-para-monólito-como-isso-pode-evitar-90-dos-custos)
+    - [Como o Disney Hotstar captura 5 Bilhões de Emojis durante um torneio?](#como-o-disney-hotstar-captura-5-bilhões-de-emojis-durante-um-torneio)
+    - [Como o Discord Armazena Trilhões de Mensagens](#como-o-discord-armazena-trilhões-de-mensagens)
+    - [Como live-streams de video funcionam no YouTube, TikTok live ou Twitch?](#como-live-streams-de-video-funcionam-no-youtube-tiktok-live-ou-twitch)
   - [License](#license)
 
 <!-- /TOC -->
@@ -1211,7 +1211,7 @@ Cloud native inclui 4 aspectos:
 
 2. Arquitetura de Aplicação
 
-   A arquitetura foi de monolito para microsserviços. Cada serviço é projetado para ser pequeno, adaptativo para os recursos limitados em containers na cloud.
+   A arquitetura foi de monólito para microsserviços. Cada serviço é projetado para ser pequeno, adaptativo para os recursos limitados em containers na cloud.
 
 3. Implantação & Empacotamento
 
@@ -1476,184 +1476,184 @@ O mecanismo de autenticação é seguro?
 
   Não. A senha possui 6 dígitos, o que resulta em 1 milhão de combinações potenciais. Além disso, a senha muda a cada 30 segundos. Se os hackers quiserem adivinhar a senha em 30 segundos, precisariam inserir 30.000 combinações por segundo.
 
-## Real World Case Studies
+## Estudos de Caso do Mundo Real
 
-### Netflix's Tech Stack
+### Pilha Tecnológica do Netflix
 
-This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
+Este post é baseado em pesquisas de diversos blogs de engenharia da Netflix e projetos de código abert. Se encontrar qualquer imprecisão, sinta-se à vontade para nos informar.
 
 <p>
   <img src="../images/netflix tech stack.png" style="width: 680px" />
 </p>
 
-**Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
+**Mobile e web**: A Netflix adotou Swift e Kotlin para construir seus aplicativos móveis nativos. Para a aplicação web, eles utilizam React.
 
-**Frontend/server communication**: Netflix uses GraphQL.
+**Comunicação Frontend/server**: A Netflix utiliza GraphQL.
 
-**Backend services**: Netflix relies on ZUUL, Eureka, the Spring Boot framework, and other technologies.
+**Serviços Backend**: A Netflix depende do ZUUL, Eureka, do framework Spring Boot e outras tecnologias.
 
-**Databases**: Netflix utilizes EV cache, Cassandra, CockroachDB, and other databases.
+**Bancos de Dados**: A Netflix utiliza EV cache, Cassandra, CockroachDB e outros bancos de dados.
 
-**Messaging/streaming**: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.
+**Mensagerias/Streaming**: A Netflix utiliza o Apache Kafka e o Flink para fins de mensagens e streaming.
 
-**Video storage**: Netflix uses S3 and Open Connect for video storage.
+**Armazendo de Video**: A Netflix utiliza o S3 e o Open Connect para armazenamento de vídeos.
 
-**Data processing**: Netflix utilizes Flink and Spark for data processing, which is then visualized using Tableau. Redshift is used for processing structured data warehouse information.
+**Processamento de Dados**: A Netflix utiliza o Flink e o Spark para processamento de dados, que é então visualizado usando o Tableau. O Redshift é usado para processar informações do data warehouse estruturado.
 
-**CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.
+**CI/CD**: A Netflix utiliza diversas ferramentas como JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas e mais para processos de CI/CD.
 
-### Twitter Architecture 2022
+### Arquitetura do Twitter 2022
 
-Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability.
+Sim, esta é a arquitetura real do Twitter. Foi postada por Elon Musk e redesenhada por nós para facilitar a leitura.
 
 <p>
   <img src="../images/twitter-arch.jpeg" />
 </p>
 
-### Evolution of Airbnb’s microservice architecture over the past 15 years
+### A Evolução da arquitetura de microsserviços do Airbnb nos ultimos 15 anos
 
-Airbnb’s microservice architecture went through 3 main stages.
+A arquitetura de microsserviços do Airbnb passou por 3 estágios principais.
 
 <p>
   <img src="../images/airbnb_arch.jpeg" />
 </p>
 
-Monolith (2008 - 2017)
+Monólito (2008 - 2017)
 
-Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith.
+O Airbnb começou como um marketplace simples para anfitriões e hóspedes. Isso foi construído em uma aplicação Ruby on Rails - o monólito.
 
-What’s the challenge?
+Qual o desafio?
 
-- Confusing team ownership + unowned code
-- Slow deployment
+- Propriedade da equipe confusa + código não atribuído
+- Implantação lenta
 
-Microservices (2017 - 2020)
+Microsserviços (2017 - 2020)
 
-Microservice aims to solve those challenges. In the microservice architecture, key services include:
+A arquitetura de microsserviços visa resolver esses desafios. Na arquitetura de microsserviços, os serviços-chave incluem:
 
-- Data fetching service
-- Business logic data service
-- Write workflow service
-- UI aggregation service
-- Each service had one owning team
+- Serviço de busca de dados
+- Serviço de lógica de negócios para dados
+- Serviço de fluxo de escrita
+- Serviço de agregação de interface do usuário
+- Cada serviço tinha uma equipe responsável
 
-What’s the challenge?
+Qual o desafio?
 
-Hundreds of services and dependencies were difficult for humans to manage.
+Centenas de serviços e dependencias são difíceis para humanos manusear.
 
-Micro + macroservices (2020 - present)
+Micro + macrosserviços (2020 - present)
 
-This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
+É nisso que o Airbnb está trabalhando agora. O modelo híbrido de micro e macrosserviços foca na unificação de APIs.
 
 ### Monorepo vs. Microrepo.
 
-Which is the best? Why do different companies choose different options?
+Qual é melhor? Por que companhias diferentes tomam decisões diferentes?
 
 <p>
   <img src="../images/monorepo-microrepo.jpg" />
 </p>
 
-Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent.
+O monorepositório não é algo novo; tanto o Linux quanto o Windows foram criados usando um monorepositório. Para melhorar escalabilidade e velocidade de compilação, o Google desenvolveu sua própria cadeia de ferramentas interna dedicada para acelerar o processo e padrões estritos de qualidade de código para mantê-lo consistente.
 
-Amazon and Netflix are major ambassadors of the Microservice philosophy. This approach naturally separates the service code into separate repositories. It scales faster but can lead to governance pain points later on.
+Amazon e Netflix são grandes defensores da filosofia de microsserviços. Essa abordagem naturalmente separa o código do serviço em repositórios separados. Isso escala mais rapidamente, mas pode levar a pontos de dor de governança mais tarde.
 
-Within Monorepo, each service is a folder, and every folder has a BUILD config and OWNERS permission control. Every service member is responsible for their own folder.
+Dentro do Monorepositório, cada serviço é uma pasta, e cada pasta possui uma configuração BUILD e controle de permissões OWNERS. Cada membro do serviço é responsável pela sua própria pasta.
 
-On the other hand, in Microrepo, each service is responsible for its repository, with the build config and permissions typically set for the entire repository.
+Por outro lado, no Microrrepositório, cada serviço é responsável por seu próprio repositório, com a configuração de compilação e permissões normalmente definidas para todo o repositório.
 
-In Monorepo, dependencies are shared across the entire codebase regardless of your business, so when there's a version upgrade, every codebase upgrades their version.
+No Monorepositório, as dependências são compartilhadas em todo o código, independentemente do seu propósito comercial. Assim, quando há uma atualização de versão, todo o código atualiza sua versão.
 
-In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules.
+No Microrrepositório, as dependências são controladas dentro de cada repositório. As empresas escolhem quando atualizar suas versões com base em seus próprios cronogramas.
 
-Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business.
+No Monorepositório, há um padrão para check-ins. O processo de revisão de código do Google é conhecido por estabelecer um padrão de qualidade elevado, garantindo um padrão de qualidade coerente para o Monorepositório, independentemente do negócio.
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different.
-Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nx, Lerna, and others.
+No Microrrepositório, pode-se definir seu próprio padrão ou adotar um padrão compartilhado incorporando as melhores práticas. Isso pode escalar mais rapidamente para os negócios, mas a qualidade do código pode ser um pouco diferente.
 
-Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others.
+Engenheiros do Google desenvolveram o Bazel, e a Meta construiu o Buck. Existem outras ferramentas de código aberto disponíveis, incluindo Nx, Lerna e outras.
 
-### How will you design the Stack Overflow website?
+Ao longo dos anos, o Microrrepositório teve mais ferramentas suportadas, incluindo Maven e Gradle para Java, NPM para NodeJS e CMake para C/C++, entre outras.
 
-If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
+### Como você desenharia o website Stack Overflow?
+
+Se sua resposta for em servidores locais (on-premise) e monólito (na parte inferior da imagem a seguir), você provavelmente não passaria na entrevista, mas na realidade, é assim que é construído!
 
 <p>
   <img src="../images/stackoverflow.jpg" />
 </p>
 
-**What people think it should look like**
+**Como as pessoas acham que deveria ser**
 
-The interviewer is probably expecting something like the top portion of the picture.
+O entrevistador provavelmente está esperando uma resposta como a parte superior da imagem.
 
-- Microservice is used to decompose the system into small components.
-- Each service has its own database. Use cache heavily.
-- The service is sharded.
-- The services talk to each other asynchronously through message queues.
-- The service is implemented using Event Sourcing with CQRS.
-- Showing off knowledge in distributed systems such as eventual consistency, CAP theorem, etc.
+- Microsserviço é utilizado para decompor o sistema em componentes pequenos.
+- Cada serviço tem seu próprio banco de dados. Utilizando cache pesadamente.
+- O serviço é compartilhado.
+- Os serviços se comunicam uns com os outros de forma assíncrona utilizando mensagerias.
+- O serviço é implementado utilizando Event Sourcing com CQRS.
+- Mostrar conhecimentos em sistemas distribuídos como consistencia eventual, teorema CAP etc.
 
-**What it actually is**
+**Como realmente é**
 
-Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
+O Stack Overflow atende todo o tráfego com apenas 9 servidores web locais e está em um monolito! Ele possui seus próprios servidores e não opera na nuvem.
 
-This is contrary to all our popular beliefs these days.
+Isso vai contra todas as nossas crenças populares nos dias de hoje.
 
-### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
+### Por que o monitoramenteo do Amazon Prime Video migrou de serverless para monólito? Como isso pode evitar 90% dos custos?
 
-The diagram below shows the architecture comparison before and after the migration.
+O diagrama abaixo mostra a comparação de arquitetura de antes de dpois da migração.
 
 <p>
   <img src="../images/serverless-to-monolithic.jpeg" />
 </p>
 
-What is Amazon Prime Video Monitoring Service?
+O que é o Serviço de Monitoramento do Amazon Prime Video?
 
-Prime Video service needs to monitor the quality of thousands of live streams. The monitoring tool automatically analyzes the streams in real time and identifies quality issues like block corruption, video freeze, and sync problems. This is an important process for customer satisfaction.
+O serviço do Prime Video precisa monitorar a qualidade de milhares de live-streams de video. A ferramenta de monitoramenteo analisa as streams em tempo-real e identifica problemas de qualidade como corrupções de bloco, confelamentos de vídeos e problemas de sincronização. Isso é importante para o processo de satisfação de cliente.
 
-There are 3 steps: media converter, defect detector, and real-time notification.
+Existem 3 etapas: conversão de mídia, detector de falhas e notificações em tempo-real.
 
-- What is the problem with the old architecture?
+- Qual o problema com a arquitetura antiga?
 
-  The old architecture was based on Amazon Lambda, which was good for building services quickly. However, it was not cost-effective when running the architecture at a high scale. The two most expensive operations are:
+  A arquitetura antiga era baseada no Amazon Lambda, o que é bom para construir serviços rapidamente. Porém, não é boa em custa-benefício quando rodando a arquitetura em larga escala. As operações mais caras são:
 
-1. The orchestration workflow - AWS step functions charge users by state transitions and the orchestration performs multiple state transitions every second.
+1. O fluxo de trabalho de orquestração - As AWS Step Functions cobram os usuários por transições de estado, e a orquestração realiza várias transições de estado a cada segundo.
 
-2. Data passing between distributed components - the intermediate data is stored in Amazon S3 so that the next stage can download. The download can be costly when the volume is high.
+2. Passagem de dados entre componentes distribuídos - os dados intermediários são armazenados no Amazon S3 para que a próxima etapa possa fazer o download. O download pode ser caro quando o volume é alto.
 
-- Monolithic architecture saves 90% cost
+- Arquiteturas Monólitas custam 90% menos
 
-  A monolithic architecture is designed to address the cost issues. There are still 3 components, but the media converter and defect detector are deployed in the same process, saving the cost of passing data over the network. Surprisingly, this approach to deployment architecture change led to 90% cost savings!
+  Uma arquitetura monolítica é projetada para lidar com questões de custo. Ainda existem 3 componentes, mas o conversor de mídia e o detector de defeitos são implantados no mesmo processo, economizando o custo de passagem de dados pela rede. Surpreendentemente, essa abordagem de mudança na arquitetura de implantação resultou em uma economia de custos de 90%!
 
-This is an interesting and unique case study because microservices have become a go-to and fashionable choice in the tech industry. It's good to see that we are having more discussions about evolving the architecture and having more honest discussions about its pros and cons. Decomposing components into distributed microservices comes with a cost.
+Este é um estudo de caso interessante e único, porque os microsserviços se tornaram uma escolha popular e na moda na indústria de tecnologia. É bom ver que estamos tendo mais discussões sobre a evolução da arquitetura e tendo discussões mais honestas sobre seus prós e contras. A decomposição de componentes em microsserviços distribuídos vem com um custo.
 
-- What did Amazon leaders say about this?
+- O que os líderes da Amazon disseram sobre isso?
 
-  Amazon CTO Werner Vogels: “Building **evolvable software systems** is a strategy, not a religion. And revisiting your architecture with an open mind is a must.”
+  Wener Vogels, CTO da Amazon: "Construir **sistemas de software evoluíveis** é uma estratégia, não uma religião. E revisando sua arquitetura com uma mente aberta é necessário".
 
-Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”.
+Ex VP de Sustentabilidade da Amazon, Adrian Cockcroft: "A equipe do Prime Video seguiu um caminho que eu chamo de **Serverless First**... Eu não advoco por **Apenas Serverless**."
 
-### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
+### Como o Disney Hotstar captura 5 Bilhões de Emojis durante um torneio?
 
 <p>
   <img src="../images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
 
-1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
+1. Os clientes enviam emojis por meio de solicitações HTTP padrão. Você pode pensar no Serviço Golang como um servidor web típico. Golang é escolhido porque oferece bom suporte à concorrência. As threads em Golang são leves.
 
-2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
+2. Já que o volume de escrita é muito alto, Kafka (mensageria) é utilizado como um buffer.
 
-3. Emoji data are aggregated by a streaming processing service called Spark. It aggregates data every 2 seconds, which is configurable. There is a trade-off to be made based on the interval. A shorter interval means emojis are delivered to other clients faster but it also means more computing resources are needed.
+3. Os dados dos emojis são agregados por um serviço de processamento de streaming chamado Spark. Ele agrega dados a cada 2 segundos, o que é configurável. Existe um equilíbrio a ser feito com base no intervalo. Um intervalo mais curto significa que os emojis são entregues mais rapidamente a outros clientes, mas também significa que são necessários mais recursos computacionais.
+4. Os dados agregados são escritos em outro Kafka.
 
-4. Aggregated data is written to another Kafka.
+5. Os consumidores do PubSub puxam dados agregados de emojis do Kafka.
 
-5. The PubSub consumers pull aggregated emoji data from Kafka.
+6. Emojis são entregues a outros clientes em tempo real pela infraestrutura do PubSub. A infraetrutura do PubSub é interessante. A Hotstar considerou os seguintes protocolos: Socketio, NATS, MQTT e gRPC, e optou pelo MQTT.
 
-6. Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.
+Um design similar é adotado pelo LinkedIn que streama um milhão de likes port segundo.
 
-A similar design is adopted by LinkedIn which streams a million likes/sec.
+### Como o Discord Armazena Trilhões de Mensagens
 
-### How Discord Stores Trillions Of Messages
-
-The diagram below shows the evolution of message storage at Discord:
+O diagrama abaixo mostra e evolução de armazenamento de mensgens no Discord:
 
 <p>
   <img src="../images/discord-store-messages.jpg" />
@@ -1661,52 +1661,52 @@ The diagram below shows the evolution of message storage at Discord:
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB
 
-In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen.
+Em 2015, a primeira versão do Discord foi montada em cima de uma única réplica de MongoDB. Em torno de Novembro de 2015, o MongoDB armazenava 100 milhões de mensagens e a RAM não conseguia mais armazenar dados nem o índice. A latência se tornou imprevista. O armazenamento de mensagens precisava ser movido para outro banco de dados. Assim foi escolhido Cassandra.
 
-In 2017, Discord had 12 Cassandra nodes and stored billions of messages.
+Em 2017, o Discord tinha 12 nós do Cassandra e armazenava bilhões de mensagens.
 
-At the beginning of 2022, it had 177 nodes with trillions of messages. At this point, latency was unpredictable, and maintenance operations became too expensive to run.
+No início de 2022, ele tinha 177 nós com trilhões de mensagens. Neste ponto, a latência ficou imprevista, e operações de manutenção ficaram caras de mais para serem feitas.
 
-There are several reasons for the issue:
+Há algumas razões para este problema:
 
-- Cassandra uses the LSM tree for the internal data structure. The reads are more expensive than the writes. There can be many concurrent reads on a server with hundreds of users, resulting in hotspots.
-- Maintaining clusters, such as compacting SSTables, impacts performance.
-- Garbage collection pauses would cause significant latency spikes
+- A Cassandra usa uma árvore LSM como estrutura de dados interna. As leituras são mais caras que escritas. Pode haver várias leituras concorrentes em um servidor com centenas de usuários, resultando em pontos de crise
+- Manusear clusters, como compactando SSTables, impacta performance
+- As pausas do Coletor de Lixo (_Garbage Collector_) causam picos significativos de latência
 
-ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its architecture to have a monolithic API, a data service written in Rust, and ScyllaDB-based storage.
+ScyllaDB é um banco de dados compatível com o Cassandra escrito em C++. O Discord redesenhou sua arquitetura para ter uma API monólita, um serviço de dados escrito em Rust e armazenamento baseado em ScyllaDB.
 
-The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra.
+A latência de leitura p99 do ScyllaDB é 15ms, comaprado com 40-125ms da Cassandra. A latência p99 de escrita é 5ms, comparado com 5-70ms da Cassandra.
 
-### How do video live streamings work on YouTube, TikTok live, or Twitch?
+### Como live-streams de video funcionam no YouTube, TikTok live ou Twitch?
 
-Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
+Live streaming difere de streaming tradicional pois o conteúdo de vídeo é enviado pela internet em tempo-real, usualmente com uma latência de apenas alguns segundos.
 
-The diagram below explains what happens behind the scenes to make this possible.
+O diagrama abaixo explica o que acontece por tras das cenas para tornar isso possível.
 
 <p>
   <img src="../images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
-Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
+Passo 1: Os dados crús do vídeo é capturado por um microfone e câmera. O dado é enviado para o servidor.
 
-Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
+Passo 2: Os dados do vídeo são comprimidos e codificados. Por exemplo, o algoritmo de compressão separa o fundo de outros elementos do vídeo. Depois da compressão, o vídeo é codificado em padrões como o H.264. O tamanho dos dados do vídeo é bem menor depois dessa etapa.
 
-Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
+Passo 3: Os dados codificados são divididos em segmentos menores, geralmente segundos em duração, para que dure menos tempo para baixar ou streamar.
 
-Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
+Passo 4: O segmento de dados é enviado para o servidor de streaming. O servidor de streaming precisa suportar diferentes dispositivos em diferentes condições de rede. Isso é chamado de 'Streaming de Bitrate Adaptativo'.
 
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency.
+Passo 5: Os dados do live-streaming são empurrados para servidores edge suportados por CDN (_Content Delivery Network_). Milhões de viewers podem assistr o vídeo a partir de um edge server próximo. CDNs reduzem significadamentea latência de transmissão.
 
-Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
+Passo 6: Os dispositivos viewers decodificam e decomprimiem os dados do vídeo e mostram-no num video player.
 
-Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
+Passo 7 e 8: Se o video precisa ser armazenado para replay, os dados codificados são enviados para um servidor de armazenamento, e visualizadores podem requisitar o replay dele mais tarde.
 
-Standard protocols for live streaming include:
+Protocolos comuns para live streaming são:
 
-- RTMP (Real-Time Messaging Protocol): This was originally developed by Macromedia to transmit data between a Flash player and a server. Now it is used for streaming video data over the internet. Note that video conferencing applications like Skype use RTC (Real-Time Communication) protocol for lower latency.
-- HLS (HTTP Live Streaming): It requires the H.264 or H.265 encoding. Apple devices accept only HLS format.
-- DASH (Dynamic Adaptive Streaming over HTTP): DASH does not support Apple devices.
-- Both HLS and DASH support adaptive bitrate streaming.
+- RTMP (Protocolo de Mensagens em Tempo-Real _Real-Time Messaging Protocol_): Este foi originalmente desenvolvido pela Macromedia para transmitir dados entre o Flash player e um servidor. Hoje ele é utilizado para streaming de dados de vídeo pela internet. Note que aplicativos de conferência de vídeo como Skupe utiliza o protocolo RTC (Comunicações em Tempo-Real, _Real Time Communications_) para baixa latência.
+- HLS (HTTP Live Streaming): Ele requer codificação H.264 ou H.265. Dispositivos Apple aceitam apenas o formato HLS.
+- DASH (Streaming Adaptativo Dinâmico por HTTP, _Dynamic Adaptive Streaming over HTTP_): DASH não suporta dispositivos Apple.
+- Tanto HLS como DASH suportam straming de bitrate adaptativo.
 
 ## License
 
