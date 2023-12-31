@@ -257,7 +257,7 @@ Synchronous logging deals with the disk for every call and can slow down the sys
 
 Caching
 
-We can cache frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
+We can store frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
 
 Payload Compression
 
@@ -383,11 +383,11 @@ Note that API design is not just URL path design. Most of the time, we need to c
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
 
+The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
+
 <p>
   <img src="images/osi model.jpeg" />
 </p>
-
-The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
 
 Step 1: When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.
 
