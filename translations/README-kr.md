@@ -242,7 +242,7 @@ PSP가 다시 응답하지 않으면 어떻게 하나요? 매시간 결제 상�
 
 ### How to improve API performance?
 
-The diagram below shows 5 common tricks to improve API performance.
+아래 다이어그램은 API 성능을 개선하는 5가지 일반적인 방법을 보여줍니다.
 
 <p>
   <img src="../images/api-performance.jpg">
@@ -250,23 +250,23 @@ The diagram below shows 5 common tricks to improve API performance.
 
 Pagination
 
-This is a common optimization when the size of the result is large. The results are streaming back to the client to improve the service responsiveness.
+이는 결과의 크기가 클 때 일반적으로 사용하는 최적화 방법입니다. 서비스 응답성을 개선하기 위해 결과를 클라이언트로 다시 스트리밍합니다.
 
 Asynchronous Logging
 
-Synchronous logging deals with the disk for every call and can slow down the system. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I/O overhead.
+동기식 로깅은 모든 호출에 대해 디스크를 처리하므로 시스템 속도가 느려질 수 있습니다. 비동기 로깅은 로그를 잠금 없는 버퍼로 먼저 전송한 후 즉시 반환합니다. 로그는 주기적으로 디스크에 플러시됩니다. 따라서 I/O 오버헤드가 크게 줄어듭니다.
 
 Caching
 
-We can store frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
+자주 액세스하는 데이터를 캐시에 저장할 수 있습니다. 클라이언트는 데이터베이스를 직접 방문하는 대신 캐시를 먼저 쿼리할 수 있습니다. 캐시에 미스가 있는 경우 클라이언트는 데이터베이스에서 쿼리할 수 있습니다. Redis와 같은 캐시는 데이터를 메모리에 저장하므로 데이터 액세스가 데이터베이스보다 훨씬 빠릅니다.
 
 Payload Compression
 
-The requests and responses can be compressed using gzip etc so that the transmitted data size is much smaller. This speeds up the upload and download.
+요청과 응답은 gzip 등을 사용하여 압축할 수 있으므로 전송되는 데이터 크기가 훨씬 작아집니다. 이렇게 하면 업로드와 다운로드 속도가 빨라집니다.
 
 Connection Pool
 
-When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.
+리소스에 액세스할 때 데이터베이스에서 데이터를 로드해야 하는 경우가 종종 있습니다. 닫혀 있는 데이터베이스 커넥션을 열면 상당한 오버헤드가 추가됩니다. 따라서 오픈 커넥션 풀을 통해 데이터베이스에 연결해야 합니다. 커넥션 풀은 커넥션 라이프사이클을 관리하는 역할을 합니다.
 
 ### HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)
 
