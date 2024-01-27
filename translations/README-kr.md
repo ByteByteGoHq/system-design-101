@@ -18,7 +18,6 @@
 
 시각 자료와 간단한 용어를 사용하여 복잡한 시스템을 설명합니다. 
 
-Whether you're preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, we hope this repository will help you achieve that.
 시스템 디자인 면접을 준비 중이거나 단순히 시스템이 표면 아래에서 어떻게 작동하는지 이해하고 싶으신 분이라면 이 리포지토리가 도움이 되길 바랍니다.
 
 # Table of Contents
@@ -196,13 +195,13 @@ RPC(Remote Procedure Call)는 마이크로서비스 아키텍처에서 서비스
 
 1단계: 클라이언트에서 REST 호출을 수행합니다. request body는 일반적으로 JSON 포맷입니다.
 
-2-4단계: 주문 서비스(gRPC 클라이언트)가 REST 호출을 수신하여 변환한 후 결제 서비스에 RPC 호출을 합니다. gRPC는 **client stub**을 바이너리로 인코딩하여 로우레벨 트랜스포트 레이어로 보냅니다.
+2-4단계: 주문 서비스(gRPC 클라이언트)가 REST 호출을 수신하여 변환한 후 결제 서비스에 RPC 호출을 합니다. gRPC는 **client stub**을 바이너리로 인코딩하여 로우레벨 전송 계층으로 보냅니다.
 
 5단계: gRPC가 HTTP2를 통해 패킷을 전송합니다. 바이너리 인코딩과 네트워크 최적화로 인해 gRPC는 JSON보다 5배 빠르다고 합니다.
 
 6-8단계: 결제 서비스(gRPC 서버)가 네트워크에서 패킷을 수신하고, 이를 디코딩한 후 서버 애플리케이션을 호출합니다.
 
-9-11단계: 서버 애플리케이션에서 결과를 반환하고 인코딩하여 트랜스포트 레이어로 전송합니다.
+9-11단계: 서버 애플리케이션에서 결과를 반환하고 인코딩하여 전송 계층으로 전송합니다.
 
 12-14단계: 주문 서비스가 패킷을 수신하여 디코딩한 후 결과를 클라이언트 애플리케이션에 보냅니다.
 
@@ -223,8 +222,8 @@ RPC(Remote Procedure Call)는 마이크로서비스 아키텍처에서 서비스
 결제 요청을 PSP에 전송한 후 결제 서비스에서 PSP에 결제 상태를 계속 묻습니다. 몇 번의 라운드가 끝나면 PSP는 마침내 상태를 반환합니다. 
 
 숏 폴링에는 두 가지 단점이 있습니다.
-* 상태를 지속적으로 폴링하려면 결제 서비스의 리소스가 필요합니다. 
-* 외부 서비스가 결제 서비스와 직접 통신하므로 보안 취약점이 발생할 수 있습니다.
+- 상태를 지속적으로 폴링하려면 결제 서비스의 리소스가 필요합니다. 
+- 외부 서비스가 결제 서비스와 직접 통신하므로 보안 취약점이 발생할 수 있습니다.
 
 **2. 웹훅 Webhook** 
 
@@ -270,35 +269,35 @@ Connection Pool
 
 ### HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)
 
-What problem does each generation of HTTP solve?
+각 세대의 HTTP는 어떤 문제를 해결하나요?
 
-The diagram below illustrates the key features.
+아래 다이어그램은 주요 특징을 보여줍니다.
 
 <p>
   <img src="../images/http3.jpg" />
 </p>
 
-- HTTP 1.0 was finalized and fully documented in 1996. Every request to the same server requires a separate TCP connection.
+- HTTP 1.0은 1996년에 완성되어 완전히 문서화되었습니다. 동일한 서버에 대한 모든 요청에는 별도의 TCP 연결이 필요합니다.
 
-- HTTP 1.1 was published in 1997. A TCP connection can be left open for reuse (persistent connection), but it doesn’t solve the HOL (head-of-line) blocking issue. 
+- HTTP 1.1은 1997년에 발표되었습니다. TCP 커넥션은 재사용(persistent connection)을 위해 열어둘 수 있지만, HOL(head-of-line) 차단 문제를 해결하지는 못합니다.
 
-  HOL blocking - when the number of allowed parallel requests in the browser is used up, subsequent requests need to wait for the former ones to complete.
+  HOL 차단 - 브라우저에서 허용하는 병렬 요청의 수를 모두 사용하면 후속 요청은 이전 요청이 완료될 때까지 기다려야 합니다.
 
-- HTTP 2.0 was published in 2015. It addresses HOL issue through request multiplexing, which eliminates HOL blocking at the application layer, but HOL still exists at the transport (TCP) layer.
+- HTTP 2.0은 2015년에 발표되었습니다. 이는 요청 다중화를 통해 HOL 문제를 해결하여 응용 계층에서 HOL 차단을 제거하지만, 전송(TCP) 계층에는 여전히 HOL이 존재합니다.
 
-  As you can see in the diagram, HTTP 2.0 introduced the concept of HTTP “streams”: an abstraction that allows multiplexing different HTTP exchanges onto the same TCP connection. Each stream doesn’t need to be sent in order.
+  다이어그램에서 볼 수 있듯이 HTTP 2.0은 동일한 TCP 커넥션에 서로 다른 HTTP 교환을 다중화할 수 있는 추상화 개념인 HTTP "steam"을 도입했습니다. 각 스트림을 순서대로 전송할 필요는 없습니다.
 
-- HTTP 3.0 first draft was published in 2020. It is the proposed successor to HTTP 2.0. It uses QUIC instead of TCP for the underlying transport protocol, thus removing HOL blocking in the transport layer. 
+- HTTP 3.0 초안은 2020년에 발표되었습니다. HTTP 2.0의 후속 버전으로 제안되었습니다. 기본 트랜스포트 프로토콜로 TCP 대신 QUIC을 사용하므로 전송 계층에서 HOL 차단이 제거됩니다. 
 
-QUIC is based on UDP. It introduces streams as first-class citizens at the transport layer. QUIC streams share the same QUIC connection, so no additional handshakes and slow starts are required to create new ones, but QUIC streams are delivered independently such that in most cases packet loss affecting one stream doesn't affect others.
+QUIC은 UDP를 기반으로 합니다. 이는 전송 계층에서 스트림을 퍼스트 클래스 시티즌으로 소개합니다. QUIC 스트림은 동일한 QUIC 커넥션을 공유하므로 새 스트림을 생성하기 위해 추가적인 핸드셰이크나 슬로우 스타트가 필요하지 않으며, 대부분의 경우 한 스트림에 영향을 미치는 패킷 손실이 다른 스트림에 영향을 미치지 않도록 독립적으로 전달됩니다.
 
 ### SOAP vs REST vs GraphQL vs RPC
 
-The diagram below illustrates the API timeline and API styles comparison.
+아래 다이어그램은 API 타임라인과 API 스타일을 비교한 것입니다.
 
-Over time, different API architectural styles are released. Each of them has its own patterns of standardizing data exchange. 
+시간이 지남에 따라 다양한 API 아키텍처 스타일이 출시됩니다. 각 스타일에는 데이터 교환을 표준화하는 고유한 패턴이 있습니다. 
 
-You can check out the use cases of each style in the diagram.
+다이어그램에서 각 스타일의 사용 사례를 확인할 수 있습니다.
 
 <p>
   <img src="../images/SOAP vs REST vs GraphQL vs RPC.jpeg" />
@@ -307,28 +306,28 @@ You can check out the use cases of each style in the diagram.
 
 ### Code First vs. API First 
 
-The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
+아래 다이어그램은 코드 퍼스트 개발과 API 퍼스트 개발의 차이점을 보여줍니다. API 퍼스트 설계를 고려해야 하는 이유는 무엇인가요?
 
 <p>
   <img src="../images/api_first.jpg" style="width: 680px" />
 </p>
 
 
-- Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
+- 마이크로서비스는 시스템 복잡성을 증가시키며, 시스템의 다양한 기능을 담당하는 별도의 서비스를 제공합니다. 이러한 아키텍처는 업무의 디커플링과 분리를 용이하게 하지만 서비스 간의 다양한 커뮤니케이션을 처리해야 합니다.
 
-It is better to think through the system's complexity before writing the code and carefully defining the boundaries of the services.
+코드를 작성하기 전에 시스템의 복잡성을 고려하고 서비스의 범위를 신중하게 정의하는 것이 좋습니다.
 
-- Separate functional teams need to speak the same language and the dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design. 
+- 기능조직은 동일한 언어로 의사소통해야 하며, 목적조직은 자체 컴포넌트와 서비스에만 책임이 있습니다. API 설계를 통해 조직이 동일한 언어로 의사소통하는 것이 좋습니다.
 
-We can mock requests and responses to validate the API design before writing code.
+코드를 작성하기 전에 요청과 응답을 모의로 작성하여 API 설계를 검증할 수 있습니다.
 
-- Improve software quality and developer productivity Since we have ironed out most of the uncertainties when the project starts, the overall development process is smoother, and the software quality is greatly improved. 
+- 소프트웨어 품질과 개발자 생산성이 향상됩니다. 프로젝트가 시작될 때 대부분의 불확실성을 제거했기 때문에 전반적인 개발 프로세스가 더 원활해지고 소프트웨어 품질이 크게 향상됩니다.
 
-Developers are happy about the process as well because they can focus on functional development instead of negotiating sudden changes.
+개발자는 갑작스러운 변경 사항을 논의하는 대신 기능 개발에 집중할 수 있기 때문에 이 프로세스에 만족합니다.
 
-The possibility of having surprises toward the end of the project lifecycle is reduced.
+프로젝트 라이프사이클이 끝날 무렵에 서프라이즈가 발생할 가능성이 줄어듭니다.
 
-Because we have designed the API first, the tests can be designed while the code is being developed. In a way, we also have TDD (Test Driven Design) when using API first development.
+API를 먼저 설계했기 때문에 코드가 개발되는 동안 테스트를 설계할 수 있습니다. 어떤 면에서는 API 퍼스트 개발 방식을 사용할 때 TDD(Test Driven Design)를 적용한다고 볼 수 있습니다.
 
 ### HTTP status codes
 
@@ -337,137 +336,137 @@ Because we have designed the API first, the tests can be designed while the code
 </p>
 
 
-The response codes for HTTP are divided into five categories: 
+HTTP의 응답 코드는 5가지 카테고리로 나누어집니다.
 
-Informational (100-199) 
-Success (200-299) 
-Redirection (300-399) 
-Client Error (400-499) 
-Server Error (500-599) 
+Informational (100-199)  
+Success (200-299)  
+Redirection (300-399)  
+Client Error (400-499)  
+Server Error (500-599)  
 
 ### What does API gateway do? 
 
-The diagram below shows the details. 
+아래 다이어그램은 자세한 내용을 보여줍니다.
 
 <p>
   <img src="../images/api_gateway.jpg" style="width: 520px" />
 </p>
 
-Step 1 - The client sends an HTTP request to the API gateway. 
+1단계 - 클라이언트가 API 게이트웨이에 HTTP 요청을 보냅니다.
 
-Step 2 - The API gateway parses and validates the attributes in the HTTP request. 
+2단계 - API 게이트웨이가 HTTP 요청의 어트리뷰트를 파싱하고 유효성을 검사합니다.
 
-Step 3 - The API gateway performs allow-list/deny-list checks. 
+3단계 - API 게이트웨이가 allow-list/deny-list 검사를 수행합니다.
 
-Step 4 - The API gateway talks to an identity provider for authentication and authorization. 
+4단계 - API 게이트웨이가 인증과 인가를 위해 ID 공급자와 통신합니다.
 
-Step 5 - The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. 
+5단계 - 요청에 레이트 리미트 규칙을 적용합니다. 한도를 초과하면 요청을 거부합니다.
 
-Steps 6 and 7 - Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. 
+6,7단계 - 요청이 기본 검사를 통과했으므로 이제 API 게이트웨이가 path 매칭을 통해 라우팅할 관련 서비스를 찾습니다.
 
-Step 8 - The API gateway transforms the request into the appropriate protocol and sends it to backend microservices. 
+8단계 - API 게이트웨이가 요청을 적절한 프로토콜로 변환하여 백엔드 마이크로서비스로 전송합니다.
 
-Steps 9-12: The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
+9-12단계: API 게이트웨이는 오류를 적절하게 처리하고, 복구하는 데 시간이 오래 걸리는 오류가 발생하는 경우 장애를 처리합니다.(circuit break) 또한 로깅과 모니터링을 위해 ELK(Elastic-Logstash-Kibana) 스택을 활용할 수 있습니다. 때때로 API 게이트웨이에 데이터를 캐시하기도 합니다.
 
 ### How do we design effective and safe APIs?
 
-The diagram below shows typical API designs with a shopping cart example. 
+아래 다이어그램은 쇼핑 카트 예시와 함께 일반적인 API 설계를 보여줍니다. 
 
 <p>
   <img src="../images/safe-apis.jpg" />
 </p>
 
 
-Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
+API 설계는 단순한 URL path 설계가 아니라는 점에 유의하세요. 대부분의 경우 적절한 리소스 이름, 식별자, path 패턴을 선택해야 합니다. 적절한 HTTP 헤더 필드를 설계하거나 API 게이트웨이 내에서 효과적인 rate limit 규칙을 설계하는 것도 마찬가지로 중요합니다.
 
 ### TCP/IP encapsulation 
 
-How is data sent over the network? Why do we need so many layers in the OSI model?
+데이터는 네트워크를 통해 어떻게 전송되나요? OSI 모델에 많은 계층이 필요한 이유는 무엇인가요?
 
-The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
+아래 다이어그램은 네트워크를 통해 데이터를 전송할 때 어떻게 캡슐화되고 캡슐화가 해제되는지 보여줍니다.
 
 <p>
   <img src="../images/osi model.jpeg" />
 </p>
 
-Step 1: When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.
+1단계: 디바이스 A가 네트워크상의 HTTP 프로토콜을 통해 장치 B로 데이터를 전송할 때, 먼저 응용 계층에서 HTTP 헤더가 추가됩니다.
 
-Step 2: Then a TCP or a UDP header is added to the data. It is encapsulated into TCP segments at the transport layer. The header contains the source port, destination port, and sequence number.
+2단계: 그런 다음 TCP 혹은 UDP 헤더가 데이터에 추가됩니다. 이 헤더는 전송 계층에서 TCP 세그먼트로 캡슐화됩니다. 헤더에는 소스 포트, 데스티네이션 포트, 시퀀스 넘버가 포함됩니다.
 
-Step 3: The segments are then encapsulated with an IP header at the network layer. The IP header contains the source/destination IP addresses.
+3단계: 그런 다음 세그먼트는 네트워크 계층에서 IP 헤더로 캡슐화됩니다. IP 헤더에는 소스/데스티네이션 IP 주소가 포함됩니다.
 
-Step 4: The IP datagram is added a MAC header at the data link layer, with source/destination MAC addresses.
+4단계: 데이터 링크 계층에서 IP 데이터그램에 소스/데스티네이션 MAC 주소와 함께 MAC 헤더가 추가됩니다.
 
-Step 5: The encapsulated frames are sent to the physical layer and sent over the network in binary bits.
+5단계: 캡슐화된 프레임이 물리 계층으로 전송되고 네트워크를 통해 2진수 비트로 전송됩니다.
 
-Steps 6-10: When Device B receives the bits from the network, it performs the de-encapsulation process, which is a reverse processing of the encapsulation process. The headers are removed layer by layer, and eventually, Device B can read the data.
+6-10단계: 디바이스 B가 네트워크에서 비트를 수신하면 캡슐화 프로세스의 역처리인 캡슐화 해제 프로세스를 수행합니다. 헤더가 한 층씩 제거되고 결국 디바이스 B가 데이터를 읽을 수 있게 됩니다.
 
-We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.
+네트워크 모델에 계층이 필요한 이유는 각 계층이 고유한 책임에 집중하기 때문입니다. 각 계층은 처리 지침을 헤더에 의존할 수 있으며 마지막 계층의 데이터의 의미를 알 필요가 없습니다.
 
 ### Why is Nginx called a “reverse” proxy?
 
-The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.
+아래 다이어그램은 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 와 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲 의 차이점을 보여줍니다.
 
 <p>
   <img src="../images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px" />
 </p>
 
-A forward proxy is a server that sits between user devices and the internet.
+포워드 프록시는 사용자 디바이스와 인터넷 사이에 있는 서버입니다.
 
-A forward proxy is commonly used for: 
+포워드 프록시는 일반적으로 다음 용도로 사용됩니다.
 
-1. Protecting clients
-2. Circumventing browsing restrictions
-3. Blocking access to certain content
+1. 클라이언트 보호
+2. 브라우징 제약 우회하기
+3. 특정 콘텐츠에 대한 액세스 차단
 
-A reverse proxy is a server that accepts a request from the client, forwards the request to web servers, and returns the results to the client as if the proxy server had processed the request.
+리버스 프록시는 클라이언트의 요청을 수락하여 웹 서버로 요청을 전달한 후 프록시 서버가 요청을 처리한 것처럼 결과를 클라이언트에 반환하는 서버입니다.
 
-A reverse proxy is good for:
+리버스 프록시는 다음과 같은 경우에 유용합니다.
 
-1. Protecting servers
-2. Load balancing
-3. Caching static contents
-4. Encrypting and decrypting SSL communications
+1. 서버 보호
+2. 로드 밸런싱
+3. 정적 콘텐츠 캐싱
+4. SSL 통신 암호화 및 복호화
 
 ### What are the common load-balancing algorithms?
 
-The diagram below shows 6 common algorithms. 
+아래 다이어그램은 6가지 일반적인 알고리즘을 보여줍니다.
 
 <p>
   <img src="../images/lb-algorithms.jpg" />
 </p>
 
-- Static Algorithms 
+- 정적 알고리즘
 
 1. Round robin
 
-    The client requests are sent to different service instances in sequential order. The services are usually required to be stateless. 
+    클라이언트 요청은 순차적으로 다른 서비스 인스턴스로 전송됩니다. 서비스는 일반적으로 스테이트리스(과거 처리 내용을 기억하지 않는 서비스)여야 합니다. 
 
 3. Sticky round-robin
 
-    This is an improvement of the round-robin algorithm. If Alice’s first request goes to service A, the following requests go to service A as well. 
+    이는 라운드 로빈 알고리즘을 개선한 것입니다. 앨리스의 첫 번째 요청이 서비스 A로 전달되면 다음 요청도 서비스 A로 전달됩니다. 
 
 4. Weighted round-robin
 
-    The admin can specify the weight for each service. The ones with a higher weight handle more requests than others. 
+    관리자는 각 서비스에 대한 가중치를 지정할 수 있습니다. 가중치가 높은 서비스는 다른 서비스보다 더 많은 요청을 처리합니다.
 
 6. Hash
 
-    This algorithm applies a hash function on the incoming requests’ IP or URL. The requests are routed to relevant instances based on the hash function result. 
+    이 알고리즘은 들어오는 요청의 IP 또는 URL에 해시 함수를 적용합니다. 요청은 해시 함수 결과에 따라 관련 인스턴스로 라우팅됩니다.
 
-- Dynamic Algorithms
+- 동적 알고리즘
 
 5. Least connections
 
-    A new request is sent to the service instance with the least concurrent connections. 
+    동시 연결이 가장 적은 서비스 인스턴스로 새 요청이 전송됩니다. 
 
 7. Least response time
 
-    A new request is sent to the service instance with the fastest response time.
+    새 요청은 응답 시간이 가장 빠른 서비스 인스턴스로 전송됩니다.
 
 ### URL, URI, URN - Do you know the differences? 
 
-The diagram below shows a comparison of URL, URI, and URN. 
+아래 다이어그램은 URL, URI, URN의 비교를 보여줍니다.
 
 <p>
   <img src="../images/url-uri-urn.jpg" />
@@ -475,20 +474,20 @@ The diagram below shows a comparison of URL, URI, and URN.
 
 - URI 
 
-URI stands for Uniform Resource Identifier. It identifies a logical or physical resource on the web. URL and URN are subtypes of URI. URL locates a resource, while URN names a resource. 
+URI은 Uniform Resource Identifier의 약자입니다. 웹에서 논리적 또는 물리적 리소스를 식별합니다. URL과 URN은 URI의 하위 유형입니다. URL은 리소스를 찾고 URN은 리소스의 이름을 지정합니다.
 
-A URI is composed of the following parts: 
+URI는 다음과 같은 부분으로 구성되어 있습니다. 
 scheme:[//authority]path[?query][#fragment] 
 
 - URL 
 
-URL stands for Uniform Resource Locator, the key concept of HTTP. It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC. 
+URL은 Uniform Resource Locator의 약자로, HTTP의 핵심 개념입니다. 웹에서 고유한 리소스의 주소입니다. FTP와 JDBC와 같은 다른 프로토콜과 함께 사용할 수 있습니다. 
 
 - URN 
 
-URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string. 
+URN은 Uniform Resource Name의 약자로, urn 스키마를 사용합니다. URN은 리소스를 찾는 데 사용할 수 없습니다. 다이어그램에 제시된 간단한 예는 네임스페이스와 네임스페이스 특정 문자열로 구성되어 있습니다.
 
-If you would like to learn more detail on the subject, I would recommend [W3C’s clarification](https://www.w3.org/TR/uri-clarification/).
+이 주제에 대해 더 자세히 알아보려면 다음을 추천합니다. [W3C’s clarification](https://www.w3.org/TR/uri-clarification/).
 
 ## CI/CD
 
