@@ -12,7 +12,7 @@
   </a> 】
 </p>
 
-<a href="https://trendshift.io/repositories/3709" target="_blank"><img src="../https://trendshift.io/api/badge/repositories/3709" alt="ByteByteGoHq%2Fsystem-design-101 | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/3709" target="_blank"><img src="https://trendshift.io/api/badge/repositories/3709" alt="ByteByteGoHq%2Fsystem-design-101 | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 # System Design 101
 
@@ -497,28 +497,28 @@ URN은 Uniform Resource Name의 약자로, urn 스키마를 사용합니다. URN
   <img src="../images/ci-cd-pipeline.jpg" style="width: 680px" />
 </p>
 
-Section 1 - SDLC with CI/CD
+섹션 1 - CI/CD가 포함된 소프트웨어 개발 수명 주기
 
-The software development life cycle (SDLC) consists of several key stages: development, testing, deployment, and maintenance. CI/CD automates and integrates these stages to enable faster and more reliable releases.
+소프트웨어 개발 수명 주기(SDLC)는 개발, 테스트, 배포, 유지 관리 등 몇 가지 주요 단계로 구성됩니다. CI/CD는 이러한 단계를 자동화하고 통합하여 더 빠르고 안정적인 릴리스를 가능하게 합니다.
 
-When code is pushed to a git repository, it triggers an automated build and test process. End-to-end (e2e) test cases are run to validate the code. If tests pass, the code can be automatically deployed to staging/production. If issues are found, the code is sent back to development for bug fixing. This automation provides fast feedback to developers and reduces the risk of bugs in production.
+코드가 git 리포지토리에 푸시되면 자동화된 빌드 및 테스트 프로세스가 시작됩니다. 코드의 유효성을 검사하기 위해 엔드투엔드(e2e) 테스트 케이스가 실행됩니다. 테스트를 통과하면 코드를 스테이징/프로덕션 환경에 자동으로 배포할 수 있습니다. 이슈가 발견되면 코드는 버그 수정을 위해 개발 단계로 다시 보내집니다. 이러한 자동화는 개발자에게 신속한 피드백을 제공하고 프로덕션 환경에서 발생하는 버그 위험을 줄여줍니다.
 
-Section 2 - Difference between CI and CD
+섹션 2 - CI와 CD의 차이점
 
-Continuous Integration (CI) automates the build, test, and merge process. It runs tests whenever code is committed to detect integration issues early. This encourages frequent code commits and rapid feedback.
+Continuous Integration(CI)은 빌드, 테스트, 병합 프로세스를 자동화합니다. 코드가 커밋될 때마다 테스트를 실행하여 통합 이슈를 조기에 발견합니다. 이를 통해 코드 커밋을 자주 하고 피드백을 빠르게 받을 수 있습니다.
 
-Continuous Delivery (CD) automates release processes like infrastructure changes and deployment. It ensures software can be released reliably at any time through automated workflows. CD may also automate the manual testing and approval steps required before production deployment.
+Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로세스를 자동화합니다. 자동화된 워크플로를 통해 언제든지 소프트웨어를 안정적으로 릴리스할 수 있습니다. 또한 CD는 프로덕션 배포 전에 필요한 메뉴얼 테스트와 승인 단계를 자동화할 수도 있습니다.
 
-Section 3 - CI/CD Pipeline
+섹션 3 - CI/CD 파이프라인
 
-A typical CI/CD pipeline has several connected stages:
-- The developer commits code changes to the source control
-- CI server detects changes and triggers the build
-- Code is compiled, and tested (unit, integration tests)
-- Test results reported to the developer
-- On success, artifacts are deployed to staging environments
-- Further testing may be done on staging before release
-- CD system deploys approved changes to production
+일반적인 CI/CD 파이프라인은 다음과 같이 연결된 여러 단계로 구성됩니다.
+- 개발자가 코드 변경 사항을 소스 컨트롤에 커밋합니다.
+- CI 서버가 변경 사항을 감지하고 빌드를 트리거합니다.
+- 코드가 컴파일되고 테스트됩니다(단위 테스트, 통합 테스트).
+- 테스트 결과를 개발자에게 보고됩니다.
+- 성공하면 아티팩트가 스테이징 환경에 배포됩니다.
+- 릴리스 전에 스테이징 환경에서 추가 테스트를 수행할 수 있습니다.
+- CD 시스템이 승인한 변경 사항을 프로덕션에 배포합니다.
 
 ### Netflix Tech Stack (CI/CD Pipeline)
 
@@ -526,21 +526,21 @@ A typical CI/CD pipeline has several connected stages:
   <img src="../images/netflix-ci-cd.jpg" style="width: 720px" />
 </p>
 
-Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation. 
+플래닝: 넷플릭스 엔지니어링은 플래닝에는 JIRA를, 문서화에는 Confluence를 사용합니다.
 
-Coding: Java is the primary programming language for the backend service, while other languages are used for different use cases.  
+코딩: Java는 백엔드 서비스를 위한 기본 프로그래밍 언어이며, 다른 언어는 유즈케이스에 따라 사용됩니다.  
 
-Build: Gradle is mainly used for building, and Gradle plugins are built to support various use cases.  
+빌드: Gradle은 주로 빌드에 사용되며, Gradle 플러그인은 다양한 유스케이스를 지원하기 위해 만들어졌습니다.
 
-Packaging: Package and dependencies are packed into an Amazon Machine Image (AMI) for release. 
+패키징: 패키지 및 의존성은 릴리스를 위해 아마존 머신 이미지(AMI)에 패키징됩니다. 
 
-Testing: Testing emphasizes the production culture's focus on building chaos tools.  
+테스팅: Testing emphasizes the production culture's focus on building chaos tools.  
 
-Deployment: Netflix uses its self-built Spinnaker for canary rollout deployment.  
+배포: 넷플릭스는 카나리 롤아웃 배포에 자체 구축한 Spinnaker를 사용합니다.
 
-Monitoring: The monitoring metrics are centralized in Atlas, and Kayenta is used to detect anomalies.  
+모니터링: 모니터링 지표는 Atlas에서 중앙 집중식으로 관리되며, 이상 징후를 감지하는 데 Kayenta가 사용됩니다. 
 
-Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling. 
+인시던트 리포트: 우선순위에 따라 인시던트가 발송되며, 사고 처리를 위해 PagerDuty가 사용됩니다. 
 
 ## Architecture patterns
 
