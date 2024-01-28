@@ -26,9 +26,9 @@
 
 - [Communication protocols](#communication-protocols)
   - [REST API vs. GraphQL](#rest-api-vs-graphql)
-  - [gRPC는 어떻게 작동하나요?](#how-does-grpc-work)
+  - [gRPC는 어떻게 작동하나요?](#grpc는-어떻게-작동하나요)
   - [webhook이란 무엇인가요?](#what-is-a-webhook)
-  - [API 성능을 개선하는 방법은 무엇인가요?](#how-to-improve-api-performance)
+  - [API 성능을 개선하는 방법은 무엇인가요?](#api-성능을-개선하는-방법은-무엇인가요)
   - [HTTP 1.0 -\> HTTP 1.1 -\> HTTP 2.0 -\> HTTP 3.0 (QUIC)](#http-10---http-11---http-20---http-30-quic)
   - [SOAP vs REST vs GraphQL vs RPC](#soap-vs-rest-vs-graphql-vs-rpc)
   - [Code First vs. API First](#code-first-vs-api-first)
@@ -36,74 +36,74 @@
   - [API gateway는 무엇을 하나요?](#what-does-api-gateway-do)
   - [효과적이고 안전한 API를 설계하려면 어떻게 해야 할까요?](#how-do-we-design-effective-and-safe-apis)
   - [TCP/IP encapsulation](#tcpip-encapsulation)
-  - [왜 Nginx를 "reverse" 프록시라고 부르나요?](#why-is-nginx-called-a-reverse-proxy)
-  - [일반적인 로드 밸런싱 알고리즘은 무엇인가요?](#what-are-the-common-load-balancing-algorithms)
-  - [URL, URI, URN - 차이를 알고 있나요?](#url-uri-urn---do-you-know-the-differences)
+  - [왜 Nginx를 "reverse" 프록시라고 부르나요?](#왜-nginx를-reverse-프록시라고-부르나요)
+  - [일반적인 로드 밸런싱 알고리즘은 무엇인가요?](#일반적인-로드-밸런싱-알고리즘은-무엇인가요)
+  - [URL, URI, URN - 차이를 알고 있나요?](#url-uri-urn---차이를-알고-있나요)
 - [CI/CD](#cicd)
-  - [쉬운 용어로 설명하는 CI/CD 파이프라인](#cicd-pipeline-explained-in-simple-terms)
-  - [넷플릭스 테크 스택 (CI/CD Pipeline)](#netflix-tech-stack-cicd-pipeline)
-- [아키텍처 패턴](#architecture-patterns)
-  - [MVC, MVP, MVVM, MVVM-C, and VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
+  - [쉬운 용어로 설명하는 CI/CD 파이프라인](#쉬운-용어로-설명하는-cicd-파이프라인)
+  - [넷플릭스 기술스택 (CI/CD Pipeline)](#넷플릭스-기술스택-cicd-pipeline)
+- [아키텍처 패턴](#아키텍처-패턴)
+  - [MVC, MVP, MVVM, MVVM-C, VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
   - [18 Key Design Patterns Every Developer Should Know](#18-key-design-patterns-every-developer-should-know)
 - [Database](#database)
-  - [A nice cheat sheet of different databases in cloud services](#a-nice-cheat-sheet-of-different-databases-in-cloud-services)
-  - [8 Data Structures That Power Your Databases](#8-data-structures-that-power-your-databases)
-  - [How is an SQL statement executed in the database?](#how-is-an-sql-statement-executed-in-the-database)
-  - [CAP theorem](#cap-theorem)
-  - [Types of Memory and Storage](#types-of-memory-and-storage)
-  - [Visualizing a SQL query](#visualizing-a-sql-query)
-  - [SQL language](#sql-language)
-- [Cache](#cache)
-  - [Data is cached everywhere](#data-is-cached-everywhere)
-  - [Why is Redis so fast?](#why-is-redis-so-fast)
-  - [How can Redis be used?](#how-can-redis-be-used)
-  - [Top caching strategies](#top-caching-strategies)
-- [Microservice architecture](#microservice-architecture)
-  - [What does a typical microservice architecture look like?](#what-does-a-typical-microservice-architecture-look-like)
-  - [Microservice Best Practices](#microservice-best-practices)
-  - [What tech stack is commonly used for microservices?](#what-tech-stack-is-commonly-used-for-microservices)
-  - [Why is Kafka fast](#why-is-kafka-fast)
-- [Payment systems](#payment-systems)
-  - [How to learn payment systems?](#how-to-learn-payment-systems)
-  - [Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
+  - [클라우드 서비스의 다양한 데이터베이스에 관한 치트시트](#클라우드-서비스의-다양한-데이터베이스에-관한-치트시트)
+  - [데이터베이스를 강화하는 8가지 데이터 구조](#데이터베이스를-강화하는-8가지-데이터-구조)
+  - [데이터베이스에서 SQL 문은 어떻게 실행되나요?](#데이터베이스에서-SQL-문은-어떻게-실행되나요)
+  - [CAP 정리](#cap-정리)
+  - [메모리 및 스토리지의 종류](#메모리-및-스토리지의-종류)
+  - [SQL 쿼리 시각화](#SQL-쿼리-시각화)
+  - [SQL 언어](#sql-언어)
+- [캐시](#캐시)
+  - [데이터는 어디에나 캐시됩니다](#데이터는-어디에나-캐시됩니다)
+  - [Redis는 왜 빠른가요?](#redis는-왜-빠른가요)
+  - [Redis는 어떻게 사용하나요?](#redis는-어떻게-사용하나요)
+  - [주요 캐싱 전략](#주요-캐싱-전략)
+- [마이크로서비스 아키텍처](#마이크로서비스-아키텍처)
+  - [일반적인 마이크로서비스 아키텍처는 어떤 모습일까요?](#일반적인-마이크로서비스-아키텍처는-어떤-모습일까요)
+  - [마이크로서비스 모범 사례](#마이크로서비스-모범사례)
+  - [마이크로서비스에 일반적으로 사용하는 기술 스택은 무엇인가요?](#마이크로서비스에-일반적으로-사용하는-기술-스택은-무엇인가요)
+  - [카프카가 빠른 이유](#카프카가-빠른-이유)
+- [결제 시스템](#결제-시스템)
+  - [결제 시스템을 배우는 방법은 무엇인가요?](#how-to-learn-payment-systems)
+  - [신용카드를 "은행에서 가장 수익성이 높은 상품"이라고 부르는 이유는 무엇인가요? 비자/마스터카드는 어떻게 수익을 창출하나요?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
   - [How does VISA work when we swipe a credit card at a merchant’s shop?](#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop)
-  - [Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
+  - [세계의 결제 시스템 시리즈(1부): 인도의 통합 결제 인터페이스(UPI)](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
 - [DevOps](#devops)
-  - [DevOps vs. SRE vs. Platform Engineering. What is the difference?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
-  - [What is k8s (Kubernetes)?](#what-is-k8s-kubernetes)
-  - [Docker vs. Kubernetes. Which one should we use?](#docker-vs-kubernetes-which-one-should-we-use)
-  - [How does Docker work?](#how-does-docker-work)
+  - [DevOps vs. SRE vs. Platform Engineering. 무엇이 다른가요?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
+  - [k8s(Kubernetes)란 무엇인가요?](#what-is-k8s-kubernetes)
+  - [Docker vs. Kubernetes. 어떤것을 사용해야 하나요?](#docker-vs-kubernetes-which-one-should-we-use)
+  - [Docker는 어떻게 작동하나요?](#how-does-docker-work)
 - [GIT](#git)
-  - [How Git Commands work](#how-git-commands-work)
-  - [How does Git Work?](#how-does-git-work)
+  - [Git Commands 작동 방식](#how-git-commands-work)
+  - [Git은 어떻게 작동하나요?](#how-does-git-work)
   - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
-- [Cloud Services](#cloud-services)
-  - [A nice cheat sheet of different cloud services (2023 edition)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
-  - [What is cloud native?](#what-is-cloud-native)
+- [클라우드 서비스](#cloud-services)
+  - [다양한 클라우드 서비스에 대한 유용한 치트시트(2023년판)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
+  - [cloud native란 무엇인가요?](#what-is-cloud-native)
 - [Developer productivity tools](#developer-productivity-tools)
-  - [Visualize JSON files](#visualize-json-files)
-  - [Automatically turn code into architecture diagrams](#automatically-turn-code-into-architecture-diagrams)
-- [Linux](#linux)
-  - [Linux file system explained](#linux-file-system-explained)
-  - [18 Most-used Linux Commands You Should Know](#18-most-used-linux-commands-you-should-know)
-- [Security](#security)
-  - [How does HTTPS work?](#how-does-https-work)
-  - [Oauth 2.0 Explained With Simple Terms.](#oauth-20-explained-with-simple-terms)
-  - [Top 4 Forms of Authentication Mechanisms](#top-4-forms-of-authentication-mechanisms)
-  - [Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
-  - [How to store passwords safely in the database and how to validate a password?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
-  - [Explaining JSON Web Token (JWT) to a 10 year old Kid](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
-  - [How does Google Authenticator (or other types of 2-factor authenticators) work?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
-- [Real World Case Studies](#real-world-case-studies)
-  - [Netflix's Tech Stack](#netflixs-tech-stack)
-  - [Twitter Architecture 2022](#twitter-architecture-2022)
-  - [Evolution of Airbnb’s microservice architecture over the past 15 years](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
-  - [Monorepo vs. Microrepo.](#monorepo-vs-microrepo)
-  - [How will you design the Stack Overflow website?](#how-will-you-design-the-stack-overflow-website)
-  - [Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
-  - [How does Disney Hotstar capture 5 Billion Emojis during a tournament?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
-  - [How Discord Stores Trillions Of Messages](#how-discord-stores-trillions-of-messages)
-  - [How do video live streamings work on YouTube, TikTok live, or Twitch?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
+  - [JSON 파일 시각화](#visualize-json-files)
+  - [코드를 아키텍처 다이어그램으로 자동 변환](#automatically-turn-code-into-architecture-diagrams)
+- [리눅스](#linux)
+  - [리눅스 파일 시스템 설명](#linux-file-system-explained)
+  - [가장 많이 사용되는 18가지 리눅스 명령어 알아보기](#18-most-used-linux-commands-you-should-know)
+- [보안](#security)
+  - [HTTPS는 어떻게 작동하나요?](#how-does-https-work)
+  - [간단한 용어로 설명하는 Oauth 2.0](#oauth-20-explained-with-simple-terms)
+  - [인증 메커니즘의 4가지 주요 형태](#top-4-forms-of-authentication-mechanisms)
+  - [Session, cookie, JWT, token, SSO, OAuth 2.0 - 그게 뭔가요?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
+  - [데이터베이스에 비밀번호를 안전하게 저장하는 방법과 비밀번호를 확인하는 방법은 무엇인가요?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
+  - [10세 어린이에게 JSON Web Token(JWT) 설명하기](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
+  - [Google authenticator(또는 다른 유형의 2 factor authenticator)는 어떻게 작동하나요?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
+- [실제 사례 연구](#real-world-case-studies)
+  - [넷플릭스 기술 스택](#netflixs-tech-stack)
+  - [트위터 아키텍처 2022](#twitter-architecture-2022)
+  - [지난 15년간 에어비앤비 마이크로서비스 아키텍처의 진화 과정](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
+  - [모노레포 vs. 마이크로레포](#monorepo-vs-microrepo)
+  - [스택 오버플로 웹사이트를 어떻게 디자인할 건가요?](#how-will-you-design-the-stack-overflow-website)
+  - [아마존 프라임 비디오 모니터링이 서버리스에서 모놀리식으로 전환된 이유는 무엇인가요? 어떻게 90%의 비용을 절감할 수 있을까요?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
+  - [디즈니 핫스타는 어떻게 토너먼트 기간 동안 50억 개의 이모티콘을 획득할 수 있었나요?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
+  - [Discord가 수조 개의 메시지를 저장하는 방법](#how-discord-stores-trillions-of-messages)
+  - [동영상 라이브 스트리밍은 YouTube, TikTok 라이브, Twitch에서 어떻게 작동하나요?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
 
 <!-- /TOC -->
 
@@ -183,7 +183,7 @@ GraphQL
 두 API 방식 모두 은총알은 아닙니다. 올바른 스타일을 선택하려면 요구 사항과 장단점을 신중하게 평가하는 것이 중요합니다. REST와 GraphQL은 모두 데이터를 노출하고 최신 애플리케이션을 구동하는 데 유효한 옵션입니다.
 
 
-### How does gRPC work?
+### gRPC는 어떻게 작동하나요?
 
 RPC(Remote Procedure Call)는 마이크로서비스 아키텍처에서 서비스가 서로 다른 서버에 배포될 때 원격 서비스 간의 통신을 가능하게 하기 때문에 "**remote**"라고 불립니다. 사용자 입장에서는 로컬 함수 호출처럼 작동합니다.
 
@@ -239,7 +239,7 @@ PSP가 다시 응답하지 않으면 어떻게 하나요? 매시간 결제 상�
 2. 보안을 위해 API 게이트웨이에 적절한 규칙을 설정해야 합니다.
 3. 외부 서비스에 올바른 URL을 등록해야 합니다.
 
-### How to improve API performance?
+### API 성능을 개선하는 방법은 무엇인가요?
 
 아래 다이어그램은 API 성능을 개선하는 5가지 일반적인 방법을 보여줍니다.
 
@@ -403,7 +403,7 @@ API 설계는 단순한 URL path 설계가 아니라는 점에 유의하세요. 
 
 네트워크 모델에 계층이 필요한 이유는 각 계층이 고유한 책임에 집중하기 때문입니다. 각 계층은 처리 지침을 헤더에 의존할 수 있으며 마지막 계층의 데이터의 의미를 알 필요가 없습니다.
 
-### Why is Nginx called a “reverse” proxy?
+### 왜 Nginx를 "reverse" 프록시라고 부르나요?
 
 아래 다이어그램은 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 와 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲 의 차이점을 보여줍니다.
 
@@ -428,7 +428,7 @@ API 설계는 단순한 URL path 설계가 아니라는 점에 유의하세요. 
 3. 정적 콘텐츠 캐싱
 4. SSL 통신 암호화 및 복호화
 
-### What are the common load-balancing algorithms?
+### 일반적인 로드 밸런싱 알고리즘은 무엇인가요?
 
 아래 다이어그램은 6가지 일반적인 알고리즘을 보여줍니다.
 
@@ -464,7 +464,7 @@ API 설계는 단순한 URL path 설계가 아니라는 점에 유의하세요. 
 
     새 요청은 응답 시간이 가장 빠른 서비스 인스턴스로 전송됩니다.
 
-### URL, URI, URN - Do you know the differences? 
+### URL, URI, URN - 차이를-알고-있나요? 
 
 아래 다이어그램은 URL, URI, URN의 비교를 보여줍니다.
 
@@ -491,7 +491,7 @@ URN은 Uniform Resource Name의 약자로, urn 스키마를 사용합니다. URN
 
 ## CI/CD
 
-### CI/CD Pipeline Explained in Simple Terms
+### 쉬운 용어로 설명하는 CI/CD 파이프라인
 
 <p>
   <img src="../images/ci-cd-pipeline.jpg" style="width: 680px" />
@@ -520,7 +520,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 - 릴리스 전에 스테이징 환경에서 추가 테스트를 수행할 수 있습니다.
 - CD 시스템이 승인한 변경 사항을 프로덕션에 배포합니다.
 
-### Netflix Tech Stack (CI/CD Pipeline)
+### 넷플릭스 기술스택 (CI/CD Pipeline)
 
 <p>
   <img src="../images/netflix-ci-cd.jpg" style="width: 720px" />
@@ -542,7 +542,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 
 인시던트 리포트: 우선순위에 따라 인시던트가 발송되며, 사고 처리를 위해 PagerDuty가 사용됩니다. 
 
-## Architecture patterns
+## 아키텍처 패턴
 
 ### MVC, MVP, MVVM, MVVM-C, VIPER
 이러한 아키텍처 패턴은 iOS, Android 플랫폼에서 앱 개발 시 가장 일반적으로 사용하는 패턴입니다. 개발자들은 이전 패턴의 한계를 극복하기 위해 이러한 패턴을 도입했습니다. 그렇다면 어떻게 다를까요?
@@ -585,7 +585,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 
 ## Database
 
-### A nice cheat sheet of different databases in cloud services
+### 클라우드 서비스의 다양한 데이터베이스에 관한 치트시트
 
 <p>
   <img src="../images/cloud-dbs2.png" />
@@ -597,7 +597,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 
 참고: Google은 데이터베이스 유즈케이스에 대한 문서가 제한되어 있습니다. 사용 가능한 자료를 최대한 검토하고 최선의 옵션을 제시했지만, 일부 항목은 더 정확한 정보가 필요할 수 있습니다. 
 
-### 8 Data Structures That Power Your Databases
+### 데이터베이스를 강화하는 8가지 데이터 구조
 
 정답은 유즈케이스에 따라 달라집니다. 데이터는 메모리나 디스크에 인덱스될 수 있습니다. 마찬가지로 데이터 포맷도 넘버, 스트링, 지리적 좌표 등 다양합니다. 시스템이 쓰기 중심일 수도 있고 읽기 중심일 수도 있습니다. 이러한 모든 요소는 데이터베이스 인덱스 포맷 선택에 영향을 미칩니다. 
 
@@ -616,7 +616,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 - Suffix tree: 스트링 패턴 검색. 
 - R-tree: 가장 가까운 이웃 찾기와 같은 다차원 검색. 
 
-### How is an SQL statement executed in the database?
+### 데이터베이스에서 SQL 문은 어떻게 실행되나요?
 
 아래 다이어그램은 그 과정을 보여줍니다. 데이터베이스마다 아키텍처가 다르지만 이 다이어그램은 몇 가지 일반적인 설계를 보여줍니다.
 
@@ -641,7 +641,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 
 8단계 - 트랜잭션이 진행되는 동안 데이터는 잠겨 있습니다. 이는 lock manager에 의해 보장됩니다. 또한 트랜잭션의 ACID 프로퍼티도 보장합니다. 
 
-###  CAP theorem
+###  CAP 정리
 
 CAP 정리는 컴퓨터 과학에서 가장 유명한 용어 중 하나이지만 개발자마다 이해하는 바가 다를 수 있습니다. 이 용어가 무엇이며 왜 혼란스러울 수 있는지 살펴보겠습니다. 
 
@@ -669,14 +669,14 @@ CAP 정리에 따르면 분산 시스템은 이 세 가지 보장 중 두 가지
 
 절충안을 논의할 수 있다는 점에서 여전히 유용하다고 생각하지만, 이는 일부분일 뿐입니다. 올바른 데이터베이스를 선택하려면 더 깊이 파고들어야 합니다.
 
-### Types of Memory and Storage
+### 메모리 및 스토리지의 종류
 
 <p>
   <img src="../images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
 </p>
 
 
-### Visualizing a SQL query
+### SQL 쿼리 시각화
 
 <p>
   <img src="../images/sql-execution-order.jpg" style="width: 580px" />
@@ -696,7 +696,7 @@ SQL 실행은 매우 복잡하며 다음과 같은 많은 고려 사항을 포�
 - 동시성 제어 
 - 트랜잭션 관리
 
-### SQL language 
+### SQL 언어 
 
 1986년, SQL(Structured Query Language)이 표준이 되었습니다. 그 후 40년 동안 관계형 데이터베이스 관리 시스템에서 가장 많이 사용되는 언어가 되었습니다. 최신 표준(ANSI SQL 2016)을 읽는 데는 많은 시간이 소요될 수 있습니다. 어떻게 배울 수 있을까요? 
 
@@ -714,9 +714,9 @@ SQL 언어에는 5가지 구성 요소가 있습니다.
 
 백엔드 엔지니어의 경우 대부분을 알아야 할 수도 있습니다. 데이터 분석가라면 DQL을 잘 이해해야 할 수도 있습니다. 자신에게 가장 관련성이 높은 주제를 선택하세요. 
 
-## Cache
+## 캐시
 
-### Data is cached everywhere
+### 데이터는 어디에나 캐시됩니다
 
 이 다이어그램은 일반적인 아키텍처에서 데이터를 캐시하는 위치를 보여줍니다.
 
@@ -741,7 +741,7 @@ SQL 언어에는 5가지 구성 요소가 있습니다.
 - Transaction log: 모든 트랜잭션과 데이터베이스 업데이트 기록합니다.
 - Replication Log: 데이터베이스 클러스터의 복제 상태를 기록하는 데 사용됩니다.
 
-### Why is Redis so fast? 
+### Redis는 왜 빠른가요? 
 
 아래 다이어그램과 같이 3가지 주요 이유가 있습니다.
 
@@ -758,7 +758,7 @@ Question: Another popular in-memory store is Memcached. Do you know the differen
 
 You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.
 
-### How can Redis be used?
+### Redis는 어떻게 사용하나요?
 
 <p>
   <img src="../images/top-redis-use-cases.jpg" style="width: 520px" />
@@ -809,7 +809,7 @@ Redis can be used in a variety of scenarios as shown in the diagram.
 
   We can use ZSet to sort the articles. 
 
-### Top caching strategies
+### 주요 캐싱 전략
 
 Designing large-scale systems usually requires careful consideration of caching. 
 Below are five caching strategies that are frequently utilized. 
@@ -820,9 +820,9 @@ Below are five caching strategies that are frequently utilized.
 
 
 
-## Microservice architecture
+## 마이크로서비스 아키텍처
 
-### What does a typical microservice architecture look like? 
+### 일반적인 마이크로서비스 아키텍처는 어떤 모습일까요? 
 
 <p>
   <img src="../images/typical-microservice-arch.jpg" style="width: 520px" />
@@ -845,7 +845,7 @@ Benefits of microservices:
 - Each domain can be independently maintained by a dedicated team.
 - Business requirements can be customized in each domain and better supported, as a result.
 
-### Microservice Best Practices
+### 마이크로서비스 모범사례
 
 A picture is worth a thousand words: 9 best practices for developing microservices.
 
@@ -866,7 +866,7 @@ When we develop microservices, we need to follow the following best practices:
 8. Design micro frontend 
 9. Orchestrating microservices 
 
-### What tech stack is commonly used for microservices?
+### 마이크로서비스에 일반적으로 사용하는 기술 스택은 무엇인가요
 
 Below you will find a diagram showing the microservice tech stack, both for the development phase and for production.
 
@@ -891,7 +891,7 @@ Cache and Full-text Search - Redis is a common choice for caching key-value pair
 - Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
 - Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
 
-### Why is Kafka fast
+### 카프카가 빠른 이유
 
 There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.
 
@@ -926,7 +926,7 @@ The diagram illustrates how the data is transmitted between producer and consume
  
 Zero copy is a shortcut to save the multiple data copies between application context and kernel context.
 
-## Payment systems
+## 결제 시스템
 
 ### How to learn payment systems?
 
