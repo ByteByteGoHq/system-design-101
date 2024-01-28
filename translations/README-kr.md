@@ -544,21 +544,21 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 
 ## Architecture patterns
 
-### MVC, MVP, MVVM, MVVM-C, and VIPER
-These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? 
+### MVC, MVP, MVVM, MVVM-C, VIPER
+이러한 아키텍처 패턴은 iOS, Android 플랫폼에서 앱 개발 시 가장 일반적으로 사용하는 패턴입니다. 개발자들은 이전 패턴의 한계를 극복하기 위해 이러한 패턴을 도입했습니다. 그렇다면 어떻게 다를까요?
 
 <p>
   <img src="../images/client arch patterns.png" style="width: 720px" />
 </p>
 
-- MVC, the oldest pattern, dates back almost 50 years 
-- Every pattern has a "view" (V) responsible for displaying content and receiving user input 
-- Most patterns include a "model" (M) to manage business data 
-- "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
+- 가장 오래된 패턴인 MVC는 거의 50년 전으로 거슬러 올라갑니다.
+- 모든 패턴에는 콘텐츠를 표시하고 사용자 입력을 수신하는 'view'(V)가 있습니다. 
+- 대부분의 패턴에는 비즈니스 데이터를 관리하기 위한 'model'(M)이 포함됩니다.
+- "Controller", " presenter", "view-model"은 뷰와 모델(VIPER 패턴의 "entity") 사이를 매개하는 변환기입니다.
 
 ### 18 Key Design Patterns Every Developer Should Know
 
-Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns: 
+패턴은 일반적인 설계 문제에 대한 재사용 가능한 솔루션으로, 보다 원활하고 효율적인 개발 프로세스를 가능하게 합니다. 패턴은 더 나은 소프트웨어 구조를 구축하기 위한 청사진 역할을 합니다. 다음은 가장 많이 사용되는 패턴 중 일부입니다.
 
 <p>
   <img src="../images/18-oo-patterns.png" />
@@ -591,83 +591,83 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
   <img src="../images/cloud-dbs2.png" />
 </p>
 
-Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue. 
+프로젝트에 적합한 데이터베이스를 선택하는 것은 복잡한 작업입니다. 각기 다른 유즈케이스에 적합한 데이터베이스 옵션이 많으면 의사 결정에 대한 피로도가 빠르게 높아질 수 있습니다. 
 
-We hope this cheat sheet provides high-level direction to pinpoint the right service that aligns with your project's needs and avoid potential pitfalls. 
+이 치트시트가 프로젝트의 요구사항에 맞는 올바른 서비스를 찾아내고 잠재적인 함정을 피하는 데 도움이 되기를 바랍니다. 
 
-Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate. 
+참고: Google은 데이터베이스 유즈케이스에 대한 문서가 제한되어 있습니다. 사용 가능한 자료를 최대한 검토하고 최선의 옵션을 제시했지만, 일부 항목은 더 정확한 정보가 필요할 수 있습니다. 
 
 ### 8 Data Structures That Power Your Databases
 
-The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format. 
+정답은 유즈케이스에 따라 달라집니다. 데이터는 메모리나 디스크에 인덱스될 수 있습니다. 마찬가지로 데이터 포맷도 넘버, 스트링, 지리적 좌표 등 다양합니다. 시스템이 쓰기 중심일 수도 있고 읽기 중심일 수도 있습니다. 이러한 모든 요소는 데이터베이스 인덱스 포맷 선택에 영향을 미칩니다. 
 
 <p>
   <img src="../images/8-ds-db.jpg" />
 </p>
 
-The following are some of the most popular data structures used for indexing data: 
+다음은 데이터 인덱싱에 가장 많이 사용되는 몇 가지 데이터 구조입니다.
 
-- Skiplist: a common in-memory index type. Used in Redis 
-- Hash index: a very common implementation of the “Map” data structure (or “Collection”) 
-- SSTable: immutable on-disk “Map” implementation 
-- LSM tree: Skiplist + SSTable. High write throughput 
-- B-tree: disk-based solution. Consistent read/write performance 
-- Inverted index: used for document indexing. Used in Lucene 
-- Suffix tree: for string pattern search 
-- R-tree: multi-dimension search, such as finding the nearest neighbor 
+- Skiplist: 일반적인 인메모리 인덱스 타입으로, Redis에서 사용.
+- Hash index: "Map" 데이터 구조(또는 "Collection")의 매우 일반적인 구현.
+- SSTable: 디스크에 이뮤터블 'Map' 구현
+- LSM tree: Skiplist + SSTable. 높은 쓰기 처리량. 
+- B-tree: 디스크 기반 솔루션. 일관된 읽기/쓰기 성능.
+- Inverted index: 도큐먼트 인덱싱에 사용. 루씬에서 사용.
+- Suffix tree: 스트링 패턴 검색. 
+- R-tree: 가장 가까운 이웃 찾기와 같은 다차원 검색. 
 
 ### How is an SQL statement executed in the database?
 
-The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
+아래 다이어그램은 그 과정을 보여줍니다. 데이터베이스마다 아키텍처가 다르지만 이 다이어그램은 몇 가지 일반적인 설계를 보여줍니다.
 
 <p>
   <img src="../images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
 
 
-Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
+1단계 - SQL 문은 전송 계층 프로토콜(예: TCP)을 통해 데이터베이스로 전송됩니다.
 
-Step 2 - The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
+2단계 - SQL 문은 command parser로 전송되어 구문 및 의미 분석을 거친 후 쿼리 트리가 생성됩니다.
 
-Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan. 
+3단계 - 쿼리 트리가 optimizer로 전송됩니다. optimizer가 실행 계획을 생성합니다.
 
-Step 4 - The execution plan is sent to the executor. The executor retrieves data from the execution.
+4단계 - 실행 계획이 executor에게 전송됩니다. executor는 익스큐션에서 데이터를 검색합니다.
 
-Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
+5단계 - Access methods는 실행에 필요한 데이터 페칭 로직을 제공하여 스토리지 엔진에서 데이터를 검색합니다. 
 
-Step 6 - Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
+6단계 - Access methods는 SQL 문의 읽기 전용 여부를 결정합니다. 쿼리가 읽기 전용인 경우(SELECT 문), 쿼리는 추가 처리를 위해 buffer manager에게 전달됩니다. buffer manager는 캐시 또는 데이터 파일에서 데이터를 찾습니다.
 
-Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
+7단계 - UPDATE 혹은 INSERT 문인 경우, 추가 처리를 위해 transaction manager에게 전달합니다.
 
-Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
+8단계 - 트랜잭션이 진행되는 동안 데이터는 잠겨 있습니다. 이는 lock manager에 의해 보장됩니다. 또한 트랜잭션의 ACID 프로퍼티도 보장합니다. 
 
 ###  CAP theorem
 
-The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing. 
+CAP 정리는 컴퓨터 과학에서 가장 유명한 용어 중 하나이지만 개발자마다 이해하는 바가 다를 수 있습니다. 이 용어가 무엇이며 왜 혼란스러울 수 있는지 살펴보겠습니다. 
 
 <p>
   <img src="../images/cap theorem.jpeg" />
 </p>
 
-CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
+CAP 정리에 따르면 분산 시스템은 이 세 가지 보장 중 두 가지 이상을 동시에 제공할 수 없습니다.
 
-**Consistency**: consistency means all clients see the same data at the same time no matter which node they connect to.
+**Consistency**: 일관성이란 모든 클라이언트가 어느 노드에 연결하든 동일한 데이터를 동시에 볼 수 있다는 의미입니다.
 
-**Availability**: availability means any client that requests data gets a response even if some of the nodes are down.
+**Availability**: 가용성이란 일부 노드가 다운되더라도 데이터를 요청하는 모든 클라이언트가 응답을 받는다는 의미입니다.
 
-**Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions. 
+**Partition Tolerance**: 파티션은 두 노드 간의 통신 단절을 나타냅니다. 파티션 똘레랑스는 시스템이 네트워크 파티션에도 불구하고 계속 작동할 수 있는 능력을 의미합니다.
 
-The “2 of 3” formulation can be useful, **but this simplification could be misleading**.
+"셋 중 둘" 공식은 유용할 수 있지만 **이러한 단순화는 오해의 소지가 있습니다**.
 
-1. Picking a database is not easy. Justifying our choice purely based on the CAP theorem is not enough. For example, companies don't choose Cassandra for chat applications simply because it is an AP system. There is a list of good characteristics that make Cassandra a desirable option for storing chat messages. We need to dig deeper.
+1. 데이터베이스를 선택하는 것은 쉽지 않습니다. CAP 정리만으로 선택을 정당화하는 것은 충분하지 않습니다. 예를 들어, 회사에서 단순히 AP 시스템이라는 이유만으로 채팅 애플리케이션을 위해 Cassandra를 선택하지는 않습니다. 채팅 메시지를 저장하는 데 있어 Cassandra를 바람직한 옵션으로 만드는 좋은 특성 목록이 있습니다. 더 깊이 파고들 필요가 있습니다.
 
-2. “CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare”. Quoted from the paper: CAP Twelve Years Later: How the “Rules” Have Changed.
+2. "CAP는 디자인 공간의 극히 일부분, 즉 파티션이 있을 때 완벽한 가용성과 일관성을 보장하는 경우는 드뭅니다." 논문에서 인용: CAP Twelve Years Later: How the "Rules" Have Changed.
 
-3. The theorem is about 100% availability and consistency. A more realistic discussion would be the trade-offs between latency and consistency when there is no network partition. See PACELC theorem for more details.
+3. 이 정리는 약 100%의 가용성과 일관성을 의미합니다. 보다 현실적인 논의는 네트워크 파티션이 없을 때 지연 시간과 일관성 간의 절충안입니다. 자세한 내용은 PACELC 정리를 참조하세요.
 
 **Is the CAP theorem actually useful?**
 
-I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.
+절충안을 논의할 수 있다는 점에서 여전히 유용하다고 생각하지만, 이는 일부분일 뿐입니다. 올바른 데이터베이스를 선택하려면 더 깊이 파고들어야 합니다.
 
 ### Types of Memory and Storage
 
@@ -682,68 +682,68 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
   <img src="../images/sql-execution-order.jpg" style="width: 580px" />
 </p>
 
-SQL statements are executed by the database system in several steps, including: 
+SQL 문은 데이터베이스 시스템에서 다음과 같은 여러 단계로 실행됩니다. 
 
-- Parsing the SQL statement and checking its validity 
-- Transforming the SQL into an internal representation, such as relational algebra 
-- Optimizing the internal representation and creating an execution plan that utilizes index information 
-- Executing the plan and returning the results 
+- SQL문 파싱과 유효성 검사 
+- SQL을 관계대수(relational algebra) 같은 내부 표현으로 변환 
+- 내부 표현을 최적화하고 인덱스 정보를 활용하는 실행 계획 생성 
+- 계획 실행 및 결과 반환
 
-The execution of SQL is highly complex and involves many considerations, such as: 
+SQL 실행은 매우 복잡하며 다음과 같은 많은 고려 사항을 포함합니다. 
 
-- The use of indexes and caches 
-- The order of table joins 
-- Concurrency control 
-- Transaction management 
+- 인덱스 및 캐시 사용 
+- 테이블 조인 순서 
+- 동시성 제어 
+- 트랜잭션 관리
 
 ### SQL language 
 
-In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? 
+1986년, SQL(Structured Query Language)이 표준이 되었습니다. 그 후 40년 동안 관계형 데이터베이스 관리 시스템에서 가장 많이 사용되는 언어가 되었습니다. 최신 표준(ANSI SQL 2016)을 읽는 데는 많은 시간이 소요될 수 있습니다. 어떻게 배울 수 있을까요? 
 
 <p>
   <img src="../images/how-to-learn-sql.jpg" />
 </p>
 
-There are 5 components of the SQL language: 
+SQL 언어에는 5가지 구성 요소가 있습니다. 
 
-- DDL: data definition language, such as CREATE, ALTER, DROP 
-- DQL: data query language, such as SELECT 
-- DML: data manipulation language, such as INSERT, UPDATE, DELETE 
-- DCL: data control language, such as GRANT, REVOKE 
-- TCL: transaction control language, such as COMMIT, ROLLBACK 
+- DDL: data definition language. 예: CREATE, ALTER, DROP 
+- DQL: data query language. 예: SELECT 
+- DML: data manipulation language. 예: INSERT, UPDATE, DELETE 
+- DCL: data control language. 예: GRANT, REVOKE 
+- TCL: transaction control language. 예: COMMIT, ROLLBACK 
 
-For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. 
+백엔드 엔지니어의 경우 대부분을 알아야 할 수도 있습니다. 데이터 분석가라면 DQL을 잘 이해해야 할 수도 있습니다. 자신에게 가장 관련성이 높은 주제를 선택하세요. 
 
 ## Cache
 
 ### Data is cached everywhere
 
-This diagram illustrates where we cache data in a typical architecture.
+이 다이어그램은 일반적인 아키텍처에서 데이터를 캐시하는 위치를 보여줍니다.
 
 <p>
   <img src="../images/where do we cache data.jpeg" style="width: 720px" />
 </p>
 
 
-There are **multiple layers** along the flow.
+플로우를 따라 **multiple layers** 가 있습니다.
 
-1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
-2. CDN: CDN caches static web resources. The clients can retrieve data from a CDN node nearby.
-3. Load Balancer: The load Balancer can cache resources as well.
-4. Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.
-5. Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.
-6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.
-7. Full-text Search: we sometimes need to use full-text searches like Elastic Search for document search or log search. A copy of data is indexed in the search engine as well.
-8. Database: Even in the database, we have different levels of caches:
-- WAL(Write-ahead Log): data is written to WAL first before building the B tree index
-- Bufferpool: A memory area allocated to cache query results
-- Materialized View: Pre-compute query results and store them in the database tables for better query performance
-- Transaction log: record all the transactions and database updates
-- Replication Log: used to record the replication state in a database cluster
+1. Client apps: HTTP 응답은 브라우저에 의해 캐시될 수 있습니다. HTTP를 통해 처음으로 데이터를 요청하면 HTTP 헤더에 만료 정책과 함께 반환되며, 데이터를 다시 요청하면 클라이언트 앱이 먼저 브라우저 캐시에서 데이터를 검색하려고 시도합니다.
+2. CDN: CDN은 정적 웹 리소스를 캐시합니다. 클라이언트는 근처의 CDN 노드에서 데이터를 검색할 수 있습니다.
+3. Load Balancer: 로드 밸런서는 리소스도 캐시할 수 있습니다.
+4. Messaging infra: Message brokers가 먼저 디스크에 메시지를 저장한 다음, consumers는 자신의 속도에 맞춰 메시지를 검색합니다. 리텐션 폴리시에 따라 데이터는 일정 기간 동안 카프카 클러스터에 캐시됩니다.
+5. Services: 서비스에는 여러개의 캐시 계층이 있습니다. CPU 캐시에 데이터가 없으면 메모리 캐시에서 검색을 시도합니다. 때로는 서비스가 디스크에 데이터를 저장하는 세컨드 레벨 캐시가 있는 경우도 있습니다.
+6. Distributed Cache: Redis와 같은 분산 캐시는 여러 서비스에 대한 키-값 쌍을 메모리에 보관합니다. 데이터베이스보다 훨씬 뛰어난 읽기/쓰기 성능을 제공합니다.
+7. Full-text Search: 도큐먼트 검색이나 로그 검색을 위해 Elastic Search와 같은 풀 텍스트 검색을 사용해야 할 때가 있습니다. 데이터 사본도 검색 엔진에서 인덱스됩니다.
+8. Database: 데이터베이스 내에서도 다양한 레벨의 캐시가 있습니다.
+- WAL(Write-ahead Log): 데이터는 B 트리 인덱스를 구축하기 전에 먼저 WAL에 기록됩니다.
+- Bufferpool: 쿼리 결과를 캐시하기 위해 할당된 메모리 영역입니다.
+- Materialized View: 쿼리 결과를 미리 계산하고 데이터베이스 테이블에 저장하여 쿼리 성능을 향상시킵니다.
+- Transaction log: 모든 트랜잭션과 데이터베이스 업데이트 기록합니다.
+- Replication Log: 데이터베이스 클러스터의 복제 상태를 기록하는 데 사용됩니다.
 
 ### Why is Redis so fast? 
 
-There are 3 main reasons as shown in the diagram below.
+아래 다이어그램과 같이 3가지 주요 이유가 있습니다.
 
 <p>
   <img src="../images/why_redis_fast.jpeg" />
