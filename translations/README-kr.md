@@ -64,10 +64,10 @@
   - [마이크로서비스에 일반적으로 사용하는 기술 스택은 무엇인가요?](#마이크로서비스에-일반적으로-사용하는-기술-스택은-무엇인가요)
   - [카프카가 빠른 이유](#카프카가-빠른-이유)
 - [결제 시스템](#결제-시스템)
-  - [결제 시스템을 배우는 방법은 무엇인가요?](#how-to-learn-payment-systems)
-  - [신용카드를 "은행에서 가장 수익성이 높은 상품"이라고 부르는 이유는 무엇인가요? 비자/마스터카드는 어떻게 수익을 창출하나요?](#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money)
-  - [How does VISA work when we swipe a credit card at a merchant’s shop?](#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop)
-  - [세계의 결제 시스템 시리즈(1부): 인도의 통합 결제 인터페이스(UPI)](#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india)
+  - [결제 시스템은 어떻게 배우나요?](#결제-시스템은-어떻게-배우나요)
+  - [신용카드를 "은행에서 가장 수익성이 높은 상품"이라고 부르는 이유는 무엇인가요? 비자/마스터카드는 어떻게 수익을 창출하나요?](#신용카드를-은행에서-가장-수익성이-높은-상품이라고-부르는-이유는-무엇인가요-비자마스터카드는-어떻게-수익을-창출하나요)
+  - [상점에서 우리가 신용카드를 긁을 때, VISA는 어떻게 작동하나요?](#상점에서-우리가-신용카드를-긁을-때-visa는-어떻게-작동하나요)
+  - [세계의 결제 시스템 시리즈(1부): 인도의 통합 결제 인터페이스(UPI)](#세계의-결제-시스템-시리즈1부-인도의-통합-결제-인터페이스upi)
 - [DevOps](#devops)
   - [DevOps vs. SRE vs. Platform Engineering. 무엇이 다른가요?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
   - [k8s(Kubernetes)란 무엇인가요?](#what-is-k8s-kubernetes)
@@ -928,83 +928,83 @@ Cache and Full-text Search - Redis는 key-value 쌍을 캐싱하기 위한 일�
 
 ## 결제 시스템
 
-### How to learn payment systems?
+### 결제 시스템은 어떻게 배우나요?
 
 <p>
   <img src="../images/learn-payments.jpg" />
 </p>
 
-###  Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money? 
+### 신용카드를 "은행에서 가장 수익성이 높은 상품"이라고 부르는 이유는 무엇인가요? 비자/마스터카드는 어떻게 수익을 창출하나요? 
 
-The diagram below shows the economics of the credit card payment flow.
+아래 다이어그램은 신용카드 결제 플로우의 이코노믹스를 보여줍니다.
 
 <p>
   <img src="../images/how does visa makes money.jpg" style="width: 640px" />
 </p>
 
-1.&nbsp;&nbsp;The cardholder pays a merchant $100 to buy a product.
+1.카드 소유자가 제품을 구매하기 위해 판매자에게 100달러를 지불합니다.
 
-2.&nbsp;The merchant benefits from the use of the credit card with higher sales volume and needs to compensate the issuer and the card network for providing the payment service. The acquiring bank sets a fee with the merchant, called the “merchant discount fee.”
+2.판매자는 판매량이 많은 신용카드를 사용하여 이익을 얻고 결제 서비스 제공에 대해 발급사와 카드 네트워크에 보상을 해야 합니다. 매입 은행은 판매자와 "merchant discount fee"라고 하는 수수료를 설정합니다.
 
-3 - 4. The acquiring bank keeps $0.25 as the acquiring markup, and $1.75 is paid to the issuing bank as the interchange fee. The merchant discount fee should cover the interchange fee. 
+3 - 4. 매입 은행은 교환 수수료로 $0.25를 소유하고, $1.75는 환전 수수료로 발급 은행에 지불합니다. merchant discount fee로 환전 수수료를 충당해야 합니다. 
 
-  The interchange fee is set by the card network because it is less efficient for each issuing bank to negotiate fees with each merchant.
+  각 발급 은행이 각 가맹점과 수수료를 협상하는 것이 효율적이지 않기 때문에 교환 수수료는 카드 네트워크에서 설정합니다.
 
-5.&nbsp;&nbsp;The card network sets up the network assessments and fees with each bank, which pays the card network for its services every month. For example, VISA charges a 0.11% assessment, plus a $0.0195 usage fee, for every swipe.
+5.카드 네트워크는 각 은행과 network assessments and fees를 설정하고, 은행은 매달 카드 네트워크에 서비스 비용을 지불합니다. 예를 들어, VISA는 스와이프할 때마다 0.11%의 평가 수수료와 $0.0195의 사용 수수료를 부과합니다.
 
-6.&nbsp;&nbsp;The cardholder pays the issuing bank for its services.
+6.카드 소유자는 발급 은행에 서비스 비용을 지불합니다.
 
-Why should the issuing bank be compensated?
+왜 발급 은행이 보상을 받아야 하나요?
 
-- The issuer pays the merchant even if the cardholder fails to pay the issuer. 
-- The issuer pays the merchant before the cardholder pays the issuer.
-- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc. 
+- 카드 소유주가 발급사에 대금을 지불하지 않더라도 발급사는 판매자에게 대금을 지불합니다. 
+- 카드 소지자가 발급사에 대금을 지불하기 전에 발급사가 판매자에게 대금을 먼저 지불합니다.
+- 발행사는 고객 계좌 관리, 명세서 제공, 사기 탐지, 위험 관리, 청산 및 결제 등 기타 운영 비용이 발생합니다. 
 
-### How does VISA work when we swipe a credit card at a merchant’s shop?
+### 상점에서 우리가 신용카드를 긁을 때, VISA는 어떻게 작동하나요?
 
 <p>
   <img src="../images/visa_payment.jpeg" />
 </p>
 
 
-VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
+비자, 마스터카드, 아메리칸 익스프레스는 자금 청산 및 정산을 위한 카드 네트워크 역할을 합니다. 카드 매입 은행과 카드 발급 은행은 서로 다를 수 있으며, 실제로도 종종 다릅니다. 은행이 중개자 없이 하나씩 거래를 정산한다면, 각 은행은 다른 모든 은행과 거래를 정산해야 합니다. 이는 매우 비효율적입니다.   
  
-The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
+아래 다이어그램은 신용 카드 결제 프로세스에서 VISA의 역할을 보여줍니다. 두 가지 플로우가 관련되어 있습니다. 승인 흐름은 고객이 신용카드를 스와이프할 때 발생합니다. 캡처와 정산 플로우는 상점이 하루가 끝날 때 발생합니다.
  
-- Authorization Flow
+- 거래 승인 플로우Authorization Flow
 
-Step 0: The card issuing bank issues credit cards to its customers. 
+0단계: 카드 발급 은행이 고객에게 신용카드를 발급합니다. 
  
-Step 1: The cardholder wants to buy a product and swipes the credit card at the Point of Sale (POS) terminal in the merchant’s shop.
+1단계: 카드 소유자가 제품을 구매하기 위해 상점의 POS(Point of Sale) 단말기에서 신용카드를 스와이프합니다.
  
-Step 2: The POS terminal sends the transaction to the acquiring bank, which has provided the POS terminal.
+2단계: POS 단말기는 POS 단말기를 제공한 매입 은행으로 거래를 전송합니다.
  
-Steps 3 and 4: The acquiring bank sends the transaction to the card network, also called the card scheme. The card network sends the transaction to the issuing bank for approval.
+3, 4단계: 매입 은행은 거래를 카드 네트워크로 전송하며, 이를 카드 스킴이라고도 합니다. 카드 네트워크는 승인을 위해 발급 은행으로 거래를 전송합니다.
  
-Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal. 
+4.1, 4.2, 4.3단계: 트랜잭션이 승인되면 발행 은행은 자금을 동결합니다. 승인 또는 거부가 매입 은행에게 다시 전송되고 POS 단말기로도 전송됩니다. 
  
-- Capture and Settlement Flow
+- 캡처와 정산 플로우Capture and Settlement Flow
 
-Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
+1, 2단계: 판매자는 하루가 끝날 때 돈을 받으려고 POS 단말기에서 '매입'을 누릅니다. 트랜잭션은 매입 은행에게 일괄적으로 전송됩니다. 매입 은행은 트랜잭션이 포함된 배치 파일을 카드 네트워크로 전송합니다.
  
-Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
+3단계: 카드 네트워크는 여러 매입 은행으로부터 수집한 거래에 대해 정산을 수행하고 정산 파일을 여러 발급 은행으로 전송합니다.
  
-Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
+4단계: 발행 은행은 정산 파일의 정확성을 확인하고 관련 매입 은행으로 자금을 이체합니다.
  
-Step 5: The acquiring bank then transfers money to the merchant’s bank. 
+5단계: 그러면 매입 은행이 판매자의 은행으로 송금합니다. 
  
-Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
+4단계: 카드 네트워크는 서로 다른 카드 발급 은행의 거래를 정산합니다. 정산은 상호 상쇄 거래를 결산하는 과정으로, 총 거래 수를 줄입니다.
  
-In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
+이 과정에서 카드 네트워크는 각 은행과 대화해야 하는 부담을 떠안고 그 대가로 서비스 수수료를 받습니다.
 
-### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
+### 세계의 결제 시스템 시리즈(1부): 인도의 통합 결제 인터페이스(UPI)
 
 
-What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
+UPI란 무엇인가요? UPI는 인도 국립결제공사에서 개발한 실시간 즉시 결제 시스템입니다.
 
-It accounts for 60% of digital retail transactions in India today.
+현재 인도에서 디지털 소매 거래의 60%를 차지하고 있습니다.
 
-UPI = payment markup language + standard for interoperable payments
+UPI = 결제 마크업 언어 + 상호 운용 가능한 결제 표준
 
 
 <p>
