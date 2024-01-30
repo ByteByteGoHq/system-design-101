@@ -285,7 +285,7 @@ Connection Pool
 
 - HTTP 2.0은 2015년에 발표되었습니다. 이는 요청 다중화를 통해 HOL 문제를 해결하여 응용 계층에서 HOL 차단을 제거하지만, 전송(TCP) 계층에는 여전히 HOL이 존재합니다.
 
-  다이어그램에서 볼 수 있듯이 HTTP 2.0은 동일한 TCP 커넥션에 서로 다른 HTTP 교환을 다중화할 수 있는 추상화 개념인 HTTP "steam"을 도입했습니다. 각 스트림을 순서대로 전송할 필요는 없습니다.
+  다이어그램에서 볼 수 있듯이 HTTP 2.0은 동일한 TCP 커넥션에 서로 다른 HTTP 교환을 다중화할 수 있는 추상화 개념인 HTTP "stream"을 도입했습니다. 각 스트림을 순서대로 전송할 필요는 없습니다.
 
 - HTTP 3.0 초안은 2020년에 발표되었습니다. HTTP 2.0의 후속 버전으로 제안되었습니다. 기본 트랜스포트 프로토콜로 TCP 대신 QUIC을 사용하므로 전송 계층에서 HOL 차단이 제거됩니다. 
 
@@ -750,13 +750,13 @@ SQL 언어에는 5가지 구성 요소가 있습니다.
 </p>
 
 
-1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
-2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
-3. Redis leverages several efficient lower-level data structures.
+1. Redis는 RAM 기반 데이터 저장소입니다. RAM 액세스는 임의의 디스크 액세스보다 최소 1000배 이상 빠릅니다.
+2. Redis는 실행 효율성을 위해 IO 멀티플렉싱과 싱글 스레드 익스큐션 루프를 활용합니다.
+3. Redis는 몇 가지 효율적인 로우 레벨 데이터 구조를 활용합니다.
 
-Question: Another popular in-memory store is Memcached. Do you know the differences between Redis and Memcached?
+질문: 또 다른 인기 있는 인메모리 저장소는 Memcached입니다. Redis와 Memcached의 차이점을 알고 있나요?
 
-You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.
+이 다이어그램의 스타일이 이전 게시물과 다르다는 것을 눈치채셨을 것입니다. 어느 쪽을 선호하시는지 알려주세요.
 
 ### Redis는 어떻게 사용하나요?
 
@@ -765,54 +765,54 @@ You might have noticed the style of this diagram is different from my previous p
 </p>
 
 
-There is more to Redis than just caching. 
+Redis에는 단순한 캐싱 이상의 기능이 있습니다.
 
-Redis can be used in a variety of scenarios as shown in the diagram. 
+Redis는 다이어그램에 표시된 것처럼 다양한 시나리오에서 사용할 수 있습니다. 
 
 - Session 
 
-  We can use Redis to share user session data among different services. 
+  Redis를 사용하여 여러 서비스 간에 사용자 세션 데이터를 공유할 수 있습니다. 
 
 - Cache 
 
-  We can use Redis to cache objects or pages, especially for hotspot data. 
+  특히 핫스팟 데이터의 경우 Redis를 사용하여 객체나 페이지를 캐시할 수 있습니다.
 
 - Distributed lock 
 
-  We can use a Redis string to acquire locks among distributed services. 
+  Redis 스트링을 사용하여 분산 서비스 간에 lock을 획득할 수 있습니다. 
 
 - Counter 
 
-  We can count how many likes or how many reads for articles. 
+  좋아요 수, 조회수를 계산할 수 있습니다. 
 
 - Rate limiter 
 
-  We can apply a rate limiter for certain user IPs. 
+  특정 사용자 IP에 대해 rate limiter를 적용할 수 있습니다. 
 
 - Global ID generator 
 
-  We can use Redis Int for global ID. 
+  글로벌 ID에 Redis Int를 사용할 수 있습니다. 
 
 - Shopping cart 
 
-  We can use Redis Hash to represent key-value pairs in a shopping cart. 
+  Redis 해시를 사용하여 장바구니의 key-value 쌍을 나타낼 수 있습니다. 
 
 - Calculate user retention 
 
-  We can use Bitmap to represent the user login daily and calculate user retention. 
+  비트맵을 사용하여 매일 로그인하는 사용자를 표시하고 사용자 리텐션을 계산할 수 있습니다. 
 
 - Message queue 
 
-  We can use List for a message queue. 
+  메시지 큐에 리스트를 사용할 수 있습니다. 
 
 - Ranking 
 
-  We can use ZSet to sort the articles. 
+  ZSet을 사용하여 아티클을 정렬할 수 있습니다. 
 
 ### 주요 캐싱 전략
 
-Designing large-scale systems usually requires careful consideration of caching. 
-Below are five caching strategies that are frequently utilized. 
+대규모 시스템을 설계할 때는 일반적으로 캐싱을 신중하게 고려해야 합니다. 
+다음은 자주 활용되는 5가지 캐싱 전략입니다.
 
 <p>
   <img src="../images/top_caching_strategy.jpeg" style="width: 680px" />
@@ -829,46 +829,46 @@ Below are five caching strategies that are frequently utilized.
 </p>
 
 
-The diagram below shows a typical microservice architecture. 
+아래 다이어그램은 일반적인 마이크로서비스 아키텍처를 보여줍니다. 
 
-- Load Balancer: This distributes incoming traffic across multiple backend services. 
-- CDN (Content Delivery Network): CDN is a group of geographically distributed servers that hold static content for faster delivery. The clients look for content in CDN first, then progress  to backend services.
-- API Gateway: This handles incoming requests and routes them to the relevant services. It talks to the identity provider and service discovery.
-- Identity Provider: This handles authentication and authorization for users. 
-- Service Registry & Discovery: Microservice registration and discovery happen in this component, and the API gateway looks for relevant services in this component to talk to. 
-- Management: This component is responsible for monitoring the services.
-- Microservices: Microservices are designed and deployed in different domains. Each domain has its own database. The API gateway talks to the microservices via REST API or other protocols, and the microservices within the same domain talk to each other using RPC (Remote Procedure Call).
+- Load Balancer: 이렇게 하면 들어오는 트래픽이 여러 백엔드 서비스에 분산됩니다. 
+- CDN (Content Delivery Network): CDN은 더 빠른 전송을 위해 정적 콘텐츠를 보관하는 지리적으로 분산된 서버 그룹입니다. 클라이언트는 먼저 CDN에서 콘텐츠를 찾은 다음 백엔드 서비스로 이동합니다.
+- API Gateway: 수신 요청을 처리하고 관련 서비스로 라우팅합니다. ID 공급자와 통신하고 서비스를 검색합니다.
+- Identity Provider: 유저에 대한 인증과 인가를 처리합니다. 
+- Service Registry & Discovery: 이 컴포넌트에서 마이크로서비스 등록 및 검색이 이루어지고, API 게이트웨이는 이 컴포넌트에서 대화할 관련 서비스를 찾습니다.
+- Management: 이 컴포넌트는 서비스 모니터링을 담당합니다.
+- Microservices: 마이크로서비스는 서로 다른 도메인에서 설계 및 배포됩니다. 각 도메인에는 자체 데이터베이스가 있습니다. API 게이트웨이는 REST API 또는 기타 프로토콜을 통해 마이크로서비스와 통신하고, 동일한 도메인 내의 마이크로서비스는 RPC(Remote Procedure Call)를 사용하여 서로 통신합니다.
 
-Benefits of microservices:
+마이크로서비스의 이점
 
-- They can be quickly designed, deployed, and horizontally scaled.
-- Each domain can be independently maintained by a dedicated team.
-- Business requirements can be customized in each domain and better supported, as a result.
+- 빠르게 설계, 배포하고 수평적으로 확장할 수 있습니다.
+- 각 도메인은 전담 팀에서 독립적으로 관리할 수 있습니다.
+- 결과적으로 각 도메인에서 비즈니스 요구 사항을 커스터마이즈하고 더 나은 지원을 제공할 수 있습니다.
 
 ### 마이크로서비스 모범사례
 
-A picture is worth a thousand words: 9 best practices for developing microservices.
+사진 한 장이 천 마디 말보다 낫습니다: 마이크로서비스 개발을 위한 9가지 모범 사례.
 
 <p>
   <img src="../images/microservice-best-practices.jpeg" />
 </p>
 
  
-When we develop microservices, we need to follow the following best practices: 
+마이크로서비스를 개발할 때는 다음과 같은 모범 사례를 따라야 합니다.
 
-1. Use separate data storage for each microservice 
-2. Keep code at a similar level of maturity 
-3. Separate build for each microservice 
-4. Assign each microservice with a single responsibility 
-5. Deploy into containers 
-6. Design stateless services 
-7. Adopt domain-driven design
-8. Design micro frontend 
-9. Orchestrating microservices 
+1. 각 마이크로서비스마다 별도의 데이터 스토리지 사용 
+2. 코드의 완성도를 비슷한 수준으로 유지 
+3. 각 마이크로서비스마다 별도로 빌드 
+4. 각 마이크로서비스에 단일 책임 할당
+5. 컨테이너에 배포
+6. 스테이트리스 서비스 설계 
+7. 도메인 드리븐 설계 도입
+8. 마이크로 프론트엔드 설계 
+9. 마이크로서비스 오케스트레이션 
 
 ### 마이크로서비스에 일반적으로 사용하는 기술 스택은 무엇인가요
 
-Below you will find a diagram showing the microservice tech stack, both for the development phase and for production.
+아래에서 개발 단계와 프로덕션 단계의 마이크로서비스 기술 스택을 보여주는 다이어그램을 확인할 수 있습니다.
 
 <p>
   <img src="../images/microservice-tech.jpeg" />
@@ -877,54 +877,54 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 
 ▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
-- Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
-- Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
-- Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
+- Define API - 이렇게 하면 프론트엔드와 백엔드 간에 계약이 성립됩니다. 이를 위해 Postman,  OpenAPI를 사용할 수 있습니다.
+- Development - 프론트엔드 개발에는 Node.js나 react가, 백엔드 개발에는 자바/파이썬/go가 많이 사용됩니다. 또한 API 정의에 따라 API 게이트웨이의 구성을 변경해야 합니다.
+- Continuous Integration - 자동화된 테스트를 위해 JUnit과 Jenkins를 사용합니다. 코드는 Docker 이미지로 패키징되어 마이크로서비스로 배포됩니다.
 
 ▶️ 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
-- NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
-- API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
-- The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
-Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
-- Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.
-- Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
-- Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
+- 로드 밸런서에는 NGinx가 일반적으로 선택됩니다. Cloudflare는 CDN(Content Delivery Network)을 제공합니다.
+- API Gateway - 게이트웨이에는 스프링 부트를 사용하고, 서비스 검색에는 Eureka/Zookeeper를 사용할 수 있습니다.
+- 마이크로서비스는 클라우드에 배포됩니다. AWS, Microsoft Azure, Google GCP 중에서 선택할 수 있습니다.
+Cache and Full-text Search - Redis는 key-value 쌍을 캐싱하기 위한 일반적인 선택입니다. 풀 텍스트 서치에는 Elasticsearch가 사용됩니다.
+- Communications - 서비스가 서로 통신하기 위해서는 메시징 인프라로 Kafka 혹은 RPC를 사용할 수 있습니다.
+- Persistence - 관계형 데이터베이스에는 MySQL 또는 PostgreSQL을 사용할 수 있으며, 객체 저장소에는 Amazon S3을 사용할 수 있습니다. 필요한 경우 wide-column 저장소로 Cassandra를 사용할 수도 있습니다.
+- Management & Monitoring - 수많은 마이크로서비스를 관리하기 위한 일반적인 운영 도구로 Prometheus, Elastic Stack, Kubernetes가 있습니다.
 
 ### 카프카가 빠른 이유
 
-There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.
+카프카의 성능에 기여한 많은 디자인 결정이 있습니다. 이 글에서는 두 가지에 초점을 맞추겠습니다. 이 두 가지가 가장 큰 비중을 차지했다고 생각합니다.
 
 <p>
   <img src="../images/why_is_kafka_fast.jpeg" />
 </p>
 
-1. The first one is Kafka’s reliance on Sequential I/O.
-2. The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.
+1. 첫 번째는 카프카가 순차적 I/O에 의존한다는 점입니다.
+2. 카프카의 성능 이점을 제공하는 두 번째 설계 선택은 효율성에 초점을 맞춘 제로 카피 원칙입니다.
  
-The diagram illustrates how the data is transmitted between producer and consumer, and what zero-copy means.
+이 다이어그램은 프로듀서와 컨슈머 간에 데이터가 전송되는 방식과 제로 카피의 의미를 설명합니다.
  
-- Step 1.1 - 1.3: Producer writes data to the disk 
-- Step 2: Consumer reads data without zero-copy
+- 1.1 - 1.3단계: 프로듀서가 디스크에 데이터 쓰기 
+- 2단계: 컨슈머가 제로 카피 없이 데이터 읽기
 
-2.1 The data is loaded from disk to OS cache
+2.1 데이터가 디스크에서 OS 캐시로 로드됩니다.
 
-2.2 The data is copied from OS cache to Kafka application
+2.2 데이터가 OS 캐시에서 카프카 애플리케이션으로 복사됩니다.
 
-2.3 Kafka application copies the data into the socket buffer 
+2.3 카프카 애플리케이션이 데이터를 소켓 버퍼에 복사합니다. 
 
-2.4 The data is copied from socket buffer to network card
+2.4 데이터가 소켓 버퍼에서 네트워크 카드로 복사됩니다.
 
-2.5 The network card sends data out to the consumer
+2.5 네트워크 카드가 컨슈머에게 데이터를 전송합니다.
 
  
-- Step 3: Consumer reads data with zero-copy
+- 3단계: 컨슈머는 제로 카피로 데이터를 읽습니다.
 
-3.1: The data is loaded from disk to OS cache
-3.2 OS cache directly copies the data to the network card via sendfile() command
-3.3 The network card sends data out to the consumer
+3.1: 데이터가 디스크에서 OS 캐시로 로드됩니다.
+3.2 OS 캐시는 sendfile() 커맨드를 통해 데이터를 네트워크 카드에 직접 복사합니다.
+3.3 네트워크 카드가 컨슈머에게 데이터를 전송합니다.
  
-Zero copy is a shortcut to save the multiple data copies between application context and kernel context.
+제로 카피는 애플리케이션 컨텍스트와 커널 컨텍스트 사이에 여러 데이터 복사본을 저장하는 숏컷입니다.
 
 ## 결제 시스템
 
