@@ -77,15 +77,15 @@
   - [Git Commands 작동 방식](#git-commands-작동-방식)
   - [Git은 어떻게 작동하나요?](#git은-어떻게-작동하나요)
   - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
-- [클라우드 서비스](#cloud-services)
-  - [다양한 클라우드 서비스에 대한 유용한 치트시트(2023년판)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
-  - [cloud native란 무엇인가요?](#what-is-cloud-native)
-- [Developer productivity tools](#developer-productivity-tools)
-  - [JSON 파일 시각화](#visualize-json-files)
-  - [코드를 아키텍처 다이어그램으로 자동 변환](#automatically-turn-code-into-architecture-diagrams)
-- [리눅스](#linux)
-  - [리눅스 파일 시스템 설명](#linux-file-system-explained)
-  - [가장 많이 사용되는 18가지 리눅스 명령어 알아보기](#18-most-used-linux-commands-you-should-know)
+- [클라우드 서비스](#클라우드-서비스)
+  - [다양한 클라우드 서비스에 대한 유용한 치트시트(2023년판)](#다양한-클라우드-서비스에-대한-유용한-치트시트2023년판)
+  - [cloud native란 무엇인가요?](#cloud-native란-무엇인가요)
+- [개발자 생산성 도구](#개발자-생산성-도구)
+  - [JSON 파일 시각화](#json-파일-시각화)
+  - [코드를 아키텍처 다이어그램으로 자동 변환](#코드를-아키텍처-다이어그램으로-자동-변환)
+- [리눅스](#리눅스)
+  - [리눅스 파일 시스템 설명](#리눅스-파일-시스템-설명)
+  - [가장 많이 사용되는 18가지 리눅스 커맨드 알아보기](#가장-많이-사용되는-18가지-리눅스-커맨드-알아보기)
 - [보안](#security)
   - [HTTPS는 어떻게 작동하나요?](#how-does-https-work)
   - [간단한 용어로 설명하는 Oauth 2.0](#oauth-20-explained-with-simple-terms)
@@ -1193,118 +1193,119 @@ Git 리베이스는 피처 브랜치 히스토리를 메인 브랜치의 헤드�
 
 퍼블랙 브랜치에서는 절대 사용하지 마세요!
 
-## Cloud Services
+## 클라우드 서비스
 
-### A nice cheat sheet of different cloud services (2023 edition)
+### 다양한 클라우드 서비스에 대한 유용한 치트시트(2023년판)
 
 <p>
   <img src="../images/cloud-compare.jpg" />
 </p>
 
 
-### What is cloud native?
+### cloud native란 무엇인가요?
 
-Below is a diagram showing the evolution of architecture and processes since the 1980s. 
+아래 다이어그램은 1980년대 이후 아키텍처와 프로세스의 진화를 보여줍니다.
 
 <p>
   <img src="../images/cloud-native.jpeg" style="width: 640px" />
 </p>
 
-Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. 
+조직은 클라우드 네이티브 기술을 사용하여 퍼블릭, 프라이빗, 하이브리드 클라우드에서 확장 가능한 애플리케이션을 빌드하고 실행할 수 있습니다.
 
-This means the applications are designed to leverage cloud features, so they are resilient to load and easy to scale. 
+이러한 애플리케이션은 클라우드 기능을 활용하도록 설계되어 있어, 로딩이 탄력적이고 쉽게 확장할 수 있습니다.
 
-Cloud native includes 4 aspects: 
+클라우드 네이티브에는 4가지 측면이 있습니다.
 
 1. Development process 
 
     This has progressed from waterfall to agile to DevOps. 
+    워터폴에서 애자일, 데브옵스로 발전해 왔습니다.
 
 2. Application Architecture 
 
-    The architecture has gone from monolithic to microservices. Each service is designed to be small, adaptive to the limited resources in cloud containers. 
+    아키텍처가 모놀리식 서비스에서 마이크로 서비스로 바뀌었습니다. 각 서비스는 클라우드 컨테이너의 제한된 리소스에 맞게 소규모로 조정되도록 설계되었습니다.
 
 3. Deployment & packaging 
 
-    The applications used to be deployed on physical servers. Then around 2000, the applications that were not sensitive to latency were usually deployed on virtual servers. With cloud native applications, they are packaged into docker images and deployed in containers. 
+    예전에는 애플리케이션이 물리적 서버에 배포되었습니다. 그러다가 2000년경에는 지연 시간에 민감하지 않은 애플리케이션은 보통 가상 서버에 배포되었습니다. 클라우드 네이티브 애플리케이션의 경우 도커 이미지로 패키징되어 컨테이너에 배포됩니다.
 
 4. Application infrastructure 
 
-    The applications are massively deployed on cloud infrastructure instead of self-hosted servers. 
+    애플리케이션은 자체 호스팅 서버 대신 클라우드 인프라에 대규모로 배포됩니다.
 
-## Developer productivity tools
+## 개발자 생산성 도구
 
-### Visualize JSON files
+### JSON 파일 시각화
 
-Nested JSON files are hard to read.
+중첩된 JSON 파일은 읽기 어렵습니다.
 
-**JsonCrack** generates graph diagrams from JSON files and makes them easy to read.
+JSON 파일에서 그래프 다이어그램을 생성하고 쉽게 읽을 수 있도록 **JsonCrack**을 제공합니다.
 
-Additionally, the generated diagrams can be downloaded as images.
+또한 생성된 다이어그램은 이미지로 다운로드할 수 있습니다.
 
 <p>
   <img src="../images/json-cracker.jpeg" />
 </p>
 
 
-### Automatically turn code into architecture diagrams
+### 코드를 아키텍처 다이어그램으로 자동 변환
 
 <p>
   <img src="../images/diagrams_as_code.jpeg" style="width: 640px" />
 </p>
 
 
-What does it do?
+어떤 기능이 있나요?
 
-- Draw the cloud system architecture in Python code.
-- Diagrams can also be rendered directly inside the Jupyter Notebooks.
-- No design tools are needed. 
-- Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc. 
+- Python 코드로 클라우드 시스템 아키텍처를 그립니다.
+- 다이어그램은 주피터 노트북에서 바로 렌더링할 수도 있습니다.
+- 디자인 도구가 필요하지 않습니다.
+- 다음 프로바이더를 지원합니다: AWS, Azure, GCP, Kubernetes, 알리바바 클라우드, 오라클 클라우드 등.
  
 [Github repo](https://github.com/mingrammer/diagrams)
 
-## Linux
+## 리눅스
 
-### Linux file system explained
+### 리눅스 파일 시스템 설명
 
 <p>
   <img src="../images/linux-file-systems.jpg" style="width: 680px" />
 </p>
 
-The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.
+예전에는 Linux 파일 시스템이 개인이 원하는 곳에 집을 짓는 무질서한 마을과 비슷했습니다. 하지만 1994년, 리눅스 파일 시스템에 질서를 부여하기 위해 파일시스템 계층구조 표준(FHS:Filesystem Hierarchy Standard)이 도입되었습니다.
 
-By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
-To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
+소프트웨어는 FHS와 같은 표준을 구현함으로써 다양한 Linux 배포판에서 일관된 레이아웃을 보장할 수 있습니다. 하지만 모든 Linux 배포판이 이 표준을 엄격하게 준수하는 것은 아닙니다. 자체 고유 엘리먼트를 통합하거나 특정 요구 사항을 충족하는 경우가 많습니다.
+이 표준에 능숙해지려면 먼저 살펴보는 것부터 시작할 수 있습니다. 탐색을 위해서는 "cd", 디렉토리 내용을 나열하려면 "ls"와 같은 커맨드를 활용하세요. 파일 시스템을 루트(/)에서 시작하는 트리라고 상상해 보세요. 시간이 지나면 익숙해져서 숙련된 Linux 관리자로 거듭날 수 있을 것입니다.
 
-### 18 Most-used Linux Commands You Should Know 
+### 가장 많이 사용되는 18가지 리눅스 커맨드 알아보기
 
-Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. 
+Linux 커맨드는 운영 체제와 상호 작용하기 위한 인스터럭션입니다. 파일, 디렉토리, 시스템 프로세스 및 기타 시스템의 여러 측면을 관리하는 데 도움이 됩니다. Linux 기반 시스템을 효율적이고 효과적으로 탐색하고 유지 관리하려면 이러한 커맨드에 익숙해져야 합니다.
 
-This diagram below shows popular Linux commands: 
+아래 다이어그램은 자주 사용되는 Linux 커맨드입니다.
 
 <p>
   <img src="../images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
 
-- ls - List files and directories 
-- cd - Change the current directory 
-- mkdir - Create a new directory 
-- rm - Remove files or directories 
-- cp - Copy files or directories 
-- mv - Move or rename files or directories 
-- chmod - Change file or directory permissions 
-- grep - Search for a pattern in files 
-- find - Search for files and directories 
-- tar - manipulate tarball archive files 
-- vi - Edit files using text editors 
-- cat - display the content of files 
-- top - Display processes and resource usage 
-- ps - Display processes information 
-- kill - Terminate a process by sending a signal 
-- du - Estimate file space usage 
-- ifconfig - Configure network interfaces  
-- ping - Test network connectivity between hosts 
+- ls - 파일과 디렉토리 목록
+- cd - 현재 디렉토리 변경
+- mkdir - 새로운 디렉토리 생성
+- rm - 파일 또는 디렉토리 제거
+- cp - 파일 또는 디렉토리 복사
+- mv - 파일 또는 디렉토리 이름변경 혹은 이동
+- chmod - 파일 또는 디렉토리 권한 관리
+- grep - 파일에서 패턴 검색
+- find - 파일과 디렉토리 검색
+- tar - tarball 아카이브 파일 조작
+- vi - 텍스트 에디터를 사용하여 파일 편집
+- cat - 파일의 콘텐츠 표시
+- top - 프로세스 리소스 사용량 표시
+- ps - 프로세서 정보 표시
+- kill - 신호를 전송하여 프로세스 종료
+- du - 파일 용량 사용량 추정
+- ifconfig - 네트워크 인터페이스 설정  
+- ping - 호스트 간 네트워크 커넥션 테스트
 
 ## Security
 
