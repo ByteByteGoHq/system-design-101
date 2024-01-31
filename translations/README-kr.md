@@ -74,8 +74,8 @@
   - [Docker vs. Kubernetes. 어떤것을 사용해야 하나요?](#docker-vs-kubernetes-어떤것을-사용해야-하나요)
   - [Docker는 어떻게 작동하나요?](#docker는-어떻게-작동하나요)
 - [GIT](#git)
-  - [Git Commands 작동 방식](#how-git-commands-work)
-  - [Git은 어떻게 작동하나요?](#how-does-git-work)
+  - [Git Commands 작동 방식](#git-commands-작동-방식)
+  - [Git은 어떻게 작동하나요?](#git은-어떻게-작동하나요)
   - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
 - [클라우드 서비스](#cloud-services)
   - [다양한 클라우드 서비스에 대한 유용한 치트시트(2023년판)](#a-nice-cheat-sheet-of-different-cloud-services-2023-edition)
@@ -1131,67 +1131,67 @@ Kubernetes: 쿠버네티스는 클러스터 레벨에서 작동합니다. 여러
 
 ## GIT
 
-### How Git Commands work
+### Git Commands 작동 방식
 
-To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: 
+우선 코드가 어디에 저장되어 있는지 파악하는 것이 중요합니다. 일반적으로 코드가 저장되는 위치는 Github과 같은 리모트 서버와 로컬 컴퓨터 두 곳뿐이라고 가정합니다. 하지만 이는 정확하지 않습니다. Git은 컴퓨터에 3개의 로컬 저장소를 유지하므로 코드가 네 곳에서 발견될 수 있습니다.
 
 <p>
   <img src="../images/git-commands.png" style="width: 600px" />
 </p>
 
 
-- Working directory: where we edit files 
-- Staging area: a temporary location where files are kept for the next commit 
-- Local repository: contains the code that has been committed 
-- Remote repository: the remote server that stores the code 
+- Working directory: 파일을 편집하는 위치
+- Staging area: 다음 커밋을 위해 파일이 저장되는 임시 위치
+- Local repository: 커밋된 코드가 포함되는 로컬 저장소
+- Remote repository: 코드를 저장하는 리모트 서버
 
-Most Git commands primarily move files between these four locations. 
+대부분의 Git 명령은 주로 이 네 위치 사이에서 파일을 이동합니다.
 
-### How does Git Work?
+### Git은 어떻게 작동하나요?
 
-The diagram below shows the Git workflow. 
+아래 다이어그램은 Git 워크플로우를 보여줍니다.
 
 <p>
   <img src="../images/git-workflow.jpeg" style="width: 520px" />
 </p>
 
 
-Git is a distributed version control system. 
+Git은 분산 버전 관리 시스템입니다.
 
-Every developer maintains a local copy of the main repository and edits and commits to the local copy. 
+모든 개발자는 메인 리포지토리의 로컬 복사본을 유지 관리하고 로컬 복사본에서 편집 및 커밋합니다.
 
-The commit is very fast because the operation doesn’t interact with the remote repository. 
+작업이 리모트 리포지토리와 상호작용하지 않기 때문에 커밋이 매우 빠릅니다.
 
-If the remote repository crashes, the files can be recovered from the local repositories. 
+리모트 리포지토리에 충돌이 발생하면 로컬 리포지토리에서 파일을 복구할 수 있습니다.
 
 ### Git merge vs. Git rebase
 
-What are the differences?
+어떤 점이 다른가요?
 
 <p>
   <img src="../images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
 
 
-When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
+한 Git 브랜치에서 다른 브랜치로 **merge changes** 할 때 'git merge' 또는 'git rebase'를 사용할 수 있습니다. 아래 다이어그램은 두 커맨드의 작동 방식을 보여줍니다.
 
 **Git merge**
 
-This creates a new commit G’ in the main branch. G’ ties the histories of both main and feature branches.
+그러면 메인 브랜치에 새 커밋 G'가 만들어집니다. G'는 메인 브랜치와 피처 브랜치의 히스토리를 모두 연결합니다.
 
-Git merge is **non-destructive**. Neither the main nor the feature branch is changed.
+Git 병합은 **non-destructive**이다. 메인 브랜치나 피처 브랜치 모두 변경되지 않는다.
 
 **Git rebase**
 
-Git rebase moves the feature branch histories to the head of the main branch. It creates new commits E’, F’, and G’ for each commit in the feature branch.
+Git 리베이스는 피처 브랜치 히스토리를 메인 브랜치의 헤드로 가져옵니다. 그러면 피처 브랜치의 각 커밋에 대해 새 커밋 E', F', G' 가 생성됩니다.
 
-The benefit of rebase is that it has a linear **commit history**.
+리베이스의 장점은 선형적인 **commit history**가 있다는 것입니다.
 
-Rebase can be dangerous if “the golden rule of git rebase” is not followed.
+"git 리베이스의 황금률"을 따르지 않으면 리베이스가 위험할 수 있습니다.
 
 **The Golden Rule of Git Rebase**
 
-Never use it on public branches!
+퍼블랙 브랜치에서는 절대 사용하지 마세요!
 
 ## Cloud Services
 
