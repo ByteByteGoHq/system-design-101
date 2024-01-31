@@ -86,14 +86,14 @@
 - [리눅스](#리눅스)
   - [리눅스 파일 시스템 설명](#리눅스-파일-시스템-설명)
   - [가장 많이 사용되는 18가지 리눅스 커맨드 알아보기](#가장-많이-사용되는-18가지-리눅스-커맨드-알아보기)
-- [보안](#security)
-  - [HTTPS는 어떻게 작동하나요?](#how-does-https-work)
-  - [간단한 용어로 설명하는 Oauth 2.0](#oauth-20-explained-with-simple-terms)
-  - [인증 메커니즘의 4가지 주요 형태](#top-4-forms-of-authentication-mechanisms)
-  - [Session, cookie, JWT, token, SSO, OAuth 2.0 - 그게 뭔가요?](#session-cookie-jwt-token-sso-and-oauth-20---what-are-they)
-  - [데이터베이스에 비밀번호를 안전하게 저장하는 방법과 비밀번호를 확인하는 방법은 무엇인가요?](#how-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password)
-  - [10세 어린이에게 JSON Web Token(JWT) 설명하기](#explaining-json-web-token-jwt-to-a-10-year-old-kid)
-  - [Google authenticator(또는 다른 유형의 2 factor authenticator)는 어떻게 작동하나요?](#how-does-google-authenticator-or-other-types-of-2-factor-authenticators-work)
+- [보안](#보안)
+  - [HTTPS는 어떻게 작동하나요?](#https는-어떻게-작동하나요)
+  - [간단한 용어로 설명하는 Oauth 2.0](#간단한-용어로-설명하는-oauth-20)
+  - [인증 메커니즘의 4가지 주요 형태](#인증-메커니즘의-4가지-주요-형태)
+  - [Session, cookie, JWT, token, SSO, OAuth 2.0 - 그게 뭔가요?](#session-cookie-jwt-token-sso-oauth-20---그게-뭔가요)
+  - [데이터베이스에 비밀번호를 안전하게 저장하는 방법과 비밀번호를 확인하는 방법은 무엇인가요?](#데이터베이스에-비밀번호를-안전하게-저장하는-방법과-비밀번호를-확인하는-방법은-무엇인가요)
+  - [10세 어린이에게 JSON Web Token(JWT) 설명하기](#10세-어린이에게-json-web-tokenjwt-설명하기)
+  - [Google authenticator(또는 다른 유형의 2 factor authenticator)는 어떻게 작동하나요?](#google-authenticator또는-다른-유형의-2-factor-authenticator는-어떻게-작동하나요)
 - [실제 사례 연구](#real-world-case-studies)
   - [넷플릭스 기술 스택](#netflixs-tech-stack)
   - [트위터 아키텍처 2022](#twitter-architecture-2022)
@@ -1307,58 +1307,58 @@ Linux 커맨드는 운영 체제와 상호 작용하기 위한 인스터럭션�
 - ifconfig - 네트워크 인터페이스 설정  
 - ping - 호스트 간 네트워크 커넥션 테스트
 
-## Security
+## 보안
 
-### How does HTTPS work?
+### HTTPS는 어떻게 작동하나요?
 
-Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. 
+Hypertext Transfer Protocol Secure(HTTPS)는 Hypertext Transfer Protocol(HTTP)의 확장입니다. HTTPS는 Transport Layer Security(TLS)를 사용하여 암호화된 데이터를 전송합니다. 온라인에서 데이터를 탈취당하면 탈취자가 얻는 것은 바이너리 코드뿐입니다.
 
 <p>
   <img src="../images/https.jpg" />
 </p>
 
 
-How is the data encrypted and decrypted?
+데이터는 어떻게 암호화되고 복호화되나요?
 
-Step 1 - The client (browser) and the server establish a TCP connection.
+1단계 - 클라이언트(브라우저)와 서버가 TCP 커넥션을 설정합니다.
 
-Step 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
+2단계 - 클라이언트가 서버에 "client hello"를 보냅니다. 이 메시지에는 필요한 암호화 알고리즘(cipher suites) 세트와 지원할 수 있는 최신 TLS 버전이 포함됩니다. 서버는 "server hello"로 응답하여 브라우저가 해당 알고리즘과 TLS 버전을 지원할 수 있는지 여부를 알 수 있습니다.
 
-The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate. 
+그러면 서버가 클라이언트에 SSL 인증서를 보냅니다. 인증서에는 공개 키, 호스트 이름, 만료 날짜 등이 포함됩니다. 클라이언트는 인증서의 유효성을 검사합니다.
 
-Step 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key. 
+3단계 - SSL 인증서의 유효성을 검사한 후 클라이언트는 세션 키를 생성하고 공개 키를 사용하여 암호화합니다. 서버는 암호화된 세션 키를 수신하고 개인 키로 암호를 해독합니다.
 
-Step 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
+4단계 - 이제 클라이언트와 서버가 모두 동일한 세션 키(대칭 암호화)를 보유하므로 암호화된 데이터는 안전한 양방향 채널로 전송됩니다.
 
-Why does HTTPS switch to symmetric encryption during data transmission? There are two main reasons:
+데이터 전송 중에 HTTPS가 대칭 암호화로 전환되는 이유는 무엇인가요? 두 가지 주요 이유가 있습니다.
 
-1. Security: The asymmetric encryption goes only one way. This means that if the server tries to send the encrypted data back to the client, anyone can decrypt the data using the public key.
+1. 보안: 비대칭 암호화는 한 방향으로만 진행됩니다. 즉, 서버가 암호화된 데이터를 클라이언트로 다시 보내려고 하면 누구나 공개 키를 사용하여 데이터를 해독할 수 있습니다.
 
-2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
+2. 서버 리소스: 비대칭 암호화는 상당한 수학적 오버헤드를 추가합니다. 긴 세션의 데이터 전송에는 적합하지 않습니다.
 
-### Oauth 2.0 Explained With Simple Terms. 
+### 간단한 용어로 설명하는 Oauth 2.0
 
-OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. 
+OAuth 2.0은 강력하고 안전한 프레임워크로, 여러 애플리케이션이 민감한 자격 증명을 공유하지 않고도 사용자를 대신하여 서로 안전하게 상호 작용할 수 있게 해줍니다.
 
 <p>
   <img src="../images/oAuth2.jpg" />
 </p>
 
-The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). 
+OAuth에 참여하는 개체는 사용자, 서버, ID 공급자(Identity Provider, IDP)입니다.
 
-What Can an OAuth Token Do? 
+OAuth 토큰은 무엇을 할 수 있나요?
 
-When you use OAuth, you get an OAuth token that represents your identity and permissions. This token can do a few important things: 
+OAuth를 사용하면 신원 및 권한을 나타내는 OAuth 토큰을 받게 됩니다. 이 토큰은 몇 가지 중요한 작업을 수행할 수 있습니다.
 
-Single Sign-On (SSO): With an OAuth token, you can log into multiple services or apps using just one login, making life easier and safer. 
+Single Sign-On(SSO): OAuth 토큰을 사용하면 한 번의 로그인으로 여러 서비스나 앱에 로그인할 수 있어 더욱 쉽고 안전하게 생활할 수 있습니다.
 
-Authorization Across Systems: The OAuth token allows you to share your authorization or access rights across various systems, so you don't have to log in separately everywhere. 
+Authorization Across Systems: 시스템 간 인증: OAuth 토큰을 사용하면 다양한 시스템에서 인증 또는 액세스 권한을 공유할 수 있으므로 모든 시스템에서 별도로 로그인할 필요가 없습니다.
 
-Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won't see everything. 
+Accessing User Profile: OAuth 토큰이 있는 앱은 사용자가 허용한 사용자 프로필의 특정 부분에 액세스할 수 있지만 모든 부분을 볼 수는 없습니다.
 
-Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
+OAuth 2.0은 사용자와 사용자의 데이터를 안전하게 보호하는 동시에 다양한 애플리케이션과 서비스에서 원활하고 번거로움 없는 온라인 경험을 제공하는 데 중점을 두고 있습니다.
 
-### Top 4 Forms of Authentication Mechanisms 
+### 인증 메커니즘의 4가지 주요 형태
 
 <p>
   <img src="../images/top4-most-used-auth.jpg" />
@@ -1366,132 +1366,132 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
 
 1. SSH Keys: 
    
-    Cryptographic keys are used to access remote systems and servers securely 
+    암호화 키는 원격 시스템 및 서버에 안전하게 액세스하는 데 사용됩니다.
 
 1. OAuth Tokens: 
 
-    Tokens that provide limited access to user data on third-party applications 
+    써드파티 애플리케이션의 사용자 데이터에 대한 제한된 액세스를 제공하는 토큰입니다.
 
 1. SSL Certificates: 
   
-    Digital certificates ensure secure and encrypted communication between servers and clients 
+    디지털 인증서는 서버와 클라이언트 간의 안전한 암호화된 통신을 보장합니다.
 
 1. Credentials: 
 
-    User authentication information is used to verify and grant access to various systems and services
+    사용자 인증 정보는 다양한 시스템과 서비스에 대한 액세스 권한을 확인하고 부여하는 데 사용됩니다.
 
-### Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?
+### Session, cookie, JWT, token, SSO, OAuth 2.0 - 그게 뭔가요?
 
-These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.
+이 약관은 모두 사용자 신원 관리와 관련이 있습니다. 웹사이트에 로그인할 때 사용자는 자신이 누구인지를 선언합니다(식별). 사용자의 신원을 확인하고(인증) 필요한 권한을 부여합니다(인가). 과거에 많은 솔루션이 제안되었고 그 목록은 계속 늘어나고 있습니다.
 
 <p>
   <img src="../images/session.jpeg" />
 </p>
 
-From simple to complex, here is my understanding of user identity management:
+간단한 것부터 복잡한 것까지, 사용자 신원 관리에 대한 저의 이해를 정리해 보았습니다.
 
-- WWW-Authenticate is the most basic method. You are asked for the username and password by the browser. As a result of the inability to control the login life cycle, it is seldom used today.
+- WWW-인증은 가장 기본적인 방법입니다. 브라우저에서 사용자 이름과 비밀번호를 입력하라는 메시지가 표시됩니다. 로그인 수명 주기를 제어할 수 없기 때문에 오늘날에는 거의 사용되지 않습니다.
 
-- A finer control over the login life cycle is session-cookie. The server maintains session storage, and the browser keeps the ID of the session. A cookie usually only works with browsers and is not mobile app friendly.
+- 로그인 수명 주기를 보다 세밀하게 제어할 수 있는 방법은 세션 쿠키입니다. 서버는 세션 저장소를 유지하고 브라우저는 세션의 ID를 유지합니다. 쿠키는 일반적으로 브라우저에서만 작동하며 모바일 앱에는 적합하지 않습니다.
 
-- To address the compatibility issue, the token can be used. The client sends the token to the server, and the server validates the token. The downside is that the token needs to be encrypted and decrypted, which may be time-consuming.
+- 호환성 문제를 해결하기 위해 토큰을 사용할 수 있습니다. 클라이언트가 토큰을 서버로 전송하면 서버가 토큰의 유효성을 검사합니다. 단점은 토큰을 암호화하고 해독해야 하므로 시간이 오래 걸릴 수 있다는 것입니다.
 
-- JWT is a standard way of representing tokens. This information can be verified and trusted because it is digitally signed. Since JWT contains the signature, there is no need to save session information on the server side.
+- JWT는 토큰을 나타내는 표준 방식입니다. 이 정보는 디지털 서명이 되어 있기 때문에 검증되고 신뢰할 수 있습니다. JWT에는 서명이 포함되어 있으므로 서버 측에 세션 정보를 저장할 필요가 없습니다.
 
-- By using SSO (single sign-on), you can sign on only once and log in to multiple websites. It uses CAS (central authentication service) to maintain cross-site information.
+- SSO( Single Sign-On)을 사용하면 한 번만 로그온하여 여러 웹사이트에 로그인할 수 있습니다. CAS( Central Authentication Service)를 사용하여 사이트 간 정보를 유지 관리합니다.
 
-- By using OAuth 2.0, you can authorize one website to access your information on another website.
+- OAuth 2.0을 사용하면 한 웹사이트가 다른 웹사이트에서 내 정보에 액세스할 수 있도록 인증할 수 있습니다.
 
-### How to store passwords safely in the database and how to validate a password? 
+### 데이터베이스에 비밀번호를 안전하게 저장하는 방법과 비밀번호를 확인하는 방법은 무엇인가요?
 
 <p>
   <img src="../images/salt.jpg" style="width: 720px" />
 </p>
 
  
-**Things NOT to do**
+**하지 말아야 할 것들**
 
-- Storing passwords in plain text is not a good idea because anyone with internal access can see them.
+- 비밀번호를 일반 텍스트로 저장하는 것은 내부 액세스 권한이 있는 모든 사람이 볼 수 있으므로 좋은 생각이 아닙니다.
 
-- Storing password hashes directly is not sufficient because it is pruned to precomputation attacks, such as rainbow tables. 
+- 비밀번호 해시를 직접 저장하는 것은 레인보우 테이블과 같은 사전 계산 공격에 취약하기 때문에 충분하지 않습니다.
 
-- To mitigate precomputation attacks, we salt the passwords. 
+- precomputation attacks을 완화하기 위해 비밀번호를 솔트 처리합니다.
 
-**What is salt?**
+**salt란 무엇인가요?**
 
-According to OWASP guidelines, “a salt is a unique, randomly generated string that is added to each password as part of the hashing process”.
+OWASP 가이드라인에 따르면 "솔트란 해싱 프로세스의 일부로 각 비밀번호에 추가되는 고유하고 무작위로 생성되는 문자열"입니다.
  
-**How to store a password and salt?**
+**비밀번호와 salt를 저장하는 방법은 무엇인가요?**
 
-1. the hash result is unique to each password.
-1. The password can be stored in the database using the following format: hash(password + salt).
+1. 해시 결과는 각 비밀번호마다 고유합니다.
+1. 비밀번호는 다음 포맷을 사용하여 데이터베이스에 저장할 수 있습니다. 해시(password + salt).
 
-**How to validate a password?**
+**비밀번호는 어떻게 확인하나요?**
 
-To validate a password, it can go through the following process:
+비밀번호의 유효성을 검사하려면 다음 과정을 거칠 수 있습니다.
 
-1. A client enters the password.
-1. The system fetches the corresponding salt from the database.
-1. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
-1. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid. 
+1. 클라이언트에서 패스워드를 입력합니다.
+1. 시스템은 데이터베이스에서 해당 salt를 가져옵니다.
+1. 시스템이 비밀번호에 salt를 추가하고 해시로 만듭니다. 해시된 값을 H1이라고 부르겠습니다.
+1. 시스템은 H1과 H2를 비교하는데, 여기서 H2는 데이터베이스에 저장된 해시입니다. 둘이 같으면 비밀번호가 유효한 것입니다.
 
-### Explaining JSON Web Token (JWT) to a 10 year old Kid
+### 10세 어린이에게 JSON Web Token(JWT) 설명하기
 
 <p>
   <img src="../images/jwt.jpg" />
 </p>
 
-Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
+JWT라는 특별한 상자가 있다고 상상해 보세요. 이 상자 안에는 헤더, 페이로드, 서명 세 부분이 있습니다.
 
-The header is like the label on the outside of the box. It tells us what type of box it is and how it's secured. It's usually written in a format called JSON, which is just a way to organize information using curly braces { } and colons : .
+헤더는 상자 외부의 라벨과 같은 역할을 합니다. 헤더는 상자의 타입과 보안 방법을 알려줍니다. 일반적으로 중괄호 { }와 콜론 : 을 사용하여 정보를 정리하는 방법인 JSON이라는 포맷으로 작성됩니다.
 
-The payload is like the actual message or information you want to send. It could be your name, age, or any other data you want to share. It's also written in JSON format, so it's easy to understand and work with.
-Now, the signature is what makes the JWT secure. It's like a special seal that only the sender knows how to create. The signature is created using a secret code, kind of like a password. This signature ensures that nobody can tamper with the contents of the JWT without the sender knowing about it.
+페이로드는 전송하려는 실제 메시지 또는 정보와 같습니다. 이름, 나이 또는 공유하고자 하는 기타 데이터가 될 수 있습니다. 또한 JSON 포맷으로 작성되어 이해하기 쉽고 작업하기 쉽습니다.
+서명은 JWT를 안전하게 보호하는 역할을 합니다. 서명은 발신자만 만드는 방법을 알고 있는 특별한 도장과 같습니다. 서명은 비밀번호와 같은 시크릿 코드를 사용하여 생성됩니다. 이 서명은 아무도 발신자 모르게 JWT의 내용을 변경할 수 없도록 합니다.
 
-When you want to send the JWT to a server, you put the header, payload, and signature inside the box. Then you send it over to the server. The server can easily read the header and payload to understand who you are and what you want to do.
+JWT를 서버로 보내려면 헤더, 페이로드, 서명을 상자 안에 넣고 서버로 전송합니다. 서버는 헤더와 페이로드를 쉽게 읽고 사용자가 누구인지, 무엇을 하려는지 이해할 수 있습니다.
 
-### How does Google Authenticator (or other types of 2-factor authenticators) work?
+### Google authenticator(또는 다른 유형의 2 factor authenticator)는 어떻게 작동하나요?
 
-Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
+2단계 인증이 활성화된 경우 일반적으로 Google 인증서가 계정 로그인에 사용됩니다. 어떻게 보안을 보장하나요?
  
-Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail. 
+Google 인증기는 2단계 인증 서비스를 구현하는 소프트웨어 기반 인증기입니다. 아래 다이어그램에서 자세한 내용을 확인할 수 있습니다.
 
 <p>
   <img src="../images/google_authenticate.jpeg" />
 </p>
 
 
-There are two stages involved:
+두 스테이지가 있습니다.
 
-- Stage 1 - The user enables Google two-step verification. 
-- Stage 2 - The user uses the authenticator for logging in, etc.
+- 스테이지 1 - 사용자가 Google 2단계 인증을 활성화합니다.
+- 스테이지 2 - 사용자는 로그인 등에 인증기를 사용합니다.
 
-Let’s look at these stages.
+이 스테이지를 살펴보겠습니다.
  
-**Stage 1**
+**스테이지1**
 
-Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
+단계 1,2: Bob이 웹 페이지를 열어 2단계 인증을 활성화합니다. 프론트엔드에서 시크릿 키를 요청합니다. 인증 서비스에서 Bob의 시크릿 키를 생성하여 데이터베이스에 저장합니다.
  
-Step 3: The authentication service returns a URI to the front end. The URI is composed of a key issuer, username, and secret key. The URI is displayed in the form of a QR code on the web page.
+단계 3: 인증 서비스는 프론트엔드에 URI를 반환합니다. URI는 키 발급자, 사용자 이름, 시크릿 키로 구성됩니다. URI는 웹 페이지에 QR 코드 형태로 표시됩니다.
  
-Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
+단계 4: 그런 다음 Bob은 Google 인증기를 사용하여 생성된 QR 코드를 스캔합니다. 시크릿 키는 인증기에 저장됩니다.
 
-**Stage 2**
-Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
+**스테이지2**
+단계 1, 2: 밥은 구글 2단계 인증으로 웹사이트에 로그인하려고 합니다. 이를 위해서는 비밀번호가 필요합니다. Google 인증기는 30초마다 TOTP(Time-based One Time Password) 알고리즘을 사용하여 6자리 비밀번호를 생성합니다. 밥은 이 비밀번호를 사용하여 웹사이트에 들어갑니다.
  
-Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
+단계 3, 4: 프론트엔드는 인증을 위해 밥이 입력한 비밀번호를 백엔드로 전송합니다. 인증 서비스는 데이터베이스에서 시크릿 키를 읽고 클라이언트와 동일한 TOTP 알고리즘을 사용하여 6자리 비밀번호를 생성합니다.
  
-Step 5: The authentication service compares the two passwords generated by the client and the server, and returns the comparison result to the frontend. Bob can proceed with the login process only if the two passwords match.
+단계 5: 인증 서비스는 클라이언트와 서버에서 생성한 두 개의 비밀번호를 비교하고 비교 결과를 프론트엔드에 반환합니다. Bob은 두 비밀번호가 일치하는 경우에만 로그인 프로세스를 진행할 수 있습니다.
  
-Is this authentication mechanism safe? 
+이 인증 메커니즘은 안전한가요?
 
-- Can the secret key be obtained by others? 
+- 다른 사람이 시크릿 키를 획득할 수 있나요?
 
-    We need to make sure the secret key is transmitted using HTTPS. The authenticator client and the database store the secret key, and we need to make sure the secret keys are encrypted.
+    시크릿 키가 HTTPS를 사용하여 전송되는지 확인해야 합니다. 인증기 클라이언트와 데이터베이스는 비밀 키를 저장하며, 비밀 키가 암호화되어 있는지 확인해야 합니다.
 
-- Can the 6-digit password be guessed by hackers?
+- 해커가 6자리 비밀번호를 추측할 수 있나요?
     
-    No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
+    아니요. 비밀번호는 6자리로 구성되므로 생성된 비밀번호의 조합 가능 수는 100만 개입니다. 게다가 비밀번호는 30초마다 변경됩니다. 해커가 30초 안에 비밀번호를 알아내려면 초당 30,000개의 조합을 입력해야 합니다.
 
 
 ##  Real World Case Studies
