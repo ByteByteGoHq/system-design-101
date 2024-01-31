@@ -94,16 +94,16 @@
   - [데이터베이스에 비밀번호를 안전하게 저장하는 방법과 비밀번호를 확인하는 방법은 무엇인가요?](#데이터베이스에-비밀번호를-안전하게-저장하는-방법과-비밀번호를-확인하는-방법은-무엇인가요)
   - [10세 어린이에게 JSON Web Token(JWT) 설명하기](#10세-어린이에게-json-web-tokenjwt-설명하기)
   - [Google authenticator(또는 다른 유형의 2 factor authenticator)는 어떻게 작동하나요?](#google-authenticator또는-다른-유형의-2-factor-authenticator는-어떻게-작동하나요)
-- [실제 사례 연구](#real-world-case-studies)
-  - [넷플릭스 기술 스택](#netflixs-tech-stack)
-  - [트위터 아키텍처 2022](#twitter-architecture-2022)
-  - [지난 15년간 에어비앤비 마이크로서비스 아키텍처의 진화 과정](#evolution-of-airbnbs-microservice-architecture-over-the-past-15-years)
-  - [모노레포 vs. 마이크로레포](#monorepo-vs-microrepo)
-  - [스택 오버플로 웹사이트를 어떻게 디자인할 건가요?](#how-will-you-design-the-stack-overflow-website)
-  - [아마존 프라임 비디오 모니터링이 서버리스에서 모놀리식으로 전환된 이유는 무엇인가요? 어떻게 90%의 비용을 절감할 수 있을까요?](#why-did-amazon-prime-video-monitoring-move-from-serverless-to-monolithic-how-can-it-save-90-cost)
-  - [디즈니 핫스타는 어떻게 토너먼트 기간 동안 50억 개의 이모티콘을 획득할 수 있었나요?](#how-does-disney-hotstar-capture-5-billion-emojis-during-a-tournament)
-  - [Discord가 수조 개의 메시지를 저장하는 방법](#how-discord-stores-trillions-of-messages)
-  - [동영상 라이브 스트리밍은 YouTube, TikTok 라이브, Twitch에서 어떻게 작동하나요?](#how-do-video-live-streamings-work-on-youtube-tiktok-live-or-twitch)
+- [실제 사례 연구](#실제-사례-연구)
+  - [넷플릭스 기술 스택](#넷플릭스-기술-스택)
+  - [트위터 아키텍처 2022](#트위터-아키텍처-2022)
+  - [지난 15년간 에어비앤비 마이크로서비스 아키텍처의 진화 과정](#지난-15년간-에어비앤비-마이크로서비스-아키텍처의-진화-과정)
+  - [모노레포 vs. 마이크로레포](#모노레포-vs-마이크로레포)
+  - [스택 오버플로 웹사이트를 어떻게 디자인할 건가요?](#스택-오버플로-웹사이트를-어떻게-디자인할-건가요)
+  - [아마존 프라임 비디오 모니터링이 서버리스에서 모놀리식으로 전환된 이유는 무엇인가요? 어떻게 90%의 비용을 절감할 수 있을까요?](#아마존-프라임-비디오-모니터링이-서버리스에서-모놀리식으로-전환된-이유는-무엇인가요-어떻게-90의-비용을-절감할-수-있을까요)
+  - [디즈니 핫스타는 어떻게 토너먼트 기간 동안 50억 개의 이모티콘을 획득할 수 있었나요?](#디즈니-핫스타는-어떻게-토너먼트-기간-동안-50억-개의-이모티콘을-획득할-수-있었나요)
+  - [Discord가 수조 개의 메시지를 저장하는 방법](#discord가-수조-개의-메시지를-저장하는-방법)
+  - [동영상 라이브 스트리밍은 YouTube, TikTok 라이브, Twitch에서 어떻게 작동하나요?](#동영상-라이브-스트리밍은-youtube-tiktok-라이브-twitch에서-어떻게-작동하나요)
 
 <!-- /TOC -->
 
@@ -834,7 +834,7 @@ Redis는 다이어그램에 표시된 것처럼 다양한 시나리오에서 사
 - Load Balancer: 이렇게 하면 들어오는 트래픽이 여러 백엔드 서비스에 분산됩니다. 
 - CDN (Content Delivery Network): CDN은 더 빠른 전송을 위해 정적 콘텐츠를 보관하는 지리적으로 분산된 서버 그룹입니다. 클라이언트는 먼저 CDN에서 콘텐츠를 찾은 다음 백엔드 서비스로 이동합니다.
 - API Gateway: 수신 요청을 처리하고 관련 서비스로 라우팅합니다. ID 공급자와 통신하고 서비스를 검색합니다.
-- Identity Provider: 유저에 대한 인증과 인가를 처리합니다. 
+- Identity Provider: 사용자에 대한 인증과 인가를 처리합니다. 
 - Service Registry & Discovery: 이 컴포넌트에서 마이크로서비스 등록 및 검색이 이루어지고, API 게이트웨이는 이 컴포넌트에서 대화할 관련 서비스를 찾습니다.
 - Management: 이 컴포넌트는 서비스 모니터링을 담당합니다.
 - Microservices: 마이크로서비스는 서로 다른 도메인에서 설계 및 배포됩니다. 각 도메인에는 자체 데이터베이스가 있습니다. API 게이트웨이는 REST API 또는 기타 프로토콜을 통해 마이크로서비스와 통신하고, 동일한 도메인 내의 마이크로서비스는 RPC(Remote Procedure Call)를 사용하여 서로 통신합니다.
@@ -1494,62 +1494,62 @@ Google 인증기는 2단계 인증 서비스를 구현하는 소프트웨어 기
     아니요. 비밀번호는 6자리로 구성되므로 생성된 비밀번호의 조합 가능 수는 100만 개입니다. 게다가 비밀번호는 30초마다 변경됩니다. 해커가 30초 안에 비밀번호를 알아내려면 초당 30,000개의 조합을 입력해야 합니다.
 
 
-##  Real World Case Studies
+##  실제 사례 연구
 
-### Netflix's Tech Stack
+### 넷플릭스 기술 스택
 
-This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
+이 게시물은 여러 넷플릭스 엔지니어링 블로그와 오픈소스 프로젝트의 연구를 기반으로 작성되었습니다. 부정확한 내용을 발견하면 언제든지 알려주시기 바랍니다.
 
 <p>
   <img src="../images/netflix tech stack.png" style="width: 680px" />
 </p>
 
-**Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
+**Mobile and web**: 넷플릭스는 네이티브 모바일 앱을 구축하기 위해 Swift와 Kotlin을 채택했습니다. 웹 애플리케이션에는 React를 사용합니다.
 
-**Frontend/server communication**: Netflix uses GraphQL.
+**Frontend/server communication**: 넷플릭스는 GraphQL을 사용합니다.
 
-**Backend services**: Netflix relies on ZUUL, Eureka, the Spring Boot framework, and other technologies.
+**Backend services**: 넷플릭스는 ZUUL, 유레카, 스프링 부트 프레임워크 및 기타 기술을 사용합니다.
 
-**Databases**: Netflix utilizes EV cache, Cassandra, CockroachDB, and other databases.
+**Databases**: 넷플릭스는 EV 캐시, 카산드라, 코크로치DB 및 기타 데이터베이스를 활용합니다.
 
-**Messaging/streaming**: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.
+**Messaging/streaming**: 넷플릭스는 메시징과 스트리밍을 위해 아파치 카프카와 핑크(Fink)를 사용합니다.
 
-**Video storage**: Netflix uses S3 and Open Connect for video storage.
+**Video storage**: 넷플릭스는 비디오 스토리지로 S3와 Open Connect를 사용합니다.
 
-**Data processing**: Netflix utilizes Flink and Spark for data processing, which is then visualized using Tableau. Redshift is used for processing structured data warehouse information.
+**Data processing**: 넷플릭스는 데이터 처리를 위해 Flink와 Spark를 활용하고, 이를 Tableau를 사용하여 시각화합니다. 구조화된 데이터 웨어하우스 정보를 처리하는 데는 Redshift를 사용합니다.
 
-**CI/CD**: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.
+**CI/CD**: 넷플릭스는 CI/CD 프로세스를 위해 JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas 등 다양한 도구를 사용하고 있습니다.
 
-### Twitter Architecture 2022
+### 트위터 아키텍처 2022
 
-Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. 
+예, 이것이 실제 트위터 아키텍처입니다. 엘론 머스크가 게시하고 가독성을 높이기 위해 다시 그린 것입니다.
 
 <p>
   <img src="../images/twitter-arch.jpeg" />
 </p>
 
 
-### Evolution of Airbnb’s microservice architecture over the past 15 years
+### 지난 15년간 에어비앤비 마이크로서비스 아키텍처의 진화 과정
 
-Airbnb’s microservice architecture went through 3 main stages. 
+에어비앤비의 마이크로서비스 아키텍처는 크게 3가지 스테이지를 거쳤습니다.
 
 <p>
   <img src="../images/airbnb_arch.jpeg" />
 </p>
 
 
-Monolith (2008 - 2017)
+모놀리스 (2008 - 2017)
 
-Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith. 
+에어비앤비는 호스트와 게스트를 위한 단순한 마켓플레이스에서 시작되었습니다. 이는 모놀리스라고 하는 Ruby on Rails 애플리케이션으로 구축되었습니다.
 
-What’s the challenge?
+도전 과제는 무엇인가요?
 
-- Confusing team ownership + unowned code
-- Slow deployment 
+- 혼란스러운 팀 오너십 + 오너십 없는 코드
+- 느린 개발
 
-Microservices (2017 - 2020)
+마이크로서비스 (2017 - 2020)
 
-Microservice aims to solve those challenges. In the microservice architecture, key services include:
+마이크로서비스는 이러한 문제를 해결하는 것을 목표로 합니다. 마이크로서비스 아키텍처의 핵심 서비스는 다음과 같습니다:
 
 - Data fetching service
 - Business logic data service
@@ -1557,182 +1557,182 @@ Microservice aims to solve those challenges. In the microservice architecture, k
 - UI aggregation service
 - Each service had one owning team
 
-What’s the challenge?
+도전 과제는 무엇인가요?
 
-Hundreds of services and dependencies were difficult for humans to manage.
+수백 개의 서비스와 종속성은 사람이 관리하기 어려웠습니다.
 
-Micro + macroservices (2020 - present)
+마이크로 + 매크로서비스 (2020 - 현재)
 
-This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
+에어비앤비는 현재 이를 위해 노력하고 있습니다. 마이크로 및 매크로서비스 하이브리드 모델은 API 통합에 중점을 둡니다.
 
-### Monorepo vs. Microrepo. 
+### 모노레포 vs. 마이크로레포
 
-Which is the best? Why do different companies choose different options? 
+어떤 것이 가장 좋을까요? 회사마다 다른 옵션을 선택하는 이유는 무엇인가요?
 
 <p>
   <img src="../images/monorepo-microrepo.jpg" />
 </p>
 
 
-Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
+모노레포는 새로운 것이 아닙니다. Linux와 Windows 모두 모노레포를 사용하여 만들어졌습니다. 확장성과 빌드 속도를 개선하기 위해 Google은 내부 전용 툴체인을 개발하여 더 빠르게 확장하고 엄격한 코딩 품질 표준을 적용하여 일관성을 유지했습니다.
 
-Amazon and Netflix are major ambassadors of the Microservice philosophy. This approach naturally separates the service code into separate repositories. It scales faster but can lead to governance pain points later on. 
+아마존과 넷플릭스는 마이크로서비스 철학의 주요 홍보대사입니다. 이 접근 방식은 자연스럽게 서비스 코드를 별도의 리포지토리로 분리합니다. 확장 속도는 빠르지만 나중에 거버넌스 문제가 발생할 수 있습니다. 
 
-Within Monorepo, each service is a folder, and every folder has a BUILD config and OWNERS permission control. Every service member is responsible for their own folder. 
+모노레포 내에서 각 서비스는 하나의 폴더이며, 모든 폴더에는 빌드 구성 및 소유자 권한 제어가 있습니다. 모든 서비스 구성원은 자신의 폴더에 대한 책임이 있습니다.
 
-On the other hand, in Microrepo, each service is responsible for its repository, with the build config and permissions typically set for the entire repository. 
+반면 Microrepo에서는 각 서비스가 해당 리포지토리를 담당하며, 일반적으로 전체 리포지토리에 대한 빌드 구성과 권한이 설정됩니다.
 
-In Monorepo, dependencies are shared across the entire codebase regardless of your business, so when there's a version upgrade, every codebase upgrades their version. 
+Monorepo에서는 비즈니스에 관계없이 전체 코드베이스에서 종속성이 공유되므로 버전 업그레이드가 있을 때 모든 코드베이스가 해당 버전을 업그레이드합니다.
 
-In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules. 
+Microrepo에서는 각 리포지토리 내에서 종속성을 제어합니다. 기업은 자체 일정에 따라 버전을 업그레이드할 시기를 선택할 수 있습니다.
 
-Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. 
+모노레포에는 체크인에 대한 표준이 있습니다. Google의 코드 검토 프로세스는 높은 기준을 설정하는 것으로 유명하며, 비즈니스에 관계없이 Monorepo의 일관된 품질 표준을 보장합니다.
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different. 
-Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nx, Lerna, and others. 
+Microrepo는 자체 표준을 설정하거나 모범 사례를 통합하여 공유 표준을 채택할 수 있습니다. 비즈니스에 맞게 더 빠르게 확장할 수 있지만 코드 품질이 약간 다를 수 있습니다. 
+Google 엔지니어는 Bazel을, Meta는 Buck을 만들었습니다. 그 외에도 Nx, Lerna 등 다양한 오픈 소스 도구가 있습니다.
 
-Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
+수년에 걸쳐 Microrepo는 Java용 Maven과 Gradle, NodeJS용 NPM, C/C++용 CMake 등 더 많은 도구를 지원하게 되었습니다.
 
-### How will you design the Stack Overflow website? 
+### 스택 오버플로 웹사이트를 어떻게 디자인할 건가요?
 
-If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
+답변이 온프레미스 서버와 모놀리스(다음 이미지 하단)라면 면접에서 떨어질 가능성이 높지만, 실제로는 그렇게 구축되어 있습니다!
 
 <p>
   <img src="../images/stackoverflow.jpg" />
 </p>
 
 
-**What people think it should look like**
+**사람들이 생각하는 디자인**
 
-The interviewer is probably expecting something like the top portion of the picture.
+면접관은 아마도 사진의 상단 부분과 같은 것을 기대하고 있을 것입니다.
 
-- Microservice is used to decompose the system into small components.
-- Each service has its own database. Use cache heavily.
-- The service is sharded.
-- The services talk to each other asynchronously through message queues.
-- The service is implemented using Event Sourcing with CQRS.
-- Showing off knowledge in distributed systems such as eventual consistency, CAP theorem, etc.
+- 마이크로서비스는 시스템을 작은 컴포넌트로 분해하는 데 사용됩니다.
+- 각 서비스에는 자체 데이터베이스가 있습니다. 캐시를 많이 사용하세요.
+- 서비스가 샤딩됩니다.
+- 서비스는 메시지 큐를 통해 비동기적으로 서로 통신합니다.
+- 이 서비스는 이벤트 소싱과 CQRS를 사용하여 구현됩니다.
+- 최종 정합성, CAP 정리 등과 같은 분산 시스템에 대한 지식을 뽐내 보세요.
 
-**What it actually is**
+**실제 내용**
 
-Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
+스택 오버플로는 단 9대의 온프레미스 웹 서버로 모든 트래픽을 처리하며, 이 서버는 모놀리스로 운영됩니다! 자체 서버를 보유하고 있으며 클라우드에서 실행되지 않습니다.
 
-This is contrary to all our popular beliefs these days. 
+이는 오늘날의 일반적인 믿음과는 상반되는 것입니다.
 
-### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
+### 아마존 프라임 비디오 모니터링이 서버리스에서 모놀리식으로 전환된 이유는 무엇인가요? 어떻게 90%의 비용을 절감할 수 있을까요?
 
-The diagram below shows the architecture comparison before and after the migration. 
+아래 다이어그램은 마이그레이션 전과 후의 아키텍처를 비교한 것입니다.
 
 <p>
   <img src="../images/serverless-to-monolithic.jpeg" />
 </p>
 
 
-What is Amazon Prime Video Monitoring Service? 
+Amazon 프라임 비디오 모니터링 서비스란 무엇인가요?
 
-Prime Video service needs to monitor the quality of thousands of live streams. The monitoring tool automatically analyzes the streams in real time and identifies quality issues like block corruption, video freeze, and sync problems. This is an important process for customer satisfaction. 
+프라임 비디오 서비스는 수천 개의 라이브 스트림의 품질을 모니터링해야 합니다. 모니터링 도구는 실시간으로 스트림을 자동으로 분석하고 블록 손상, 동영상 정지, 동기화 문제와 같은 품질 문제를 식별합니다. 이는 고객 만족을 위한 중요한 프로세스입니다. 
 
-There are 3 steps: media converter, defect detector, and real-time notification. 
+미디어 컨버터, 결함 검출기, 실시간 알림의 3단계로 구성됩니다.
 
-- What is the problem with the old architecture? 
+- 기존 아키텍처의 문제점은 무엇인가요?
 
-  The old architecture was based on Amazon Lambda, which was good for building services quickly. However, it was not cost-effective when running the architecture at a high scale. The two most expensive operations are: 
+  이전 아키텍처는 Amazon Lambda를 기반으로 하여 서비스를 빠르게 구축하는 데는 좋았습니다. 하지만 대규모로 아키텍처를 실행할 때는 비용 효율적이지 않았습니다. 다음은 가장 비용이 많이 드는 두 가지 작업입니다.
 
-1. The orchestration workflow - AWS step functions charge users by state transitions and the orchestration performs multiple state transitions every second. 
+1. 오케스트레이션 워크플로 - AWS 스텝 함수는 상태 전환별로 사용자에게 요금을 부과하고, 오케스트레이션은 매초마다 여러 상태 전환을 수행합니다.
 
-2. Data passing between distributed components - the intermediate data is stored in Amazon S3 so that the next stage can download. The download can be costly when the volume is high. 
+2. 분산된 컴포넌트 간의 데이터 전달 - 인터미디어트 데이터는 다음 스테이지의 다운로드를 위해 Amazon S3에 저장됩니다. 볼륨이 크면 다운로드 비용이 많이 들 수 있습니다.
 
-- Monolithic architecture saves 90% cost 
+- 모놀리식 아키텍처로 90% 비용 절감
 
-  A monolithic architecture is designed to address the cost issues. There are still 3 components, but the media converter and defect detector are deployed in the same process, saving the cost of passing data over the network. Surprisingly, this approach to deployment architecture change led to 90% cost savings! 
+  모놀리식 아키텍처는 비용 문제를 해결하기 위해 설계되었습니다. 여전히 3개의 컴포넌트가 있지만 미디어 컨버터와 결함 감지기가 동일한 프로세스에 배포되어 네트워크를 통한 데이터 전달 비용을 절감할 수 있습니다. 놀랍게도 이러한 배포 아키텍처 변경 방식은 90%의 비용 절감 효과를 가져왔습니다!
 
-This is an interesting and unique case study because microservices have become a go-to and fashionable choice in the tech industry. It's good to see that we are having more discussions about evolving the architecture and having more honest discussions about its pros and cons. Decomposing components into distributed microservices comes with a cost. 
+마이크로서비스가 기술 업계에서 유행처럼 번지고 있는 만큼 이 사례는 흥미롭고 독특한 사례 연구입니다. 아키텍처의 진화에 대해 더 많은 논의를 하고 장단점에 대해 더 솔직한 토론을 하고 있다는 것은 좋은 일입니다. 컴포넌트를 분산형 마이크로서비스로 분해하는 데에는 비용이 발생합니다.
 
-- What did Amazon leaders say about this? 
+- 이에 대해 아마존의 리더들은 어떤 반응을 보였을까요?
   
-  Amazon CTO Werner Vogels: “Building **evolvable software systems** is a strategy, not a religion. And revisiting your architecture with an open mind is a must.” 
+  아마존 CTO Werner Vogels: "**진화 가능한 소프트웨어 시스템**을 구축하는 것은 전략이지 종교가 아닙니다. 그리고 열린 마음으로 아키텍처를 재검토하는 것은 필수입니다."
 
-Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”. 
+Ex Amazon VP Sustainability Adrian Cockcroft: "프라임 비디오 팀은 제가 **서버리스 퍼스트**라고 부르는 길을 따랐습니다. 저는 **서버리스 온리**를 옹호하지 않습니다.".
 
-### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
+### 디즈니 핫스타는 어떻게 토너먼트 기간 동안 50억 개의 이모티콘을 획득할 수 있었나요?
 
 <p>
   <img src="../images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
 
 
-1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
+1. 클라이언트는 표준 HTTP 요청을 통해 이모티콘을 전송합니다. 고랭 서비스는 일반적인 웹 서버라고 생각하면 됩니다. 고랭을 선택한 이유는 동시성을 잘 지원하기 때문입니다. 고랭의 스레드는 가볍습니다.
 
-2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
+2. 쓰기 볼륨이 매우 높기 때문에 Kafka(메시지 큐)가 버퍼로 사용됩니다.
 
-3. Emoji data are aggregated by a streaming processing service called Spark. It aggregates data every 2 seconds, which is configurable. There is a trade-off to be made based on the interval. A shorter interval means emojis are delivered to other clients faster but it also means more computing resources are needed.
+3. 이모티콘 데이터는 Spark라는 스트리밍 처리 서비스에 의해 어그리게이트됩니다. 이 서비스는 2초마다 데이터를 어그리게이트하며, 그 주기는 설정할 수 있습니다. 간격에 따라 트레이드오프가 있습니다. 간격이 짧을수록 다른 클라이언트에 이모티콘이 더 빨리 전달되지만 더 많은 컴퓨팅 리소스가 필요하다는 의미도 됩니다.
 
-4. Aggregated data is written to another Kafka. 
+4. 어그리게이트된 데이터는 또 다른 카프카에 기록됩니다.
 
-5. The PubSub consumers pull aggregated emoji data from Kafka. 
+5. PubSub 컨슈머는 카프카에서 어그리게이트된 이모티콘 데이터를 가져옵니다.
 
-6. Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.
+6. 이모티콘은 PubSub 인프라를 통해 다른 클라이언트에게 실시간으로 전달됩니다. PubSub 인프라는 흥미롭습니다. 핫스타는 다음과 같은 프로토콜을 고려했습니다. Socketio, NATS, MQTT, gRPC를 검토한 결과 MQTT로 결정했습니다.
  
-A similar design is adopted by LinkedIn which streams a million likes/sec.
+초당 백만 개의 '좋아요'를 스트리밍하는 LinkedIn에서도 비슷한 디자인을 채택하고 있습니다.
 
-### How Discord Stores Trillions Of Messages 
+### Discord가 수조 개의 메시지를 저장하는 방법
 
-The diagram below shows the evolution of message storage at Discord: 
+아래 다이어그램은 Discord에서 메시지 스토리지의 진화 과정을 보여줍니다:
 
 <p>
   <img src="../images/discord-store-messages.jpg" />
 </p>
 
 
-MongoDB ➡️ Cassandra ➡️ ScyllaDB 
+몽고DB ➡️ 카산드라 ➡️ 실라DB 
 
-In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen. 
+2015년, Discord의 첫 번째 버전은 단일 MongoDB 레플리카 위에 구축되었습니다. 2015년 11월경, MongoDB에 1억 개의 메시지가 저장되자 RAM이 더 이상 데이터와 색인을 저장할 수 없게 되었습니다. 지연 시간을 예측할 수 없게 되었습니다. 메시지 저장소를 다른 데이터베이스로 옮겨야 했습니다. 카산드라가 선택되었습니다.
 
-In 2017, Discord had 12 Cassandra nodes and stored billions of messages. 
+2017년, Discord에는 12개의 카산드라 노드가 있었고 수십억 개의 메시지가 저장되어 있었습니다.
 
-At the beginning of 2022, it had 177 nodes with trillions of messages. At this point, latency was unpredictable, and maintenance operations became too expensive to run. 
+2022년 초에는 177개의 노드와 수조 개의 메시지가 있었습니다. 이 시점에서는 지연 시간을 예측할 수 없었고 유지보수 운영 비용이 너무 많이 들었습니다.
 
-There are several reasons for the issue: 
+여기에는 몇 가지 이유가 있습니다.
 
-- Cassandra uses the LSM tree for the internal data structure. The reads are more expensive than the writes. There can be many concurrent reads on a server with hundreds of users, resulting in hotspots. 
-- Maintaining clusters, such as compacting SSTables, impacts performance. 
-- Garbage collection pauses would cause significant latency spikes 
+- Cassandra는 내부 데이터 구조에 LSM 트리를 사용합니다. 읽기는 쓰기보다 비용이 더 많이 듭니다. 수백 명의 사용자가 있는 서버에서 동시 읽기가 많이 발생하여 핫스팟이 발생할 수 있습니다.
+- SSTable을 압축하는 등 클러스터를 유지 관리하면 성능에 영향을 미칩니다.
+- 가비지 컬렉션 일시 중지로 인해 지연 시간이 크게 증가합니다.
 
-ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its architecture to have a monolithic API, a data service written in Rust, and ScyllaDB-based storage. 
+ScyllaDB는 C++로 작성된 카산드라 호환 데이터베이스입니다. Discord는 모놀리식 API, Rust로 작성된 데이터 서비스, ScyllaDB 기반 스토리지를 갖추도록 아키텍처를 재설계했습니다.
 
-The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra. 
+ScyllaDB의 p99 읽기 지연 시간은 15ms인 반면 Cassandra는 40-125ms입니다. p99 쓰기 지연 시간은 5ms인데 반해 Cassandra는 5-70ms입니다.
 
-### How do video live streamings work on YouTube, TikTok live, or Twitch?
- 
-Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
- 
-The diagram below explains what happens behind the scenes to make this possible.
+### 동영상 라이브 스트리밍은 YouTube, TikTok 라이브, Twitch에서 어떻게 작동하나요?
+
+라이브 스트리밍은 비디오 콘텐츠가 인터넷을 통해 실시간으로 전송되며 일반적으로 몇 초의 지연 시간만 발생한다는 점에서 일반 스트리밍과 다릅니다.
+
+아래 다이어그램은 이러한 작업을 가능하게 하기 위해 실제로 무슨 일이 발생하는지 설명합니다.
 
 <p>
   <img src="../images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
  
-Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
+1단계: 로우 비디오 데이터는 마이크와 카메라로 캡처됩니다. 데이터는 서버 측으로 전송됩니다.
  
-Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
+2단계: 동영상 데이터는 압축하고 인코딩됩니다. 예를 들어, 압축 알고리즘은 배경과 기타 비디오 요소를 분리합니다. 압축 후 동영상은 H.264와 같은 표준으로 인코딩됩니다. 이 단계를 거치면 동영상 데이터의 크기가 훨씬 작아집니다.
  
-Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
+3단계: 인코딩된 데이터는 보통 몇 초 길이의 작은 세그먼트로 나뉘기 때문에 다운로드나 스트리밍에 걸리는 시간은 훨씬 짧습니다.
  
-Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
+4단계: 세그먼트화된 데이터는 스트리밍 서버로 전송됩니다. 스트리밍 서버는 다양한 디바이스와 네트워크 조건을 지원해야 합니다. 이를 '‘Adaptive Bitrate Streaming'이라고 합니다. 즉, 2단계와 3단계에서 서로 다른 비트레이트로 여러 개의 파일을 생성해야 합니다.
  
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
+5단계: 라이브 스트리밍 데이터는 CDN(Content Delivery Network)이 지원하는 엣지 서버로 푸시되며, 수백만 명의 시청자가 가까운 엣지 서버에서 동영상을 시청할 수 있습니다. CDN은 데이터 전송 지연 시간을 크게 줄여줍니다. 
  
-Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
+6단계: 시청자의 디바이스는 동영상 데이터를 디코딩 및 압축 해제하고 동영상 플레이어에서 동영상을 재생합니다.
  
-Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
+7, 8단계: 동영상을 다시 보기 위해 저장해야 하는 경우 인코딩된 데이터는 스토리지 서버로 전송되며, 시청자는 나중에 다시 보기를 요청할 수 있습니다.
  
-Standard protocols for live streaming include:
+라이브 스트리밍을 위한 표준 프로토콜은 다음과 같습니다.
 
-- RTMP (Real-Time Messaging Protocol): This was originally developed by Macromedia to transmit data between a Flash player and a server. Now it is used for streaming video data over the internet. Note that video conferencing applications like Skype use RTC (Real-Time Communication) protocol for lower latency.
-- HLS (HTTP Live Streaming): It requires the H.264 or H.265 encoding. Apple devices accept only HLS format.
-- DASH (Dynamic Adaptive Streaming over HTTP): DASH does not support Apple devices.
-- Both HLS and DASH support adaptive bitrate streaming.
+- RTMP (Real-Time Messaging Protocol): 원래는 Macromedia에서 플래시 플레이어와 서버 간에 데이터를 전송하기 위해 개발했습니다. 지금은 인터넷을 통한 비디오 데이터 스트리밍에 사용됩니다. Skype와 같은 화상 회의 애플리케이션은 지연 시간을 줄이기 위해 RTC(Real-Time Communication) 프로토콜을 사용한다는 점에 유의하세요.
+- HLS (HTTP Live Streaming): H.264 또는 H.265 인코딩이 필요합니다. Apple 장치는 HLS 포맷만 허용합니다.
+- DASH (Dynamic Adaptive Streaming over HTTP): DASH는 Apple 장치를 지원하지 않습니다.
+- HLS와 DASH는 모두 어댑티브 비트레이트 스트리밍을 지원합니다.
 
 ## License
 
