@@ -20,21 +20,21 @@
 
 시스템 디자인 면접을 준비 중이거나 단순히 시스템이 표면 아래에서 어떻게 작동하는지 이해하고 싶으신 분이라면 이 리포지토리가 도움이 되길 바랍니다.
 
-# Table of Contents
+# 목차
 
 <!-- TOC toc.levels=2 -->
 
 - [Communication protocols](#communication-protocols)
-  - [REST API vs. GraphQL](#rest-api-vs-graphql)
+  - [REST API vs GraphQL](#rest-api-vs-graphql)
   - [gRPC는 어떻게 작동하나요?](#grpc는-어떻게-작동하나요)
-  - [webhook이란 무엇인가요?](#what-is-a-webhook)
+  - [webhook이란 무엇인가요?](#webhook이란-무엇인가요)
   - [API 성능을 개선하는 방법은 무엇인가요?](#api-성능을-개선하는-방법은-무엇인가요)
   - [HTTP 1.0 -\> HTTP 1.1 -\> HTTP 2.0 -\> HTTP 3.0 (QUIC)](#http-10---http-11---http-20---http-30-quic)
   - [SOAP vs REST vs GraphQL vs RPC](#soap-vs-rest-vs-graphql-vs-rpc)
-  - [Code First vs. API First](#code-first-vs-api-first)
+  - [Code First vs API First](#code-first-vs-api-first)
   - [HTTP status codes](#http-status-codes)
-  - [API gateway는 무엇을 하나요?](#what-does-api-gateway-do)
-  - [효과적이고 안전한 API를 설계하려면 어떻게 해야 할까요?](#how-do-we-design-effective-and-safe-apis)
+  - [API gateway는 무엇을 하나요?](#api-gateway는-무엇을-하나요)
+  - [효과적이고 안전한 API를 설계하려면 어떻게 해야 할까요?](#효과적이고-안전한-api를-설계하려면-어떻게-해야-할까요)
   - [TCP/IP encapsulation](#tcpip-encapsulation)
   - [왜 Nginx를 "reverse" 프록시라고 부르나요?](#왜-nginx를-reverse-프록시라고-부르나요)
   - [일반적인 로드 밸런싱 알고리즘은 무엇인가요?](#일반적인-로드-밸런싱-알고리즘은-무엇인가요)
@@ -44,8 +44,8 @@
   - [넷플릭스 기술스택 (CI/CD Pipeline)](#넷플릭스-기술스택-cicd-pipeline)
 - [아키텍처 패턴](#아키텍처-패턴)
   - [MVC, MVP, MVVM, MVVM-C, VIPER](#mvc-mvp-mvvm-mvvm-c-and-viper)
-  - [18 Key Design Patterns Every Developer Should Know](#18-key-design-patterns-every-developer-should-know)
-- [Database](#database)
+  - [모든 개발자가 알아야 할 18가지 핵심 디자인 패턴](#모든-개발자가-알아야-할-18가지-핵심-디자인-패턴)
+- [데이터베이스](#데이터베이스)
   - [클라우드 서비스의 다양한 데이터베이스에 관한 치트시트](#클라우드-서비스의-다양한-데이터베이스에-관한-치트시트)
   - [데이터베이스를 강화하는 8가지 데이터 구조](#데이터베이스를-강화하는-8가지-데이터-구조)
   - [데이터베이스에서 SQL 문은 어떻게 실행되나요?](#데이터베이스에서-SQL-문은-어떻게-실행되나요)
@@ -69,14 +69,14 @@
   - [상점에서 우리가 신용카드를 긁을 때, VISA는 어떻게 작동하나요?](#상점에서-우리가-신용카드를-긁을-때-visa는-어떻게-작동하나요)
   - [세계의 결제 시스템 시리즈(1부): 인도의 통합 결제 인터페이스(UPI)](#세계의-결제-시스템-시리즈1부-인도의-통합-결제-인터페이스upi)
 - [DevOps](#devops)
-  - [DevOps vs. SRE vs. Platform Engineering. 무엇이 다른가요?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
+  - [DevOps vs SRE vs Platform Engineering 무엇이 다른가요?](#devops-vs-sre-vs-platform-engineering-무엇이-다른가요)
   - [k8s(Kubernetes)란 무엇인가요?](#k8skubernetes란-무엇인가요)
-  - [Docker vs. Kubernetes. 어떤것을 사용해야 하나요?](#docker-vs-kubernetes-어떤것을-사용해야-하나요)
+  - [Docker vs Kubernetes. 어떤것을 사용해야 하나요?](#docker-vs-kubernetes-어떤것을-사용해야-하나요)
   - [Docker는 어떻게 작동하나요?](#docker는-어떻게-작동하나요)
 - [GIT](#git)
   - [Git Commands 작동 방식](#git-commands-작동-방식)
   - [Git은 어떻게 작동하나요?](#git은-어떻게-작동하나요)
-  - [Git merge vs. Git rebase](#git-merge-vs-git-rebase)
+  - [Git merge vs Git rebase](#git-merge-vs-git-rebase)
 - [클라우드 서비스](#클라우드-서비스)
   - [다양한 클라우드 서비스에 대한 유용한 치트시트(2023년판)](#다양한-클라우드-서비스에-대한-유용한-치트시트2023년판)
   - [cloud native란 무엇인가요?](#cloud-native란-무엇인가요)
@@ -98,7 +98,7 @@
   - [넷플릭스 기술 스택](#넷플릭스-기술-스택)
   - [트위터 아키텍처 2022](#트위터-아키텍처-2022)
   - [지난 15년간 에어비앤비 마이크로서비스 아키텍처의 진화 과정](#지난-15년간-에어비앤비-마이크로서비스-아키텍처의-진화-과정)
-  - [모노레포 vs. 마이크로레포](#모노레포-vs-마이크로레포)
+  - [모노레포 vs 마이크로레포](#모노레포-vs-마이크로레포)
   - [스택 오버플로 웹사이트를 어떻게 디자인할 건가요?](#스택-오버플로-웹사이트를-어떻게-디자인할-건가요)
   - [아마존 프라임 비디오 모니터링이 서버리스에서 모놀리식으로 전환된 이유는 무엇인가요? 어떻게 90%의 비용을 절감할 수 있을까요?](#아마존-프라임-비디오-모니터링이-서버리스에서-모놀리식으로-전환된-이유는-무엇인가요-어떻게-90의-비용을-절감할-수-있을까요)
   - [디즈니 핫스타는 어떻게 토너먼트 기간 동안 50억 개의 이모티콘을 획득할 수 있었나요?](#디즈니-핫스타는-어떻게-토너먼트-기간-동안-50억-개의-이모티콘을-획득할-수-있었나요)
@@ -152,7 +152,7 @@
   이벤트가 발생하면 시스템에 알림 
 
 
-### REST API vs. GraphQL
+### REST API vs GraphQL
 
 API 설계에 있어서 REST와 GraphQL은 고유의 장단점이 있습니다.
 
@@ -205,7 +205,7 @@ RPC(Remote Procedure Call)는 마이크로서비스 아키텍처에서 서비스
 
 12-14단계: 주문 서비스가 패킷을 수신하여 디코딩한 후 결과를 클라이언트 애플리케이션에 보냅니다.
 
-### What is a webhook?
+### webhook이란 무엇인가요?
 
 아래 다이어그램은 폴링과 웹훅을 비교한 것입니다. 
 
@@ -304,7 +304,7 @@ QUIC은 UDP를 기반으로 합니다. 이는 전송 계층에서 스트림을 �
 </p>
 
 
-### Code First vs. API First 
+### Code First vs API First 
 
 아래 다이어그램은 코드 퍼스트 개발과 API 퍼스트 개발의 차이점을 보여줍니다. API 퍼스트 설계를 고려해야 하는 이유는 무엇인가요?
 
@@ -344,7 +344,7 @@ Redirection (300-399)
 Client Error (400-499)  
 Server Error (500-599)  
 
-### What does API gateway do? 
+### API gateway는 무엇을 하나요? 
 
 아래 다이어그램은 자세한 내용을 보여줍니다.
 
@@ -368,7 +368,7 @@ Server Error (500-599)
 
 9-12단계: API 게이트웨이는 오류를 적절하게 처리하고, 복구하는 데 시간이 오래 걸리는 오류가 발생하는 경우 장애를 처리합니다.(circuit break) 또한 로깅과 모니터링을 위해 ELK(Elastic-Logstash-Kibana) 스택을 활용할 수 있습니다. 때때로 API 게이트웨이에 데이터를 캐시하기도 합니다.
 
-### How do we design effective and safe APIs?
+### 효과적이고 안전한 API를 설계하려면 어떻게 해야 할까요?
 
 아래 다이어그램은 쇼핑 카트 예시와 함께 일반적인 API 설계를 보여줍니다. 
 
@@ -556,7 +556,7 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
 - 대부분의 패턴에는 비즈니스 데이터를 관리하기 위한 'model'(M)이 포함됩니다.
 - "Controller", " presenter", "view-model"은 뷰와 모델(VIPER 패턴의 "entity") 사이를 매개하는 변환기입니다.
 
-### 18 Key Design Patterns Every Developer Should Know
+### 모든 개발자가 알아야 할 18가지 핵심 디자인 패턴
 
 패턴은 일반적인 설계 문제에 대한 재사용 가능한 솔루션으로, 보다 원활하고 효율적인 개발 프로세스를 가능하게 합니다. 패턴은 더 나은 소프트웨어 구조를 구축하기 위한 청사진 역할을 합니다. 다음은 가장 많이 사용되는 패턴 중 일부입니다.
 
@@ -564,26 +564,26 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
   <img src="../images/18-oo-patterns.png" />
 </p>
 
-- Abstract Factory: Family Creator - Makes groups of related items. 
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
-- Prototype: Clone Maker - Creates copies of fully prepared examples. 
-- Singleton: One and Only - A special class with just one instance. 
-- Adapter: Universal Plug - Connects things with different interfaces. 
-- Bridge: Function Connector - Links how an object works to what it does. 
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
-- Decorator: Customizer - Adds features to objects without changing their core. 
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
-- Flyweight: Space Saver - Shares small, reusable items efficiently. 
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
-- Command: Task Wrapper - Turns a request into an object, ready for action. 
-- Iterator: Collection Explorer - Accesses elements in a collection one by one. 
-- Mediator: Communication Hub - Simplifies interactions between different classes. 
-- Memento: Time Capsule - Captures and restores an object's state. 
-- Observer: News Broadcaster - Notifies classes about changes in other objects. 
-- Visitor: Skillful Guest - Adds new operations to a class without altering it.
+- Abstract Factory: Family Creator - 관련 항목 그룹을 만듭니다.
+- Builder: Lego Master - 생성 및 모양을 분리하여 객체를 단계별로 빌드합니다.
+- Prototype: Clone Maker - 완전히 준비된 예제의 복사본을 생성합니다.
+- Singleton: One and Only - 인스턴스가 하나뿐인 특별한 클래스입니다.
+- Adapter: Universal Plug - 서로 다른 인터페이스를 가진 것들을 연결합니다.
+- Bridge: Function Connector - 객체의 구현과 행동을 연결합니다.
+- Composite: Tree Builder -  단순한 부분과 복잡한 부분으로 이루어진 트리 구조를 형성합니다.
+- Decorator: Customizer - 객체의 핵심을 손상하지 않고 기능을 추가합니다.
+- Facade: One-Stop-Shop - 전체 시스템을 단일하고 간단한 인터페이스로 나타냅니다.
+- Flyweight: Space Saver - 작고 재사용 가능한 항목을 효율적으로 공유합니다.
+- Proxy: Stand-In Actor - 다른 객체를 대표하여 액세스 또는 작업을 제어합니다.
+- Chain of Responsibility: Request Relay - 요청을 처리할 때까지 객체 체인을 통해 전달합니다.
+- Command: Task Wrapper - 요청을 객체로 변환하여 작업 준비를 갖추게 합니다.
+- Iterator: Collection Explorer - 컬렉션의 요소에 하나씩 액세스합니다.
+- Mediator: Communication Hub - 서로 다른 클래스 간의 인터랙션을 간소화합니다.
+- Memento: Time Capsule - 객체의 상태를 캡처하고 복원합니다.
+- Observer: News Broadcaster - 다른 객체의 변경에 대해 클래스에게 알립니다.
+- Visitor: Skillful Guest - 객체를 변경하지 않고 새로운 작업을 추가합니다.
 
-## Database
+## 데이터베이스
 
 ### 클라우드 서비스의 다양한 데이터베이스에 관한 치트시트
 
@@ -591,11 +591,11 @@ Continuous Delivery(CD)는 인프라 변경, 배포와 같은 릴리스 프로�
   <img src="../images/cloud-dbs2.png" />
 </p>
 
-프로젝트에 적합한 데이터베이스를 선택하는 것은 복잡한 작업입니다. 각기 다른 유즈케이스에 적합한 데이터베이스 옵션이 많으면 의사 결정에 대한 피로도가 빠르게 높아질 수 있습니다. 
+프로젝트에 적합한 데이터베이스를 선택하는 것은 복잡한 작업입니다. 각기 다른 유즈케이스에 적합한 데이터베이스 옵션이 많으면 의사 결정에 대한 피로도가 빠르게 높아질 수 있습니다.
 
-이 치트시트가 프로젝트의 요구사항에 맞는 올바른 서비스를 찾아내고 잠재적인 함정을 피하는 데 도움이 되기를 바랍니다. 
+이 치트시트가 프로젝트의 요구사항에 맞는 올바른 서비스를 찾아내고 잠재적인 함정을 피하는 데 도움이 되기를 바랍니다.
 
-참고: Google은 데이터베이스 유즈케이스에 대한 문서가 제한되어 있습니다. 사용 가능한 자료를 최대한 검토하고 최선의 옵션을 제시했지만, 일부 항목은 더 정확한 정보가 필요할 수 있습니다. 
+참고: Google은 데이터베이스 유즈케이스에 대한 문서가 제한되어 있습니다. 사용 가능한 자료를 최대한 검토하고 최선의 옵션을 제시했지만, 일부 항목은 더 정확한 정보가 필요할 수 있습니다.
 
 ### 데이터베이스를 강화하는 8가지 데이터 구조
 
@@ -1014,7 +1014,7 @@ UPI = 결제 마크업 언어 + 상호 운용 가능한 결제 표준
 
 ## DevOps
 
-###  DevOps vs. SRE vs. Platform Engineering. What is the difference?
+###  DevOps vs SRE vs Platform Engineering 무엇이 다른가요?
 
 데브옵스, SRE, 플랫폼 엔지니어링의 개념은 서로 다른 시기에 등장하여 다양한 개인과 조직에 의해 발전해 왔습니다.
 
@@ -1074,7 +1074,7 @@ k8s 클러스터는 컨테이너화된 애플리케이션을 실행하는 노드
 
     Kube-proxy는 클러스터의 각 노드에서 실행되는 네트워크 프록시입니다. 서비스에서 노드로 들어오는 트래픽을 라우팅합니다. 작업 요청을 올바른 컨테이너로 전달합니다.
 
-### Docker vs. Kubernetes. 어떤것을 사용해야 하나요?
+### Docker vs Kubernetes 어떤것을 사용해야 하나요?
 
 <p>
   <img src="../images/docker-vs-k8s.jpg" style="width: 680px" />
@@ -1164,7 +1164,7 @@ Git은 분산 버전 관리 시스템입니다.
 
 리모트 리포지토리에 충돌이 발생하면 로컬 리포지토리에서 파일을 복구할 수 있습니다.
 
-### Git merge vs. Git rebase
+### Git merge vs Git rebase
 
 어떤 점이 다른가요?
 
@@ -1565,7 +1565,7 @@ Google 인증기는 2단계 인증 서비스를 구현하는 소프트웨어 기
 
 에어비앤비는 현재 이를 위해 노력하고 있습니다. 마이크로 및 매크로서비스 하이브리드 모델은 API 통합에 중점을 둡니다.
 
-### 모노레포 vs. 마이크로레포
+### 모노레포 vs 마이크로레포
 
 어떤 것이 가장 좋을까요? 회사마다 다른 옵션을 선택하는 이유는 무엇인가요?
 
