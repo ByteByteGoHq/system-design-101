@@ -70,9 +70,9 @@
   - [세계의 결제 시스템 시리즈(1부): 인도의 통합 결제 인터페이스(UPI)](#세계의-결제-시스템-시리즈1부-인도의-통합-결제-인터페이스upi)
 - [DevOps](#devops)
   - [DevOps vs. SRE vs. Platform Engineering. 무엇이 다른가요?](#devops-vs-sre-vs-platform-engineering-what-is-the-difference)
-  - [k8s(Kubernetes)란 무엇인가요?](#what-is-k8s-kubernetes)
-  - [Docker vs. Kubernetes. 어떤것을 사용해야 하나요?](#docker-vs-kubernetes-which-one-should-we-use)
-  - [Docker는 어떻게 작동하나요?](#how-does-docker-work)
+  - [k8s(Kubernetes)란 무엇인가요?](#k8skubernetes란-무엇인가요)
+  - [Docker vs. Kubernetes. 어떤것을 사용해야 하나요?](#docker-vs-kubernetes-어떤것을-사용해야-하나요)
+  - [Docker는 어떻게 작동하나요?](#docker는-어떻게-작동하나요)
 - [GIT](#git)
   - [Git Commands 작동 방식](#how-git-commands-work)
   - [Git은 어떻게 작동하나요?](#how-does-git-work)
@@ -750,11 +750,11 @@ SQL 언어에는 5가지 구성 요소가 있습니다.
 </p>
 
 
-1. Redis는 RAM 기반 데이터 저장소입니다. RAM 액세스는 임의의 디스크 액세스보다 최소 1000배 이상 빠릅니다.
+1. Redis는 RAM 기반 데이터 스토리지입니다. RAM 액세스는 임의의 디스크 액세스보다 최소 1000배 이상 빠릅니다.
 2. Redis는 실행 효율성을 위해 IO 멀티플렉싱과 싱글 스레드 익스큐션 루프를 활용합니다.
 3. Redis는 몇 가지 효율적인 로우 레벨 데이터 구조를 활용합니다.
 
-질문: 또 다른 인기 있는 인메모리 저장소는 Memcached입니다. Redis와 Memcached의 차이점을 알고 있나요?
+질문: 또 다른 인기 있는 인메모리 스토리지는 Memcached입니다. Redis와 Memcached의 차이점을 알고 있나요?
 
 이 다이어그램의 스타일이 이전 게시물과 다르다는 것을 눈치채셨을 것입니다. 어느 쪽을 선호하시는지 알려주세요.
 
@@ -888,7 +888,7 @@ Redis는 다이어그램에 표시된 것처럼 다양한 시나리오에서 사
 - 마이크로서비스는 클라우드에 배포됩니다. AWS, Microsoft Azure, Google GCP 중에서 선택할 수 있습니다.
 Cache and Full-text Search - Redis는 key-value 쌍을 캐싱하기 위한 일반적인 선택입니다. 풀 텍스트 서치에는 Elasticsearch가 사용됩니다.
 - Communications - 서비스가 서로 통신하기 위해서는 메시징 인프라로 Kafka 혹은 RPC를 사용할 수 있습니다.
-- Persistence - 관계형 데이터베이스에는 MySQL 또는 PostgreSQL을 사용할 수 있으며, 객체 저장소에는 Amazon S3을 사용할 수 있습니다. 필요한 경우 wide-column 저장소로 Cassandra를 사용할 수도 있습니다.
+- Persistence - 관계형 데이터베이스에는 MySQL 또는 PostgreSQL을 사용할 수 있으며, 객체 스토리지에는 Amazon S3을 사용할 수 있습니다. 필요한 경우 wide-column 스토리지로 Cassandra를 사용할 수도 있습니다.
 - Management & Monitoring - 수많은 마이크로서비스를 관리하기 위한 일반적인 운영 도구로 Prometheus, Elastic Stack, Kubernetes가 있습니다.
 
 ### 카프카가 빠른 이유
@@ -1016,119 +1016,118 @@ UPI = 결제 마크업 언어 + 상호 운용 가능한 결제 표준
 
 ###  DevOps vs. SRE vs. Platform Engineering. What is the difference?
 
-The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. 
+데브옵스, SRE, 플랫폼 엔지니어링의 개념은 서로 다른 시기에 등장하여 다양한 개인과 조직에 의해 발전해 왔습니다.
 
 <p>
   <img src="../images/devops-sre-platform.jpg" />
 </p>
 
-DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. 
+데브옵스라는 개념은 2009년 애자일 컨퍼런스에서 Patrick Debois와 Andrew Shafer에 의해 소개되었습니다. 이들은 전체 소프트웨어 개발 라이프사이클에 대한 공동 책임과 협업 문화를 장려함으로써 소프트웨어 개발과 운영 간의 간극을 좁히고자 했습니다.
 
-SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s to address operational challenges in managing large-scale, complex systems. Google developed SRE practices and tools, such as the Borg cluster management system and the Monarch monitoring system, to improve the reliability and efficiency of their services. 
+SRE(Site Reliability Engineering)는 2000년대 초반 구글에서 대규모 복잡한 시스템 관리의 운영상 문제를 해결하기 위해 개척되었습니다. 구글은 서비스의 안정성과 효율성을 높이기 위해 Borg 클러스터 관리 시스템, Monarch 모니터링 시스템과 같은 SRE 실습 및 도구를 개발했습니다.
 
-Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective. 
+플랫폼 엔지니어링은 SRE 엔지니어링의 기반으로 한 최근 개념입니다. 플랫폼 엔지니어링의 정확한 기원은 명확하지 않지만, 일반적으로 제품 개발을 위한 포괄적인 플랫폼을 제공하고 전체 사업 관점을 지원하는 데 초점을 둔 DevOps와 SRE 관행의 확장으로 이해됩니다.
 
-It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. 
+이러한 개념이 서로 다른 시기에 등장했다는 점에 주목할 필요가 있습니다. 이 개념들은 모두 소프트웨어 개발 및 운영 전반에 걸쳐 지속적인 협업, 자동화, 효율성 개선이라는 공통 목표를 바탕으로 합니다.
 
-### What is k8s (Kubernetes)?
+### k8s(Kubernetes)란 무엇인가요?
 
-K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.
+K8s는 컨테이너 오케스트레이션 시스템입니다. 컨테이너 배포 및 관리에 사용됩니다. 이 시스템의 설계는 Google의 내부 시스템인 Borg의 영향을 많이 받았습니다.
 
 <p>
   <img src="../images/k8s.jpeg" style="width: 680px" />
 </p>
 
-A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
+k8s 클러스터는 컨테이너화된 애플리케이션을 실행하는 노드라고 하는 일련의 워커 머신으로 구성됩니다. 모든 클러스터에는 하나 이상의 워커 노드가 있습니다.
 
-The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
+워커 노드는 애플리케이션 워크로드의 컴포넌트인 파드를 호스팅합니다. 컨트롤 플레인은 클러스터의 워커 노드와 파드를 관리합니다. 프로덕션 환경에서 컨트롤 플레인은 일반적으로 여러 대의 컴퓨터에서 실행되며, 클러스터는 일반적으로 여러 노드를 실행하여 내결함성(tolerance)과 고가용성을 제공합니다.
 
-- Control Plane Components
+- Control Plane 컴포넌트
 
 1. API Server
 
-    The API server talks to all the components in the k8s cluster. All the operations on pods are executed by talking to the API server.
+    API 서버는 k8s 클러스터의 모든 컴포넌트와 통신합니다. 파드에 대한 모든 작업은 API 서버와 통신하여 실행됩니다.
 
 2. Scheduler
 
-    The scheduler watches pod workloads and assigns loads on newly created pods.
+    스케줄러는 파드 워크로드를 감시하고 새로 생성된 파드에 로드를 할당합니다.
 
 3. Controller Manager
 
-    The controller manager runs the controllers, including Node Controller, Job Controller, EndpointSlice Controller, and ServiceAccount Controller.
+    컨트롤러 매니저는 노드 컨트롤러, 잡 컨트롤러, 엔드포인트슬라이스 컨트롤러, 서비스 어카운트 컨트롤러를 포함한 컨트롤러를 실행합니다.
 
 4. Etcd
     
-    etcd is a key-value store used as Kubernetes' backing store for all cluster data.
+    etcd는 모든 클러스터 데이터에 대한 쿠버네티스의 백업 스토리지로 사용되는 키-밸류 스토리지입니다.
 
 - Nodes
 
 1. Pods
 
-    A pod is a group of containers and is the smallest unit that k8s administers. Pods have a single IP address applied to every container within the pod.
+    파드는 컨테이너 그룹으로, k8이 관리하는 가장 작은 단위입니다. 파드에는 파드 내의 모든 컨테이너에 단일 IP 주소가 적용됩니다.
 
 2. Kubelet
 
-    An agent that runs on each node in the cluster. It ensures containers are running in a Pod.
+    클러스터의 각 노드에서 실행되는 에이전트. 컨테이너가 파드에서 실행되도록 보장합니다.
 
 3. Kube Proxy
 
-    Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
+    Kube-proxy는 클러스터의 각 노드에서 실행되는 네트워크 프록시입니다. 서비스에서 노드로 들어오는 트래픽을 라우팅합니다. 작업 요청을 올바른 컨테이너로 전달합니다.
 
-### Docker vs. Kubernetes. Which one should we use? 
+### Docker vs. Kubernetes. 어떤것을 사용해야 하나요?
 
 <p>
   <img src="../images/docker-vs-k8s.jpg" style="width: 680px" />
 </p>
 
 
-What is Docker ? 
+도커Docker란 무엇인가요?
 
-Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies. 
+Docker는 격리된 컨테이너에서 애플리케이션을 패키징, 배포 및 실행할 수 있는 오픈 소스 플랫폼입니다. 컨테이너화에 중점을 두어 애플리케이션과 그 종속성을 캡슐화하는 경량 환경을 제공합니다.
 
-What is Kubernetes ? 
+Kubernetes란 무엇인가요?
 
-Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes. 
+K8s라고도 불리는 Kubernetes는 오픈 소스 컨테이너 오케스트레이션 플랫폼입니다. 노드 클러스터 전반에서 컨테이너화된 애플리케이션의 배포, 스케일링, 관리를 자동화하기 위한 프레임워크를 제공합니다.
 
-How are both different from each other ? 
+두 가지가 서로 어떻게 다른가요?
 
-Docker: Docker operates at the individual container level on a single operating system host. 
+Docker: 도커는 단일 운영 체제 호스트의 개별 컨테이너 수준에서 작동합니다.
 
-You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex. 
+각 호스트를 수동으로 관리해야 하며 여러 관련 컨테이너에 대한 네트워크, 보안 정책, 스토리지를 설정하는 것은 복잡할 수 있습니다.
 
-Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications. 
+Kubernetes: 쿠버네티스는 클러스터 레벨에서 작동합니다. 여러 호스트에 걸쳐 여러 컨테이너화된 애플리케이션을 관리하며, 로드 밸런싱, 스케일링, 애플리케이션의 원하는 상태 보장과 같은 작업에 대한 자동화를 제공합니다.
 
-In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. 
+간단히 말해, 도커는 컨테이너화 및 개별 호스트에서 컨테이너를 실행하는 데 중점을 두는 반면, 쿠버네티스는 호스트 클러스터 전체에서 컨테이너를 대규모로 관리하고 조정하는 데 특화되어 있습니다.
 
-### How does Docker work? 
+### Docker는 어떻게 작동하나요?
 
-The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull” 
-and “docker run”. 
+아래 다이어그램은 도커의 아키텍처와 "docker build", "docker pull", "docker run" 을 실행할 때 어떻게 작동하는지 보여줍니다.
 
 <p>
   <img src="../images/docker.jpg" style="width: 680px" />
 </p>
 
-There are 3 components in Docker architecture: 
+도커 아키텍처에는 3가지 컴포넌트가 있습니다.
 
 - Docker client 
     
-    The docker client talks to the Docker daemon. 
+    도커 클라이언트가 도커 데몬과 통신합니다.
 
 - Docker host 
 
-    The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. 
+    도커 데몬은 도커 API 요청을 수신하고 이미지, 컨테이너, 네트워크, 볼륨 같은 도커 객체를 관리합니다.
 
 - Docker registry 
 
-    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. 
+    도커 레지스트리는 도커 이미지를 저장합니다. 도커 Hub는 누구나 사용할 수 있는 공용 레지스트리입니다.
 
-Let’s take the “docker run” command as an example. 
+"docker run" 커맨드를 예로 들어 보겠습니다.
 
-  1. Docker pulls the image from the registry. 
-  1. Docker creates a new container. 
-  1. Docker allocates a read-write filesystem to the container. 
-  1. Docker creates a network interface to connect the container to the default network. 
-  1. Docker starts the container.
+  1. 도커는 레지스트리에서 이미지를 가져옵니다.
+  1. 도커가 새 컨테이너를 생성합니다.
+  1. 도커는 컨테이너에 읽기-쓰기 파일시스템을 할당합니다.
+  1. 도커는 컨테이너를 디폴트 네트워크에 연결하기 위해 네트워크 인터페이스를 생성합니다.
+  1. 도커가 컨테이너를 시작합니다.
 
 ## GIT
 
