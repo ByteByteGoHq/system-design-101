@@ -878,7 +878,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 ▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
 
 - Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
-- Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
+- Development - For frontend development, popular technologies like React.js, Angular, and Vue.js are used and for backend development, common choices are Node.js, Java, Python, Go, and .NET. Additionally, configurations in the API gateway need to be updated according to the API definitions.
 - Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
 
 ▶️ 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
