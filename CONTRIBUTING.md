@@ -5,6 +5,7 @@ Thank you for your interest in contributing! Here are some guidelines to follow 
 
 ## Pull Requests
 
+
 * Each pull request should focus on a single topic or concept.
 * Avoid making changes across multiple topics in the same PR.
 * Give your PR a clear title summarizing the topic you are addressing.
