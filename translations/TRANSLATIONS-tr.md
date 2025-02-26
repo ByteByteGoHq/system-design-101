@@ -1178,7 +1178,7 @@ Asla public branch'lerde kullanmayın!
 ### Farklı bulut hizmetleri için güzel bir kısayol kağıdı (2023 versiyonu)
 
 <p>
-  <img src="images/cloud-compare.jpg" />
+  <img src="../images/cloud-compare.jpg" />
 </p>
 
 
@@ -1187,7 +1187,7 @@ Asla public branch'lerde kullanmayın!
 Aşağıdaki diyagram, 1980'lerden beri mimari ve süreçlerdeki evrimi gösterir.
 
 <p>
-  <img src="images/cloud-native.jpeg" style="width: 640px" />
+  <img src="../images/cloud-native.jpeg" style="width: 640px" />
 </p>
 
 Organizasyonlar cloud native teknolojilerini kullanarak public, private ve hybrid cloud'larda ölçeklenebilir uygulamalar geliştirebilir ve çalıştırabilir.
@@ -1223,14 +1223,14 @@ Cloud native 4 yönü içerir:
 Ek olarak, oluşturulan diyagramlar resim olarak indirilebilir.
 
 <p>
-  <img src="images/json-cracker.jpeg" />
+  <img src="../images/json-cracker.jpeg" />
 </p>
 
 
 ### Kodu otomatik olarak mimari diyagramlara dönüştürme
 
 <p>
-  <img src="images/diagrams_as_code.jpeg" style="width: 640px" />
+  <img src="../images/diagrams_as_code.jpeg" style="width: 640px" />
 </p>
 
 
@@ -1248,7 +1248,7 @@ Ne yapar?
 ### Linux dosya sistemi açıklaması
 
 <p>
-  <img src="images/linux-file-systems.jpg" style="width: 680px" />
+  <img src="../images/linux-file-systems.jpg" style="width: 680px" />
 </p>
 
 Linux dosya sistemi eskiden insanların evlerini istedikleri yere inşa ettikleri düzensiz bir kasabaya benziyordu. Ancak 1994'te Linux dosya sistemine düzen getirmek için Filesystem Hierarchy Standard (FHS) tanıtıldı.
@@ -1263,7 +1263,7 @@ Linux komutları işletim sistemiyle etkileşim kurmak için kullanılan talimat
 Aşağıdaki diyagram popüler Linux komutlarını gösterir:
 
 <p>
-  <img src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
+  <img src="../images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
 
@@ -1293,7 +1293,7 @@ Aşağıdaki diyagram popüler Linux komutlarını gösterir:
 Hypertext Transfer Protocol Secure (HTTPS), Hypertext Transfer Protocol'ün (HTTP) bir uzantısıdır. HTTPS, Transport Layer Security (TLS) kullanarak şifrelenmiş veri iletir. Veriler internette ele geçirilirse, saldırgan sadece binary kod elde eder.
 
 <p>
-  <img src="images/https.jpg" />
+  <img src="../images/https.jpg" />
 </p>
 
 
@@ -1320,7 +1320,7 @@ HTTPS neden veri iletimi sırasında simetrik şifrelemeye geçer? İki ana nede
 OAuth 2.0, farklı uygulamaların hassas kimlik bilgilerini paylaşmadan kullanıcılar adına güvenli bir şekilde etkileşime girmesine olanak tanıyan güçlü ve güvenli bir framework'tür.
 
 <p>
-  <img src="images/oAuth2.jpg" />
+  <img src="../images/oAuth2.jpg" />
 </p>
 
 OAuth'daki varlıklar Kullanıcı, Server ve Identity Provider (IDP)'dır.
@@ -1340,7 +1340,7 @@ OAuth 2.0'ın tamamı, sizi ve verilerinizi güvende tutarken çevrimiçi deneyi
 ### En Çok Kullanılan 4 Kimlik Doğrulama Mekanizması
 
 <p>
-  <img src="images/top4-most-used-auth.jpg" />
+  <img src="../images/top4-most-used-auth.jpg" />
 </p>
 
 1. SSH Keys:
@@ -1364,7 +1364,7 @@ OAuth 2.0'ın tamamı, sizi ve verilerinizi güvende tutarken çevrimiçi deneyi
 Bu terimler hepsi kullanıcı kimlik yönetimiyle ilgilidir. Bir web sitesine giriş yaptığınızda, kim olduğunuzu beyan edersiniz (identification). Kimliğiniz doğrulanır (authentication) ve size gerekli izinler verilir (authorization). Geçmişte birçok çözüm önerildi ve liste büyümeye devam ediyor.
 
 <p>
-  <img src="images/session.jpeg" />
+  <img src="../images/session.jpeg" />
 </p>
 
 Basitten karmaşığa, kullanıcı kimlik yönetimi hakkındaki anlayışım:
@@ -1384,7 +1384,7 @@ Basitten karmaşığa, kullanıcı kimlik yönetimi hakkındaki anlayışım:
 ### Şifreler veritabanında nasıl güvenli bir şekilde saklanır ve şifre nasıl doğrulanır?
 
 <p>
-  <img src="images/salt.jpg" style="width: 720px" />
+  <img src="../images/salt.jpg" style="width: 720px" />
 </p>
 
 
@@ -1417,7 +1417,7 @@ Bir şifreyi doğrulamak için şu süreçten geçebilir:
 ### JSON Web Token'ı (JWT) 10 yaşındaki bir çocuğa açıklamak
 
 <p>
-  <img src="images/jwt.jpg" />
+  <img src="../images/jwt.jpg" />
 </p>
 
 JWT adında özel bir kutunuz olduğunu hayal edin. Bu kutunun içinde üç bölüm vardır: header, payload ve signature.
@@ -1436,7 +1436,7 @@ Google Authenticator, 2 faktörlü kimlik doğrulama etkinleştirildiğinde hesa
 Google Authenticator, iki adımlı doğrulama hizmeti uygulayan yazılım tabanlı bir kimlik doğrulayıcıdır. Aşağıdaki diyagram detay sağlar.
 
 <p>
-  <img src="images/google_authenticate.jpeg" />
+  <img src="../images/google_authenticate.jpeg" />
 </p>
 
 
@@ -1480,7 +1480,7 @@ Bu kimlik doğrulama mekanizması güvenli mi?
 Bu yazı birçok Netflix mühendislik blogu ve open-source projelerinden yapılan araştırmaya dayanmaktadır. Herhangi bir yanlışlık görürseniz, lütfen bizi bilgilendirin.
 
 <p>
-  <img src="images/netflix tech stack.png" style="width: 680px" />
+  <img src="../images/netflix tech stack.png" style="width: 680px" />
 </p>
 
 **Mobile ve web**: Netflix native mobil uygulamalar geliştirmek için Swift ve Kotlin'i benimsedi. Web uygulaması için React kullanıyor.
@@ -1504,7 +1504,7 @@ Bu yazı birçok Netflix mühendislik blogu ve open-source projelerinden yapıla
 Evet, bu gerçek Twitter mimarisidir. Elon Musk tarafından paylaşıldı ve daha iyi okunabilirlik için bizim tarafımızdan yeniden çizildi.
 
 <p>
-  <img src="images/twitter-arch.jpeg" />
+  <img src="../images/twitter-arch.jpeg" />
 </p>
 
 
@@ -1513,7 +1513,7 @@ Evet, bu gerçek Twitter mimarisidir. Elon Musk tarafından paylaşıldı ve dah
 Airbnb'nin microservice mimarisi 3 ana aşamadan geçti.
 
 <p>
-  <img src="images/airbnb_arch.jpeg" />
+  <img src="../images/airbnb_arch.jpeg" />
 </p>
 
 
@@ -1549,7 +1549,7 @@ Bu Airbnb'nin şu anda üzerinde çalıştığı şey. Micro ve macroservice hib
 Hangisi en iyisi? Neden farklı şirketler farklı seçenekleri seçiyor?
 
 <p>
-  <img src="images/monorepo-microrepo.jpg" />
+  <img src="../images/monorepo-microrepo.jpg" />
 </p>
 
 
@@ -1577,7 +1577,7 @@ Yıllar boyunca, Microrepo Java için Maven ve Gradle, NodeJS için NPM ve C/C++
 Cevabınız on-premise sunucular ve monolith ise (aşağıdaki resmin altında), muhtemelen görüşmede başarısız olursunuz, ama gerçekte böyle inşa edilmiş!
 
 <p>
-  <img src="images/stackoverflow.jpg" />
+  <img src="../images/stackoverflow.jpg" />
 </p>
 
 
@@ -1603,7 +1603,7 @@ Bu günlerde tüm popüler inançlarımızın aksine.
 Aşağıdaki diyagram migrasyon öncesi ve sonrası mimari karşılaştırmasını gösterir.
 
 <p>
-  <img src="images/serverless-to-monolithic.jpeg" />
+  <img src="../images/serverless-to-monolithic.jpeg" />
 </p>
 
 
@@ -1636,7 +1636,7 @@ Eski Amazon VP Sustainability Adrian Cockcroft: "Prime Video ekibi **Serverless 
 ### Disney Hotstar bir turnuva sırasında 5 Milyar Emoji'yi nasıl yakalıyor?
 
 <p>
-  <img src="images/hotstar_emojis.jpeg" style="width: 720px" />
+  <img src="../images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
 
 1. Client'lar emojileri standart HTTP istekleri üzerinden gönderir. Golang Service'i tipik bir Web Server olarak düşünebilirsiniz. Golang concurrent işlemleri iyi desteklediği için seçilmiştir. Golang'deki thread'ler hafiftir.
@@ -1658,7 +1658,7 @@ LinkedIn de saniyede bir milyon like'ı stream etmek için benzer bir tasarım k
 Aşağıdaki diyagram Discord'da mesaj depolamanın evrimini gösterir:
 
 <p>
-  <img src="images/discord-store-messages.jpg" />
+  <img src="../images/discord-store-messages.jpg" />
 </p>
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB
@@ -1686,7 +1686,7 @@ Live streaming, video içeriğinin internet üzerinden real-time olarak, genelli
 Aşağıdaki diyagram bunu mümkün kılan perde arkasındaki işlemleri açıklar.
 
 <p>
-  <img src="images/live_streaming_updated.jpg" style="width: 640px" />
+  <img src="../images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
 
 Adım 1: Raw video verisi mikrofon ve kamera tarafından yakalanır. Veri server tarafına gönderilir.
