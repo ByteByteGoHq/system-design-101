@@ -13,7 +13,3 @@ Thank you for your interest in contributing! Here are some guidelines to follow 
 ### GitHub Pull Requests Docs
 
 If you are not familiar with pull requests, review the [pull request docs](https://help.github.com/articles/using-pull-requests/).
-
-## Translations
-
-Refer to [TRANSLATIONS.md](translations/TRANSLATIONS.md)
