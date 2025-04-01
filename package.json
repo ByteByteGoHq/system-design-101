@@ -1,0 +1,15 @@
+{
+  "name": "system-design-101",
+  "version": "1.0.0",
+  "description": "Explain complex systems using visuals and simple terms.",
+  "scripts": {
+    "update-readme": "tsx scripts/readme.ts"
+  },
+  "author": "",
+  "license": "cc-by-nc-sd-4.0",
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.19.3"
+  }
+}

@@ -2,6 +2,7 @@
 *.epub
 __pycache__/
 *.py[cod]
+.idea
 
 # C extensions
 *.so
@@ -40,6 +41,8 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+
+node_modules
 
 # Translations
 *.mo
