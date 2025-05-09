@@ -18,7 +18,7 @@ Uniform Resource Locator (URL) is a term familiar to most people, as it is used 
 URLs comprise several components:
 
 *   **The protocol or scheme**, such as http, https, and ftp.
-*   **The domain name and port**, separated by a period (.)
+*   **The domain name and port**, separated by a colon (:)
 *   **The path to the resource**, separated by a slash (/)
 *   **The parameters**, which start with a question mark (?) and consist of key-value pairs, such as a=b&c=d.
 *   **The fragment or anchor**, indicated by a pound sign (#), which is used to bookmark a specific section of the resource.
