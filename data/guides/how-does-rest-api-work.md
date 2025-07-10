@@ -16,5 +16,3 @@ tags:
 What are its principles, methods, constraints, and best practices?
 
 I hope the diagram above gives you a quick overview.
-
-![](https://assets.bytebytego.com/diagrams/0317-rest-api-authentication-methods.png)
