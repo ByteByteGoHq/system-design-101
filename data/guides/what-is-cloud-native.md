@@ -1,4 +1,4 @@
----
+----
 title: "What is Cloud Native?"
 description: "Explore cloud native technologies and their impact on application architecture."
 image: "https://assets.bytebytego.com/diagrams/0413-what-is-cloud-native.png"
