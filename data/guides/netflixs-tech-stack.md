@@ -23,7 +23,7 @@ This post is based on research from many Netflix engineering blogs and open-sour
 
 *   Databases: Netflix utilizes EV cache, Cassandra, CockroachDB, and other databases.
 
-*   Messaging/streaming: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.
+*   Messaging/streaming: Netflix employs Apache Kafka and Flink for messaging and streaming purposes.
 
 *   Video storage: Netflix uses S3 and Open Connect for video storage.
 
