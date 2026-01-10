@@ -50,6 +50,15 @@ function getGuides(): Guide[] {
     .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
 }
 
+function sanitizeForUrl(id: string): string {
+  return id
+    .replace(/'/g, '')
+    .replace(/\+/g, '')
+    .replace(/[^a-zA-Z0-9-]/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
 function generateMarkdownList() {
   const categories = getCategories()
   const guides = getGuides()
@@ -62,7 +71,7 @@ function generateMarkdownList() {
     const categoryGuides = guides.filter(guide => guide.categories.includes(category.id))
     if (categoryGuides.length > 0) {
       categoryGuides.forEach(guide => {
-        markdown += `  * [${guide.title}](https://bytebytego.com/guides/${guide.id})\n`
+        markdown += `  * [${guide.title}](https://bytebytego.com/guides/${sanitizeForUrl(guide.id)})\n`
       })
     }
   })
