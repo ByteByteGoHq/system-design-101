@@ -42,7 +42,7 @@ The diagram below explains the common acronyms in system designs.
         Units of code should be open for extension but closed for modification.
 
     3.  LSP (Liskov Substitution Principle)
-        A subclass should be able to be substituted by its base class.
+        A base class should be able to be substituted by its subclass.
 
     4.  ISP (Interface Segregation Principle)
         Expose multiple interfaces with specific responsibilities.
