@@ -8,7 +8,7 @@
   "author": "",
   "license": "cc-by-nc-sd-4.0",
   "devDependencies": {
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.14.0",
     "gray-matter": "^4.0.3",
     "tsx": "^4.19.3"
   }
